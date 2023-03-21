@@ -20,7 +20,7 @@ class GoodsController extends Controller
 
     public function index(Request $request)
     {
-        return view('index');
+        return view('index',["goods"=>"iphone 6"]);
     }
 
     public function detailView(Request $request)

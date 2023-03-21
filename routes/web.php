@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 $router->group(['middleware' => 'json_response','prefix' => 'api'], function () use ($router) {
     /** 课程列表 **/
     $router->get("/goods/page","GoodsController@page");
@@ -23,6 +19,8 @@ $router->group(['middleware' => 'json_response','prefix' => 'api'], function () 
 });
 
 $router->group([], function () use ($router) {
+    /** 课程列表 **/
+    $router->get("/","GoodsController@index");
     /** 课程列表 **/
     $router->get("/index","GoodsController@index");
     /** 课程详情 **/
