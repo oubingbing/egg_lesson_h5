@@ -25,6 +25,8 @@ Route::group(['middleware' => 'json_response','prefix' => 'api'], function () {
     Route::post("/login","UserController@login");
     /** 用户信息 **/
     Route::get("/user","UserController@user");
+    /** 语言 **/
+    Route::get("/language","UserController@language");
 });
 
 Route::group([], function () use ($router) {

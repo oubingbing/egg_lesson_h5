@@ -42,4 +42,10 @@ class UserController extends Controller
     {
         return session("email");
     }
+
+    public function language()
+    {
+        $lg = session('language');
+        return $lg?$lg:"CN";
+    }
 }
