@@ -40,7 +40,6 @@ class UserController extends Controller
 
     public function user(Request $request)
     {
-        dd(session('language'));
         return session("email");
     }
 }
