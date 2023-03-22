@@ -220,15 +220,6 @@ if (!function_exists("generateRefundOrderNo")){
     }
 }
 
-if(!function_exists("commonJob")) {
-    function commonJob($class,$function,array $params)
-    {
-        $job = new \App\Jobs\CommonJob([$class,$function],$params);
-        $env = config("app.env");
-        dispatch($job)->onQueue("{$env}_api_egg_common_job");
-    }
-}
-
 if(!function_exists("towPointDistance")) {
      function towPointDistance($lat1,$lat2,$lng1,$lng2){
          // 将角度转为狐度
@@ -240,6 +231,46 @@ if(!function_exists("towPointDistance")) {
          $b = $radLng1 - $radLng2;
          $s = 2 * asin(sqrt(pow(sin($a / 2), 2) + cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2))) * 6378.137 * 1000;
          return $s;
+    }
+}
+
+/**
+ * 生成随机字符串
+ */
+if(!function_exists("randomKeys")){
+    function randomKeys($length){
+        $pattern = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ";
+        $key = "";
+        for($i=0;$i<$length;$i++){
+            $key .= $pattern{mt_rand(0,60)}; //生成php随机数
+        }
+        return $key;
+    }
+}
+
+if (!function_exists("getIP")) {
+    function getIP($type = 0) {
+        $type       =  $type ? 1 : 0;
+        static $ip  =   NULL;
+        if ($ip !== NULL) return $ip[$type];
+        if( isset( $_SERVER['HTTP_X_REAL_IP'] ) ){//nginx 代理模式下，获取客户端真实IP
+            $ip=$_SERVER['HTTP_X_REAL_IP'];
+        }elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {//客户端的ip
+            $ip     =   $_SERVER['HTTP_CLIENT_IP'];
+        }elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {//浏览当前页面的用户计算机的网关
+            $arr    =   explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            $pos    =   array_search('unknown',$arr);
+            if(false !== $pos) unset($arr[$pos]);
+            $ip     =   trim($arr[0]);
+        }elseif (isset($_SERVER['REMOTE_ADDR'])) {
+            $ip     =   $_SERVER['REMOTE_ADDR'];//浏览当前页面的用户计算机的ip地址
+        }else{
+            $ip=$_SERVER['REMOTE_ADDR'];
+        }
+        // IP地址合法验证
+        $long = sprintf("%u",ip2long($ip));
+        $ip   = $long ? array($ip, $long) : array('0.0.0.0', 0);
+        return $ip[$type];
     }
 }
 
