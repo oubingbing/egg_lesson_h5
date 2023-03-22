@@ -6,7 +6,7 @@
  * Time: 17:44
  */
 
-namespace App\Http\Service;
+namespace App\Service;
 
 
 use GuzzleHttp\Client;
@@ -41,7 +41,7 @@ class EmailService
                 'apiKey'   => $this->appKey,
                 'from'     => $from,
                 'to'       => $to,
-                'subject'  => '小情书账号激活',
+                'subject'  => '蛋蛋转课登录验证码',
                 'html'     => $content
             ]
         ]);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Goods;
 use App\Service\GoodsService;
+use Exception;
+use GeoIp2\Database\Reader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
@@ -20,6 +22,18 @@ class GoodsController extends Controller
 
     public function index(Request $request)
     {
+        $ip = getIP();
+        session(['language' => "CN"]);
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        try{
+            $record = $cityDbReader->city($ip);
+            if($record){
+                if($record->country->isoCode != "CN"){
+                    session(['language' => "EN"]);
+                }
+            }
+        }catch(Exception $e){}
+
         return view('index',["goods"=>"iphone 6"]);
     }
 

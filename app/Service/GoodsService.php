@@ -12,16 +12,11 @@ use App\Models\Collection;
 use App\Models\ContractLesson;
 use App\Models\ContractTransferInfos;
 use App\Models\Goods;
-use App\Models\GoodsViewLog;
 use App\Models\LessonCategory;
 use App\Models\Order;
 use App\Models\WechatUser;
-use App\Repositories\ContractLessonRep;
 use App\Repositories\GoodsRep;
-use App\Repositories\TransferInfosRep;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redis;
 
 class GoodsService extends BaseServiceAbstract
 {

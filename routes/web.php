@@ -11,18 +11,27 @@
 |
 */
 
-$router->group(['middleware' => 'json_response','prefix' => 'api'], function () use ($router) {
+use Illuminate\Support\Facades\Route;
+
+Route::group(['middleware' => 'json_response','prefix' => 'api'], function () {
     /** 课程列表 **/
-    $router->get("/goods/page","GoodsController@page");
+    Route::get("/goods/page","GoodsController@page");
     /** 课程详情 **/
-    $router->get("/goods/{id}","GoodsController@detail");
+    Route::get("/goods/{id}","GoodsController@detail");
+
+    /** 获取邮箱验证码 **/
+    Route::get("/email/send_code","UserController@getEmailCode");
+    /** 箱验证码登录 **/
+    Route::post("/login","UserController@login");
+    /** 用户信息 **/
+    Route::get("/user","UserController@user");
 });
 
-$router->group([], function () use ($router) {
+Route::group([], function () use ($router) {
     /** 课程列表 **/
-    $router->get("/","GoodsController@index");
+    Route::get("/","GoodsController@index");
     /** 课程列表 **/
-    $router->get("/index","GoodsController@index");
+    Route::get("/index","GoodsController@index");
     /** 课程详情 **/
-    $router->get("/detail","GoodsController@detailView");
+    Route::get("/detail","GoodsController@detailView");
 });

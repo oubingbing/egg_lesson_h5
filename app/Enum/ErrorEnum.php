@@ -183,7 +183,7 @@ class ErrorEnum
     //议价 - 课程不支持议价
     const BARGAINING_CAN_NOT_BARGAINING = 6008;
 
-    /** banner 7000 ~ 7001 **/
+    /** banner 7000 ~ 7499 **/
     //banner 不存在
     const BANNER_NOT_FOUND = 7000;
     //banner更新失败
@@ -200,4 +200,16 @@ class ErrorEnum
     const BANNER_DOWN_FAIL = 7006;
     //banner状态错误
     const BANNER_STATUS_ERR = 7007;
+
+    /** user 7500 ~ 7999 **/
+    //用户更新失败
+    const USER_UPDATE_ERR = 7500;
+    //用户邮件发送失败
+    const USER_EMAIL_CODE_SEND_ERR = 7501;
+    //用户不存在
+    const USER_EMAIL_NOT_FOUND = 7502;
+    //用户邮箱验证码错误
+    const USER_EMAIL_CODE_ERR = 7503;
+    //用户邮箱验证码已过期
+    const USER_EMAIL_CODE_EXPIRE = 7504;
 }
