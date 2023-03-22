@@ -11,60 +11,97 @@
 
         <!-- Styles -->
         <style>
+            input{
+                outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: inherit;
+            }
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
+                -webkit-user-select: none;
+    user-select: none;
+    width: 100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
             }
+            .page-index{
 
-            .full-height {
-                height: 100vh;
             }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
+            .page-header{
+               position:relative;
+               height:44px;
+               text-align:center;
+             line-height:44px;
             }
-
-            .position-ref {
+            .search-bar{
+                width: 100%;
+    padding: 0 1.25rem;
+    display: flex;
+    background-color: #FFF;
+    box-sizing: border-box;
+    align-items: center;
+            }
+            .search-bar .search-icon{
+                width: 1.125rem;
+    height: 1.125rem;
+    object-fit: contain;
+    display: block;
+            }
+            .search-bar .search-input{
+                flex: 1;
+    font-size: 0.8125rem;
+    padding-left: 0.5rem;
                 position: relative;
-            }
 
-            .top-right {
+    display: block;
+    height: 100%;
+    background: none;
+    color: inherit;
+    opacity: 1;
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+    text-indent: inherit;
+    text-transform: inherit;
+    text-shadow: inherit;
+            }
+            .search-bar .search-location{
+                min-width: 4em;
+    text-align: right;
+    font-size: 0.8125rem;
+    padding-right: 0.9375rem;
+    position: relative;
+            }
+            .search-bar .search-location::after{
                 position: absolute;
-                right: 10px;
-                top: 18px;
+    content: '';
+    right: 0;
+    top: 50%;
+    margin-top: -0.15625rem;
+    border-top: 0.3125rem solid #2C405A;
+    border-left: 0.3125rem solid transparent;
+    border-right: 0.3125rem solid transparent;
             }
-
-            .content {
-                text-align: center;
+            .banner-swiper{
+                margin-left: auto;
+    margin-right: auto;
+    width: 20.9375rem;
+    height: 11.5625rem;
+    position: relative;
+    margin-top: 0.3125rem;
             }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
+            .banner-image{
+                width:100%;
+                background-color:#000;
+                height: 11.5625rem;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -94,6 +131,20 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
+        </div> -->
+        <div class="page-index">
+             <div class="page-header">旦旦转课网</div>
+             <div class="search-bar">
+                <div class="search-icon" style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;"></div>
+                    <input type="text" class="search-input" placeholder="搜索课程,品牌"/>
+                    <div class="search-location">定位中</div>
+
+             </div>
+             <div class="banner-swiper">
+                <div class="banner-image"></div>
+                </div>
         </div>
+       
+
     </body>
 </html>
