@@ -39,6 +39,18 @@ class GoodsController extends Controller
 
     public function detailView(Request $request)
     {
+        $ip = getIP();
+        session(['language' => "CN"]);
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        try{
+            $record = $cityDbReader->city($ip);
+            if($record){
+                if($record->country->isoCode != "CN"){
+                    session(['language' => "EN"]);
+                }
+            }
+        }catch(Exception $e){}
+
         return view('detail');
     }
 
