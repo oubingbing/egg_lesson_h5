@@ -815,7 +815,7 @@
                 <!-- <div v-for="item in brands" :key="item.id" class="item" @click="goTo('search',item.name)"> -->
                 <div class="item">
                     <div class="logo"
-                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg");'>
                     </div>
                     <div class="name">JS舞蹈</div>
                     <div class="desc"></div>
@@ -888,6 +888,35 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="items">
+                <div class="items-left">
+                    <div class="items-left-infos">
+                        <div class="item">
+                            <div class="thumbnail" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/transfer_info/tmp_e6e5ebc46269e177e52c8f052eff529b.png'); background-position: center center; background-size: cover;"></div>
+                            <div class="position-box">
+                                <div class="icon" style='background-image: url("image/dingwei_icon.png"); background-position: center center; background-size: cover;''></div>
+                                <div class="address">浙江省杭州市上城区</div>
+                                <div class="distance"></div>
+                            </div>
+                            <div class="infos">
+                                <div class="line1">
+                                    <div class="tag">卖家自转</div>
+                                    <div class="name">【年卡 |教练班】舞蹈学校教练班转让</div>
+                                </div>
+                                <div class="line2">
+                                    <div class="price"> ¥10000</div>
+                                    <div class="want">0人想要</div>
+                                    <div class="discount">5.3<span class="fonts">折</span></div>
+                                    
+                                </div>
+                                <div class="line3">
+                                    <div class="t">戴斯尔舞蹈学院</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
