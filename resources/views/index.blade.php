@@ -207,6 +207,12 @@
             border-bottom: 10px solid #F5F7FA;
         }
 
+        .hot-packages {
+            padding: 1.25rem 0.9375rem 1.75rem 1.25rem;
+            background-color: #FFF;
+            border-bottom: 0.625rem solid #F5F7FA;
+        }
+
         .hot-packages .title,
         .new-things .title,
         .brands .title {
@@ -230,11 +236,11 @@
 
         .hot-packages .title .left {
             font-size: 1rem;
-    font-family: PingFang SC;
-    font-weight: bold;
-    color: #333333;
-    line-height: 1;
-    margin-bottom: 0.90625rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #333333;
+            line-height: 1;
+            margin-bottom: 0.90625rem;
         }
 
         .hot-packages .title .right,
@@ -273,6 +279,8 @@
             top: 0;
             background-color: #fff;
             z-index: 2;
+            overflow-x:scroll;
+            overflow-y: hidden;
 
         }
 
@@ -775,7 +783,7 @@
         </div>
 
         <div class="purchase">
-            <div class="icon" style='background-image: url("{{asset(' image/shouye_laba_icon.png')}}");
+            <div class="icon" style='background-image: url("{{asset('../image/shouye_laba_icon.png')}}");
                 background-position: center center; background-size: cover;'>
             </div>
             <div class="names-box">
@@ -867,10 +875,19 @@
                         全部
                     </div>
                     <div class="select-nav-item">
-                        全部
+                        早教亲子
+                    </div>
+                    <div class="select-nav-item">
+                        英语培训
+                    </div>
+                    <div class="select-nav-item">
+                        日语培训
+                    </div>
+                    <div class="select-nav-item">
+                        西班牙语培训
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
