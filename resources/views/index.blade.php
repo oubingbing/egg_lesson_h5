@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="divport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>旦旦转课</title>
 
@@ -92,6 +93,12 @@
             border-top: 0.3125rem solid #2C405A;
             border-left: 0.3125rem solid transparent;
             border-right: 0.3125rem solid transparent;
+        }
+
+        .banner-swiper-box {
+            background-color: #fff;
+            padding-top: 0.75rem;
+            overflow: hidden;
         }
 
         .banner-swiper {
@@ -193,6 +200,468 @@
                 transform: translateY(-720px);
             }
         }
+
+        .brands {
+            padding: 20px 0 28px 0;
+            background-color: #FFF;
+            border-bottom: 10px solid #F5F7FA;
+        }
+
+        .hot-packages .title,
+        .new-things .title,
+        .brands .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brands .title {
+            padding: 0 20px 15px 20px;
+        }
+
+        .new-things .title .left,
+        .brands .title .left {
+            color: #333;
+            font-size: 1rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .hot-packages .title .left {
+            font-size: 1rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: #333333;
+    line-height: 1;
+    margin-bottom: 0.90625rem;
+        }
+
+        .hot-packages .title .right,
+        .new-things .title .right,
+        .brands .title .right {
+            color: #808080;
+            font-size: 3.2vw;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .more {
+            line-height: 1;
+            margin-right: 1.86vw;
+        }
+
+        .hot-packages .title .right .arrow-right,
+        .new-things .title .right .arrow-right,
+        .brands .title .right .arrow-right {
+            transform: scaleY(0.8) scaleX(1.6);
+            margin-left: 1.87vw;
+            line-height: 1;
+
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .hot-packages .select-nav {
+            margin-bottom: 2.67vw;
+            width: 100vw;
+            margin-left: -5.33vw;
+            padding: 0 2.67vw 1.33vw 2.67vw;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 2;
+
+        }
+
+        .hot-packages .select-nav .select-nav-items {
+            white-space: nowrap;
+
+        }
+
+        .hot-packages .select-nav .select-nav-item {
+            font-size: 0.75rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #808080;
+            margin-right: 1.875rem;
+            width: 3.125rem;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+            transition: 0.3s;
+        }
+
+        .hot-packages .select-nav .select-nav-item.hover {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .hot-packages .select-nav .select-nav-item::after {
+            position: absolute;
+            content: '';
+            width: 2.13vw;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2.13vw;
+            height: 0.53vw;
+            background: transparent;
+            border-radius: 0.26vw;
+            transition: 0.3s;
+        }
+
+        .hot-packages .select-nav .select-nav-item.hover::after {
+            background: #FF5252;
+        }
+
+        .hot-packages .items {
+            display: flex;
+            vertical-align: top;
+        }
+
+        .hot-packages .item {
+            position: relative;
+            margin-top: 1.33vw;
+            margin-right: 1.33vw;
+            width: 44vw;
+            border-radius: 1.06vw;
+            box-shadow: 0px 0.26vw 4vw 0px rgba(48, 50, 51, 0.1);
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+            word-break: break-all;
+        }
+
+        .hot-packages .item .tag {
+            width: 13.33vw;
+            height: 2.13vw;
+            background: rgba(255, 82, 82, 0.2);
+            border-radius: 2.13vw;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.67vw;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #FF5656;
+            vertical-align: middle;
+
+        }
+
+
+
+        .hot-packages .item .thumbnail {
+            width: 100%;
+            height: 40vw;
+        }
+
+        .hot-packages .item .info-box {
+            top: 3.2vw;
+            left: 2.67vw;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .hot-packages .item .info-box .avatar {
+            width: 5.46vw;
+            height: 5.46vw;
+            border-radius: 50%;
+        }
+
+        .hot-packages .item .info-box .name {
+            font-size: 3.2vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+            line-height: 1;
+            margin-right: 2.26vw;
+        }
+
+        .hot-packages .item .info-box .status {
+            font-size: 2.67vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+            line-height: 1;
+        }
+
+        .hot-packages .item .position-box {
+            margin-top: -7.46vw;
+            left: 4vw;
+            display: flex;
+            position: absolute;
+            z-index: 1;
+            align-items: center;
+        }
+
+        .hot-packages .item .position-box .icon {
+            width: 2.4vw;
+            height: 3.2vw;
+            margin-right: 2vw;
+        }
+
+        .hot-packages .item .position-box .address {
+            width: 7em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 2.93vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-right: 3.6vw;
+            line-height: 1;
+        }
+
+        .hot-packages .item .position-box .distance {
+            font-size: 2.93vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+            line-height: 1;
+        }
+
+        .hot-packages .item .line3 {
+            padding-top: 2.13vw;
+            padding-bottom: 2.8vw;
+        }
+
+        .hot-packages .item .line3 .t {
+            font-size: 2.67vw;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #808080;
+            margin-bottom: 1.73vw;
+            line-height: 2.93vw;
+        }
+
+        .hot-packages .item .infos {
+            padding: 0 2.13vw;
+        }
+
+        .hot-packages .item .infos .name {
+            font-size: 3.73vw;
+            font-family: PingFang SC;
+            display: inline;
+            font-weight: bold;
+            color: #333333;
+            line-height: 5.6vw;
+        }
+
+        .hot-packages .item .line2 {
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hot-packages .item .line2 .price {
+            font-size: 3.73vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FF5252;
+            line-height: 6.4vw;
+
+        }
+
+        .hot-packages .item .line2 .want {
+            font-size: 2.67vw;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #808080;
+            line-height: 6.4vw;
+        }
+
+        .hot-packages .item .line2 .discount {
+            font-size: 3.73vw;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FF5252;
+            line-height: 6.4vw;
+        }
+
+        .hot-packages .item .line2 .discount .fonts {
+            font-size: 2.67vw;
+
+        }
+
+
+
+        .hot-packages .item .infos .discount-icon {
+            display: none;
+            width: 4.53vw;
+            height: 4.8vw;
+            object-fit: contain;
+            position: absolute;
+            right: 0;
+            bottom: 0.8vw;
+        }
+
+        .new-things .items {
+            margin-top: 4vw;
+            height: 46.66vw;
+        }
+
+        .new-things .items .item {
+            width: 80VW;
+            height: 45.33vw;
+            background: #FFFFFF;
+            border: 0.26vw solid #F0F1F5;
+            border-radius: 2.13vw;
+            margin-right: 4vw;
+            overflow: hidden;
+
+            margin-bottom: 4vw;
+            position: relative;
+
+        }
+
+        .new-things .items .item .logo-left-top {
+            width: 40vw;
+            z-index: 0;
+            height: 40vw;
+            position: absolute;
+            border-radius: 50%;
+            top: -18vw;
+            left: -18vw;
+        }
+
+        .new-things .items .item .t1 {
+            top: 3.2vw;
+            left: 4vw;
+            color: #FFF;
+            font-size: 8vw;
+            position: absolute;
+        }
+
+        .new-things .items .item .t2 {
+            position: relative;
+            margin: 70rpx 2.67vw 1.33vw;
+            font-size: 3.73vw;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #333333;
+            line-height: 4.8vw;
+        }
+
+        .new-things .items .item .t3 {
+
+            width: 77vw;
+            margin-left: 2.67vw;
+            font-size: 3.46vw;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #808080;
+            position: relative;
+            line-height: 5.86vw;
+            white-space: normal;
+        }
+
+        .new-things .items .item .bottom-infos {
+            border-top: 0.26vw solid #F0F2F5;
+            padding: 0 4vw;
+            box-sizing: border-box;
+            height: 13.33vw;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .new-things .items .item .bottom-infos>.text {
+            font-size: 3.2vw;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #FF5252;
+            line-height: 4.8vw;
+            margin-right: 8vw;
+            white-space: nowrap;
+        }
+
+
+
+        .new-things .items .item .logo-left-top.blue {
+            background-color: #5197FF;
+        }
+
+        .new-things .items .item .logo-left-top.red {
+            background-color: #FF5151;
+        }
+
+        .brands .items {
+            position: relative;
+        }
+
+        .brands .items .item {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 9.73vw;
+            position: relative;
+            margin-right: 2.67vw;
+            width: 13.6vw;
+            margin-left: 2.67vw;
+        }
+
+        .brands .items .item .logo {
+            position: absolute;
+            border-radius: 0.53vw;
+            overflow: hidden;
+            left: 50%;
+            margin-left: -6.4vw;
+            top: -6.4vw;
+            z-index: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 12vw;
+            height: 12vw;
+        }
+
+        .brands .items .item .logo .logo-img {
+            width: 12vw;
+            height: 12vw;
+        }
+
+        .brands .items .item .name {
+            margin: 7.73vw auto 0;
+            text-align: center;
+            font-size: 3.2vw;
+            font-family: PingFang SC;
+            font-weight: 100;
+            color: #333333;
+            line-height: 4.8vw;
+
+        }
+
+        .brands .items .item .desc {
+            width: 20vw;
+            margin: 1.46vw auto 0;
+            font-size: 3.2vw;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #808080;
+            line-height: 4.8vw;
+
+
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
     </style>
 </head>
 
@@ -238,9 +707,12 @@
             <div class="search-location">定位中</div>
 
         </div>
-        <div class="banner-swiper">
-            <div class="banner-image"></div>
+        <div class="banner-swiper-box">
+            <div class="banner-swiper">
+                <div class="banner-image"></div>
+            </div>
         </div>
+
         <div class="type-list">
             <div class="item">
                 <div class="item-icon-box">
@@ -299,12 +771,12 @@
                 <div class="item-name">早教亲子</div>
 
             </div>
-            
+
         </div>
 
         <div class="purchase">
-            <div class="icon"
-                style="background-image: url('/static/image/shouye_laba_icon.png'); background-position: center center; background-size: cover;">
+            <div class="icon" style='background-image: url("{{asset(' image/shouye_laba_icon.png')}}");
+                background-position: center center; background-size: cover;'>
             </div>
             <div class="names-box">
                 <div class="names">
@@ -321,6 +793,87 @@
                 </div>
             </div>
         </div>
+
+
+
+        <div class="brands">
+            <div class="title">
+                <div class="left">品牌专区
+                </div>
+
+            </div>
+
+            <div class="items">
+                <!-- <div v-for="item in brands" :key="item.id" class="item" @click="goTo('search',item.name)"> -->
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+                <div class="item">
+                    <div class="logo"
+                        style='background-image:url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/brands/jswudao.jpg")'>
+                    </div>
+                    <div class="name">JS舞蹈</div>
+                    <div class="desc"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="hot-packages">
+            <div class="title">
+                <div class="left">推荐课包</div>
+            </div>
+            <div class="select-nav">
+                <div class="select-nav-items">
+                    <div class="select-nav-item hover">
+                        全部
+                    </div>
+                    <div class="select-nav-item">
+                        全部
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
 
 
