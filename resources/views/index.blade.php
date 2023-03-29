@@ -12,6 +12,35 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script>
+        $(document).ready(()=>{
+
+            for(let i=1;i<=4;i++){
+                if(i>1){
+                    $("#tabbar"+i+" .pre").hide();
+                        $("#tabbar"+i+" .nor").show();
+                }else{
+                    $("#tabbar"+i+" .pre").show();
+                        $("#tabbar"+i+" .nor").hide();
+                }
+                $("#tabbar"+i).click(()=>{
+                    for(let j=1;j<=4;j++){
+                        if(j===i){
+                            $("#tabbar"+j+" .pre").show();
+                    $("#tabbar"+j+" .nor").hide();
+                            continue;
+                        }
+                        $("#tabbar"+j+" .pre").hide();
+                        $("#tabbar"+j+" .nor").show();
+                    }
+                   
+        })
+            }
+            
+        })
+        
+    </script>
     <style>
         input {
             outline: none;
@@ -19,6 +48,41 @@
             padding: 0;
             margin: 0;
             text-decoration: inherit;
+        }
+
+        .tabbar{
+            border-top:0.5px solid rgba(0,0,0,0.33);
+            height:50px;
+            width:100vw;
+            position: fixed;
+            bottom:0;
+            left:0;
+            z-index: 98;
+            background-color: #FFF;
+            display: flex;
+        }
+        .tabbar-item{
+            width:25%;
+            flex:1;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tabbar-item-pic{
+            width:24px;
+            height:24px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .tabbar-item-name{
+            color: rgb(38, 38, 38);
+            font-size: 10px;
+            line-height: normal;
+            margin-top: 3px;
         }
 
         html,
@@ -29,9 +93,16 @@
             height: 100vh;
             margin: 0;
             padding: 0;
+           overflow: hidden;
         }
 
-        .page-index {}
+        .page-index {
+            width:100vw;
+            height:100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            position: relative;
+        }
 
         .page-header {
             position: relative;
@@ -670,6 +741,8 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
+
+        
     </style>
 </head>
 
@@ -920,6 +993,29 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="tabbar">
+        <div class="tabbar-item" id="tabbar1">
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">首页</div>
+        </div>
+        <div class="tabbar-item" id="tabbar2">
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_fabu_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">发布</div>
+        </div>
+        <div class="tabbar-item" id="tabbar3">
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_xiaoxi_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">消息</div>
+        </div>
+        <div class="tabbar-item" id="tabbar4">
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_wode_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">我的</div>
+        </div>
     </div>
 
 
