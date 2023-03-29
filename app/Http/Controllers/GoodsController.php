@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ApiException;
 use App\Models\Goods;
 use App\Service\GoodsService;
 use Exception;
@@ -37,7 +38,7 @@ class GoodsController extends Controller
         return view('index',["goods"=>"iphone 6"]);
     }
 
-    public function detailView(Request $request)
+    public function detailView($id)
     {
         $ip = getIP();
         session(['language' => "CN"]);
@@ -51,7 +52,7 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('detail');
+        return view('detail',["id"=>$id]);
     }
 
     public function page(Request $request)
@@ -146,8 +147,11 @@ class GoodsController extends Controller
     public function detail($id)
     {
         $user = null;
-
         $goods = $this->goodsService->detail($user,$id);
+        if(!$goods){
+            throw new ApiException("数据不存在");
+        }
+
         $result = $this->goodsService->formatSingle($goods);
         return $result;
     }

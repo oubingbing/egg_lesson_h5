@@ -19,4 +19,10 @@
             detail
         </div>
     </body>
+    <script type="text/javascript">
+        var id = "{{$id}}";
+        console.log("id="+id)
+        var contrent  = "{{$result}}"
+        console.log(contrent)
+    </script>
 </html>
