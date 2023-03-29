@@ -14,8 +14,23 @@
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script>
+        //逻辑代码
+        let test_fenlei = [{id:1,name:"早教亲子"},{id:2,name:"英语培训"},{id:3,name:"日语培训"}];
+        test_fenlei = [{id:0,name:"全部"}].concat(test_fenlei);
         $(document).ready(()=>{
+            for(let i in test_fenlei){
+                console.log(i,i==0);
+                let select_nav_item = document.createElement("div");
+                select_nav_item.innerHTML=test_fenlei[i].name;
+                select_nav_item.className="select-nav-item";
+                select_nav_item.id=`selectNavItem_${test_fenlei[i].id}`;
+                if(i==0){
+                    select_nav_item.className="select-nav-item hover";
 
+                }                
+                $(".select-nav-items").append(select_nav_item);
+            }
+         
             for(let i=1;i<=4;i++){
                 if(i>1){
                     $("#tabbar"+i+" .pre").hide();
@@ -944,21 +959,7 @@
             </div>
             <div class="select-nav">
                 <div class="select-nav-items">
-                    <div class="select-nav-item hover">
-                        全部
-                    </div>
-                    <div class="select-nav-item">
-                        早教亲子
-                    </div>
-                    <div class="select-nav-item">
-                        英语培训
-                    </div>
-                    <div class="select-nav-item">
-                        日语培训
-                    </div>
-                    <div class="select-nav-item">
-                        西班牙语培训
-                    </div>
+                    
                 </div>
 
             </div>
