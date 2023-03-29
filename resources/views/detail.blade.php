@@ -19,4 +19,8 @@
             detail
         </div>
     </body>
+    <script type="text/javascript">
+        var id = "{{$id}}";
+        console.log("id="+id)
+    </script>
 </html>
