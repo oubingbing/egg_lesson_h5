@@ -36,4 +36,8 @@ Route::group([], function () use ($router) {
     Route::get("/index","GoodsController@index");
     /** 课程详情 **/
     Route::get("/detail/{id}","GoodsController@detailView");
+    /** 搜索页 **/
+    Route::get("/search/{id}","GoodsController@searchView");
+    /** 搜索页 **/
+    Route::get("/my","UserController@myView");
 });
