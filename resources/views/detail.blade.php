@@ -297,7 +297,7 @@
 
     .part4 {
         margin-top: 2.67vw;
-        height: 204vw;
+        min-height: 204vw;
         padding: 4.8vw 5.33vw;
         background-color: #FFF;
     }
@@ -365,7 +365,7 @@
 
     .part4 .transfer-progress>.name {
 
-        font-size: 30.27vw;
+        font-size: 16px;
         font-family: PingFang SC;
         font-weight: 600;
         color: #333333;
@@ -465,6 +465,449 @@
     .thumbnail {
         object-fit: cover;
     }
+
+    .mianze .t2 {
+		margin-top: 2.13vw;
+		font-size: 12px;
+		font-family: PingFang SC;
+		font-weight: 400;
+		color: #808080;
+		line-height: 16px;
+	}
+
+	.bottom-btns {
+		position: fixed;
+		width: 100%;
+		z-index: 10;
+		bottom: 0;
+		left: 0;
+		height: 13.33vw;
+		display: flex;
+		align-items: center;
+		background-color: #fff;
+		box-shadow: 0 0 1.07vw 0px rgba(0, 0, 0, 0.3);
+	}
+
+	.bottom-btns .left {
+		margin-right: 2.67vw;
+		display: flex;
+		align-items: center;
+		flex: 1;
+		justify-content: space-around;
+		background-color: #fff;
+		height: 100%;
+
+	}
+
+	.bottom-btns .left .item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.bottom-btns .left .item .icon {
+		width: 5.33vw;
+		height: 5.33vw;
+		object-fit: contain;
+	}
+
+	.bottom-btns .left .item .name {
+
+		font-size:11px;
+		font-family: PingFang SC;
+		font-weight: 400;
+		color: #808080;
+		margin-top:  1.33vw;
+	}
+
+	.bottom-btns .right {
+		width: 49.06vw;
+		height: 100%;
+		background: linear-gradient(-45deg, #FF7070, #FF5252);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 15px;
+		font-family: PingFang SC;
+		font-weight: 600;
+		color: #FFFFFF;
+	}
+
+	.modal-payment-type-list {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 11;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+
+	.modal-payment-type-list {
+		justify-content: flex-end;
+	}
+
+	.modal-discuss {
+		justify-content: center;
+	}
+
+	.modal-payment-type-list.hide {
+		z-index: -1;
+	}
+
+	.modal-payment-type-list.hide .cover {
+		opacity: 0;
+	}
+
+	.modal-payment-type-list .cover {
+		transition: 0.3s;
+		opacity: 1;
+		background-color: rgba(0, 0, 0, 0.6);
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.modal-payment-type-list.hide .payment-type-list {
+		transform: translateY(100vh);
+	}
+
+	.modal-payment-type-list .payment-type-list {
+		position: relative;
+		transition: 0.3s;
+		transform: translateY(0);
+
+	}
+
+	.modal-payment-type-list .payment-type-list .item {
+		padding: 4.8vw 17.6v;
+		background-color: #fff;
+		border-radius: 2.13vw;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 4vw;
+	}
+
+	.modal-payment-type-list .payment-type-list .item .t1 {
+
+		font-size: 15px;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #FF5252;
+		line-height: 5.33vw;
+	}
+
+	.modal-payment-type-list .payment-type-list .item .t2 {
+		margin-top: 2.67vw;
+		font-size: 12px;
+		font-family: PingFang SC;
+		font-weight: 400;
+		color: #999999;
+		line-height: 16px;
+	}
+
+	.modal-payment-type-list .payment-type-list .item .t3 {
+
+		font-size: 15px;
+		font-family: PingFang SC;
+		font-weight: 400;
+		color: #808080;
+		line-height: 5.33vw;
+	}
+
+	.modal-payment-type-list .payment-type-list .item.bottom {
+		height: 22.13vw;
+		padding: 0;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+
+
+	.hot-packages {
+		padding: 5.33vw 0 7.47vw 0;
+		background-color: #FFF;
+		border-bottom: 2.67vw solid #F5F7FA;
+	}
+
+	.hot-packages .title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.hot-packages .title .left {
+		font-size: 16px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #333333;
+		line-height: 1;
+		margin-bottom: 3.87vw;
+	}
+
+	.hot-packages .title .right {
+		color: #808080;
+		font-size: 12px;
+		line-height: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	.hot-packages .title .right .arrow-right {
+		transform: scaleY(0.8) scaleX(1.6);
+		margin-left: 1.87vw;
+		line-height: 1;
+
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.hot-packages .select-nav {
+		margin-bottom: 2.67vw;
+		width: 100vw;
+		margin-left: -40px;
+		padding: 0 2.67vw  1.33vw 2.67vw;
+		box-sizing: border-box;
+		position: sticky;
+		top: 0;
+		background-color: #fff;
+		z-index: 2;
+
+	}
+
+	.hot-packages .select-nav .select-nav-items {
+		white-space: nowrap;
+
+	}
+
+	.hot-packages .select-nav .select-nav-item {
+		font-size: 12px;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #808080;
+		margin-right: 60px;
+		width: 13.33vw;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		padding-bottom: 2.13vw;
+		transition: 0.3s;
+	}
+
+	.hot-packages .select-nav .select-nav-item.hover {
+		color: #333;
+		font-weight: bold;
+	}
+
+	.hot-packages .select-nav .select-nav-item::after {
+		position: absolute;
+		content: '';
+		width: 4.27vw;
+		bottom: 0;
+		left: 50%;
+		margin-left: -2.13vw;
+		height: 2px;
+		background: transparent;
+		border-radius: 1px;
+		transition: 0.3s;
+	}
+
+	.hot-packages .select-nav .select-nav-item.hover::after {
+		background: #FF5252;
+	}
+
+	.hot-packages .items {
+		display: flex;
+		vertical-align: top;
+	}
+
+	.hot-packages .item {
+		position: relative;
+		margin-top:  1.33vw;
+		margin-right:  1.33vw;
+		width: 43.846vw;
+		border-radius: 1.07vw;
+		box-shadow: 0px 1px 4vw 0px rgba(48, 50, 51, 0.1);
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: top;
+		word-break: break-all;
+	}
+
+	.hot-packages .item .tag {
+		width: 13.33vw;
+		height: 4.27vw;
+		background: rgba(255, 82, 82, 0.2);
+		border-radius: 2.13vw;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.67vw;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #FF5656;
+		vertical-align: middle;
+
+	}
+
+
+
+	.hot-packages .item .thumbnail {
+		width: 100%;
+		height:156px;
+	}
+	
+	.hot-packages .item .info-box {
+		top: 3.2vw;
+		left: 2.67vw;
+		display: flex;
+		align-items: center;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.hot-packages .item .info-box .avatar {
+		width: 5.47vw;
+		height: 5.47vw;
+		border-radius: 50%;
+	}
+
+	.hot-packages .item .info-box .name {
+		font-size: 12px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FFFFFF;
+		line-height: 1;
+		margin-right: 2.27vw;
+	}
+
+	.hot-packages .item .info-box .status {
+		font-size: 2.67vw;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FFFFFF;
+		line-height: 1;
+	}
+
+	.hot-packages .item .position-box {
+		margin-top: -7.47vw;
+		left: 4vw;
+		display: flex;
+		position: absolute;
+		z-index: 1;
+		align-items: center;
+	}
+
+	.hot-packages .item .position-box .icon {
+		width: 2.4vw;
+		height: 3.2vw;
+		margin-right: 2vw;
+	}
+
+	.hot-packages .item .position-box .address {
+		width: 7em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size:11px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FFFFFF;
+		margin-right: 3.6vw;
+		line-height: 1;
+	}
+
+	.hot-packages .item .position-box .distance {
+		font-size:11px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FFFFFF;
+		line-height: 1;
+	}
+
+	.hot-packages .item .line3 {
+		padding-top: 2.13vw;
+		padding-bottom: 2.8vw;
+	}
+
+	.hot-packages .item .line3 .t {
+		font-size: 2.67vw;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #808080;
+		margin-bottom: 1.73vw;
+		line-height: 11px;
+	}
+
+	.hot-packages .item .infos {
+		padding: 0 4.27vw;
+	}
+
+	.hot-packages .item .infos .name {
+		font-size: 7px;
+		font-family: PingFang SC;
+		display: inline;
+		font-weight: bold;
+		color: #333333;
+		line-height: 21px;
+	}
+
+	.hot-packages .item .line2 {
+		margin-top: 3.87vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.hot-packages .item .line2 .price {
+		font-size: 7px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FF5252;
+		line-height: 24px;
+
+	}
+
+	.hot-packages .item .line2 .want {
+		font-size: 2.67vw;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #808080;
+		line-height: 24px;
+	}
+
+	.hot-packages .item .line2 .discount {
+		font-size: 7px;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FF5252;
+		line-height: 24px;
+	}
+
+	.hot-packages .item .line2 .discount .fonts {
+		font-size: 2.67vw;
+
+	}
+
+
+
+	.hot-packages .item .infos .discount-icon {
+		display: none;
+		width: 4.54vw;
+		height: 4.8vw;
+		object-fit: contain;
+		position: absolute;
+		right: 0;
+		bottom: 0.8vw;
+	}
     </style>
 </head>
 
@@ -641,9 +1084,7 @@
 
         <div class="part3 anchor2">
 
-            <!-- <map class="map" :longitude="detail.campus.campus.longitude" :markers="markers"
-				:latitude="detail.campus.campus.latitude" scale="15"></map> -->
-
+         
             <div class="location-text">
                 安徽省芜湖市镜湖区侨鸿那我非农花园15栋701室
             </div>
@@ -651,7 +1092,196 @@
             <div class="line"></div>
         </div>
 
-        
+        <div class="part4 anchor3">
+            <div class="user-info">
+                <div class="left">
+                    <img class="icon" src="" />
+                    <div class="infos">
+                        <div class="name">尼克奈姆</div>
+                         <div class="phone">未知号码</div>
+                    </div>
+                </div>
+                <div class="right">
+                   已入驻旦旦3天
+                </div>
+            </div>
+
+            <div class="transfer-progress">
+                <div class="name">转让流程</div>
+                <div class="progress-list">
+                    <div class="item hover">
+                        <div class="left">
+                            <div class="circle">
+                                1
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="t1">
+                                订单审核
+                            </div>
+                            <div class="t2">
+                                平台客服审核卖家订单真实有效
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="left">
+                            <div class="circle">
+                                2
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="t1">
+                                买家支付订金
+                            </div>
+                            <div class="t2">
+                                买家支付课程订金，该订单正式进入交易流程
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="left">
+                            <div class="circle">
+                                3
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="t1">
+                                客服建群
+                            </div>
+                            <div class="t2">
+                                平台客服拉企业微信群，买卖双方在群内确定转让时间和转让细节
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="left">
+                            <div class="circle">
+                                4
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="t1">
+                                交易完成
+                            </div>
+                            <div class="t2">
+                                买卖双方线下签订课程转让合同，买家确定上课并支付卖家尾款（扣除平台服务费）
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mianze">
+                <div class="t1">免责声明</div>
+                <div class="t2">
+                    <div>1.本平台所展示的课程供求信息由卖方自行提供，该信息已经过平台的前置审核，其真实性、准确性和合法性由信息发布人负责。</div>
+                    <div>2.商品课程实际信息以买家到店后取得的合同资料为准。</div>
+                    <div>3.本平台不对课程质量、课程效果做任何担保。</div>
+
+                    <div>4.本平台提供的数字化商品根据商品性质在双方交易完成后不支持七天无理由退货及三包服务。</div>
+                </div>
+            </div>
+
+            <div class="hot-packages">
+                <div class="title">
+                    <div class="left">推荐课包
+                    </div>
+                  </div>
+
+
+                <div class="items">
+                    <div class="items-left">
+                        <div class="item-left-infos" id="listLeft">
+                            <div class="item">
+                                 <img src="" class="thumbnail" />
+
+                                <div class="position-box">
+                                    <div class="address">安徽省芜湖市镜湖区侨鸿那我非农花园15栋701室</div>
+                                    <div class="distance">3.6km</div>
+                                </div>
+
+
+                                <div class="infos">
+                                    <div class="line1">
+                                        <div class="tag">卖家自转</div>
+                                        <div class="name">
+                                            哈哈哈
+
+                                        </div>
+                                    </div>
+                                    <div class="line2">
+                                        <div class="price">
+                                           ¥10万
+                                        </div>
+                                        <div class="want">3人想要</div>
+                                        <div class="discount">
+                                          
+                                            6.7
+                                            <text class="fonts">折</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="line3">
+                                      
+                                        <div class="t">品牌名称</div>
+                                    </div>
+
+                                    <img class="discount-icon"
+                                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/remen_icon%402x.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items-right">
+                        <div class="item-right-infos" id="listRight">
+                            <div class="item">
+                                <img src="" class="thumbnail" />
+                                <div class="position-box">
+                                    <img src="../../static/image/dingwei_icon.png" class="icon">
+                                    </image>
+                                    <div class="address">地址</div>
+                                    <div class="distance">距离</div>
+                                </div>
+
+
+                                <div class="infos">
+                                    <div class="line1">
+                                        <div class="tag">卖家自转</div>
+                                        <div class="name">
+                                            重命名的抬头
+
+
+                                        </div>
+                                    </div>
+                                    <div class="line2">
+                                        <div class="price">
+                                            ¥10万
+                                        </div>
+                                        <div class="want">3人想要</div>
+                                        <div class="discount">
+                                            9<text class="fonts">折</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="line3">
+                                        
+                                        <div class="t">品牌名称</div>
+                                    </div>
+
+                                    <img class="discount-icon"
+                                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/remen_icon%402x.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </body>
