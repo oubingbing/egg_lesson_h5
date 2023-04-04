@@ -17,6 +17,7 @@ $(document).ready(()=>{
     document.body.appendChild(show_updating_popup);
     $(show_updating_popup).click(()=>{
         show_updating_popup.className="updating-view hide";
+        window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
     })
     if(values['show']==0)return;
     setTimeout(()=>{

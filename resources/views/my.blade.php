@@ -14,17 +14,20 @@
 
         <!-- Styles -->
         <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/bottom_menu.js')}}"></script>
         <script src="{{asset('js/popup.js?show=0')}}"></script>
         <script>
             $(document).ready(()=>{
                $(".funC_handleValueChange").click((e)=>{
                 console.log(e);
+                document.getElementsByClassName("updating-view")[0].className="updating-view show";
                })
                $(".funC_showUpdating").click(()=>{
               document.getElementsByClassName("updating-view")[0].className="updating-view show";
                })
                $(".funC_goTo").click((e)=>{
                 console.log(e.currentTarget.attributes["page"]);
+                document.getElementsByClassName("updating-view")[0].className="updating-view show";
                })
             })
         </script>

@@ -60,7 +60,7 @@
                 if(e.keyCode=="13"){                    
                     let searchInput = $("#searchInput").val();
                     sessionStorage.setItem("searchInput",searchInput);
-                    window.open(window.location.href+"searchlist/"+searchInput);
+                    window.location.href=window.location.href+"search?data="+searchInput;
                 }
             })
             

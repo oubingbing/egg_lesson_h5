@@ -1,6 +1,7 @@
 .container {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y:scroll;
     background: #F5F7FA;
 }
 
@@ -194,7 +195,7 @@
 }
 
 .part4 {
-    margin-bottom: 2.67vw;
+    margin-bottom:60px;
 }
 
 .part2 .title,
