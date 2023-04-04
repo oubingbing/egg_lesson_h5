@@ -1,8 +1,9 @@
 $(document).ready(()=>{
     $("#tabbar1").click(()=>{
-        window.href=window.document.location.pathname;
+        window.location.href=window.location.pathname;
     });
     $("#tabbar4").click(()=>{
-        window.href=window.document.location.pathname+`/my`;
+        console.log(window.location);
+        window.location.href=`${window.location.protocol}//${window.location.hostname}/my`;
     });
 })
