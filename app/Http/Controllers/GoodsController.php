@@ -55,8 +55,10 @@ class GoodsController extends Controller
         return view('detail',["id"=>$id]);
     }
 
-    public function searchView($id)
+    public function searchView(Request $request)
     {
+        $data = $request->input("data");
+
         $ip = getIP();
         session(['language' => "CN"]);
         $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
@@ -69,7 +71,7 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('searchlist',["id"=>$id]);
+        return view('searchlist',["data"=>$data]);
     }
 
     public function page(Request $request)
