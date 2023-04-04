@@ -1,4 +1,51 @@
 /*每个页面公共css */
+
+.tabbar{
+    border-top:0.5px solid rgba(0,0,0,0.33);
+    height:50px;
+    width:100vw;
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 98;
+    background-color: #FFF;
+    display: flex;
+}
+.tabbar-item{
+    width:25%;
+    flex:1;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabbar-item-pic{
+    width:24px;
+    height:24px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.tabbar-item-name{
+    color: rgb(38, 38, 38);
+    font-size: 10px;
+    line-height: normal;
+    margin-top: 3px;
+}
+
+html,
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+   overflow: hidden;
+}
+
 .updating-view {
     position: fixed;
     left: 0;

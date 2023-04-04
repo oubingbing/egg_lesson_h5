@@ -15,6 +15,7 @@
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/popup.js')}}"></script>
+    <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script>
         //逻辑代码
         let test_fenlei = [{id:1,name:"早教亲子"},{id:2,name:"英语培训"},{id:3,name:"日语培训"}];
@@ -33,27 +34,27 @@
                 $(".select-nav-items").append(select_nav_item);
             }
          
-            for(let i=1;i<=4;i++){
-                if(i>1){
-                    $("#tabbar"+i+" .pre").hide();
-                        $("#tabbar"+i+" .nor").show();
-                }else{
-                    $("#tabbar"+i+" .pre").show();
-                        $("#tabbar"+i+" .nor").hide();
-                }
-                $("#tabbar"+i).click(()=>{
-                    for(let j=1;j<=4;j++){
-                        if(j===i){
-                            $("#tabbar"+j+" .pre").show();
-                    $("#tabbar"+j+" .nor").hide();
-                            continue;
-                        }
-                        $("#tabbar"+j+" .pre").hide();
-                        $("#tabbar"+j+" .nor").show();
-                    }
+        //     for(let i=1;i<=4;i++){
+        //         if(i>1){
+        //             $("#tabbar"+i+" .pre").hide();
+        //                 $("#tabbar"+i+" .nor").show();
+        //         }else{
+        //             $("#tabbar"+i+" .pre").show();
+        //                 $("#tabbar"+i+" .nor").hide();
+        //         }
+        //         $("#tabbar"+i).click(()=>{
+        //             for(let j=1;j<=4;j++){
+        //                 if(j===i){
+        //                     $("#tabbar"+j+" .pre").show();
+        //             $("#tabbar"+j+" .nor").hide();
+        //                     continue;
+        //                 }
+        //                 $("#tabbar"+j+" .pre").hide();
+        //                 $("#tabbar"+j+" .nor").show();
+        //             }
                    
-        })
-            }
+        // })
+        //     }
 
             $("#searchInput").keyup((e)=>{
                 if(e.keyCode=="13"){                    
@@ -78,51 +79,7 @@
             text-decoration: inherit;
         }
 
-        .tabbar{
-            border-top:0.5px solid rgba(0,0,0,0.33);
-            height:50px;
-            width:100vw;
-            position: fixed;
-            bottom:0;
-            left:0;
-            z-index: 98;
-            background-color: #FFF;
-            display: flex;
-        }
-        .tabbar-item{
-            width:25%;
-            flex:1;
-            height:100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tabbar-item-pic{
-            width:24px;
-            height:24px;
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        .tabbar-item-name{
-            color: rgb(38, 38, 38);
-            font-size: 10px;
-            line-height: normal;
-            margin-top: 3px;
-        }
-
-        html,
-        body {
-            -webkit-user-select: none;
-            user-select: none;
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-           overflow: hidden;
-        }
+        
 
         .page-index {
             width:100vw;
@@ -1016,21 +973,17 @@
     <div class="tabbar">
         <div class="tabbar-item" id="tabbar1">
             <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
-            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">首页</div>
         </div>
         <div class="tabbar-item" id="tabbar2">
-            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_fabu_pre_icon.png')}}");'></div>
             <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">发布</div>
         </div>
         <div class="tabbar-item" id="tabbar3">
-            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_xiaoxi_pre_icon.png')}}");'></div>
             <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">消息</div>
         </div>
         <div class="tabbar-item" id="tabbar4">
-            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_wode_pre_icon.png')}}");'></div>
             <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">我的</div>
         </div>
