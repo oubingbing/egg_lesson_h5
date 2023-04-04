@@ -17,6 +17,11 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    public function myView()
+    {
+        return view('my',[]);
+    }
+
     public function getEmailCode(Request $request)
     {
         $email = $request->input("email");
