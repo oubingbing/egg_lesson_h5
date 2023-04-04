@@ -1,5 +1,14 @@
 /*每个页面公共css */
 
+@font-face {
+    font-family: 'DanDanFont'; 
+    src: url('font/SanJiLuoLiHei-ZhongCu-2.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,body { font-family: DanDanFont, sans-serif; }
+
 .tabbar{
     border-top:0.5px solid rgba(0,0,0,0.33);
     height:50px;
@@ -315,7 +324,7 @@ body {
     padding: 0 5.33vw 5.33vw;
 
     font-size: 14px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 500;
     color: #333333;
     line-height: 5.33vw;
@@ -398,7 +407,7 @@ body {
 
 
     font-size: 18px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 600;
     color: #333333;
     display: flex;
@@ -434,7 +443,7 @@ body {
 
 
     font-size: 15px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 500;
     color: #333333;
 }
@@ -443,7 +452,7 @@ body {
     margin: 2.67vw 5.33vw;
 
     font-size: 12px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #5197FF;
     word-break: break-all;
@@ -470,7 +479,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 500;
     color: #FFFFFF;
 
@@ -488,7 +497,7 @@ body {
     justify-content: center;
 
     font-size: 15px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #808080;
     line-height: 5.33vw;

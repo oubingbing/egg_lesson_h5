@@ -50,7 +50,7 @@
 
     .href-nav .item {
         font-size: 12px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #808080;
         transition: 0.3s;
@@ -75,7 +75,7 @@
         align-items: flex-start;
         justify-content: space-between;
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #333333;
         line-height: 24px;
@@ -101,7 +101,7 @@
 
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #333333;
         line-height: 6.4vw;
@@ -110,7 +110,7 @@
     .part1 .line2 .item .t2 {
 
         font-size: 4.8vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FF5252;
         line-height: 6.4vw;
@@ -120,7 +120,7 @@
     .part1 .line15 .item.grey {
 
         font-size: 2.67vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #808080;
         line-height: 1;
@@ -137,7 +137,7 @@
     .part1 .line3 .left {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #333333;
         line-height: 6.4vw;
@@ -168,7 +168,7 @@
 
         font-size: 3.2vw;
         width: 4em;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #808080;
         line-height: 6.4vw;
@@ -204,7 +204,7 @@
     .part2 .line .item .name {
         white-space: nowrap;
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #999999;
         margin-right: 3.2vw;
@@ -213,7 +213,7 @@
 
     .part2 .line .item .content {
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #333333;
         line-height: 6.4vw;
@@ -223,7 +223,7 @@
 
         font-size: 14px;
         margin-right: 5.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #FF5252;
         line-height: 6.4vw;
@@ -237,7 +237,7 @@
         justify-content: center;
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #FF5252;
         line-height: 6.4vw;
@@ -270,7 +270,7 @@
     .part3 .location-text {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         margin-top: 2.8vw;
         color: #333333;
@@ -280,7 +280,7 @@
     .part3 .btn-come {
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #5297FF;
         width: 4em;
@@ -333,7 +333,7 @@
     .part4 .user-info .left .infos .name {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 5.33vw;
@@ -343,7 +343,7 @@
     .part4 .user-info .left .infos .phone {
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #FFFFFF;
         line-height: 1;
@@ -353,7 +353,7 @@
     .part4 .user-info .right {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 5.33vw;
@@ -366,7 +366,7 @@
     .part4 .transfer-progress>.name {
 
         font-size: 16px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #333333;
         line-height: 24px;
@@ -392,7 +392,7 @@
 
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 24px;
@@ -432,7 +432,7 @@
     .part4 .transfer-progress .item .right .t1 {
 
         font-size: 4vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #cccccc;
         line-height: 24px;
@@ -441,7 +441,7 @@
     .part4 .transfer-progress .item .right .t2 {
         margi-top: 1.87vw;
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #cccccc;
         line-height: 24px;
@@ -469,7 +469,7 @@
     .mianze .t2 {
 		margin-top: 2.13vw;
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		line-height: 16px;
@@ -515,7 +515,7 @@
 	.bottom-btns .left .item .name {
 
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		margin-top:  1.33vw;
@@ -530,7 +530,7 @@
 		justify-content: center;
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 600;
 		color: #FFFFFF;
 	}
@@ -599,7 +599,7 @@
 	.modal-payment-type-list .payment-type-list .item .t1 {
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #FF5252;
 		line-height: 5.33vw;
@@ -608,7 +608,7 @@
 	.modal-payment-type-list .payment-type-list .item .t2 {
 		margin-top: 2.67vw;
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #999999;
 		line-height: 16px;
@@ -617,7 +617,7 @@
 	.modal-payment-type-list .payment-type-list .item .t3 {
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		line-height: 5.33vw;
@@ -646,7 +646,7 @@
 
 	.hot-packages .title .left {
 		font-size: 16px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #333333;
 		line-height: 1;
@@ -690,7 +690,7 @@
 
 	.hot-packages .select-nav .select-nav-item {
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		margin-right: 60px;
@@ -751,7 +751,7 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #FF5656;
 		vertical-align: middle;
@@ -782,7 +782,7 @@
 
 	.hot-packages .item .info-box .name {
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -791,7 +791,7 @@
 
 	.hot-packages .item .info-box .status {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -818,7 +818,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		margin-right: 3.6vw;
@@ -827,7 +827,7 @@
 
 	.hot-packages .item .position-box .distance {
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -840,7 +840,7 @@
 
 	.hot-packages .item .line3 .t {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		margin-bottom: 1.73vw;
@@ -853,7 +853,7 @@
 
 	.hot-packages .item .infos .name {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		display: inline;
 		font-weight: bold;
 		color: #333333;
@@ -869,7 +869,7 @@
 
 	.hot-packages .item .line2 .price {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FF5252;
 		line-height: 24px;
@@ -878,7 +878,7 @@
 
 	.hot-packages .item .line2 .want {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		line-height: 24px;
@@ -886,7 +886,7 @@
 
 	.hot-packages .item .line2 .discount {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FF5252;
 		line-height: 24px;

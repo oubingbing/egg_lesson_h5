@@ -289,14 +289,14 @@
         .brands .title .left {
             color: #333;
             font-size: 1rem;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             line-height: 1;
         }
 
         .hot-packages .title .left {
             font-size: 1rem;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #333333;
             line-height: 1;
@@ -351,7 +351,7 @@
 
         .hot-packages .select-nav .select-nav-item {
             font-size: 0.75rem;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 500;
             color: #808080;
             margin-right: 1.875rem;
@@ -412,7 +412,7 @@
             align-items: center;
             justify-content: center;
             font-size: 2.67vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 500;
             color: #FF5656;
             vertical-align: middle;
@@ -443,7 +443,7 @@
 
         .hot-packages .item .info-box .name {
             font-size: 3.2vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FFFFFF;
             line-height: 1;
@@ -452,7 +452,7 @@
 
         .hot-packages .item .info-box .status {
             font-size: 2.67vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FFFFFF;
             line-height: 1;
@@ -479,7 +479,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             font-size: 2.93vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FFFFFF;
             margin-right: 3.6vw;
@@ -488,7 +488,7 @@
 
         .hot-packages .item .position-box .distance {
             font-size: 2.93vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FFFFFF;
             line-height: 1;
@@ -501,7 +501,7 @@
 
         .hot-packages .item .line3 .t {
             font-size: 2.67vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 500;
             color: #808080;
             margin-bottom: 1.73vw;
@@ -514,7 +514,7 @@
 
         .hot-packages .item .infos .name {
             font-size: 3.73vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             display: inline;
             font-weight: bold;
             color: #333333;
@@ -530,7 +530,7 @@
 
         .hot-packages .item .line2 .price {
             font-size: 3.73vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FF5252;
             line-height: 6.4vw;
@@ -539,7 +539,7 @@
 
         .hot-packages .item .line2 .want {
             font-size: 2.67vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 500;
             color: #808080;
             line-height: 6.4vw;
@@ -547,7 +547,7 @@
 
         .hot-packages .item .line2 .discount {
             font-size: 3.73vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: bold;
             color: #FF5252;
             line-height: 6.4vw;
@@ -611,7 +611,7 @@
             position: relative;
             margin: 70rpx 2.67vw 1.33vw;
             font-size: 3.73vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 500;
             color: #333333;
             line-height: 4.8vw;
@@ -622,7 +622,7 @@
             width: 77vw;
             margin-left: 2.67vw;
             font-size: 3.46vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 400;
             color: #808080;
             position: relative;
@@ -646,7 +646,7 @@
 
         .new-things .items .item .bottom-infos>.text {
             font-size: 3.2vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 400;
             color: #FF5252;
             line-height: 4.8vw;
@@ -706,7 +706,7 @@
             margin: 7.73vw auto 0;
             text-align: center;
             font-size: 3.2vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 100;
             color: #333333;
             line-height: 4.8vw;
@@ -717,7 +717,7 @@
             width: 20vw;
             margin: 1.46vw auto 0;
             font-size: 3.2vw;
-            font-family: PingFang SC;
+            font-family: DanDanFont;
             font-weight: 400;
             color: #808080;
             line-height: 4.8vw;

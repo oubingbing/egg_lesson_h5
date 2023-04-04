@@ -83,7 +83,7 @@
 .part1 .info1 .line1 .name {
 
     font-size: 14px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 600;
     color: #FFFFFF;
 }
@@ -91,7 +91,7 @@
 .part1 .info1 .line1 .renzheng {
     margin-left: 2.27vw;
     font-size: 12px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #FFFFFF;
 }
@@ -99,7 +99,7 @@
 .part1 .info1 .line2 {
     margin-top: 2.67vw;
     font-size: 2.67vw;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #FFFFFF;
 }
@@ -132,7 +132,7 @@
 .part1 .info2 .line1 .left {
 
     font-size: 14px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #E3CA96;
 }
@@ -147,7 +147,7 @@
     justify-content: center;
 
     font-size: 14px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 500;
     color: #61502C;
 }
@@ -163,7 +163,7 @@
 .part1 .info2 .line2 .left {
 
     font-size: 5.33vw;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 600;
     color: #E3CA96;
     line-height: 1;
@@ -173,7 +173,7 @@
     margin-top: 0.4vw;
 
     font-size: 12px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     line-height: 1;
     color: #E3CA96;
@@ -186,6 +186,8 @@
 .part2,
 .part3,
 .part4 {
+    position: relative;
+    overflow: hidden;
     margin-top: 2.67vw;
     background-color: #fff;
     padding: 5.33vw 4.66vw 2.67vw;
@@ -200,7 +202,7 @@
 .part4 .title {
     font-size: 16px;
     padding-left: 0.67vw;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 600;
     color: #333333;
 }
@@ -208,7 +210,8 @@
 .part2 .item,
 .part3 .item,
 .part4 .item {
-    display: inline-flex;
+    display: flex;
+    float:left;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
@@ -225,7 +228,7 @@
     font-size: 12px;
     line-height: 1;
     white-space: nowrap;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
     color: #595959;
     text-align: center;
@@ -326,24 +329,26 @@
     width: 100%;
 
     font-size: 14px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 600;
     color: #333333;
     line-height: 18px;
 
     background: #F5F7FA;
-
-
 }
 
-.modal-yijian .modal-yijian-content .title .content {
-    height: 32vw;
+.modal-yijian .modal-yijian-content .filling-box {
     margin-top: 5.33vw;
-
     border: 2px solid #F5F7FA;
     width: 78.67vw;
     flex: 1;
     box-sizing: border-box;
+    margin-bottom: 5.33vw;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    font-family: '微软雅黑';
+    line-height: 1.5;
 }
 
 .modal-yijian .btn-submit,
@@ -357,7 +362,7 @@
     border-radius: 2.13vw;
 
     font-size: 18px;
-    font-family: PingFang SC;
+    font-family: DanDanFont;
     font-weight: 400;
 
     line-height: 18px;

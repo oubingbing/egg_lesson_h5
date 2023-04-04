@@ -9,14 +9,27 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{asset('css/global.css')}}" rel="stylesheet">
         <link href="{{asset('css/my.css')}}" rel="stylesheet">
 
         <!-- Styles -->
-
+        <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/popup.js?show=0')}}"></script>
+        <script>
+            $(document).ready(()=>{
+               $(".funC_handleValueChange").click((e)=>{
+                console.log(e);
+               })
+               $(".funC_showUpdating").click(()=>{
+              document.getElementsByClassName("updating-view")[0].className="updating-view show";
+               })
+            })
+        </script>
     </head>
+    
     <body>
         <div class="container">
-            <div class="hide">
+            <div class="get-phone-box hide">
                 <div class="cover"></div>
                 <div class="get-phone">
                     <div class='t'>
@@ -25,9 +38,9 @@
                     </div>
                     <div class='content'>平台需要获取您的微信绑定手机号进行用户信息认证，请您授权。</div>
                     <div class="btns">
-                        <div class="refuse-phone" @click="closeNeedPhone">拒绝授权</div>
+                        <div class="refuse-phone funC_closeNeedPhone">拒绝授权</div>
     
-                        <button class="need-phone" open-type="getPhoneNumber" @getphonenumber="doGetPhone">同意授权</button>
+                        <btn class="need-phone">同意授权</btn>
                     </div>
     
                 </div>
@@ -37,27 +50,18 @@
                     class="bg1"/>
                 <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/wode_img02%402x.png"
                     class="bg2"/>
-                <img
-                    :src="userInfo&&userInfo.avatar_url?userInfo.avatar_url:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/touxiang_icon%402x.png'"
+                <img id="avatar"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/touxiang_icon%402x.png"
                     class="avatar"/>
                 <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/shezhi_icon%402x.png"
-                    class="setting" @click="goTo('setting')"/>
+                    class="setting funC_goTo" page="setting"/>
                 <div class="info1">
-                    <block v-if="!token">
-                        <!-- #ifdef H5 -->
-                        <a class="need-login need-login-h5" @click="showUpdating()">点击登录</a>
-                        <!-- #endif -->
-                        <!-- #ifdef MP-WEIXIN -->
-                        <button class="need-login " @click="doLogin">
-                            点击登录
-                        </button>
-                        <!-- #endif -->
-                        
+                  
+                        <a class="need-login need-login-h5 funC_showUpdating">点击登录</a>                     
     
+
     
-                    </block>
-    
-                    <block v-else>
+                    <!-- <block v-else>
                         <div class="line1">
                             <div class="name">未登录</div>
                             <div class="renzheng">未认证</div>
@@ -65,13 +69,13 @@
                         <div class="line2">
                             开通实人通行证，提升曝光度，商品更快出售！
                         </div>
-                    </block>
+                    </block> -->
     
     
     
                 </div>
     
-                <div class="info2" @click="goTo('balance')">
+                <div class="info2 funC_goTo" page="balance">
                     <div class="line1">
                         <div class="left">
                             我的余额
@@ -82,26 +86,26 @@
                     </div>
                     <div class="line2">
                         <div class="left">¥&nbsp;0.00</div>
-                        <div class="right" @click="goTo('account_detail')">账户明细</div>
+                        <div class="right funC_goTo" page="account_detail">账户明细</div>
                     </div>
                 </div>
             </div>
     
             <div class="part2">
                 <div class="title">买家管理</div>
-                <div class="item goTo" page="buyer_management" params="status=0">
+                <div class="item funC_goTo" page="buyer_management" params="status=0">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijia_quanbu_icon%402x.png"
                         class="icon"/>
                     <div class="name">全部</div>
                 </div>
-                <div class="item goTo" page="buyer_management" params="status=1">
+                <div class="item funC_goTo" page="buyer_management" params="status=1">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijiaguanli_dingjinguanli_icon%402x.png"
                         class="icon"/>
                     <div class="name">订金管理</div>
                 </div>
-                <div class="item goTo" page="buyer_management" params="status=2">
+                <div class="item funC_goTo" page="buyer_management" params="status=2">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijiaguanli_zhuangrangzhong_icon%402x.png"
                         class="icon"/>
@@ -113,19 +117,19 @@
                         class="icon"/>
                     <div class="name">尾款管理</div>
                 </div> -->
-                <div class="item goTo" page="buyer_management" params="status=5">
+                <div class="item funC_goTo" page="buyer_management" params="status=5">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijiaguanli_weikuanchuli_icon%402x.png"
                         class="icon"/>
                     <div class="name">已完成</div>
                 </div>
-                <div class="item goTo" page="collection_list">
+                <div class="item funC_goTo" page="collection_list">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijiaguanli_wodeshoucang_icon%402x.png"
                         class="icon"/>
                     <div class="name">我的收藏</div>
                 </div>
-                <div class="item  goTo" page="discuss_list" params="type=1">
+                <div class="item  funC_goTo" page="discuss_list" params="type=1">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/maijiaguanli_yijia_icon%402x.png"
                         class="icon"/>
@@ -135,41 +139,41 @@
     
             <div class="part3">
                 <div class="title">卖家管理</div>
-                <div class="item goTo" page="seller_management">
+                <div class="item funC_goTo" page="seller_management">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/quanbu_icon%402x.png"
                         class="icon"/>
                     <div class="name">全部</div>
                 </div>
-                <div class="item goTo" page="seller_management" params="status=seller_status.ZHUANRANGZHONG">
+                <div class="item funC_goTo" page="seller_management" params="status=seller_status.ZHUANRANGZHONG">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/zhuangrangzhong_icon%402x.png"
                         class="icon"/>
                     <div class="name">转让中</div>
                 </div>
-                <div class="item goTo" page="seller_management" params="status=seller_status.YIWANCHENG">
+                <div class="item funC_goTo" page="seller_management" params="status=seller_status.YIWANCHENG">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/yiwancheng_icon%402x.png"
                         class="icon"/>
                     <div class="name">已完成</div>
                 </div>
-                <div class="item goTo" page="discuss_list" params="type=2">
+                <div class="item funC_goTo" page="discuss_list" params="type=2">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/pingjia_icon%402x.png"
                         class="icon"/>
                     <div class="name">收到的议价</div>
                 </div>
-                <div class="item goTo" page="seller_management" params="status=seller_status.DAISHENHE">
+                <div class="item funC_goTo" page="seller_management" params="status=seller_status.DAISHENHE">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/daishenhe_icon%402x.png"
                         class="icon"/>
                     <div class="name">待审核</div>
                 </div>
-                <div class="item goTo" page="seller_management" params="status=seller_status.YISHANGJIA">
+                <div class="item funC_goTo" page="seller_management" params="status=seller_status.YISHANGJIA">
                     <img
                         src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/yishangjia_icon%402x.png"
                         class="icon"/>
                     <div class="name">已上架</div>
                 </div>
-                <div class="item goTo" page="seller_management" params="status=seller_status.YIXIAJIA">
+                <div class="item funC_goTo" page="seller_management" params="status=seller_status.YIXIAJIA">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/yixiajia_icon%402x.png"
                         class="icon"/>
                     <div class="name">已下架</div>
@@ -188,17 +192,17 @@
                         class="icon"/>
                     <div class="name">客服中心</div>
                 </div>
-                <div class="item goTo" page="text_yinsizhengce">
+                <div class="item funC_goTo" page="text_yinsizhengce">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/yinsi_icon%402x.png"
                         class="icon"/>
                     <div class="name">隐私政策</div>
                 </div>
-                <div class="item goTo" page="text_kechengleibie">
+                <div class="item funC_goTo" page="text_kechengleibie">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/xieyi_icon%402x.png"
                         class="icon"/>
                     <div class="name">课程类别说明</div>
                 </div>
-                <div class="item goTo" page="text_zhucetiaoli">
+                <div class="item funC_goTo" page="text_zhucetiaoli">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/tiaoli%402x.png"
                         class="icon"/>
                     <div class="name">注册条例</div>
@@ -209,24 +213,25 @@
                     <div class="name">关注公众号</div>
                 </div>
                  -->
-                <div class="item goTo" page="rate_publicity">
+                <div class="item funC_goTo" page="rate_publicity">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/jianyi_icon%402x.png"
                         class="icon"/>
                     <div class="name">费率公示</div>
                 </div>
             </div>
     
-            <div :class="['modal-bottom',show_yijian?'hover':'hide']">
-                <div class="cover handleValueChange" params="show_yijian=false"></div>
+            <div class="modal-bottom hide">
+                <div class="cover  funC_handleValueChange" params="show_yijian=false"></div>
     
                 <div class="modal-yijian">
                     <div class="modal-yijian-content">
                         <div class="title">意见与建议</div>
-                        <textarea class="content" id="updateJianyiParams"></textarea>
+                        <textarea class="filling-box" id="updateJianyiParams"></textarea>
+                        
                     </div>
     
                     <div class="btn-submit">提&nbsp;交</div>
-                    <div class="btn-cancel handleValueChange" params="show_yijian=false">取&nbsp;消</div>
+                    <div class="btn-cancel  funC_handleValueChange" params="show_yijian=false">取&nbsp;消</div>
                 </div>
             </div>
         </div>
