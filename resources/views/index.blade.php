@@ -52,6 +52,14 @@
                    
         })
             }
+
+            $("#searchInput").keyup((e)=>{
+                if(e.keyCode=="13"){                    
+                    let searchInput = $("#searchInput").val();
+                    sessionStorage.setItem("searchInput",searchInput);
+                    window.open(window.location.href+"searchlist/"+searchInput);
+                }
+            })
             
         })
         
@@ -160,6 +168,10 @@
             text-indent: inherit;
             text-transform: inherit;
             text-shadow: inherit;
+        }
+
+        .search-bar .search-input::placeholder{
+            font-size:0.8125rem;
         }
 
         .search-bar .search-location {
@@ -799,7 +811,7 @@
             <div class="search-icon"
                 style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;">
             </div>
-            <input type="text" class="search-input" placeholder="搜索课程,品牌" />
+            <input type="text" class="search-input" placeholder="搜索课程,品牌" id="searchInput" />
             <div class="search-location">定位中</div>
 
         </div>
