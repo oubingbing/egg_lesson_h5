@@ -23,6 +23,9 @@
                $(".funC_showUpdating").click(()=>{
               document.getElementsByClassName("updating-view")[0].className="updating-view show";
                })
+               $(".funC_goTo").click((e)=>{
+                console.log(e.currentTarget.attributes["page"]);
+               })
             })
         </script>
     </head>
