@@ -16,7 +16,11 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-           
+
         </div>
     </body>
+    <script type="text/javascript">
+        var data = "{{$data}}";
+        console.log("data=" + data)
+        </script>
 </html>
