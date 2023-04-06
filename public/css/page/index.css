@@ -332,7 +332,7 @@ input {
 
 .hot-packages .item .tag {
     width: 13.33vw;
-    height: 2.13vw;
+    height: 4.25vw;
     background: rgba(255, 82, 82, 0.2);
     border-radius: 2.13vw;
     display: inline-flex;
