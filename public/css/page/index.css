@@ -84,23 +84,24 @@ input {
 
 .banner-swiper-box {
     background-color: #fff;
-    padding-top: 0.75rem;
+    padding-top:0.75rem;
+    width:87.5vw;
+    margin:0 auto;
+
     overflow: hidden;
 }
 
 .banner-swiper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 20.9375rem;
-    height: 11.5625rem;
     position: relative;
     margin-top: 0.3125rem;
 }
 
 .banner-image {
     width: 100%;
-    background-color: #287070;
     height: 11.5625rem;
+}
+.banner-image img{
+    width:100%;
 }
 
 .type-list {
@@ -109,7 +110,7 @@ input {
     padding: 1.25rem 0;
     overflow-x: scroll;
     white-space: nowrap;
-    width: 23.4375rem;
+    width:100vw;
 }
 
 .type-list .item {

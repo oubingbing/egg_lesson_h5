@@ -26,12 +26,6 @@ function showLoading(time){
     }else{
         loading.className = 'loading-box show';
     }
-    
-    
-
-    
-
-
 }
 
 function hideLoading(){
@@ -39,4 +33,8 @@ function hideLoading(){
     if(!!loading){
         loading.className = 'loading-box hide';
     }
+}
+
+function goTo(address,t,v){
+    window.location.href=`${window.location.protocol}//${window.location.hostname}/${address}?${t}=${v}`;
 }

@@ -11,17 +11,27 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
+    <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/page/index.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/popup.js')}}"></script>
+    <script src="{{asset('js/tool/loading.js')}}"></script>
+    <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script>
         //逻辑代码
         let test_fenlei = [{id:1,name:"早教亲子"},{id:2,name:"英语培训"},{id:3,name:"日语培训"}];
         test_fenlei = [{id:0,name:"全部"}].concat(test_fenlei);
         $(document).ready(()=>{
+
+            var swiper = new Swiper(".mySwiper", {
+                loop:true,
+                autoplay:true
+            });
+
+            
             for(let i in test_fenlei){
                 console.log(i,i==0);
                 let select_nav_item = document.createElement("div");
@@ -64,10 +74,6 @@
                     window.location.href=window.location.href+"search?data="+searchInput;
                 }
             })
-            
-       
-
-        
         })
         
     </script>
@@ -86,17 +92,24 @@
         </div>
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper">
-                <div class="banner-image swiper-slide">1</div>
-                <div class="banner-image swiper-slide">2</div>
-                <div class="banner-image swiper-slide">3</div>
-                <div class="banner-image swiper-slide">4</div>
-                <div class="banner-image swiper-slide">5</div>
+                <div class="banner-image swiper-slide">
+                    <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png"/>
+                </div>
+                <div class="banner-image swiper-slide">
+                    <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png"/>
+                </div>
+                <div class="banner-image swiper-slide">
+                    <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113347.png"/>
+                </div>
+                <div class="banner-image swiper-slide">
+                    <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/PNG-red.png"/>
+                </div>
             </div>
         </div>
 
         <div class="type-list">
             <div class="item">
-                <div class="item-icon-box">
+                <div class="item-icon-box" onclick="goTo('search','data','早教亲子')">
                     <div class="item-icon"
                         style='background-image: url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shouye_zaojiaoz_icon%402x.png"); background-position: 0% 0%; background-size: 100% 100%;'>
                     </div>
