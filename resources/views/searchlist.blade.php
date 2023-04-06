@@ -31,7 +31,7 @@
                 </div>
             </div>
     <!-- show_search_menu -->
-                <div class="history-search show">
+                <!-- <div class="history-search show">
                     <div class="line1">
                         <div class="t1">历史搜索</div>
                         <img class="btn-clean" onclick="cleanHistory()"
@@ -41,14 +41,20 @@
                     <div class="item" onclick="quickSearch('item')">
                         item
                     </div>
-                </div>
-                <div class="hot-search">
+                </div> -->
+                <!-- <div class="hot-search">
                     <div class="t1">热门搜索</div>
                     <div class="item" onclick="quickSearch('item.name')">
-                        item.name
+                        热门1
                     </div>
-                </div>
-                <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div>
+                    <div class="item" onclick="quickSearch('item.name')">
+                        热门2
+                    </div>
+                    <div class="item" onclick="quickSearch('item.name')">
+                        热门3
+                    </div>
+                </div> -->
+                <!-- <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div> -->
                 <div class="select-nav" id="searchNav">
                     <div onclick="doSelectSort(4)" class="item hover color-blue">
                         附近
@@ -56,42 +62,8 @@
                     
                 </div>
     
-                <div  class="packages">
-                    <div class="item" onclick="showGoodDetail('item.goods_id')" >
-                        <div class="part1">
-                            <img class="thumbnail" src="item.transfer_info.attachments[0]"/>
-                            <div class="infos">
-                                <div class="t1">
-                                    【年卡|舞蹈舞蹈】舞蹈舞蹈
-                                </div>
-                                <div class="t2">有效期：2023-12-13</div>
-    
-                                <div class="t3">
-                                    <div>课程类型：舞蹈舞蹈</div>
-                                    <div>
-                                        课卡类型：年卡&nbsp;&nbsp;剩余课时：3节
-                                    </div>
-                                    <div>
-                                        适课年龄：0-5岁&nbsp;&nbsp;
-                                        适课性别：不限
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="part2">
-                            这就是抬头！
-                        </div>
-                        <div class="part3">
-                            <div class="price">125.55</div>
-                            <div class="discount">3.4折</div>
-                            <div class='distance'>3km</div>
-                        </div>
-    
-    
-    
-    
-                    </div>
+                <div  class="packages" id="packages">
+                    
                 </div>
                 <div class="modal-select-list">
                     <div class="cover" onclick="handleValueChange('show_select_modal',-1)"></div>

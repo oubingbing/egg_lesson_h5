@@ -71,6 +71,7 @@
 		box-sizing: border-box;
 		z-index: 1;
 		height: 100vh;
+        overflow-y: scroll;
 	}
 
 	.packages .item {
@@ -595,8 +596,7 @@
 		border: 0;
 		padding: 0 0 0 2.67vw;
 		flex: 1;
-
-
+        background-color: transparent;
 		font-size: 14px;
 		font-family: PingFang SC;
 		font-weight: 400;
@@ -673,4 +673,5 @@
 		bottom: 4vw;
 		left: 50%;
 		margin-left:  -40vw;
+        z-index:99;
 	}

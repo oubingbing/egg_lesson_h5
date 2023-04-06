@@ -1,4 +1,5 @@
 var state = {
+    packages: [1, 2, 3, 4, 5, 6, 7, 8],
     show_search_menu: false,
     now_select_type_index: 4,
     select_type_list: [
@@ -33,6 +34,8 @@ $(document).ready(() => {
         select_type.id = `select_type_list_${i}`;
         document.getElementById("searchNav").appendChild(select_type);
     }
+
+    drawPackagesItem();
 
 });
 
@@ -112,5 +115,47 @@ function doSelectSort(index) {
         state.show_select_modal = now_select_type.value;
         console.log(state);
     }
+
+}
+
+function drawPackagesItem() {
+    for (let i in state.packages) {
+        let item = document.createElement("div");
+        item.id = `packageItem_${i}`;
+        item.className="item";
+        item.onclick = showGoodDetail.bind(i);
+        item.innerHTML = `<div class="part1">
+        <img class="thumbnail" src="item.transfer_info.attachments[0]"/>
+        <div class="infos">
+            <div class="t1">
+                【年卡|舞蹈舞蹈】舞蹈舞蹈
+            </div>
+            <div class="t2">有效期：2023-12-13</div>
+
+            <div class="t3">
+                <div>课程类型：舞蹈舞蹈</div>
+                <div>
+                    课卡类型：年卡&nbsp;&nbsp;剩余课时：3节
+                </div>
+                <div>
+                    适课年龄：0-5岁&nbsp;&nbsp;
+                    适课性别：不限
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="part2">
+        这就是抬头！
+    </div>
+    <div class="part3">
+        <div class="price">125.55</div>
+        <div class="discount">3.4折</div>
+        <div class='distance'>3km</div>
+    </div>`;
+    console.log(item);
+        document.getElementById("packages").appendChild(item);
+    }
+
 
 }
