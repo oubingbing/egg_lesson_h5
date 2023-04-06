@@ -20,10 +20,15 @@
     <script src="{{asset('js/tool/loading.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/bottom_menu.js')}}"></script>
+    <script src="{{asset('js/tool/http.js')}}"></script>
     <script>
         //逻辑代码
         let test_fenlei = [{id:1,name:"早教亲子"},{id:2,name:"英语培训"},{id:3,name:"日语培训"}];
         test_fenlei = [{id:0,name:"全部"}].concat(test_fenlei);
+
+        Get(mRoute.goods_page,null,(e)=>{
+            console.log(e);
+        })
         $(document).ready(()=>{
 
             var swiper = new Swiper(".mySwiper", {
