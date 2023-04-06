@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
+    <link href="{{asset('css/page/index.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
