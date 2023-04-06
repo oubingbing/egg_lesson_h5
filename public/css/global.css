@@ -9,9 +9,125 @@
 
 html,body { font-family: DanDanFont, sans-serif; }
 
+.loading-box{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:100;
+    transform: translateX(100vw);
+}
+
+.loading-box.show{
+    transform: translateX(0);
+}
+
+
+
+.loading-box .cover{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+    width:100vw;
+    height:100vh;
+    opacity: 0;
+    transition-duration: 800ms;
+    background-color: #000;
+    
+}
+.loading-box.show .cover{
+    opacity: 0.3;
+}
+
+.loading-box .loading-img{
+    width:6px;
+    height:50px;
+  
+    position: absolute;
+    animation-name: loading0;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    opacity: 0.3;
+}
+.loading-box .loading-img.lm1{
+    animation-name: loading1;
+    opacity: 0.5;
+}
+.loading-box .loading-img.lm2{
+    animation-name: loading2;
+    opacity: 0.7;
+}
+.loading-box .loading-img.lm3{
+    animation-name: loading3;
+    opacity: 0.8;
+}
+.loading-box .loading-img.lm4{
+    animation-name: loading4;
+    opacity: 1;
+}
+.loading-box .loading-img::after{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width:6px;
+    height:6px;
+    border-radius:3px;
+    background-color: #000;
+}
+
+@keyframes loading0{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes loading1{
+    0%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(390deg);
+    }
+}
+@keyframes loading2{
+    0%{
+        transform: rotate(60deg);
+    }
+    100%{
+        transform: rotate(420deg);
+    }
+}
+@keyframes loading3{
+    0%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: rotate(450deg);
+    }
+}
+@keyframes loading4{
+    0%{
+        transform: rotate(120deg);
+    }
+    100%{
+        transform: rotate(480deg);
+    }
+}
+
 input{
     outline:none;
-    
+
 }
 .tabbar{
     border-top:0.5px solid rgba(0,0,0,0.33);

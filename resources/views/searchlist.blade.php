@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/tool/loading.js')}}"></script>
         <script src="{{asset('js/page/searchlist.js?searchkey=')}}"></script>
     
         <style>

@@ -33,11 +33,28 @@ $(document).ready(() => {
         select_type.innerText = state['select_type_list'][i].label;
         select_type.id = `select_type_list_${i}`;
         document.getElementById("searchNav").appendChild(select_type);
+
+        document.getElementById("packages").addEventListener('scroll',packagesScroll,true);
     }
 
     drawPackagesItem();
 
 });
+
+function packagesScroll(e){
+    let scrollHeight = document.getElementById('packages').scrollHeight;
+    let windowTop = document.body.clientHeight;
+    let scrollTop = document.getElementById('packages').scrollTop;
+    if(windowTop+scrollTop+100>scrollHeight && !isLoading ){
+        showLoading();
+        setTimeout(()=>{
+            hideLoading();
+            drawPackagesItem();
+        },2000);
+    }
+
+}
+
 
 function getSearchInput(e) {
     console.log(e);
