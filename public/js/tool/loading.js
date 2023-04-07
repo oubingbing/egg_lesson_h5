@@ -38,3 +38,19 @@ function hideLoading(){
 function goTo(address,t,v){
     window.location.href=`${window.location.protocol}//${window.location.hostname}/${address}?${t}=${v}`;
 }
+
+
+function scrollToBottom(div_class,div_id,callback){
+    let div = document.getElementById(div_id);
+    if(!div){
+        div = document.getElementsByClassName(div_class)[0];
+    }
+    div.addEventListener('scroll',()=>{
+        let scrollHeight =div.scrollHeight;
+        let windowTop = document.body.clientHeight;
+        let scrollTop = div.scrollTop;
+        if(windowTop+scrollTop+100>scrollHeight && !isLoading ){
+          callback();
+        }
+    },true);
+}
