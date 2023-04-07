@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
+    <head>
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +8,10 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="{{asset('css/global.css')}}" rel="stylesheet">
 
-    <!-- Styles -->
-    <style>
+        <!-- Styles -->
+        <style>
     body{
         margin:0;
     }
@@ -50,7 +49,7 @@
 
     .href-nav .item {
         font-size: 12px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #808080;
         transition: 0.3s;
@@ -75,7 +74,7 @@
         align-items: flex-start;
         justify-content: space-between;
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #333333;
         line-height: 24px;
@@ -101,7 +100,7 @@
 
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #333333;
         line-height: 6.4vw;
@@ -110,7 +109,7 @@
     .part1 .line2 .item .t2 {
 
         font-size: 4.8vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FF5252;
         line-height: 6.4vw;
@@ -120,7 +119,7 @@
     .part1 .line15 .item.grey {
 
         font-size: 2.67vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #808080;
         line-height: 1;
@@ -137,7 +136,7 @@
     .part1 .line3 .left {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #333333;
         line-height: 6.4vw;
@@ -168,7 +167,7 @@
 
         font-size: 3.2vw;
         width: 4em;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #808080;
         line-height: 6.4vw;
@@ -204,7 +203,7 @@
     .part2 .line .item .name {
         white-space: nowrap;
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #999999;
         margin-right: 3.2vw;
@@ -213,7 +212,7 @@
 
     .part2 .line .item .content {
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #333333;
         line-height: 6.4vw;
@@ -223,7 +222,7 @@
 
         font-size: 14px;
         margin-right: 5.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #FF5252;
         line-height: 6.4vw;
@@ -237,7 +236,7 @@
         justify-content: center;
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #FF5252;
         line-height: 6.4vw;
@@ -270,7 +269,7 @@
     .part3 .location-text {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         margin-top: 2.8vw;
         color: #333333;
@@ -280,7 +279,7 @@
     .part3 .btn-come {
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #5297FF;
         width: 4em;
@@ -333,7 +332,7 @@
     .part4 .user-info .left .infos .name {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 5.33vw;
@@ -343,7 +342,7 @@
     .part4 .user-info .left .infos .phone {
 
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #FFFFFF;
         line-height: 1;
@@ -353,7 +352,7 @@
     .part4 .user-info .right {
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 5.33vw;
@@ -366,7 +365,7 @@
     .part4 .transfer-progress>.name {
 
         font-size: 16px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #333333;
         line-height: 24px;
@@ -392,7 +391,7 @@
 
 
         font-size: 14px;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 24px;
@@ -432,7 +431,7 @@
     .part4 .transfer-progress .item .right .t1 {
 
         font-size: 4vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 500;
         color: #cccccc;
         line-height: 24px;
@@ -441,7 +440,7 @@
     .part4 .transfer-progress .item .right .t2 {
         margi-top: 1.87vw;
         font-size: 3.2vw;
-        font-family: PingFang SC;
+        font-family: DanDanFont;
         font-weight: 400;
         color: #cccccc;
         line-height: 24px;
@@ -469,7 +468,7 @@
     .mianze .t2 {
 		margin-top: 2.13vw;
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		line-height: 16px;
@@ -515,7 +514,7 @@
 	.bottom-btns .left .item .name {
 
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		margin-top:  1.33vw;
@@ -530,7 +529,7 @@
 		justify-content: center;
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 600;
 		color: #FFFFFF;
 	}
@@ -599,7 +598,7 @@
 	.modal-payment-type-list .payment-type-list .item .t1 {
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #FF5252;
 		line-height: 5.33vw;
@@ -608,7 +607,7 @@
 	.modal-payment-type-list .payment-type-list .item .t2 {
 		margin-top: 2.67vw;
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #999999;
 		line-height: 16px;
@@ -617,7 +616,7 @@
 	.modal-payment-type-list .payment-type-list .item .t3 {
 
 		font-size: 15px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 400;
 		color: #808080;
 		line-height: 5.33vw;
@@ -646,7 +645,7 @@
 
 	.hot-packages .title .left {
 		font-size: 16px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #333333;
 		line-height: 1;
@@ -690,7 +689,7 @@
 
 	.hot-packages .select-nav .select-nav-item {
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		margin-right: 60px;
@@ -751,7 +750,7 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #FF5656;
 		vertical-align: middle;
@@ -782,7 +781,7 @@
 
 	.hot-packages .item .info-box .name {
 		font-size: 12px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -791,7 +790,7 @@
 
 	.hot-packages .item .info-box .status {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -818,7 +817,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		margin-right: 3.6vw;
@@ -827,7 +826,7 @@
 
 	.hot-packages .item .position-box .distance {
 		font-size:11px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FFFFFF;
 		line-height: 1;
@@ -840,7 +839,7 @@
 
 	.hot-packages .item .line3 .t {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		margin-bottom: 1.73vw;
@@ -853,7 +852,7 @@
 
 	.hot-packages .item .infos .name {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		display: inline;
 		font-weight: bold;
 		color: #333333;
@@ -869,7 +868,7 @@
 
 	.hot-packages .item .line2 .price {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FF5252;
 		line-height: 24px;
@@ -878,7 +877,7 @@
 
 	.hot-packages .item .line2 .want {
 		font-size: 2.67vw;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: 500;
 		color: #808080;
 		line-height: 24px;
@@ -886,7 +885,7 @@
 
 	.hot-packages .item .line2 .discount {
 		font-size: 7px;
-		font-family: PingFang SC;
+		font-family: DanDanFont;
 		font-weight: bold;
 		color: #FF5252;
 		line-height: 24px;
@@ -908,10 +907,10 @@
 		right: 0;
 		bottom: 0.8vw;
 	}
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
+    <body>
     <div class="product-detail">
         <div class="banner-swiper-box">
             <div class="banner-swiper">
@@ -925,10 +924,10 @@
             <a class="item">订单流程</a>
             <a class="item">推荐课包</a>
         </div>
-
+           
         <div class="part1 anchor1">
             <div class="line1">
-              
+
                 【年卡】ABC
              
             </div>
@@ -1184,7 +1183,7 @@
                     <div>4.本平台提供的数字化商品根据商品性质在双方交易完成后不支持七天无理由退货及三包服务。</div>
                 </div>
             </div>
-
+            
             <div class="hot-packages">
                 <div class="title">
                     <div class="left">推荐课包
@@ -1264,7 +1263,7 @@
                                         <div class="discount">
                                             9<text class="fonts">折</text>
                                         </div>
-                                    </div>
+        </div>
 
                                     <div class="line3">
                                         
@@ -1284,10 +1283,10 @@
         </div>
 
     </div>
-</body>
-<script type="text/javascript">
-var id = "{{$id}}";
+    </body>
+    <script type="text/javascript">
+        var id = "{{$id}}";
 console.log("id=" + id)
-</script>
+    </script>
 
 </html>
