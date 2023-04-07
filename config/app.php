@@ -123,6 +123,14 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'tc_sms_app_id' => env("TC_SMS_APP_ID"),
+    'tc_secret_id'  => env("TC_SECRET_ID"),
+    'tc_secret_key' => env("TC_SECRET_KEY"),
+    'tc_cos_bucket' => env("TC_COS_BUCKET"),
+    'tc_cos_region' => env("TC_COS_REGION"),
+    'tc_cos_domain' => env("TC_COS_DOMAIN"),
+    'tc_mp_key'     => env("TC_MP_KEY"),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

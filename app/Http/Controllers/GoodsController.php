@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
 use App\Models\Goods;
+use App\Service\BannerService;
+use App\Service\BrandService;
 use App\Service\GoodsService;
+use App\Service\LessonCategoryService;
+use App\Service\PurchaseLogService;
 use Exception;
 use GeoIp2\Database\Reader;
 use Illuminate\Http\Request;
@@ -173,5 +177,53 @@ class GoodsController extends Controller
 
         $result = $this->goodsService->formatSingle($goods);
         return $result;
+    }
+
+    /**
+     * 获取所有的品牌数据
+     *
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getBrands(Request $request)
+    {
+        $sort = $request->input("sort","desc");
+        $type = $request->input("type");
+        $list = app(BrandService::class)->getAll($sort,$type);
+        return $list;
+    }
+
+        /**
+     * 获取所有的课程类型
+     *
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getCategory(Request $request)
+    {
+        $sort = $request->input("sort","desc");
+        $list = app(LessonCategoryService::class)->getAll($sort);
+        return $list;
+    }
+
+    public function bannerList(Request $request)
+    {
+        $list = app(BannerService::class)->allUp();
+        $domain = config("app.tc_cos_domain");
+        foreach ($list as $key => $item){
+            $list[$key] = app(BannerService::class)->format($item,$domain);
+        }
+
+        return $list;
+    }
+
+        /**
+     * 获取购买记录
+     *
+     * @return mixed
+     */
+    public function purchaseLog()
+    {
+        return app(PurchaseLogService::class)->getAll();
     }
 }

@@ -27,6 +27,15 @@ Route::group(['middleware' => 'json_response','prefix' => 'api'], function () {
     Route::get("/user","UserController@user");
     /** 语言 **/
     Route::get("/language","UserController@language");
+
+    /** 获取品牌数据 **/
+    Route::get("/brands","GoodsController@getBrands");
+    /** 获取课程类型数据 **/
+    Route::get("/lesson_category","GoodsController@getCategory");
+    /** banner **/
+    Route::get("/banners","GoodsController@bannerList");
+    /** 购买记录 **/
+    Route::get("/purchase_logs","GoodsController@purchaseLog");
 });
 
 Route::group([], function () use ($router) {

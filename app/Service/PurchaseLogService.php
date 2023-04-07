@@ -26,12 +26,6 @@ class PurchaseLogService
 
     public function getAll()
     {
-        $key = "purchase_logs";
-        $result = Redis::get($key);
-        if ($result){
-            return json_decode($result,true);
-        }
-
         $logs = PurchaseLogs::query()->get([
             PurchaseLogs::FIELD_NICKNAME,
             PurchaseLogs::FIELD_LESSON_CATEGORY,
@@ -45,7 +39,6 @@ class PurchaseLogService
             array_push($result,"用户{$log[PurchaseLogs::FIELD_NICKNAME]}，刚刚购买了【{$log[PurchaseLogs::FIELD_LESSON_CATEGORY]}】课包，支付订金{$log[PurchaseLogs::FIELD_AMOUNT]}元");
         }
 
-        Redis::setex($key,60*60*24,collect($result)->toJson());
         return $result;
     }
 

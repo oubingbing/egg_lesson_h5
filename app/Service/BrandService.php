@@ -48,23 +48,14 @@ class BrandService extends BaseServiceAbstract
 
     public function getAll($sort,$type)
     {
-        $key = self::CACHE_KEY."_".$type;
-        $result = Redis::get($key);
-        if ($result){
-            return json_decode($result,true);
-        }else{
-            $fields = [
-                Brand::FIELD_ID,
-                Brand::FIELD_NAME,
-                Brand::FIELD_ATTACHMENTS,
-                Brand::FIELD_DESCRIBE
-            ];
-            $result = $this->rep->get($sort,$type,$fields);
-            if ($result){
-                Redis::setex($key,self::CACHE_EXPIRE,json_encode($result));
-            }
-            return $result;
-        }
+        $fields = [
+            Brand::FIELD_ID,
+            Brand::FIELD_NAME,
+            Brand::FIELD_ATTACHMENTS,
+            Brand::FIELD_DESCRIBE
+        ];
+        $result = $this->rep->get($sort,$type,$fields);
+        return $result;
     }
 
     public function findById($id)
