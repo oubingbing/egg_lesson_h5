@@ -1,21 +1,21 @@
 function mHttp(method, url, params, callback) {
     var xhr = new XMLHttpRequest();
- 
+
     let params_txt = ``;
-    if(!!params){
-        for(let i in params){
-            params_txt+=`${i}=${params[i]}&`
+    if (!!params) {
+        for (let i in params) {
+            params_txt += `${i}=${params[i]}&`
         }
     }
-    if(params_txt.length>0){
-        params_txt = params_txt.substring(0,params_txt.length-1);
+    if (params_txt.length > 0) {
+        params_txt = params_txt.substring(0, params_txt.length - 1);
     }
     console.log(params_txt);
-   
+
 
     switch (method) {
         case "get":
-            url+=`?${params_txt}`;
+            url += `?${params_txt}`;
             params = null;
             break;
         case "post":
@@ -43,9 +43,11 @@ function mHttp(method, url, params, callback) {
 function Get(url, params, callback) {
     return mHttp('get', url, params, callback);
 }
+
 function Post(url, params, callback) {
     return mHttp('post', url, params, callback);
 }
+
 function Del(url, params, callback) {
     return mHttp('delete', url, params, callback);
 }
@@ -57,5 +59,6 @@ const mRoute = {
     banners: `${httpHeader}/banners`,
     purchase_logs: `${httpHeader}/purchase_logs`,
     lesson_category: `${httpHeader}/lesson_category`,
-    brands: `${httpHeader}/brands`
+    brands: `${httpHeader}/brands`,
+    goods_detail: id => `${httpHeader}/goods/${id}`,
 }
