@@ -50,7 +50,7 @@
         </div>
 
         <div class="purchase">
-            <div class="icon" style='background-image: url("{{asset(' ../image/shouye_laba_icon.png')}}");
+            <div class="icon" style='background-image: url("{{asset('image/shouye_laba_icon.png')}}");
                 background-position: center center; background-size: cover;'>
             </div>
             <div class="names-box">
@@ -102,23 +102,19 @@
 
     <div class="tabbar">
         <div class="tabbar-item" id="tabbar1">
-            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('
-                ../image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
             <div class="tabbar-item-name">首页</div>
         </div>
         <div class="tabbar-item" id="tabbar2">
-            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('
-                ../image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">发布</div>
         </div>
         <div class="tabbar-item" id="tabbar3">
-            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('
-                ../image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">消息</div>
         </div>
         <div class="tabbar-item" id="tabbar4">
-            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('
-                ../image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">我的</div>
         </div>
     </div>
