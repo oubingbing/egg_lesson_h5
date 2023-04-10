@@ -17,69 +17,81 @@ let state = {
     }
 }
 
-Get(mRoute.lesson_category, null, (res) => {
-    if (res.data) {
-        state.lesson_category = res.data
-    } else {
-        console.log("lesson_category get error");
-    }
-    console.log('state.lesson_category', state.lesson_category);
-
-    document.getElementById("lesson_categorys").innerHTML = '';
-    for (let i in state.lesson_category) {
-        let lesson_category = document.createElement("div");
-        lesson_category.innerText = state.lesson_category[i];
-        lesson_category.onclick = goTo.bind(null, 'search', 'data', state.lesson_category[i].name)
-        lesson_category.className = "item";
-        lesson_category.innerHTML = `
-         <div class="item-icon-box">
-             <div class="item-icon"
-                 style='background-image: url("${state.lesson_category[i].attachments[0]}"); background-position: 0% 0%; background-size: 100% 100%;'>
+function getLessonCategories(){
+    Get(mRoute.lesson_category, null, (res) => {
+        if (res.data) {
+            state.lesson_category = res.data
+        } else {
+            console.log("lesson_category get error");
+        }
+        console.log('state.lesson_category', state.lesson_category);
+    
+        document.getElementById("lesson_categorys").innerHTML = '';
+        for (let i in state.lesson_category) {
+            let lesson_category = document.createElement("div");
+            lesson_category.innerText = state.lesson_category[i];
+            lesson_category.onclick = goTo.bind(null, 'search', 'data', state.lesson_category[i].name)
+            lesson_category.className = "item";
+            lesson_category.innerHTML = `
+             <div class="item-icon-box">
+                 <div class="item-icon"
+                     style='background-image: url("${state.lesson_category[i].attachments[0]}"); background-position: 0% 0%; background-size: 100% 100%;'>
+                 </div>
              </div>
-         </div>
-         <div class="item-name">${state.lesson_category[i].name}</div>`;
-        document.getElementById("lesson_categorys").appendChild(lesson_category);
-    }
+             <div class="item-name">${state.lesson_category[i].name}</div>`;
+            document.getElementById("lesson_categorys").appendChild(lesson_category);
+        }
+    
+    })
+}
+getLessonCategories();
 
-})
-Get(mRoute.purchase_logs, null, (res) => {
-    if (res.data) {
-        state.purchase_logs = res.data
-    } else {
-        console.log("purchase_logs get error");
-    }
-    console.log('state.purchase_logs', state.purchase_logs);
+function getPurChaseLogs(){
+    Get(mRoute.purchase_logs, null, (res) => {
+        if (res.data) {
+            state.purchase_logs = res.data
+        } else {
+            console.log("purchase_logs get error");
+        }
+        console.log('state.purchase_logs', state.purchase_logs);
+    
+        document.getElementById("purchase_logs").innerHTML = '';
+        for (let i in state.purchase_logs) {
+            let purchase_log = document.createElement("div");
+            purchase_log.innerText = state.purchase_logs[i];
+            purchase_log.className = "name";
+            document.getElementById("purchase_logs").appendChild(purchase_log);
+        }
+    
+    })
+}
+getPurChaseLogs();
 
-    document.getElementById("purchase_logs").innerHTML = '';
-    for (let i in state.purchase_logs) {
-        let purchase_log = document.createElement("div");
-        purchase_log.innerText = state.purchase_logs[i];
-        purchase_log.className = "name";
-        document.getElementById("purchase_logs").appendChild(purchase_log);
-    }
+function getBanners(){
+    Get(mRoute.banners, null, (res) => {
+        if (res.data) {
+            state.banners = res.data
+        } else {
+            console.log("banners get error");
+        }
+        console.log('state.banners', state.banners);
+    
+        document.getElementById("banners").innerHTML = '';
+        for (let i in state.banners) {
+            let banner = document.createElement("div");
+            banner.className = `banner-image swiper-slide`;
+            banner.innerHTML = `<img src="${state.banners[i].attachments[0]}"/>`;
+            document.getElementById("banners").appendChild(banner);
+    
+            var swiper = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: true
+            });
+        }
+    })
+}
+getBanners();
 
-})
-Get(mRoute.banners, null, (res) => {
-    if (res.data) {
-        state.banners = res.data
-    } else {
-        console.log("banners get error");
-    }
-    console.log('state.banners', state.banners);
-
-    document.getElementById("banners").innerHTML = '';
-    for (let i in state.banners) {
-        let banner = document.createElement("div");
-        banner.className = `banner-image swiper-slide`;
-        banner.innerHTML = `<img src="${state.banners[i].attachments[0]}"/>`;
-        document.getElementById("banners").appendChild(banner);
-
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: true
-        });
-    }
-})
 
 function getBrandList(){
     return;//暂不获取品牌列表信息
@@ -115,9 +127,14 @@ function drawGood(goods_id) {
     let right = document.getElementById("goods_right");
     if (left.offsetHeight >= right.offsetHeight) {
         right.appendChild(state.goods_divs[goods_id]);
+       
     } else {
         left.appendChild(state.goods_divs[goods_id]);
     }
+    setTimeout(()=>{
+        state.goods_divs[goods_id].className="item show";    
+    },100);
+   
 }
 let isEnd = false;
 function getGoods(params = state.package_params) {
@@ -145,7 +162,7 @@ function getGoods(params = state.package_params) {
                 let item = res.data.page_data[i];
 
                 let item_div = document.createElement('div');
-                item_div.className = 'item uncount';
+                item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"

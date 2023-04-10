@@ -329,6 +329,11 @@ input {
     display: inline-block;
     vertical-align: top;
     word-break: break-all;
+    opacity: 0;
+    transition: 0.5s;
+}
+.hot-packages .item.show{
+    opacity: 1;
 }
 
 .hot-packages .item .tag {
