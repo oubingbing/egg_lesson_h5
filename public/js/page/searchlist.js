@@ -104,6 +104,24 @@ var state = {
     },
 };
 
+//获取url传参
+let url_params_text = window.location.href.split("?")[1];
+url_params_text = url_params_text.split("&");
+let url_params ={};
+for(let i in url_params_text){
+    let item = url_params_text[i];
+    url_params[item.split('=')[0]] = item.split('=')[1]; 
+}
+console.log(url_params);
+if(!!url_params.category_id){
+    state.goods_params.lesson_category_ids = url_params.category_id;
+}
+
+if(!!url_params.data){
+    state.goods_params.brands = url_params.data;
+    document.getElementById("searchInput").value = url_params.data;
+}
+
 let isEnd = false;
 function getGoods(params = state.goods_params) {
     isLoading = true;
@@ -164,6 +182,8 @@ function drawLessonCategories() {
         }
         console.log('state.lesson_category', state.lesson_category);
 
+
+
         for (let i in state.lesson_category) {
             let item = state.lesson_category[i];
             let item_div = document.createElement('div');
@@ -173,6 +193,11 @@ function drawLessonCategories() {
             item_div.onclick = updateParams.bind(null, 'lesson_category_ids', item.id);
             document.getElementById("lessonCategories").appendChild(item_div);
         }
+
+     //获取之后检测是否有已选中的项   
+    if(!!state.goods_params.lesson_category_ids){
+        updateUI('lessonCategories', state.goods_params.lesson_category_ids);
+    }
     });
 
 }
@@ -194,6 +219,10 @@ $(document).ready(() => {
     drawLessonCategories();//构建课程类别列表
     drawSearchNav();//构建筛选菜单总列表
 
+    // container.on('submit', '#searchInput', function(event){
+    //     event.preventDefault();
+    // })
+
     scrollToBottom(null, 'goods', () => {
         if (isEnd) {
             return;
@@ -208,8 +237,15 @@ $(document).ready(() => {
 
 
 
-function getSearchInput(e) {
-    console.log(e);
+function getSearchInput() {
+    state.goods_params.brands = document.getElementById("searchInput").value;
+    state.goods_params.page_number = 1;
+    document.getElementById("goods").innerHTML = '';
+    console.log(state.goods_params);
+    isEnd = false;
+    showLoading();
+    getGoods();
+    return false;
 }
 
 function handleValueChange(t, v) {
@@ -227,7 +263,7 @@ function quickSearch(e) {
     console.log("e", e);
 }
 function showGoodDetail(goods_id) {
-    goTo()
+    goTo('detail','id',goods_id);
 }
 
 function resetParams() {
@@ -249,7 +285,7 @@ function submit() {
 }
 
 function updateParams(t, e, e2) {
-
+console.log(t,e,e2)
     switch (t) {
         case 'min_price':
         case 'max_price':
@@ -281,10 +317,12 @@ function updateParams(t, e, e2) {
 }
 
 function updateUI(t, e) {
+    console.log('tag 305',t,e)
     switch (t) {
         case "lessonCategories":
             let list = document.getElementById(t).children;
             for (let i in list) {
+                console.log(list[i].id,`lessonCategory${e}`,list[i].id===`lessonCategory${e}`)
                 if (list[i].id === `lessonCategory${e}`) {
                     list[i].className = `item hover`;
                 } else {

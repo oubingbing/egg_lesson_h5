@@ -27,9 +27,9 @@
             <div class="search-nav-box">
                 <div class="search-nav">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png" class="search-icon"/>
-                    <input type="text" class="search-input" onfocus="handleValueChange('show_search_menu',true)" onchange="getSearchInput()" placeholder="搜索课程，品牌"
-                        v-model="params.brands" confirm-type="search" type="text"/>
-
+                    <form action="" class="search-input-form" onsubmit="return getSearchInput()"> 
+                    <input type="text" class="search-input" id="searchInput" placeholder="搜索课程，品牌" type="search"/>
+                    </form>
                 </div>
             </div>
     <!-- show_search_menu -->
@@ -133,9 +133,6 @@
     <script type="text/javascript">
         var data = "{{$data}}";
         var categoryId = "{{$category_id}}";
-        console.log(data,categoryId)
-
-
 
         </script>
 </html>
