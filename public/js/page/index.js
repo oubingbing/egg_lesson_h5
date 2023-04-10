@@ -57,7 +57,7 @@ function getLessonCategories() {
         for (let i in state.lesson_category) {
             let lesson_category = document.createElement("div");
             lesson_category.innerText = state.lesson_category[i];
-            lesson_category.onclick = goTo.bind(null, 'search', 'data', state.lesson_category[i].name)
+            lesson_category.onclick = goTo.bind(null, 'search', 'category_id', state.lesson_category[i].id)
             lesson_category.className = "item";
             lesson_category.innerHTML = `
              <div class="item-icon-box">
@@ -201,6 +201,7 @@ function getGoods(params = state.goods_params) {
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
+                item_div.onclick=showGoodDetail.bind(null,item.goods_id);
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
                             src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">

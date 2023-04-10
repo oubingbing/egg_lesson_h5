@@ -78,3 +78,7 @@ function toMoney(num) {
         return num = null;
     }
 }
+
+function showGoodDetail(goods_id) {
+    goTo('detail','id',goods_id);
+}

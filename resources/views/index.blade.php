@@ -76,7 +76,7 @@
 
         <div class="hot-goods">
             <div class="title">
-                <div class="left">推荐课包</div>
+                <div class="left">热门推荐</div>
             </div>
             <div class="select-nav">
                 <div class="select-nav-items">
