@@ -62,6 +62,7 @@ class GoodsController extends Controller
     public function searchView(Request $request)
     {
         $data = $request->input("data");
+        $categoryId = $request->input("category_id");
 
         $ip = getIP();
         session(['language' => "CN"]);
@@ -75,7 +76,7 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('searchlist',["data"=>$data]);
+        return view('searchlist',["data"=>$data,"category_id"=>$categoryId]);
     }
 
     public function page(Request $request)

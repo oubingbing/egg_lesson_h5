@@ -16,7 +16,7 @@
         <script src="{{asset('js/tool/loading.js')}}"></script>
         <script src="{{asset('js/tool/http.js')}}"></script>
         <script src="{{asset('js/page/searchlist.js')}}"></script>
-    
+
         <style>
 
 
@@ -29,7 +29,7 @@
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png" class="search-icon"/>
                     <input type="text" class="search-input" onfocus="handleValueChange('show_search_menu',true)" onchange="getSearchInput()" placeholder="搜索课程，品牌"
                         v-model="params.brands" confirm-type="search" type="text"/>
-    
+
                 </div>
             </div>
     <!-- show_search_menu -->
@@ -39,7 +39,7 @@
                         <img class="btn-clean" onclick="cleanHistory()"
                             src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/laji_icon%402x.png"/>
                     </div>
-    
+
                     <div class="item" onclick="quickSearch('item')">
                         item
                     </div>
@@ -57,11 +57,11 @@
                     </div>
                 </div> -->
                 <!-- <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div> -->
-                <div class="select-nav" id="searchNav">                    
+                <div class="select-nav" id="searchNav">
                 </div>
-    
+
                 <div  class="goods" id="goods">
-                    
+
                 </div>
                 <div class="modal-select-list">
                     <div class="cover" onclick="handleValueChange('show_select_modal',-1)"></div>
@@ -73,17 +73,17 @@
                             <input oninput="updateParams('max_price')" id="max_price" type="text" class="input-max" placeholder-class="input-max-placeholder"
                                placeholder="最高价格" />
                         </div>
-    
+
                         <div class="prices" id="prices">
-                           
+
                         </div>
-    
+
                         <div class="btns">
                             <div class="btn-cancel" onclick="resetParams()">重&nbsp;置</div>
                             <div class="btn-ok" onclick="submit()">确&nbsp;认</div>
                         </div>
                     </div>
-    
+
                     <div class="modal-select-list-3-content">
                         <div class="line1">
                             <div class="left">
@@ -101,22 +101,22 @@
                                 key="item.value" onclick="updateParams('now_location','item.id')">item.name</div>
                         </div>
                     </div>
-    
+
                     <div class="modal-select-list-4-content">
                         <div class="select-list">
-    
-    
+
+
                             <div class="sub-list">
                                 <div class="name">课程类型</div>
                                 <div class="items" id="lessonCategories">
                                 </div>
                             </div>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
                         </div>
                         <div class="btns">
                             <div class="btn-cancel" onclick="resetParams()">重&nbsp;置</div>
@@ -124,17 +124,18 @@
                         </div>
                     </div>
                 </div>
-    
-    
-    
-    
+
+
+
+
         </div>
     </body>
     <script type="text/javascript">
         var data = "{{$data}}";
-        console.log("data=" + data)
+        var categoryId = "{{$category_id}}";
+        console.log(data,categoryId)
 
 
-        
+
         </script>
 </html>
