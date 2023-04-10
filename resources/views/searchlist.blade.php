@@ -57,11 +57,7 @@
                     </div>
                 </div> -->
                 <!-- <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div> -->
-                <div class="select-nav" id="searchNav">
-                    <div onclick="doSelectSort(1)" class="item hover color-blue">
-                        附近
-                    </div>
-                    
+                <div class="select-nav" id="searchNav">                    
                 </div>
     
                 <div  class="packages" id="packages">
@@ -71,16 +67,15 @@
                     <div class="cover" onclick="handleValueChange('show_select_modal',-1)"></div>
                     <div class="modal-select-list-2-content">
                         <div class="input-box">
-                            <input type="text" class="input-min" placeholder-class="input-min-placeholder"
+                            <input oninput="updateParams('min_price')" id="min_price" type="text" class="input-min" placeholder-class="input-min-placeholder"
                                placeholder="最低价格" />
                             <div class="to"></div>
-                            <input type="text" class="input-max" placeholder-class="input-max-placeholder"
+                            <input oninput="updateParams('max_price')" id="max_price" type="text" class="input-max" placeholder-class="input-max-placeholder"
                                placeholder="最高价格" />
                         </div>
     
-                        <div class="prices">
-                            <div class="item" 
-                                onclick="updateParams('prices','item.min_price','item.max_price')">item.name</div>
+                        <div class="prices" id="prices">
+                           
                         </div>
     
                         <div class="btns">
@@ -113,9 +108,7 @@
     
                             <div class="sub-list">
                                 <div class="name">课程类型</div>
-                                <div class="items">
-                                        <div class="item hover">类型1</div>
-                                        <div class="item">类型2</div>
+                                <div class="items" id="lessonCategories">
                                 </div>
                             </div>
     

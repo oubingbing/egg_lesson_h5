@@ -309,8 +309,12 @@
 	.modal-select-list-2-content .prices {
 		margin-top: 5.33vw;
 	}
-
+	.modal-select-list-2-content .prices .item:hover{
+		background: linear-gradient(-45deg, #FF7070, #FF5252);
+		color:#f5f7fa;
+	}
 	.modal-select-list-2-content .prices .item {
+		transition: 0.3s;
 		width: 30.67vw;
 		height: 8.53vw;
 		border-radius: 1.07vw;
