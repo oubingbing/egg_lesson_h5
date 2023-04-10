@@ -262,9 +262,6 @@ function handleValueChange(t, v) {
 function quickSearch(e) {
     console.log("e", e);
 }
-function showGoodDetail(goods_id) {
-    goTo('detail','id',goods_id);
-}
 
 function resetParams() {
     delete state.goods_params.min_price;

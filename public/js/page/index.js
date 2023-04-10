@@ -201,7 +201,7 @@ function getGoods(params = state.goods_params) {
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
-                item_div.onclick=showGoodDetail(item.goods_id);
+                item_div.onclick=showGoodDetail.bind(null,item.goods_id);
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
                             src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
