@@ -42,8 +42,10 @@ class GoodsController extends Controller
         return view('index',["goods"=>"iphone 6"]);
     }
 
-    public function detailView($id)
+    public function detailView(Request $request)
     {
+        $id = $request->input("id");
+
         $ip = getIP();
         session(['language' => "CN"]);
         $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
