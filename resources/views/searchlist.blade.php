@@ -24,6 +24,7 @@
     </head>
     <body>
         <div class="container">
+        <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')" onclick="goTo('index',null,null)"></div>
             <div class="search-nav-box">
                 <div class="search-nav">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png" class="search-icon"/>

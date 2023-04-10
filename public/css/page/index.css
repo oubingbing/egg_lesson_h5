@@ -6,11 +6,9 @@ input {
     text-decoration: inherit;
 }
 
-
-
 .page-index {
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
@@ -44,7 +42,6 @@ input {
     font-size: 0.8125rem;
     padding-left: 0.5rem;
     position: relative;
-
     display: block;
     height: 100%;
     background: none;
@@ -59,8 +56,8 @@ input {
     text-shadow: inherit;
 }
 
-.search-bar .search-input::placeholder{
-    font-size:0.8125rem;
+.search-bar .search-input::placeholder {
+    font-size: 0.8125rem;
 }
 
 .search-bar .search-location {
@@ -84,10 +81,9 @@ input {
 
 .banner-swiper-box {
     background-color: #fff;
-    padding-top:0.75rem;
-    width:87.5vw;
-    margin:0 auto;
-
+    padding-top: 0.75rem;
+    width: 87.5vw;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -100,8 +96,9 @@ input {
     width: 100%;
     height: 11.5625rem;
 }
-.banner-image img{
-    width:100%;
+
+.banner-image img {
+    width: 100%;
 }
 
 .type-list {
@@ -110,7 +107,7 @@ input {
     padding: 1.25rem 0;
     overflow-x: scroll;
     white-space: nowrap;
-    width:100vw;
+    width: 100vw;
 }
 
 .type-list .item {
@@ -183,7 +180,6 @@ input {
     0% {
         transform: translateY(0);
     }
-
     100% {
         transform: translateY(-720px);
     }
@@ -194,8 +190,6 @@ input {
     background-color: #FFF;
     border-bottom: 10px solid #F5F7FA;
 }
-
-
 
 .new-things .items {
     margin-top: 4vw;
@@ -210,10 +204,8 @@ input {
     border-radius: 2.13vw;
     margin-right: 4vw;
     overflow: hidden;
-
     margin-bottom: 4vw;
     position: relative;
-
 }
 
 .new-things .items .item .logo-left-top {
@@ -245,7 +237,6 @@ input {
 }
 
 .new-things .items .item .t3 {
-
     width: 77vw;
     margin-left: 2.67vw;
     font-size: 3.46vw;
@@ -281,8 +272,6 @@ input {
     white-space: nowrap;
 }
 
-
-
 .new-things .items .item .logo-left-top.blue {
     background-color: #5197FF;
 }
@@ -313,7 +302,6 @@ input {
     margin-left: -6.4vw;
     top: -6.4vw;
     z-index: 1;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,7 +325,6 @@ input {
     font-weight: 100;
     color: #333333;
     line-height: 4.8vw;
-
 }
 
 .brands .items .item .desc {
@@ -348,8 +335,6 @@ input {
     font-weight: 400;
     color: #808080;
     line-height: 4.8vw;
-
-
     word-break: break-all;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -397,7 +382,6 @@ input {
     transform: scaleY(0.8) scaleX(1.6);
     margin-left: 1.87vw;
     line-height: 1;
-
     display: inline-block;
     vertical-align: middle;
 }

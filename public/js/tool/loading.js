@@ -1,17 +1,17 @@
-
 var loading = null;
 var isLoading = false;
-$(document).ready(()=>{
+$(document).ready(() => {
     createLoading();
 })
-function createLoading(){
+
+function createLoading() {
     loading = document.createElement('div');
     loading.className = 'loading-box hide';
     let loadingCover = document.createElement('div');
     loadingCover.className = "cover";
-    let loadingImg=[];
+    let loadingImg = [];
     loading.appendChild(loadingCover);
-    for(let i=0;i<5;i++){
+    for (let i = 0; i < 5; i++) {
         loadingImg[i] = document.createElement('div');
         loadingImg[i].className = `loading-img ${i>0?'lm'+i:''}`;
         loading.appendChild(loadingImg[i]);
@@ -19,40 +19,47 @@ function createLoading(){
     document.body.appendChild(loading);
 
 }
-function showLoading(time){
+
+function showLoading(time) {
     isLoading = true;
-    if(!loading){
+    if (!loading) {
         createLoading();
-    }else{
+    } else {
         loading.className = 'loading-box show';
     }
 }
 
-function hideLoading(){
+function hideLoading() {
     isLoading = false;
-    if(!!loading){
+    if (!!loading) {
         loading.className = 'loading-box hide';
     }
 }
 
-function goTo(address,t,v){
-    window.location.href=`${window.location.protocol}//${window.location.hostname}/${address}?${t}=${v}`;
+function goTo(address, t, v) {
+    let params = '';
+    if (!!t && !!v) {
+        params = `?${t}=${v}`;
+    }
+    let href = `${window.location.protocol}//${window.location.hostname}${address=='index'?'':'/'+address}${params}`;
+    console.log(href);
+    window.location.href = href;
 }
 
 
-function scrollToBottom(div_class,div_id,callback){
+function scrollToBottom(div_class, div_id, callback) {
     let div = document.getElementById(div_id);
-    if(!div){
+    if (!div) {
         div = document.getElementsByClassName(div_class)[0];
     }
-    div.addEventListener('scroll',()=>{
-        let scrollHeight =div.scrollHeight;
+    div.addEventListener('scroll', () => {
+        let scrollHeight = div.scrollHeight;
         let windowTop = document.body.clientHeight;
         let scrollTop = div.scrollTop;
-        if(windowTop+scrollTop+100>scrollHeight && !isLoading ){
-          callback();
+        if (windowTop + scrollTop + 100 > scrollHeight && !isLoading) {
+            callback();
         }
-    },true);
+    }, true);
 }
 
 function toMoney(num) {
@@ -71,7 +78,7 @@ function toMoney(num) {
             num = '￥' + num + '.00';
         } else {
             console.log(num.split('.')[1].length)
-            // num = num.split('.')[1].length < 2 ? '￥' + num + '0' : '￥' + num;
+                // num = num.split('.')[1].length < 2 ? '￥' + num + '0' : '￥' + num;
         }
         return num; // 返回的是字符串23,245.12保留2位小数
     } else {
@@ -80,27 +87,27 @@ function toMoney(num) {
 }
 
 function showGoodDetail(goods_id) {
-    goTo('detail','id',goods_id);
+    goTo('detail', 'id', goods_id);
 }
 
 
-function letsScrollTo(name,father='window'){
+function letsScrollTo(name, father = 'window') {
     console.log(name);
     let item;
-    if(name.indexOf(".")>=0){
+    if (name.indexOf(".") >= 0) {
         item = document.getElementsByClassName(name.split(".")[1])[0];
-    }else{
+    } else {
         item = document.getElementById(name.split("#")[1]);
     }
     console.log(item);
-    console.log("scroll",item.offsetTop);
+    console.log("scroll", item.offsetTop);
     let father_div;
-    if(father=="window"){
-        window.scroll({top:item.offsetTop,left:0,behavior:'smooth'});
-    }else if(father.indexOf(".")>=0){
+    if (father == "window") {
+        window.scroll({ top: item.offsetTop, left: 0, behavior: 'smooth' });
+    } else if (father.indexOf(".") >= 0) {
         father_div = document.getElementsByClassName(father.split(".")[1])[0];
-    }else{
+    } else {
         father_div = document.getElementById(father.split("#")[1]);
     }
-    father_div.scroll({top:item.offsetTop-49,left:0,behavior:'smooth'});
+    father_div.scroll({ top: item.offsetTop - 49, left: 0, behavior: 'smooth' });
 }

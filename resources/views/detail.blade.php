@@ -29,6 +29,7 @@
 <body>
 
     <div class="product-detail">
+    <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')" onclick="goTo('search',null,null)"></div>
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
 
