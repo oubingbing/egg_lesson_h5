@@ -81,30 +81,34 @@ Get(mRoute.banners, null, (res) => {
     }
 })
 
+function getBrandList(){
+    return;//暂不获取品牌列表信息
+    Get(mRoute.brands, null, (res) => {
+        if (res.data) {
+            state.brands = res.data
+        } else {
+            console.log("brands get error");
+        }
+        console.log('state.brands', state.brands);
+    
+        document.getElementById("brands").innerHTML = '';
+    
+    
+        for (let i in state.brands) {
+            let brand = document.createElement("div");
+            brand.className = `item`;
+            brand.onclick = goTo.bind(null, 'search', 'data', state.brands[i].name)
+            brand.innerHTML = `<div class="logo" style='background-image:url("${state.brands[i].attachments[0]}");'>
+                 </div>`;
+            brand.innerHTML += `<div class="name">${state.brands[i].name}</div>`;
+            brand.innerHTML += `<div class="desc"></div>`;
+            document.getElementById("brands").appendChild(brand);
+    
+        }
+    })
+}
+getBrandList();
 
-Get(mRoute.brands, null, (res) => {
-    if (res.data) {
-        state.brands = res.data
-    } else {
-        console.log("brands get error");
-    }
-    console.log('state.brands', state.brands);
-
-    document.getElementById("brands").innerHTML = '';
-
-
-    for (let i in state.brands) {
-        let brand = document.createElement("div");
-        brand.className = `item`;
-        brand.onclick = goTo.bind(null, 'search', 'data', state.brands[i].name)
-        brand.innerHTML = `<div class="logo" style='background-image:url("${state.brands[i].attachments[0]}");'>
-             </div>`;
-        brand.innerHTML += `<div class="name">${state.brands[i].name}</div>`;
-        brand.innerHTML += `<div class="desc"></div>`;
-        document.getElementById("brands").appendChild(brand);
-
-    }
-})
 
 function drawGood(goods_id) {
     let left = document.getElementById("goods_left");
@@ -137,8 +141,6 @@ function getGoods(params = state.package_params) {
 
             state.packages = state.packages.concat(res.data.page_data);
 
-            let left_height = document.getElementById("goods_left").offsetHeight;
-            let right_height = document.getElementById("goods_right").offsetHeight;
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
 

@@ -62,7 +62,7 @@
 
 
 
-        <div class="brands">
+        <!-- <div class="brands">
             <div class="title">
                 <div class="left">品牌专区
                 </div>
@@ -72,7 +72,7 @@
             <div class="items" id="brands">
 
             </div>
-        </div>
+        </div> -->
 
         <div class="hot-packages">
             <div class="title">
