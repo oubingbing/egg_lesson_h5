@@ -16,8 +16,35 @@ let state = {
 
     }
 }
+function clickSelectNavItem(item){
+    console.log(item);
+    let list = document.getElementsByClassName("select-nav-item");
+    for(let i in list){
+        if(list[i].id==`selectNavItem${item.id}`){
+            if(list[i].className.indexOf("hover")>=0){
+                list[i].className = `select-nav-item`;
+                delete state.package_params.lesson_category_ids;
+            }else{
+                
+                state.package_params.lesson_category_ids = item.id;
+                list[i].className = `select-nav-item hover`;
+            }
+            document.getElementById("goods_left").innerHTML = '';
+            document.getElementById("goods_right").innerHTML = '';
+            isEnd = false;
+            state.package_params.page_number = 1;
+            console.log(state.package_params);
+            showLoading();
+            getGoods();
+            
+        }else{
+            list[i].className = `select-nav-item`;
+        }
+    }
 
-function getLessonCategories(){
+}
+
+function getLessonCategories() {
     Get(mRoute.lesson_category, null, (res) => {
         if (res.data) {
             state.lesson_category = res.data
@@ -25,7 +52,7 @@ function getLessonCategories(){
             console.log("lesson_category get error");
         }
         console.log('state.lesson_category', state.lesson_category);
-    
+
         document.getElementById("lesson_categorys").innerHTML = '';
         for (let i in state.lesson_category) {
             let lesson_category = document.createElement("div");
@@ -40,13 +67,22 @@ function getLessonCategories(){
              </div>
              <div class="item-name">${state.lesson_category[i].name}</div>`;
             document.getElementById("lesson_categorys").appendChild(lesson_category);
+
+            let select_nav_item = document.createElement("div");
+            select_nav_item.innerHTML = state.lesson_category[i].name;
+            select_nav_item.className = "select-nav-item";
+            select_nav_item.id = `selectNavItem${state.lesson_category[i].id}`;
+            select_nav_item.onclick=clickSelectNavItem.bind(this,state.lesson_category[i]);
+            // select_nav_item.id = `selectNavItem_${test_fenlei[i].id}`;
+            document.getElementsByClassName("select-nav-items")[0].appendChild(select_nav_item);
+
         }
-    
+
     })
 }
 getLessonCategories();
 
-function getPurChaseLogs(){
+function getPurChaseLogs() {
     Get(mRoute.purchase_logs, null, (res) => {
         if (res.data) {
             state.purchase_logs = res.data
@@ -54,7 +90,7 @@ function getPurChaseLogs(){
             console.log("purchase_logs get error");
         }
         console.log('state.purchase_logs', state.purchase_logs);
-    
+
         document.getElementById("purchase_logs").innerHTML = '';
         for (let i in state.purchase_logs) {
             let purchase_log = document.createElement("div");
@@ -62,12 +98,12 @@ function getPurChaseLogs(){
             purchase_log.className = "name";
             document.getElementById("purchase_logs").appendChild(purchase_log);
         }
-    
+
     })
 }
 getPurChaseLogs();
 
-function getBanners(){
+function getBanners() {
     Get(mRoute.banners, null, (res) => {
         if (res.data) {
             state.banners = res.data
@@ -75,25 +111,26 @@ function getBanners(){
             console.log("banners get error");
         }
         console.log('state.banners', state.banners);
-    
+
         document.getElementById("banners").innerHTML = '';
         for (let i in state.banners) {
             let banner = document.createElement("div");
             banner.className = `banner-image swiper-slide`;
             banner.innerHTML = `<img src="${state.banners[i].attachments[0]}"/>`;
             document.getElementById("banners").appendChild(banner);
-    
-            var swiper = new Swiper(".mySwiper", {
-                loop: true,
-                autoplay: true
-            });
+
+
         }
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: true
+        });
     })
 }
 getBanners();
 
 
-function getBrandList(){
+function getBrandList() {
     return;//暂不获取品牌列表信息
     Get(mRoute.brands, null, (res) => {
         if (res.data) {
@@ -102,10 +139,10 @@ function getBrandList(){
             console.log("brands get error");
         }
         console.log('state.brands', state.brands);
-    
+
         document.getElementById("brands").innerHTML = '';
-    
-    
+
+
         for (let i in state.brands) {
             let brand = document.createElement("div");
             brand.className = `item`;
@@ -115,7 +152,7 @@ function getBrandList(){
             brand.innerHTML += `<div class="name">${state.brands[i].name}</div>`;
             brand.innerHTML += `<div class="desc"></div>`;
             document.getElementById("brands").appendChild(brand);
-    
+
         }
     })
 }
@@ -127,27 +164,27 @@ function drawGood(goods_id) {
     let right = document.getElementById("goods_right");
     if (left.offsetHeight >= right.offsetHeight) {
         right.appendChild(state.goods_divs[goods_id]);
-       
+
     } else {
         left.appendChild(state.goods_divs[goods_id]);
     }
-    setTimeout(()=>{
-        state.goods_divs[goods_id].className="item show";    
-    },100);
-   
+    setTimeout(() => {
+        state.goods_divs[goods_id].className = "item show";
+    }, 100);
+
 }
 let isEnd = false;
 function getGoods(params = state.package_params) {
-    isLoading=true;
-    if(isEnd){
+    isLoading = true;
+    if (isEnd) {
         hideLoading();
         return;
     }
     Get(mRoute.goods_page, params, res => {
         if (res.data) {
-            isLoading=false;
+            isLoading = false;
             hideLoading();
-            if(!res.data.page_data.length){
+            if (!res.data.page_data.length) {
                 isEnd = true;
             }
             for (let i in res.data.page_data) {
@@ -166,7 +203,7 @@ function getGoods(params = state.package_params) {
                 item_div.id = `goods_id_${item.goods_id}`;
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
-                            src="${item.transfer_info.attachments[0]}">
+                            src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
                         </div>
                         <div class="position-box">
                             <div class="icon"
@@ -215,18 +252,7 @@ $(document).ready(() => {
     getGoods();
 
 
-    for (let i in test_fenlei) {
-        console.log(i, i == 0);
-        let select_nav_item = document.createElement("div");
-        select_nav_item.innerHTML = test_fenlei[i].name;
-        select_nav_item.className = "select-nav-item";
-        select_nav_item.id = `selectNavItem_${test_fenlei[i].id}`;
-        if (i == 0) {
-            select_nav_item.className = "select-nav-item hover";
 
-        }
-        $(".select-nav-items").append(select_nav_item);
-    }
 
     $("#searchInput").keyup((e) => {
         if (e.keyCode == "13") {

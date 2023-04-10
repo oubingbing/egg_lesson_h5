@@ -14,7 +14,8 @@
         <!-- Styles -->
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/tool/loading.js')}}"></script>
-        <script src="{{asset('js/page/searchlist.js?searchkey=')}}"></script>
+        <script src="{{asset('js/tool/http.js')}}"></script>
+        <script src="{{asset('js/page/searchlist.js')}}"></script>
     
         <style>
 
@@ -57,7 +58,7 @@
                 </div> -->
                 <!-- <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div> -->
                 <div class="select-nav" id="searchNav">
-                    <div onclick="doSelectSort(4)" class="item hover color-blue">
+                    <div onclick="doSelectSort(1)" class="item hover color-blue">
                         附近
                     </div>
                     
