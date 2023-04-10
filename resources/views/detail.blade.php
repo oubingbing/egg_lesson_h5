@@ -294,7 +294,7 @@
                 </div>
             </div>
             
-            <div class="hot-packages">
+            <div class="hot-goods">
                 <div class="title">
                     <div class="left">推荐课包
                     </div>
@@ -349,7 +349,7 @@
                             <div class="item">
                                 <img src="" class="thumbnail" />
                                 <div class="position-box">
-                                    <img src="../../static/image/dingwei_icon.png" class="icon">
+                                    <img src="{{asset('image/dingwei_icon.png')}}" class="icon">
                                     </image>
                                     <div class="address">地址</div>
                                     <div class="distance">距离</div>
