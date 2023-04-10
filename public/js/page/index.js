@@ -7,8 +7,8 @@ let state = {
     purchase_logs: [],
     lesson_category: [],
     banners: [],
-    packages: [],
-    package_params: {
+    goods: [],
+    goods_params: {
         page_size: 4,
         page_number: 1,
     },
@@ -23,17 +23,17 @@ function clickSelectNavItem(item){
         if(list[i].id==`selectNavItem${item.id}`){
             if(list[i].className.indexOf("hover")>=0){
                 list[i].className = `select-nav-item`;
-                delete state.package_params.lesson_category_ids;
+                delete state.goods_params.lesson_category_ids;
             }else{
                 
-                state.package_params.lesson_category_ids = item.id;
+                state.goods_params.lesson_category_ids = item.id;
                 list[i].className = `select-nav-item hover`;
             }
             document.getElementById("goods_left").innerHTML = '';
             document.getElementById("goods_right").innerHTML = '';
             isEnd = false;
-            state.package_params.page_number = 1;
-            console.log(state.package_params);
+            state.goods_params.page_number = 1;
+            console.log(state.goods_params);
             showLoading();
             getGoods();
             
@@ -174,7 +174,7 @@ function drawGood(goods_id) {
 
 }
 let isEnd = false;
-function getGoods(params = state.package_params) {
+function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {
         hideLoading();
@@ -193,7 +193,7 @@ function getGoods(params = state.package_params) {
                         ${['', '', '年卡'][res.data.page_data[i].contact.lesson_type]} |${res.data.page_data[i].campus.sub_course_type}】${res.data.page_data[i].transfer_info.title}`;
             }
 
-            state.packages = state.packages.concat(res.data.page_data);
+            state.goods = state.goods.concat(res.data.page_data);
 
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
@@ -236,9 +236,9 @@ function getGoods(params = state.package_params) {
             }
 
         } else {
-            console.log("packages get error");
+            console.log("goods get error");
         }
-        console.log('state.packages', state.packages);
+        console.log('state.goods', state.goods);
 
 
 
@@ -263,7 +263,7 @@ $(document).ready(() => {
     })
 
     scrollToBottom('page-index', null, () => {
-        state.package_params.page_number++;
+        state.goods_params.page_number++;
         showLoading();
         getGoods();
     })

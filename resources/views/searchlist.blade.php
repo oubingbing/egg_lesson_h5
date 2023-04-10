@@ -60,7 +60,7 @@
                 <div class="select-nav" id="searchNav">                    
                 </div>
     
-                <div  class="packages" id="packages">
+                <div  class="goods" id="goods">
                     
                 </div>
                 <div class="modal-select-list">

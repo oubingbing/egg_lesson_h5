@@ -97,15 +97,15 @@ var state = {
             sort: "desc"
         }
     ],
-    packages: [],
-    package_params: {
+    goods: [],
+    goods_params: {
         page_size: 5,
         page_number: 1
     },
 };
 
 let isEnd = false;
-function getGoods(params = state.package_params) {
+function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {
         hideLoading();
@@ -126,7 +126,7 @@ function getGoods(params = state.package_params) {
                     .price);
             }
 
-            state.packages = state.packages.concat(res.data.page_data);
+            state.goods = state.goods.concat(res.data.page_data);
 
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
@@ -134,9 +134,9 @@ function getGoods(params = state.package_params) {
             }
 
         } else {
-            console.log("packages get error");
+            console.log("goods get error");
         }
-        console.log('state.packages', state.packages);
+        console.log('state.goods', state.goods);
 
 
 
@@ -194,12 +194,12 @@ $(document).ready(() => {
     drawLessonCategories();//构建课程类别列表
     drawSearchNav();//构建筛选菜单总列表
 
-    scrollToBottom(null, 'packages', () => {
+    scrollToBottom(null, 'goods', () => {
         if (isEnd) {
             return;
         }
         showLoading();
-        state.package_params.page_number++;
+        state.goods_params.page_number++;
         getGoods();
     })
     showLoading();
@@ -226,14 +226,14 @@ function handleValueChange(t, v) {
 function quickSearch(e) {
     console.log("e", e);
 }
-function showGoodDetail(e, e2) {
-    console.log(e, e2)
+function showGoodDetail(goods_id) {
+    goTo()
 }
 
 function resetParams() {
-    delete state.package_params.min_price;
-    delete state.package_params.lesson_category_ids;
-    delete state.package_params.max_price;
+    delete state.goods_params.min_price;
+    delete state.goods_params.lesson_category_ids;
+    delete state.goods_params.max_price;
     updateUI('lessonCategories', -1);
     document.getElementById("min_price").value = null;
     document.getElementById("max_price").value = null;
@@ -242,8 +242,8 @@ function resetParams() {
 function submit() {
     isEnd = false;
     doSelectSort(-1);
-    state.package_params.page_number = 1;
-    document.getElementById("packages").innerHTML = '';
+    state.goods_params.page_number = 1;
+    document.getElementById("goods").innerHTML = '';
     showLoading();
     getGoods();
 }
@@ -254,30 +254,30 @@ function updateParams(t, e, e2) {
         case 'min_price':
         case 'max_price':
             e = document.getElementById(t).value;
-            state.package_params[t] = e;
+            state.goods_params[t] = e;
             break;
         case 'prices':
-            state.package_params['min_price'] = e;
+            state.goods_params['min_price'] = e;
             document.getElementById("min_price").value = e;
             if (parseInt(e2) !== -1) {
-                state.package_params['max_price'] = e2;
+                state.goods_params['max_price'] = e2;
                 document.getElementById("max_price").value = e2;
             } else {
-                delete (state.package_params['max_price']);
+                delete (state.goods_params['max_price']);
                 document.getElementById("max_price").value = null;
             }
             break;
         case 'lesson_category_ids':
-            state.package_params[t] = e;
+            state.goods_params[t] = e;
             updateUI('lessonCategories', e);
             break;
         default:
-            state.package_params[t] = e;
+            state.goods_params[t] = e;
             break;
     }
 
 
-    console.log(state.package_params);
+    console.log(state.goods_params);
 }
 
 function updateUI(t, e) {
@@ -329,19 +329,19 @@ function doSelectSort(index) {
             // lantitude:1,
             // longtitude:1
         }
-        document.getElementById("packages").innerHTML = '';
+        document.getElementById("goods").innerHTML = '';
         getGoods();
     } else {
-        delete state.package_params.lantitude;
-        delete state.package_params.longtitude;
+        delete state.goods_params.lantitude;
+        delete state.goods_params.longtitude;
     }
 }
 
 function drawPackagesItem(item) {
     let item_div = document.createElement("div");
-    item_div.id = `packageItem_${item.id}`;
+    item_div.id = `packageItem_${item.goods_id}`;
     item_div.className = "item";
-    item_div.onclick = showGoodDetail.bind(this, item.id);
+    item_div.onclick = showGoodDetail.bind(null, item.goods_id);
     item_div.innerHTML = `<div class="part1">
         <img class="thumbnail" src="${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}"/>
         <div class="infos">
@@ -371,5 +371,5 @@ function drawPackagesItem(item) {
         <div class="discount">${item.transfer_info.discount}折</div>
         <div class='distance'>${item.distance ? item.distance + "km" : ''}</div>
     </div>`;
-    document.getElementById("packages").appendChild(item_div);
+    document.getElementById("goods").appendChild(item_div);
 }

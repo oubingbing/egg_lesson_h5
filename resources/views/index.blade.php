@@ -74,7 +74,7 @@
             </div>
         </div> -->
 
-        <div class="hot-packages">
+        <div class="hot-goods">
             <div class="title">
                 <div class="left">推荐课包</div>
             </div>

@@ -65,7 +65,7 @@
 		border-top: 1.07vw solid #333;
 	}
 
-	.packages {
+	.goods {
 		position: relative;
 		padding: 22.93vw 5.33vw 0;
 		box-sizing: border-box;
@@ -74,7 +74,7 @@
         overflow-y: scroll;
 	}
 
-	.packages .item {
+	.goods .item {
 		/* min-height: 480rpx; */
 		padding: 4vw 4vw 0;
 		background-color: #FFF;
@@ -83,13 +83,13 @@
 
 	}
 
-	.packages .item .part1 {
+	.goods .item .part1 {
 		display: flex;
 		align-items: flex-start;
 
 	}
 
-	.packages .item .part1 .thumbnail {
+	.goods .item .part1 .thumbnail {
 		width: 26.67vw;
 		min-width: 26.67vw;
 		
@@ -98,11 +98,11 @@
 		border-radius: 2.13vw;
 	}
 
-	.packages .item .part1 .infos {
+	.goods .item .part1 .infos {
 		margin-left: 4vw;
 	}
 
-	.packages .item .part1 .t1 {
+	.goods .item .part1 .t1 {
 
 		font-size: 14px;
 		line-height: 1.5;
@@ -113,7 +113,7 @@
 		color: #333333;
 	}
 
-	.packages .item .part1 .t2 {
+	.goods .item .part1 .t2 {
 
 		font-size: 12px;
 		margin-top: 0.93vw;
@@ -123,11 +123,11 @@
 		line-height: 24px;
 	}
 
-	.packages .item .part1 .tips {
+	.goods .item .part1 .tips {
 		margin-top: 1.07vw;
 	}
 
-	.packages .item .part1 .tips .tip {
+	.goods .item .part1 .tips .tip {
 		display: inline-block;
 		vertical-align: middle;
 		padding: 0 2vw;
@@ -142,7 +142,7 @@
 		margin-right: 1.33vw;
 	}
 
-	.packages .item .part1 .t3 {
+	.goods .item .part1 .t3 {
 		margin-top: 2.27vw;
 		font-size: 11px;
 		font-family: PingFang SC;
@@ -151,7 +151,7 @@
 		line-height: 4.27vw;
 	}
 
-	.packages .item .part2 {
+	.goods .item .part2 {
 		margin-top: 1.73vw;
 		border-top: 1px solid #F5F7FA;
 
@@ -163,7 +163,7 @@
 		line-height: 4.27vw;
 	}
 
-	.packages .item .part3 {
+	.goods .item .part3 {
 		border-top: 1px solid #F5F7FA;
 		/* margin-top: 3.73vw; */
 		height: 11.47vw;
@@ -172,7 +172,7 @@
 		justify-content: flex-start;
 	}
 
-	.packages .item .part3 .price {
+	.goods .item .part3 .price {
 
 		font-size: 4.8vw;
 		font-family: PingFang SC;
@@ -181,14 +181,14 @@
 		margin-right: 3.33vw;
 	}
 
-	.packages .item .part3 .discount {
+	.goods .item .part3 .discount {
 		font-size: 12px;
 		font-family: PingFang SC;
 		font-weight: 400;
 		color: #FF5252;
 	}
 
-	.packages .item .part3 .distance {
+	.goods .item .part3 .distance {
 		flex: 1;
 		text-align: right;
 		font-size: 12px;
