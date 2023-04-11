@@ -58,7 +58,14 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('detail',["id"=>$id]);
+        $user = null;
+        $goods = $this->goodsService->detail($user,$id);
+        if(!$goods){
+            throw new ApiException("数据不存在");
+        }
+
+        $result = $this->goodsService->formatSingle($goods);
+        return view('detail',["goods_detail"=>$result]);
     }
 
     public function searchView(Request $request)

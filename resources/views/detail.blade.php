@@ -24,14 +24,14 @@
 </head>
 
 <body>
-    
+
     <div class="product-detail">
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
 
             </div>
         </div>
-        
+
         <div class="href-nav sticky">
             <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
             <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
@@ -148,12 +148,12 @@
                 <div class="items">
                 <div class="items-left">
                     <div class="items-left-infos" id="goods_left">
-                        
+
                     </div>
                 </div>
                 <div class="items-right">
                     <div class="items-right-infos" id="goods_right">
-                        
+
                     </div>
                 </div>
             </div>
