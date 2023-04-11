@@ -10,7 +10,7 @@ let state = {
     banners: [],
     goods: [],
     goods_params: {
-        page_size: 4,
+        page_size: 6,
         page_number: 1,
     },
     goods_divs: {

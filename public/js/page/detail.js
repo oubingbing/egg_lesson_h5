@@ -3,7 +3,7 @@ var state = {
     goods_divs: {},
     goods_params: {
         page_number: 1,
-        page_size: 4
+        page_size: 6
     },
     current_goods_detail: null,
     current_goods_id: null
