@@ -204,7 +204,7 @@ function getGoodsDetail() {
 
     </div>`;
 
-            document.getElementById("part3").innerHTML = ` <div class="location-text">
+            document.getElementById("part3").innerHTML = ` <div class="map-container" id="map_container"></div><div class="location-text">
     ${state.current_goods_detail.campus.campus.address}
 </div>
 <div class="btn-come" >到这里去</div>
@@ -226,6 +226,8 @@ function getGoodsDetail() {
                 document.getElementById("surplusLessonTime").innerText = state.current_goods_detail.contact.surplus_lesson_time;
 
             }
+
+            initMap();
 
         }
         hideLoading();
@@ -340,10 +342,25 @@ function createOrder(){
     showUpdating();
 }
 
+function initMap() {
+    if(!state.current_goods_detail)
+    return;
+
+    //定义地图中心点坐标
+    var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude,state.current_goods_detail.campus.campus.longitude)
+    //定义map变量，调用 TMap.Map() 构造函数创建地图
+    var map = new TMap.Map(document.getElementById('map_container'), {
+        center: center,//设置地图中心点坐标
+        zoom: 17.2,   //设置地图缩放级别
+        pitch: 43.5,  //设置俯仰角
+        rotation: 45    //设置地图旋转角度
+    });
+}
+
 $(document).ready(() => {
     getGoodsDetail();
     getGoods();
-
+   
     scrollToBottom('product-detail', null, () => {
         state.goods_params.page_number++;
         showLoading();
