@@ -29,6 +29,12 @@ function getGoodsDetail() {
     Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
 
         if (res && res.data) {
+            if(!res.data.campus){
+                res.data.campus = {campus:{}};
+            }
+            if(!res.data.campus.campus){
+                res.data.campus.campus = {};
+            }
             res.data.reset_title =
                 `【${res.data.contact.lesson_type === 1 ? res.data.contact.surplus_lesson_time + "节" : ''}
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
