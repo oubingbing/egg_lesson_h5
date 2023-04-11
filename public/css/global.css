@@ -237,7 +237,7 @@ body {
 .updating-view.show .popup {
     opacity: 1;
     top: 50%;
-    margin-top:-36vw;
+    margin-top:-56vw;
 }
 
 .flex {

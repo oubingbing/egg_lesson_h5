@@ -328,7 +328,7 @@ function drawGood(goods_id) {
 }
 
 function showUpdating(){
-    window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
+    document.getElementsByClassName("updating-view")[0].className="updating-view show";
 }
 
 function showService(){

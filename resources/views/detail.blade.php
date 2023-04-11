@@ -19,6 +19,7 @@
     <script charset="utf-8" src="https://map.qq.com/api/gljs?v=2.exp&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV"></script>
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/tool/loading.js')}}"></script>
+    <script src="{{asset('js/popup.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/detail.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
