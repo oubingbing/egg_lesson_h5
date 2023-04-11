@@ -258,6 +258,7 @@ function getLocationByApi(){
         sessionStorage.setItem('location',JSON.stringify(res));
         getGoods();
     }, (err)=>{
+        console.log(res);
         getGoods();
     }, {timeout:8000});
 }
