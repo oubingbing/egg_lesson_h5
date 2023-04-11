@@ -82,3 +82,25 @@ function toMoney(num) {
 function showGoodDetail(goods_id) {
     goTo('detail','id',goods_id);
 }
+
+
+function letsScrollTo(name,father='window'){
+    console.log(name);
+    let item;
+    if(name.indexOf(".")>=0){
+        item = document.getElementsByClassName(name.split(".")[1])[0];
+    }else{
+        item = document.getElementById(name.split("#")[1]);
+    }
+    console.log(item);
+    console.log("scroll",item.offsetTop);
+    let father_div;
+    if(father=="window"){
+        window.scroll({top:item.offsetTop,left:0,behavior:'smooth'});
+    }else if(father.indexOf(".")>=0){
+        father_div = document.getElementsByClassName(father.split(".")[1])[0];
+    }else{
+        father_div = document.getElementById(father.split("#")[1]);
+    }
+    father_div.scroll({top:item.offsetTop-49,left:0,behavior:'smooth'});
+}

@@ -24,17 +24,19 @@
 </head>
 
 <body>
+    
     <div class="product-detail">
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
 
             </div>
         </div>
-        <div class="href-nav">
-            <a class="item hover">课程信息</a>
-            <a class="item">位置交通</a>
-            <a class="item">订单流程</a>
-            <a class="item">推荐课包</a>
+        
+        <div class="href-nav sticky">
+            <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
+            <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
+            <a class="item" onclick="letsScrollTo('.anchor3','.product-detail')">订单流程</a>
+            <a class="item" onclick="letsScrollTo('.anchor4','.product-detail')">热门推荐</a>
         </div>
 
         <div class="part1 anchor1" id="part1">
@@ -136,7 +138,7 @@
                 </div>
             </div>
 
-            <div class="hot-goods">
+            <div class="hot-goods anchor4">
                 <div class="title">
                     <div class="left">热门推荐
                     </div>
@@ -159,6 +161,49 @@
 
         </div>
 
+    </div>
+
+    <div class="bottom-btns">
+        <div class="left">
+            <div class="item" id="do_collection" onclick="doCollection(1)">
+                <image class="icon"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png">
+                </image>
+                <div class="name">收藏</div>
+            </div>
+
+            <div class="item hide" id="do_uncollection" onclick="doCollection(0)">
+                <image class="icon"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_pre_icon%402x.png">
+                </image>
+                <div class="name">收藏</div>
+            </div>
+            <div class="item" onclick="showService()">
+                <image class="icon"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/kefu_nor_icon%402x.png">
+                </image>
+                <div class="name">客服</div>
+            </div>
+            <div class="item" onclick="createPoster()">
+                <image class="icon"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhuanfa_nor_icon%402x.png">
+                </image>
+                <div class="name">转发</div>
+            </div>
+            <div class="item" onclick="handleValueChange('show_discuss',true)">
+                <image class="icon"
+                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yijia_nor_icon%402x.png">
+                </image>
+                <div class="name">议价</div>
+            </div>
+
+        </div>
+        <!-- <div class="right" onclick="handleValueChange('show_payment_types',true)">
+            选择下单方式
+        </div> -->
+        <div class="right" onclick="createOrder">
+            立即下单
+        </div>
     </div>
 </body>
 <script type="text/javascript">

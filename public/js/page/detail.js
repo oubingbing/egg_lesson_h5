@@ -35,12 +35,19 @@ function getGoodsDetail() {
 
             state.current_goods_detail = res.data;
             console.log(state.current_goods_detail);
+            if(state.current_goods_detail.collection!==1){
+                document.getElementById("do_collection").className="item show";
+                document.getElementById("do_uncollection").className="item hide";
+            }else{
+                document.getElementById("do_collection").className="item hide";
+                document.getElementById("do_uncollection").className="item show";
+            }
 
-            for (let i in state.current_goods_detail.contact.attachments) {
-                let item = state.current_goods_detail.contact.attachments[i];
+            for (let i in state.current_goods_detail.transfer_info.attachments) {
+                let item = state.current_goods_detail.transfer_info.attachments[i];
                 let banner = document.createElement("div");
                 banner.className = `banner-image swiper-slide`;
-                banner.innerHTML = `<img src="${item}"/>`;
+                banner.innerHTML = `<div style="background-image: url('${item}');background-size:cover;background-position:center;width:100%;height:100%"/>`;
                 document.getElementById("banners").appendChild(banner);
             }
             var swiper = new Swiper(".mySwiper", {
@@ -312,8 +319,32 @@ function drawGood(goods_id) {
 
 }
 
+function showUpdating(){
+    window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
+}
+
+function showService(){
+    showUpdating();
+}
+function doCollection(){
+    showUpdating();
+}
+function handleValueChange(t,e){
+    console.log(t,e);
+    showUpdating();
+}
+function createPoster(){
+    showUpdating();
+}
+
 
 $(document).ready(() => {
     getGoodsDetail();
     getGoods();
+
+    scrollToBottom('product-detail', null, () => {
+        state.goods_params.page_number++;
+        showLoading();
+        getGoods();
+    })
 })
