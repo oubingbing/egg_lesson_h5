@@ -737,6 +737,12 @@ body {
     top:0;
 }
 
+.img-div{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .hot-goods {
     padding: 1.25rem 0.9375rem 1.75rem 1.25rem;
     background-color: #FFF;

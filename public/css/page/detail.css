@@ -504,7 +504,9 @@ body{
 .bottom-btns .left .item .icon {
     width: 5.33vw;
     height: 5.33vw;
-    object-fit: contain;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .bottom-btns .left .item .name {

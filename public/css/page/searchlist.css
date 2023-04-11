@@ -92,9 +92,9 @@
 	.goods .item .part1 .thumbnail {
 		width: 26.67vw;
 		min-width: 26.67vw;
-		
+		background-position: center;
+		background-size: cover;
 		height: 17.07vw;
-		background: #333333;
 		border-radius: 2.13vw;
 	}
 

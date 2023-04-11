@@ -378,7 +378,7 @@ function drawPackagesItem(item) {
     item_div.className = "item";
     item_div.onclick = showGoodDetail.bind(null, item.goods_id);
     item_div.innerHTML = `<div class="part1">
-        <img class="thumbnail" src="${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}"/>
+        <div class="thumbnail" style="background-image:url(${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'});"></div>
         <div class="infos">
             <div class="t1">
                 ${item.reset_title}

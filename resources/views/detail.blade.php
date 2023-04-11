@@ -166,34 +166,29 @@
     <div class="bottom-btns">
         <div class="left">
             <div class="item" id="do_collection" onclick="doCollection(1)">
-                <image class="icon"
-                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png">
-                </image>
+                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png');">
+            </div>
                 <div class="name">收藏</div>
             </div>
 
             <div class="item hide" id="do_uncollection" onclick="doCollection(0)">
-                <image class="icon"
-                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_pre_icon%402x.png">
-                </image>
+                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_pre_icon%402x.png')">
+                </div>
                 <div class="name">收藏</div>
             </div>
             <div class="item" onclick="showService()">
-                <image class="icon"
-                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/kefu_nor_icon%402x.png">
-                </image>
+                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/kefu_nor_icon%402x.png')">
+                </div>
                 <div class="name">客服</div>
             </div>
             <div class="item" onclick="createPoster()">
-                <image class="icon"
-                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhuanfa_nor_icon%402x.png">
-                </image>
+                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhuanfa_nor_icon%402x.png')">
+                </div>
                 <div class="name">转发</div>
             </div>
             <div class="item" onclick="handleValueChange('show_discuss',true)">
-                <image class="icon"
-                    src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yijia_nor_icon%402x.png">
-                </image>
+                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yijia_nor_icon%402x.png')">
+                </div>
                 <div class="name">议价</div>
             </div>
 
@@ -201,7 +196,7 @@
         <!-- <div class="right" onclick="handleValueChange('show_payment_types',true)">
             选择下单方式
         </div> -->
-        <div class="right" onclick="createOrder">
+        <div class="right" onclick="createOrder()">
             立即下单
         </div>
     </div>

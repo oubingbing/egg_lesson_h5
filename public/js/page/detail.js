@@ -336,7 +336,9 @@ function handleValueChange(t,e){
 function createPoster(){
     showUpdating();
 }
-
+function createOrder(){
+    showUpdating();
+}
 
 $(document).ready(() => {
     getGoodsDetail();
