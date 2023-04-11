@@ -221,7 +221,6 @@ body {
 
 .updating-view .popup {
     width: 70.93vw;
-    height: 102.4vw;
     position: absolute;
     z-index: 1;
     transition: 0.5s;
@@ -230,11 +229,15 @@ body {
 }
 
 .updating-view.hide .popup {
-    top: 120vh;
+    top: 50%;
+    margin-top:50vh;
+    opacity: 0;
 }
 
 .updating-view.show .popup {
-    top: 20vh;
+    opacity: 1;
+    top: 50%;
+    margin-top:-36vw;
 }
 
 .flex {
@@ -889,6 +892,8 @@ body {
 
 .hot-goods .item .thumbnail {
     width: 100%;
+    object-fit: cover;
+    max-height:200px;
 }
 
 .hot-goods .item .info-box {

@@ -204,10 +204,10 @@ function getGoodsDetail() {
 
     </div>`;
 
-            document.getElementById("part3").innerHTML = ` <div class="location-text">
+            document.getElementById("part3").innerHTML = ` <div class="map-container" id="map_container"></div><div class="location-text">
     ${state.current_goods_detail.campus.campus.address}
 </div>
-<div class="btn-come" >到这里去</div>
+<div class="btn-come" onclick="showMap()">到这里去</div>
 <div class="line"></div>`;
 
             document.getElementById("sellerInfo").innerHTML = `<div class="left">
@@ -226,6 +226,8 @@ function getGoodsDetail() {
                 document.getElementById("surplusLessonTime").innerText = state.current_goods_detail.contact.surplus_lesson_time;
 
             }
+
+            initMap();
 
         }
         hideLoading();
@@ -340,10 +342,49 @@ function createOrder(){
     showUpdating();
 }
 
+function showMap(){
+    let item = state.current_goods_detail;
+    window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.brand.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
+}
+
+function initMap() {
+    if(!state.current_goods_detail)
+    return;
+
+    //定义地图中心点坐标
+    var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude,state.current_goods_detail.campus.campus.longitude)
+    //定义map变量，调用 TMap.Map() 构造函数创建地图
+    var map = new TMap.Map(document.getElementById('map_container'), {
+        center: center,//设置地图中心点坐标
+        zoom: 17.2,   //设置地图缩放级别
+        pitch: 43.5,  //设置俯仰角
+        rotation: 45    //设置地图旋转角度
+    });
+    var marker = new TMap.MultiMarker({
+        map: map,
+        styles: {
+          // 点标记样式
+          marker: new TMap.MarkerStyle({
+            width: 20, // 样式宽
+            height: 30, // 样式高
+            anchor: { x: 10, y: 30 }, // 描点位置
+          }),
+        },
+        geometries: [
+          // 点标记数据数组
+          {
+            // 标记位置(纬度，经度，高度)
+            position: center,
+            id: 'marker',
+          },
+        ],
+      });
+}
+
 $(document).ready(() => {
     getGoodsDetail();
     getGoods();
-
+   
     scrollToBottom('product-detail', null, () => {
         state.goods_params.page_number++;
         showLoading();

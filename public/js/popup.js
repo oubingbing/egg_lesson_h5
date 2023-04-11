@@ -21,32 +21,28 @@ $(document).ready(()=>{
     values['show_smallapp']=sessionStorage.getItem("SHOW_SMALLAPP");
     let show_updating_popup=document.createElement("div");
     show_updating_popup.className="updating-view hide";
-    show_updating_popup.innerHTML=`<div class="cover"></div>`;
+    let cover = document.createElement("div");
+    cover.className = "cover";
+    cover.onclick = ()=>{
+        show_updating_popup.className="updating-view hide";
+    }
+    show_updating_popup.appendChild(cover);
     let popup = document.createElement('img');
     popup.className = "popup";
     popup.src = "https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/updating.png";
     show_updating_popup.appendChild(popup)
 
-    let close_btn = document.createElement("div");
-    close_btn.style = "position:absolute;z-index:2;width:100%;height:20vw;bottom:50%;margin-bottom:-43vw;left:0;";
-    close_btn.onclick=(e)=>{
-        e.stopPropagation();
-        show_updating_popup.className="updating-view hide";
-    }
-    show_updating_popup.appendChild(close_btn);
+    // let close_btn = document.createElement("div");
+    // close_btn.style = "position:absolute;z-index:2;width:100%;height:20vw;bottom:50%;margin-bottom:-43vw;left:0;";
+    // close_btn.onclick=(e)=>{
+    //     e.stopPropagation();
+    //     show_updating_popup.className="updating-view hide";
+    // }
+    // show_updating_popup.appendChild(close_btn);
     document.body.appendChild(show_updating_popup);
 
-    popup.onclick =()=>{
-        show_updating_popup.className="updating-view hide";
-        window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
+    popup.onclick =(e)=>{
+        e.stopPropagation();
+        // window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
     };
-
-
-
-    if(values['show_smallapp']==0)return;
-    setTimeout(()=>{
-        valueChange(null,'show_smallapp',0)
-        show_updating_popup.className="updating-view show";
-       
-    },2000);
 })

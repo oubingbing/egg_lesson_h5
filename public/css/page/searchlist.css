@@ -20,7 +20,7 @@
 		box-sizing: border-box;
 		display: flex;
 		position: fixed;
-		top: 8.53vw;
+		top: 13.53vw;
 		left: 0;
 		width: 100vw;
 		z-index: 11;
@@ -67,7 +67,7 @@
 
 	.goods {
 		position: relative;
-		padding: 22.93vw 5.33vw 0;
+		padding: 27.93vw 5.33vw 0;
 		box-sizing: border-box;
 		z-index: 1;
 		height: 100vh;
@@ -244,13 +244,8 @@
 		display: none;
 	}
 
-	.modal-select-list .modal-select-list-2-content {
-		padding: 21.33vw 4vw 0;
-		display: block;
-	}
-
-	.modal-select-list .modal-select-list-4-content {
-		padding: 21.33vw 4vw 0;
+	.modal-select-list .modal-select-list-2-content,.modal-select-list .modal-select-list-4-content {
+		padding: 26.33vw 4vw 0;
 		display: block;
 	}
 
@@ -570,6 +565,7 @@
 		top: 0;
 		left: 0;
 		width: 100vw;
+		padding-top:5vw;
 		z-index: 11;
 		display: flex;
 		align-items: center;

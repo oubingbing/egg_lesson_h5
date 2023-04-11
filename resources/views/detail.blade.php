@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>转课详情</title>
+    <meta name="keywords" content="{{$goods_detail["campus"]["brand"]["name"] }}课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
+    <meta name="description" content="{{$goods_detail["transfer_info"]["introduce"]}}">
+    <title>【{{$goods_detail["campus"]["brand"]["name"] }}课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -14,7 +16,7 @@
     <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
 
     <!-- Styles -->
-
+    <script charset="utf-8" src="https://map.qq.com/api/gljs?v=2.exp&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV"></script>
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/tool/loading.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
