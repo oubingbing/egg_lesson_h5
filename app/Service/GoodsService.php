@@ -228,7 +228,7 @@ class GoodsService extends BaseServiceAbstract
         $result = Goods::query()->with(array_merge(["brand"=>function($query){
             $query->select([Brand::FIELD_ID,Brand::FIELD_NAME]);
         },"campus"=>function($query){
-            $query->select([Campus::FIELD_ID,Campus::FIELD_NAME,Campus::FIELD_ADDRESS,Campus::FIELD_LATITUDE,Campus::FIELD_LONGITUDE]);
+            $query->select([Campus::FIELD_ID,Campus::FIELD_NAME,Campus::FIELD_ADDRESS,Campus::FIELD_LATITUDE,Campus::FIELD_LONGITUDE,Campus::FIELD_CITY,Campus::FIELD_COUNTY]);
         },"lesson_category"=>function($query){
             $query->select([LessonCategory::FIELD_ID,LessonCategory::FIELD_NAME]);
         },"contact"=>function($query){
