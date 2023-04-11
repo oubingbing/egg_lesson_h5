@@ -894,6 +894,8 @@ body {
     width: 100%;
     object-fit: cover;
     max-height:200px;
+    user-select: none;
+    pointer-events:none;
 }
 
 .hot-goods .item .info-box {
