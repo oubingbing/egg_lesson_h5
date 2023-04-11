@@ -355,6 +355,25 @@ function initMap() {
         pitch: 43.5,  //设置俯仰角
         rotation: 45    //设置地图旋转角度
     });
+    var marker = new TMap.MultiMarker({
+        map: map,
+        styles: {
+          // 点标记样式
+          marker: new TMap.MarkerStyle({
+            width: 20, // 样式宽
+            height: 30, // 样式高
+            anchor: { x: 10, y: 30 }, // 描点位置
+          }),
+        },
+        geometries: [
+          // 点标记数据数组
+          {
+            // 标记位置(纬度，经度，高度)
+            position: center,
+            id: 'marker',
+          },
+        ],
+      });
 }
 
 $(document).ready(() => {

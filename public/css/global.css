@@ -889,6 +889,8 @@ body {
 
 .hot-goods .item .thumbnail {
     width: 100%;
+    object-fit: cover;
+    max-height:200px;
 }
 
 .hot-goods .item .info-box {
