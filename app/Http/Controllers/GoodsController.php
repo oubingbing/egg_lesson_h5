@@ -65,7 +65,7 @@ class GoodsController extends Controller
         }
 
         $result = $this->goodsService->formatSingle($goods);
-        return view('detail',["goods_detail"=>$result]);
+        return view('detail',["goods_detail"=>$result,"id"=>$id]);
     }
 
     public function searchView(Request $request)
