@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="{{$goods_detail["campus"]["brand"]["name"] }} 课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
+    <meta name="keywords" content="{{$goods_detail["campus"]["brand"]["name"] }}课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
     <meta name="description" content="{{$goods_detail["transfer_info"]["introduce"]}}">
-    <title>【{{$goods_detail["campus"]["brand"]["name"] }} 课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
+    <title>【{{$goods_detail["campus"]["brand"]["name"] }}课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
