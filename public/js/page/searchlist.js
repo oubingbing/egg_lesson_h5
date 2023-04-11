@@ -118,8 +118,8 @@ if(!!url_params.category_id){
 }
 
 if(!!url_params.data){
-    state.goods_params.brands = url_params.data;
-    document.getElementById("searchInput").value = url_params.data;
+    state.goods_params.brands = decodeURI(url_params.data);
+    console.log(document.getElementById("searchInput2"),state.goods_params.brands);
 }
 
 let isEnd = false;
@@ -215,6 +215,18 @@ function drawSearchNav(){
 }
 
 $(document).ready(() => {
+    try{
+        document.getElementById("searchInput").value = state.goods_params.brands;
+    }catch(e){
+        console.log(e)
+    }
+
+    $("#searchInput").keyup((e) => {
+        if (e.keyCode == "13") {
+           getSearchInput();           
+        }
+    })
+
     drawPrices();//构建价格列表
     drawLessonCategories();//构建课程类别列表
     drawSearchNav();//构建筛选菜单总列表

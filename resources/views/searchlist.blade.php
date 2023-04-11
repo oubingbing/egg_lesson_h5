@@ -27,9 +27,7 @@
             <div class="search-nav-box">
                 <div class="search-nav">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png" class="search-icon"/>
-                    <form action="" class="search-input-form" onsubmit="return getSearchInput()"> 
                     <input type="text" class="search-input" id="searchInput" placeholder="搜索课程，品牌" type="search"/>
-                    </form>
                 </div>
             </div>
     <!-- show_search_menu -->
