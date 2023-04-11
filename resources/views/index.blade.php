@@ -22,6 +22,7 @@
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/index.js')}}"></script>
+    <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script>
        
 
@@ -36,7 +37,7 @@
                 style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;">
             </div>
             <input type="text" class="search-input" placeholder="搜索课程,品牌" id="searchInput" />
-            <div class="search-location">定位中</div>
+            <div class="search-location" id="currentLocation">定位中</div>
 
         </div>
         <div class="banner-swiper-box mySwiper">

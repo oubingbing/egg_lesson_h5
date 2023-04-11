@@ -3,6 +3,7 @@ let test_fenlei = [{ id: 1, name: "早教亲子" }, { id: 2, name: "英语培训
 test_fenlei = [{ id: 0, name: "全部" }].concat(test_fenlei);
 
 let state = {
+    current_location:null,
     brands: [],
     purchase_logs: [],
     lesson_category: [],
@@ -246,11 +247,26 @@ function getGoods(params = state.goods_params) {
     })
 }
 
+function getLocationByApi(){
+    var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
+    geolocation.getLocation((res)=>{
+        console.log(res);
+        state.current_location = res;
+        state.goods_params.latitude = res.lat;
+        state.goods_params.longitude = res.lng;
+        document.getElementById("currentLocation").innerText = res.city;
+        sessionStorage.setItem('location',JSON.stringify(res));
+        getGoods();
+    }, (err)=>{
+        getGoods();
+    }, {timeout:8000});
+}
 
 $(document).ready(() => {
 
 
-    getGoods();
+    
+    getLocationByApi();
 
 
 

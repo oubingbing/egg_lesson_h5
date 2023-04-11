@@ -344,7 +344,7 @@ function createOrder(){
 
 function showMap(){
     let item = state.current_goods_detail;
-    window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.brand.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
+    window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.campus.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
 }
 
 function initMap() {
