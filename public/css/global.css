@@ -793,7 +793,7 @@ body {
     margin-bottom: 2.67vw;
     width: 100vw;
     margin-left: -5.33vw;
-    padding: 0 2.67vw 1.33vw 2.67vw;
+    padding: 3vw 2.67vw 1.33vw 2.67vw;
     box-sizing: border-box;
     position: sticky;
     top: 0;
@@ -810,7 +810,7 @@ body {
 }
 
 .hot-goods .select-nav .select-nav-item {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     font-family: DanDanFont;
     font-weight: 500;
     color: #808080;
@@ -819,6 +819,7 @@ body {
     display: inline-block;
     text-align: center;
     position: relative;
+    line-height:2;
     padding-bottom: 0.5rem;
     transition: 0.3s;
 }

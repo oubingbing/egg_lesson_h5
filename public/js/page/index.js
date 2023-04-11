@@ -23,15 +23,19 @@ function clickSelectNavItem(item){
     for(let i in list){
         if(list[i].id==`selectNavItem${item.id}`){
             if(list[i].className.indexOf("hover")>=0){
-                list[i].className = `select-nav-item`;
-                delete state.goods_params.lesson_category_ids;
-            }else{
+                return;
+                // list[i].className = `select-nav-item`;
+                // delete state.goods_params.lesson_category_ids;
+            }
+            else{
+                if(item.id===0){
+                    delete state.goods_params.lesson_category_ids;
+                }else{
+                    state.goods_params.lesson_category_ids = item.id;
+                }
                 
-                state.goods_params.lesson_category_ids = item.id;
                 list[i].className = `select-nav-item hover`;
             }
-            document.getElementById("goods_left").innerHTML = '';
-            document.getElementById("goods_right").innerHTML = '';
             isEnd = false;
             state.goods_params.page_number = 1;
             console.log(state.goods_params);
@@ -55,6 +59,12 @@ function getLessonCategories() {
         console.log('state.lesson_category', state.lesson_category);
 
         document.getElementById("lesson_categorys").innerHTML = '';
+        let select_nav_item_all = document.createElement("div");
+        select_nav_item_all.innerHTML = `全部`;
+        select_nav_item_all.className = "select-nav-item hover";
+        select_nav_item_all.id = `selectNavItem0`;
+        select_nav_item_all.onclick=clickSelectNavItem.bind(this,{id:0,name:"全部"});
+        document.getElementsByClassName("select-nav-items")[0].appendChild(select_nav_item_all);
         for (let i in state.lesson_category) {
             let lesson_category = document.createElement("div");
             lesson_category.innerText = state.lesson_category[i];
@@ -181,10 +191,16 @@ function getGoods(params = state.goods_params) {
         hideLoading();
         return;
     }
+    
     Get(mRoute.goods_page, params, res => {
         if (res.data) {
             isLoading = false;
             hideLoading();
+            if(state.goods_params.page_number===1){
+                document.getElementById("goods_left").innerHTML = '';
+                document.getElementById("goods_right").innerHTML = '';
+            }
+            
             if (!res.data.page_data.length) {
                 isEnd = true;
             }
