@@ -27,7 +27,48 @@ function setApi(title, desc, imgUrl) {
                 // 以键值对的形式返回，可用的api值true，不可用为false
                 console.log("====res", res);
                 // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                wx.onMenuShareTimeline({
+                    title, // 分享标题
+                    desc, // 分享描述
+                    link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl, // 分享图标
+                    success: function() {
+                        console.log("wx onMenuShareTimeline success")
+                    }
+                })
+
+                wx.onMenuShareAppMessage({
+                    title, // 分享标题
+                    desc, // 分享描述
+                    link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl, // 分享图标
+                    success: function() {
+                        console.log("wx onMenuShareAppMessage success")
+                    }
+                })
+
+                wx.onMenuShareQQ({
+                    title, // 分享标题
+                    desc, // 分享描述
+                    link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl, // 分享图标
+                    success: function() {
+                        console.log("wx onMenuShareQQ success")
+                    }
+                })
+
+                wx.onMenuShareQZone({
+                    title, // 分享标题
+                    desc, // 分享描述
+                    link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl, // 分享图标
+                    success: function() {
+                        console.log("wx onMenuShareQZone success")
+                    }
+                })
+
                 if (res.checkResult.updateAppMessageShareData) {
+
                     wx.updateAppMessageShareData({
                         title, // 分享标题
                         desc, // 分享描述
