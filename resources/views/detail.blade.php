@@ -225,7 +225,6 @@ let res = {
             "url":"{{$url}}",
             "signature":"{{$signature}}"
         };
-        console.log(res);
 getSignature(res);
 </script>
 </html>

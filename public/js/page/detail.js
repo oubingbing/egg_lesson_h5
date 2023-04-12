@@ -40,6 +40,9 @@ function getGoodsDetail() {
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
 
             state.current_goods_detail = res.data;
+
+            setApi(res.data.transfer_info.title,'我在旦旦发现宝贝了！',res.data.transfer_info.attachments[0],window.location.href);
+            
             console.log(state.current_goods_detail);
             if(state.current_goods_detail.collection!==1){
                 document.getElementById("do_collection").className="item show";

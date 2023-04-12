@@ -6,23 +6,28 @@
 //     signature: '',// 必填，签名
 //     jsApiList: [] // 必填，需要使用的JS接口列表
 //   });
+let link;
 function getSignature(res){
+  console.log(res.url);
+  link = res.url;
 wx.config(res);
 }
 
-function setApi(){
+function setApi(title,desc,imgUrl){
+  
+  wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+    console.log(title,desc,imgUrl,link);
   wx.checkJsApi({
     jsApiList: ['updateAppMessageShareData','updateTimelineShareData'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
     success: function(res) {
     // 以键值对的形式返回，可用的api值true，不可用为false
     // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-    wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
       if(res.checkResult.updateAppMessageShareData){
         wx.updateAppMessageShareData({ 
-          title: 'TEST1', // 分享标题
-          desc: 'TEST2', // 分享描述
-          link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-          imgUrl: 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png', // 分享图标
+          title, // 分享标题
+          desc, // 分享描述
+          link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl, // 分享图标
           success: function () {
             console.log("wx updateAppMessageShareData success")
           }
@@ -31,18 +36,18 @@ function setApi(){
       
       if(res.checkResult.updateAppMessageShareData){
       wx.updateAppMessageShareData({ 
-          title: 'TEST11', // 分享标题
-          link: 'TEST22', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-          imgUrl: 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png', // 分享图标
+          title, // 分享标题
+          link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl, // 分享图标
           success: function () {
             console.log("wx updateTimelineShareData success")
           }
         })
       }
-    });
+    
   
     }
   });
- 
+});
 }
 getSignature();
