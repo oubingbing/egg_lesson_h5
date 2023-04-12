@@ -16,7 +16,8 @@
         <script src="{{asset('js/tool/loading.js')}}"></script>
         <script src="{{asset('js/tool/http.js')}}"></script>
         <script src="{{asset('js/page/searchlist.js')}}"></script>
-
+        <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+        
         <style>
 
 
@@ -24,12 +25,11 @@
     </head>
     <body>
         <div class="container">
+        <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')" onclick="goTo('index',null,null)"></div>
             <div class="search-nav-box">
                 <div class="search-nav">
                     <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png" class="search-icon"/>
-                    <form action="" class="search-input-form" onsubmit="return getSearchInput()"> 
                     <input type="text" class="search-input" id="searchInput" placeholder="搜索课程，品牌" type="search"/>
-                    </form>
                 </div>
             </div>
     <!-- show_search_menu -->

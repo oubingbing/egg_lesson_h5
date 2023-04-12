@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>旦旦转课</title>
-
+    <meta name="keywords" content="早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">  
+    <meta name="description" content="旦旦转课网是全网首个课程转让交易平台,基于教培行业学费贵、退费难的现状,为用户提供一站式课程转让交易服务。"> 
+    <title>旦旦转课网_全网首个课程转让交易平台</title>  
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
@@ -22,6 +22,9 @@
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/index.js')}}"></script>
+    <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="{{asset('js/tool/wx.js')}}"></script>
     <script>
        
 
@@ -36,7 +39,7 @@
                 style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;">
             </div>
             <input type="text" class="search-input" placeholder="搜索课程,品牌" id="searchInput" />
-            <div class="search-location">定位中</div>
+            <div class="search-location" id="currentLocation">定位中</div>
 
         </div>
         <div class="banner-swiper-box mySwiper">

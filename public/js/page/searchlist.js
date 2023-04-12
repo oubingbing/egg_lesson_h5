@@ -75,12 +75,11 @@ var state = {
         value: 3,
         label: "上海"
     }],
-    select_type_list: [
-        	{
-        	value: 1,
-        	label: "附近",
-        	sort: "desc"
-        }, 
+    select_type_list: [{
+            value: 1,
+            label: "附近",
+            sort: "desc"
+        },
         {
             value: 2,
             label: "价格",
@@ -106,23 +105,27 @@ var state = {
 
 //获取url传参
 let url_params_text = window.location.href.split("?")[1];
-url_params_text = url_params_text.split("&");
-let url_params ={};
-for(let i in url_params_text){
-    let item = url_params_text[i];
-    url_params[item.split('=')[0]] = item.split('=')[1]; 
+url_params_text = url_params_text && url_params_text.length ? url_params_text.split("&") : void(0);
+let url_params = {};
+if (!!url_params_text && !!url_params_text.length) {
+    for (let i in url_params_text) {
+        let item = url_params_text[i];
+        url_params[item.split('=')[0]] = item.split('=')[1];
+    }
 }
+
 console.log(url_params);
-if(!!url_params.category_id){
+if (!!url_params.category_id) {
     state.goods_params.lesson_category_ids = url_params.category_id;
 }
 
-if(!!url_params.data){
-    state.goods_params.brands = url_params.data;
-    document.getElementById("searchInput").value = url_params.data;
+if (!!url_params.data) {
+    state.goods_params.brands = decodeURI(url_params.data);
+    console.log(document.getElementById("searchInput"), state.goods_params.brands);
 }
 
 let isEnd = false;
+
 function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {
@@ -194,15 +197,15 @@ function drawLessonCategories() {
             document.getElementById("lessonCategories").appendChild(item_div);
         }
 
-     //获取之后检测是否有已选中的项   
-    if(!!state.goods_params.lesson_category_ids){
-        updateUI('lessonCategories', state.goods_params.lesson_category_ids);
-    }
+        //获取之后检测是否有已选中的项   
+        if (!!state.goods_params.lesson_category_ids) {
+            updateUI('lessonCategories', state.goods_params.lesson_category_ids);
+        }
     });
 
 }
 
-function drawSearchNav(){
+function drawSearchNav() {
     for (let i in state['select_type_list']) {
         let item = state['select_type_list'][i];
         let select_type = document.createElement('div');
@@ -215,9 +218,21 @@ function drawSearchNav(){
 }
 
 $(document).ready(() => {
-    drawPrices();//构建价格列表
-    drawLessonCategories();//构建课程类别列表
-    drawSearchNav();//构建筛选菜单总列表
+    try {
+        document.getElementById("searchInput").value = state.goods_params.brands ? state.goods_params.brands : '';
+    } catch (e) {
+        console.log(e)
+    }
+
+    $("#searchInput").keyup((e) => {
+        if (e.keyCode == "13") {
+            getSearchInput();
+        }
+    })
+
+    drawPrices(); //构建价格列表
+    drawLessonCategories(); //构建课程类别列表
+    drawSearchNav(); //构建筛选菜单总列表
 
     // container.on('submit', '#searchInput', function(event){
     //     event.preventDefault();
@@ -282,7 +297,7 @@ function submit() {
 }
 
 function updateParams(t, e, e2) {
-console.log(t,e,e2)
+    console.log(t, e, e2)
     switch (t) {
         case 'min_price':
         case 'max_price':
@@ -296,7 +311,7 @@ console.log(t,e,e2)
                 state.goods_params['max_price'] = e2;
                 document.getElementById("max_price").value = e2;
             } else {
-                delete (state.goods_params['max_price']);
+                delete(state.goods_params['max_price']);
                 document.getElementById("max_price").value = null;
             }
             break;
@@ -314,12 +329,12 @@ console.log(t,e,e2)
 }
 
 function updateUI(t, e) {
-    console.log('tag 305',t,e)
+    console.log('tag 305', t, e)
     switch (t) {
         case "lessonCategories":
             let list = document.getElementById(t).children;
             for (let i in list) {
-                console.log(list[i].id,`lessonCategory${e}`,list[i].id===`lessonCategory${e}`)
+                console.log(list[i].id, `lessonCategory${e}`, list[i].id === `lessonCategory${e}`)
                 if (list[i].id === `lessonCategory${e}`) {
                     list[i].className = `item hover`;
                 } else {
@@ -346,11 +361,11 @@ function doSelectSort(index) {
 
     state.now_select_type_index = index;
     let searchNavs = document.getElementById("searchNav").children;
-    for(let i in searchNavs){
+    for (let i in searchNavs) {
         let item = searchNavs[i];
-        if(item.id===`select_type_list_${index}`){
+        if (item.id === `select_type_list_${index}`) {
             item.className = `item hover color-blue`;
-        }else{
+        } else {
             item.className = `item`;
         }
     }

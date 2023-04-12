@@ -3,7 +3,7 @@ var state = {
     goods_divs: {},
     goods_params: {
         page_number: 1,
-        page_size: 4
+        page_size: 6
     },
     current_goods_detail: null,
     current_goods_id: null
@@ -29,6 +29,12 @@ function getGoodsDetail() {
     Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
 
         if (res && res.data) {
+            if(!res.data.campus){
+                res.data.campus = {campus:{}};
+            }
+            if(!res.data.campus.campus){
+                res.data.campus.campus = {};
+            }
             res.data.reset_title =
                 `【${res.data.contact.lesson_type === 1 ? res.data.contact.surplus_lesson_time + "节" : ''}
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
@@ -322,7 +328,7 @@ function drawGood(goods_id) {
 }
 
 function showUpdating(){
-    window.location.href="weixin://dl/business/?t=Zb60DIUIuui";
+    document.getElementsByClassName("updating-view")[0].className="updating-view show";
 }
 
 function showService(){
@@ -344,7 +350,7 @@ function createOrder(){
 
 function showMap(){
     let item = state.current_goods_detail;
-    window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.brand.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
+    window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.campus.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
 }
 
 function initMap() {
