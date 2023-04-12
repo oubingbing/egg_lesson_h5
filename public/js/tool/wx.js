@@ -10,7 +10,7 @@ let link;
 
 function getSignature(res) {
     console.log(res.url);
-    res.jsApiList = ['updateAppMessageShareData', 'updateTimelineShareData'];
+    res.jsApiList = ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone'];
     link = res.url;
     console.log(res);
     wx.config(res);
@@ -38,6 +38,7 @@ function setApi(title, desc, imgUrl) {
                         }
                     })
                 }
+
 
                 if (res.checkResult.updateAppMessageShareData) {
                     wx.updateAppMessageShareData({

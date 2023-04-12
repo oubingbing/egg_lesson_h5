@@ -27,7 +27,23 @@
     <script src="{{asset('js/tool/wx.js')}}"></script>
     <script>
        
-
+       console.log("debug","{{$debug}}")
+console.log("beta","{{$beta}}")
+console.log("appId","{{$appId}}")
+console.log("nonceStr","{{$nonceStr}}")
+console.log("timestamp","{{$timestamp}}")
+console.log("url","{{$url}}")
+console.log("jsApiList","{{$jsApiList}}")
+let res = {
+            "debug":"{{$debug}}",
+            "beta":"{{$beta}}",
+            "appId":"{{$appId}}",
+            "nonceStr":"{{$nonceStr}}",
+            "timestamp":parseInt("{{$timestamp}}"),
+            "url":"{{$url}}",
+            "signature":"{{$signature}}"
+        };
+getSignature(res);
     </script>
 </head>
 
