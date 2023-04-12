@@ -40,7 +40,16 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('index',["goods"=>"iphone 6"]);
+        $options = [
+            'app_id'    => env("WECHAT_APPID"),
+            'secret'    => env("WECHAT_SECRET"),
+            'token'     => 'easywechat',
+        ];
+
+        $app = Factory::officialAccount($options);
+        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
+
+        return view('index',["goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function detailView(Request $request)
@@ -54,7 +63,7 @@ class GoodsController extends Controller
         ];
 
         $app = Factory::officialAccount($options);
-        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData'], $debug = false, $beta = false, $json = true,[]);
+        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
 
         $ip = getIP();
         session(['language' => "CN"]);
@@ -76,7 +85,7 @@ class GoodsController extends Controller
 
         $result = $this->goodsService->formatSingle($goods);
         $config = json_decode($config,true);
-        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>"[]","signature"=>$config["signature"]]);
+        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function searchView(Request $request)
