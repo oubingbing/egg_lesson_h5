@@ -9,6 +9,7 @@
 let link;
 function getSignature(res){
   console.log(res.url);
+  res.jsApiList=['updateAppMessageShareData','updateTimelineShareData'];
   link = res.url;
 wx.config(res);
 wx.error(res=>{
