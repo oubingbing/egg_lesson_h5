@@ -11,16 +11,18 @@ function getSignature(res){
   console.log(res.url);
   link = res.url;
 wx.config(res);
+wx.error(res=>{
+  console.log("error",res);
+})
 }
 
 function setApi(title,desc,imgUrl){
-  
   wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
-    console.log(title,desc,imgUrl,link);
   wx.checkJsApi({
     jsApiList: ['updateAppMessageShareData','updateTimelineShareData'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
     success: function(res) {
     // 以键值对的形式返回，可用的api值true，不可用为false
+    console.log("====res",res);
     // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
       if(res.checkResult.updateAppMessageShareData){
         wx.updateAppMessageShareData({ 
@@ -50,4 +52,3 @@ function setApi(title,desc,imgUrl){
   });
 });
 }
-getSignature();
