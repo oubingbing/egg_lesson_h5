@@ -15,6 +15,7 @@ use GeoIp2\Database\Reader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
+use EasyWeChat\Factory;
 
 class GoodsController extends Controller
 {
@@ -46,6 +47,15 @@ class GoodsController extends Controller
     {
         $id = $request->input("id");
 
+        $options = [
+            'app_id'    => env("WECHAT_APPID"),
+            'secret'    => env("WECHAT_SECRET"),
+            'token'     => 'easywechat',
+        ];
+
+        $app = Factory::officialAccount($options);
+        $config = $app->jssdk->buildConfig([], $debug = false, $beta = false, $json = true,[]);
+
         $ip = getIP();
         session(['language' => "CN"]);
         $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
@@ -65,7 +75,8 @@ class GoodsController extends Controller
         }
 
         $result = $this->goodsService->formatSingle($goods);
-        return view('detail',["goods_detail"=>$result,"id"=>$id]);
+        $config = json_decode($config,true);
+        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>"[]"]);
     }
 
     public function searchView(Request $request)

@@ -13,7 +13,8 @@
         "geoip2/geoip2": "~2.0",
         "guzzlehttp/guzzle": "6.3",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "overtrue/laravel-wechat": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -26,7 +27,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "easywechat-composer/easywechat-composer": true
+        }
     },
     "extra": {
         "laravel": {

@@ -204,8 +204,12 @@
     </div>
 </body>
 <script type="text/javascript">
-var id = "{{$id}}";
-console.log("id=" + id)
+console.log("debug","{{$debug}}")
+console.log("beta","{{$beta}}")
+console.log("appId","{{$appId}}")
+console.log("nonceStr","{{$nonceStr}}")
+console.log("timestamp","{{$timestamp}}")
+console.log("url","{{$url}}")
+console.log("jsApiList","{{$jsApiList}}")
 </script>
-
 </html>
