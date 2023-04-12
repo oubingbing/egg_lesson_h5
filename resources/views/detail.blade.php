@@ -214,5 +214,17 @@ console.log("nonceStr","{{$nonceStr}}")
 console.log("timestamp","{{$timestamp}}")
 console.log("url","{{$url}}")
 console.log("jsApiList","{{$jsApiList}}")
+let res = {
+            "debug":"{{$debug}}",
+            "beta":"{{$beta}}",
+            "jsApiList":JSON.parse("{{$jsApiList}}"),
+            "appId":"{{$appId}}",
+            "nonceStr":"{{$nonceStr}}",
+            "timestamp":parseInt("{{$timestamp}}"),
+            "url":"{{$url}}",
+            "signature":"{{$signature}}"
+        };
+        console.log(res);
+getSignature(res);
 </script>
 </html>

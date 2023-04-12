@@ -6,19 +6,7 @@
 //     signature: '',// 必填，签名
 //     jsApiList: [] // 必填，需要使用的JS接口列表
 //   });
-function getSignature(){
-    let res = {
-            "debug":false,
-            "beta":false,
-            "jsApiList":[
-        
-            ],
-            "appId":"wxe42e6f2271d39485",
-            "nonceStr":"Z2GhL0lKtY",
-            "timestamp":1681269753,
-            "url":"http://127.0.0.1:8000/detail?id=21",
-            "signature":"2c18bf4073124c9ac571b8da86ed9718d6ebe00e"
-        };
+function getSignature(res){
 wx.config({
     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: 'wxe42e6f2271d39485', // 必填，公众号的唯一标识
