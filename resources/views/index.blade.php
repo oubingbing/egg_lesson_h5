@@ -44,7 +44,7 @@ let res = {
             "signature":"{{$signature}}"
         };
 getSignature(res);
-setApi("旦旦转课网","【{{$goods_detail["campus"]["campus"]["city"]}}】【{{$goods_detail["campus"]["campus"]["county"]}}】【{{$goods_detail["campus"]["brand"]["name"] }}课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网",
+setApi("旦旦转课网","全网首个课程转让交易平台",
 "https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png")
     </script>
 </head>
