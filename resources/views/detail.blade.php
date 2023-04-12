@@ -23,7 +23,8 @@
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/detail.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
-    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="{{asset('js/tool/wx.js')}}"></script>
 
 </head>
 
@@ -214,5 +215,17 @@ console.log("nonceStr","{{$nonceStr}}")
 console.log("timestamp","{{$timestamp}}")
 console.log("url","{{$url}}")
 console.log("jsApiList","{{$jsApiList}}")
+let res = {
+            "debug":"{{$debug}}",
+            "beta":"{{$beta}}",
+            "appId":"{{$appId}}",
+            "nonceStr":"{{$nonceStr}}",
+            "timestamp":parseInt("{{$timestamp}}"),
+            "url":"{{$url}}",
+            "signature":"{{$signature}}"
+        };
+getSignature(res);
+setApi("旦旦转课网","【{{$goods_detail["campus"]["campus"]["city"]}}】【{{$goods_detail["campus"]["campus"]["county"]}}】【{{$goods_detail["campus"]["brand"]["name"] }}课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网",
+"https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png")
 </script>
 </html>
