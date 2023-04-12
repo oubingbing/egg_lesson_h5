@@ -76,7 +76,7 @@ class GoodsController extends Controller
 
         $result = $this->goodsService->formatSingle($goods);
         $config = json_decode($config,true);
-        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>"[]"]);
+        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>"[]","signature"=>$config["signature"]]);
     }
 
     public function searchView(Request $request)
