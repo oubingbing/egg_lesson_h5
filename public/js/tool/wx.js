@@ -11,6 +11,7 @@ function getSignature(res){
   console.log(res.url);
   res.jsApiList=['updateAppMessageShareData','updateTimelineShareData'];
   link = res.url;
+  console.log(res);
 wx.config(res);
 wx.error(res=>{
   console.log("error",res);
