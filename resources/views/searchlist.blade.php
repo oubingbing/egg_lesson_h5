@@ -16,7 +16,8 @@
         <script src="{{asset('js/tool/loading.js')}}"></script>
         <script src="{{asset('js/tool/http.js')}}"></script>
         <script src="{{asset('js/page/searchlist.js')}}"></script>
-
+        <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+        
         <style>
 
 

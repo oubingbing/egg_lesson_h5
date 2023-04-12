@@ -23,6 +23,7 @@
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/detail.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 
 </head>
 

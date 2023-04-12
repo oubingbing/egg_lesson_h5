@@ -23,6 +23,8 @@
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/index.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="{{asset('js/tool/wx.js')}}"></script>
     <script>
        
 
