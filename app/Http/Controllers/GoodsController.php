@@ -54,7 +54,7 @@ class GoodsController extends Controller
         ];
 
         $app = Factory::officialAccount($options);
-        $config = $app->jssdk->buildConfig([], $debug = false, $beta = false, $json = true,[]);
+        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData'], $debug = false, $beta = false, $json = true,[]);
 
         $ip = getIP();
         session(['language' => "CN"]);
