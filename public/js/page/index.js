@@ -3,7 +3,7 @@ let test_fenlei = [{ id: 1, name: "早教亲子" }, { id: 2, name: "英语培训
 test_fenlei = [{ id: 0, name: "全部" }].concat(test_fenlei);
 
 let state = {
-    current_location:null,
+    current_location: null,
     brands: [],
     purchase_logs: [],
     lesson_category: [],
@@ -17,23 +17,23 @@ let state = {
 
     }
 }
-function clickSelectNavItem(item){
+
+function clickSelectNavItem(item) {
     console.log(item);
     let list = document.getElementsByClassName("select-nav-item");
-    for(let i in list){
-        if(list[i].id==`selectNavItem${item.id}`){
-            if(list[i].className.indexOf("hover")>=0){
+    for (let i in list) {
+        if (list[i].id == `selectNavItem${item.id}`) {
+            if (list[i].className.indexOf("hover") >= 0) {
                 return;
                 // list[i].className = `select-nav-item`;
                 // delete state.goods_params.lesson_category_ids;
-            }
-            else{
-                if(item.id===0){
+            } else {
+                if (item.id === 0) {
                     delete state.goods_params.lesson_category_ids;
-                }else{
+                } else {
                     state.goods_params.lesson_category_ids = item.id;
                 }
-                
+
                 list[i].className = `select-nav-item hover`;
             }
             isEnd = false;
@@ -41,8 +41,8 @@ function clickSelectNavItem(item){
             console.log(state.goods_params);
             showLoading();
             getGoods();
-            
-        }else{
+
+        } else {
             list[i].className = `select-nav-item`;
         }
     }
@@ -63,7 +63,7 @@ function getLessonCategories() {
         select_nav_item_all.innerHTML = `全部`;
         select_nav_item_all.className = "select-nav-item hover";
         select_nav_item_all.id = `selectNavItem0`;
-        select_nav_item_all.onclick=clickSelectNavItem.bind(this,{id:0,name:"全部"});
+        select_nav_item_all.onclick = clickSelectNavItem.bind(this, { id: 0, name: "全部" });
         document.getElementsByClassName("select-nav-items")[0].appendChild(select_nav_item_all);
         for (let i in state.lesson_category) {
             let lesson_category = document.createElement("div");
@@ -83,7 +83,7 @@ function getLessonCategories() {
             select_nav_item.innerHTML = state.lesson_category[i].name;
             select_nav_item.className = "select-nav-item";
             select_nav_item.id = `selectNavItem${state.lesson_category[i].id}`;
-            select_nav_item.onclick=clickSelectNavItem.bind(this,state.lesson_category[i]);
+            select_nav_item.onclick = clickSelectNavItem.bind(this, state.lesson_category[i]);
             // select_nav_item.id = `selectNavItem_${test_fenlei[i].id}`;
             document.getElementsByClassName("select-nav-items")[0].appendChild(select_nav_item);
 
@@ -142,7 +142,7 @@ getBanners();
 
 
 function getBrandList() {
-    return;//暂不获取品牌列表信息
+    return; //暂不获取品牌列表信息
     Get(mRoute.brands, null, (res) => {
         if (res.data) {
             state.brands = res.data
@@ -185,22 +185,23 @@ function drawGood(goods_id) {
 
 }
 let isEnd = false;
+
 function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {
         hideLoading();
         return;
     }
-    
+
     Get(mRoute.goods_page, params, res => {
         if (res.data) {
             isLoading = false;
             hideLoading();
-            if(state.goods_params.page_number===1){
+            if (state.goods_params.page_number === 1) {
                 document.getElementById("goods_left").innerHTML = '';
                 document.getElementById("goods_right").innerHTML = '';
             }
-            
+
             if (!res.data.page_data.length) {
                 isEnd = true;
             }
@@ -218,7 +219,7 @@ function getGoods(params = state.goods_params) {
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
-                item_div.onclick=showGoodDetail.bind(null,item.goods_id);
+                item_div.onclick = showGoodDetail.bind(null, item.goods_id);
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
                             src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
@@ -263,26 +264,26 @@ function getGoods(params = state.goods_params) {
     })
 }
 
-function getLocationByApi(){
+function getLocationByApi() {
     var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
-    geolocation.getLocation((res)=>{
+    geolocation.getLocation((res) => {
         console.log(res);
         state.current_location = res;
         state.goods_params.latitude = res.lat;
         state.goods_params.longitude = res.lng;
         document.getElementById("currentLocation").innerText = res.city;
-        sessionStorage.setItem('location',JSON.stringify(res));
+        sessionStorage.setItem('location', JSON.stringify(res));
         getGoods();
-    }, (err)=>{
+    }, (err) => {
         console.log(res);
         getGoods();
-    }, {timeout:8000});
+    }, { timeout: 8000 });
 }
 
 $(document).ready(() => {
 
 
-    
+
     getLocationByApi();
 
 
@@ -292,7 +293,7 @@ $(document).ready(() => {
         if (e.keyCode == "13") {
             let searchInput = $("#searchInput").val();
             sessionStorage.setItem("searchInput", searchInput);
-            window.location.href = window.location.href + "search?data=" + searchInput;
+            goTo('search', 'data', searchInput);
         }
     })
 
