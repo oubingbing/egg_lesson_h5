@@ -65,11 +65,9 @@
         <div class="part1 anchor1" id="part1">
             <div class="line1">
 
-                @if ($goods_detail["reset_title"])
+                
                 {{$goods_detail["reset_title"]}}
-                @else
-                无标题
-                @endif
+                
             </div>
             <div class="line15">
                 <div class="item"></div>
