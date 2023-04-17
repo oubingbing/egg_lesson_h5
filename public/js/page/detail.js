@@ -10,21 +10,22 @@ var state = {
 }
 
 //获取url传参
-let url_params_text = window.location.href.split("?")[1];
-url_params_text = url_params_text.split("&");
-let url_params = {};
-for (let i in url_params_text) {
-    let item = url_params_text[i];
-    url_params[item.split('=')[0]] = item.split('=')[1];
-}
-console.log(url_params);
-if (!!url_params.id) {
-    state.current_goods_id = url_params.id;
-}
+// let url_params_text = window.location.href.split("?")[1];
+// url_params_text = url_params_text.split("&");
+// let url_params = {};
+// for (let i in url_params_text) {
+//     let item = url_params_text[i];
+//     url_params[item.split('=')[0]] = item.split('=')[1];
+// }
+// console.log(url_params);
+// if (!!url_params.id) {
+//     state.current_goods_id = url_params.id;
+// }
 
 let isEnd = false;
 
 function getGoodsDetail() {
+    return;
     showLoading();
     Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
 
