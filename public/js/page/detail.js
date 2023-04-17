@@ -62,177 +62,14 @@ function getGoodsDetail() {
                 autoplay: true
             });
 
-            document.getElementById("part1").innerHTML = `<div class="line1">
+            document.getElementById("part1").innerHTML = ``;
 
-            ${state.current_goods_detail.reset_title}
-         
-        </div>
-        <div class="line15">
-            <div class="item"></div>
-            <div class="item grey">
-              
-                发布于：${state.current_goods_detail.created_at}
-            </div>
-        </div>
+            document.getElementById("part2").innerHTML = ``;
 
-        <div class="line2">
-            <div class="item">
-                <div class="t1">转让价格：</div>
-             
-                <div class="t2">¥${state.current_goods_detail.transfer_info.price}</div>
-            </div>
-            <div class="item">
-                <div class="t1">订金：</div>
-               
-                <div class="t2">¥${state.current_goods_detail.transfer_info.deposit?state.current_goods_detail.transfer_info.deposit:'---'}</div>
-            </div>
-            <div class="item grey">
-             
-                ${state.current_goods_detail.view_num}人查看
-            </div>
-        </div>
-
-        <div class="line3">
-            <div class="left">认证荣誉</div>
-            <div class="right">
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yishiren_icon%402x.png" />
-                    <div class="tip-name">已实人</div>
-                </div>
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shimingrenzheng_icon%402x.png" />
-                    <div class="tip-name">实名认证</div>
-                </div>
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoujirenzheng_icon%402x.png" />
-                    <div class="tip-name">手机认证</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="line3">
-            <div class="left">交易保障</div>
-            <div class="right">
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/fenzhang_icon%402x.png" />
-                    <div class="tip-name">专属客服</div>
-                </div>
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhifu_icon%402x.png" />
-                    <div class="tip-name">微信支付</div>
-                </div>
-                <div class="tip">
-                    <img class="icon"
-                        src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/xieyibaozhang_icon%402x.png" />
-                    <div class="tip-name">协议保障</div>
-                </div>
-            </div>
-        </div>`;
-
-            document.getElementById("part2").innerHTML = `<div class="line">
-        <div class="item">
-            <div class="name">品牌</div>
-            <div class="content">${state.current_goods_detail.campus.brand.name}</div>
-        </div>
-
-    </div>
-
-    <div class="line">
-        <div class="item">
-            <div class="name">校区名称</div>
-            <div class="content">${state.current_goods_detail.campus.campus.name}</div>
-        </div>
-
-    </div>
-    <div class="line">
-        <div class="item">
-            <div class="name">课程类型</div>
-            <div class="content">
-                ${state.current_goods_detail.campus.lesson_category.name}
-            </div>
-        </div>
-        <div class="item">
-            <div class="name">课程类别</div>
-            <div class="content">${state.current_goods_detail.campus.sub_course_type}</div>
-        </div>
-    </div>
-    <div class="line">
-        <div class="item">
-            <div class="name">课卡类型</div>
-            <div class="content">
-                ${['','次卡','年卡'][state.current_goods_detail.contact.lesson_type]}
-            </div>
-        </div>
-        <div class="item">
-        <div class="name">剩余课时</div>
-        <div class="content" id="surplusLessonTime">--</div>
-        </div>
-    </div>
-    <div class="line">
-        <div class="item">
-            <div class="name">适课年龄</div>
-            <div class="content">
-            ${state.current_goods_detail?state.current_goods_detail.contact.min_year:'---'}-${state.current_goods_detail?state.current_goods_detail.contact.max_year:'---'}岁
-            </div>
-        </div>
-        <div class="item">
-            <div class="name">适课性别</div>
-            <div class="content">${['','男宝宝','女宝宝','不限'][state.current_goods_detail.contact.lesson_gender]}</div>
-        </div>
-    </div>
+            document.getElementById("part3").innerHTML = ``;
 
 
-    <div class="line">
-        <div class="item">
-            <div class="name">合同原价</div>
-            <div class="content1">¥${state.current_goods_detail.contact.surplus_amount}</div>
-            <div class="content2">${state.current_goods_detail.transfer_info.discount}折</div>
-        </div>
-
-    </div>
-
-    <div class="line">
-        <div class="item">
-            <div class="name">合同有效期</div>
-            <div class="content">${state.current_goods_detail.contact.contract_expired}</div>
-        </div>
-    </div>
-
-    <div class="line">
-        <div class="item">
-            <div class="name">转让介绍</div>
-            <div class="content">${state.current_goods_detail.transfer_info.introduce}</div>
-        </div>
-
-    </div>`;
-
-            document.getElementById("part3").innerHTML = ` <div class="map-container" id="map_container"></div><div class="location-text">
-    ${state.current_goods_detail.campus.campus.address}
-</div>
-<div class="btn-come" onclick="showMap()">到这里去</div>
-<div class="line"></div>`;
-
-            document.getElementById("sellerInfo").innerHTML = `<div class="left">
-<img class="icon" src="${state.current_goods_detail.seller.avatar}" />
-<div class="infos">
-    <div class="name">${state.current_goods_detail.seller.nickname}</div>
-     <div class="phone">${state.current_goods_detail.seller.phone.substring(0,3)}****${state.current_goods_detail.seller.phone.substring(7,11)}</div>
-</div>
-</div>
-<div class="right">
-已入驻旦旦${state.current_goods_detail.seller.settle_in}天
-</div>`;
-
-
-            if (state.current_goods_detail.contact.lesson_type != 2) {
-                document.getElementById("surplusLessonTime").innerText = state.current_goods_detail.contact.surplus_lesson_time;
-
-            }
+           
 
             initMap();
 
@@ -389,7 +226,7 @@ function initMap() {
 }
 
 $(document).ready(() => {
-    getGoodsDetail();
+    // getGoodsDetail();
     getGoods();
    
     scrollToBottom('product-detail', null, () => {
