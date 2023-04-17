@@ -41,7 +41,11 @@ function goTo(address, t, v) {
     if (!!t && !!v) {
         params = `?${t}=${v}`;
     }
-    let href = `${window.location.protocol}//${window.location.hostname}${address=='index'?'':'/'+address+'.html'}${params}`;
+    if(address==="detail"){
+        address = `detail/${v}.html`;
+        params = ``;
+    }
+    let href = `${window.location.protocol}//${window.location.hostname}${address=='index'?'':'/'+address}${params}`;
     console.log(href);
     window.location.href = href;
 }

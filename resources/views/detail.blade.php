@@ -159,7 +159,7 @@
                 <div class="item">
                     <div class="name">课卡类型</div>
                     <div class="content">
-                        ${['','次卡','年卡'][{{$goods_detail["contact"]["lesson_type"]}}]}
+                        <!-- ['','次卡','年卡'][{{$goods_detail["contact"]["lesson_type"]}} -->
                     </div>
                 </div>
                 <div class="item">
@@ -224,7 +224,7 @@
                     <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
                     <div class="infos">
                         <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                         <div class="phone">${{{$goods_detail["seller"]["phone"]}}.substring(0,3)}****${{{$goods_detail["seller"]["phone"]}}.substring(7,11)}</div>
+                         <!-- <div class="phone">${{{$goods_detail["seller"]["phone"]}}.substring(0,3)}****${{{$goods_detail["seller"]["phone"]}}.substring(7,11)}</div> -->
                     </div>
                     </div>
                     <div class="right">
