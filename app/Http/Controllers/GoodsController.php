@@ -68,15 +68,16 @@ class GoodsController extends Controller
         return view('index',["goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
-    public function detailView(Request $request)
+    public function detailView($id)
     {
-        $id = $request->input("id");
-
         $options = [
             'app_id'    => env("WECHAT_APPID"),
             'secret'    => env("WECHAT_SECRET"),
             'token'     => 'easywechat',
         ];
+
+        $data = explode(".",$id);
+        $id = $data[0];
 
         $config = [
             "debug"=>"",
@@ -119,7 +120,7 @@ class GoodsController extends Controller
         }
 
         $string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
-        file_put_contents("detail.html", $string);
+        file_put_contents("detail/{$id}.html", $string);
     }
 
     public function searchView(Request $request)
