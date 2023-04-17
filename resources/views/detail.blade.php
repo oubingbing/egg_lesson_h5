@@ -178,7 +178,7 @@
                 </div>
                 <div class="item">
                     <div class="name">课程类别</div>
-                    <div class="content"> 
+                    <div class="content">
                         @if ($goods_detail["campus"])
                         {{$goods_detail["campus"]["sub_course_type"]}}
                     @endif
@@ -273,7 +273,7 @@
         <div class="part4 anchor3" id="part4">
             <div class="user-info" id="sellerInfo">
                 <div class="left">
-                    <img class="icon" src="{{$goods_detail[" seller"]["avatar"]}}" />
+                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
                     <div class="infos">
                         <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
                         <div class="phone">***********</div>
