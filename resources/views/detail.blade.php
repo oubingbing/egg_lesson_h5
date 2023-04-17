@@ -5,9 +5,18 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="{{$goods_detail["campus"]["brand"]["name"] }}课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
-    <meta name="description" content="{{$goods_detail["transfer_info"]["introduce"]}}">
-    <title>【{{$goods_detail["campus"]["campus"]["city"]}}】【{{$goods_detail["campus"]["campus"]["county"]}}】【{{$goods_detail["campus"]["brand"]["name"] }}课程转让】_{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
+    <meta name="keywords" content="{{$goods_detail[" campus"]["brand"]["name"]
+        }}课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
+    <meta name="description" content="{{$goods_detail[" transfer_info"]["introduce"]}}">
+    <title>
+        @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"] )
+        【{{$goods_detail["campus"]["campus"]["city"]}}】【{{$goods_detail["campus"]["campus"]["county"]}}】
+        @endif
+        @if ($goods_detail["campus"] && $goods_detail["campus"]["brand"])
+        【{{$goods_detail["campus"]["brand"]["name"]
+        }}课程转让】
+        @endif
+        _{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -31,13 +40,15 @@
 <body>
 
     <div class="product-detail">
-    <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')" onclick="goTo('search',null,null)"></div>
+        <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
+            onclick="goTo('search',null,null)"></div>
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
-                @foreach ($goods_detail["transfer_info"]["attachments"] as $item) 
-                    <div class="banner-image swiper-slide">
-                        <div style="background-image: url('{{$item}}');background-size:cover;background-position:center;width:100%;height:100%"/>
-                    </div>
+                @foreach ($goods_detail["transfer_info"]["attachments"] as $item)
+                <div class="banner-image swiper-slide">
+                    <div
+                        style="background-image: url('{{$item}}');background-size:cover;background-position:center;width:100%;height:100%" />
+                </div>
                 @endforeach
             </div>
         </div>
@@ -52,41 +63,41 @@
         <div class="part1 anchor1" id="part1">
             <div class="line1">
 
-                @if ($goods_detail["reset_title"]) 
+                @if ($goods_detail["reset_title"])
                 {{$goods_detail["reset_title"]}}
                 @else
                 无标题
-             @endif
+                @endif
             </div>
             <div class="line15">
                 <div class="item"></div>
                 <div class="item grey">
-                  
+
                     发布于：{{$goods_detail["created_at"]}}
                 </div>
             </div>
-    
+
             <div class="line2">
                 <div class="item">
                     <div class="t1">转让价格：</div>
-                 
+
                     <div class="t2">¥{{$goods_detail["transfer_info"]["price"]}}</div>
                 </div>
                 <div class="item">
                     <div class="t1">订金：</div>
-                   @if ($goods_detail["transfer_info"]["deposit"])
-                   <div class="t2">¥{{$goods_detail["transfer_info"]["deposit"]}}</div>
-                   @else
-                   <div class="t2">---</div>
-                   @endif
-                    
+                    @if ($goods_detail["transfer_info"]["deposit"])
+                    <div class="t2">¥{{$goods_detail["transfer_info"]["deposit"]}}</div>
+                    @else
+                    <div class="t2">---</div>
+                    @endif
+
                 </div>
                 <div class="item grey">
-                 
+
                     {{$goods_detail["view_num"]}}人查看
                 </div>
             </div>
-    
+
             <div class="line3">
                 <div class="left">认证荣誉</div>
                 <div class="right">
@@ -107,7 +118,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="line3">
                 <div class="left">交易保障</div>
                 <div class="right">
@@ -134,28 +145,42 @@
             <div class="line">
                 <div class="item">
                     <div class="name">品牌</div>
-                    <div class="content">{{$goods_detail["campus"]["brand"]["name"]}}</div>
+                    <div class="content">
+                        @if ($goods_detail["campus"] && $goods_detail["campus"]["brand"])
+                        {{$goods_detail["campus"]["brand"]["name"]}}
+                    @endif
                 </div>
-        
+                </div>
+
             </div>
-        
+
             <div class="line">
                 <div class="item">
                     <div class="name">校区名称</div>
-                    <div class="content">{{$goods_detail["campus"]["campus"]["name"]}}</div>
+                    <div class="content">
+                        @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
+                        {{$goods_detail["campus"]["campus"]["name"]}}
+                        @endif
+                       </div>
                 </div>
-        
+
             </div>
             <div class="line">
                 <div class="item">
                     <div class="name">课程类型</div>
                     <div class="content">
+                        @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
                         {{$goods_detail["campus"]["lesson_category"]["name"]}}
+                        @endif
                     </div>
                 </div>
                 <div class="item">
                     <div class="name">课程类别</div>
-                    <div class="content"> {{$goods_detail["campus"]["sub_course_type"]}}</div>
+                    <div class="content"> 
+                        @if ($goods_detail["campus"])
+                        {{$goods_detail["campus"]["sub_course_type"]}}
+                    @endif
+                </div>
                 </div>
             </div>
             <div class="line">
@@ -170,12 +195,13 @@
                     </div>
                 </div>
                 <div class="item">
-                <div class="name">剩余课时</div>
-                @if ($goods_detail["contact"]["lesson_type"] !== 2)
-                <div class="content" id="surplusLessonTime">{{$goods_detail["contact"]["surplus_lesson_time"]}}</div>
-                @else
-                <div class="content" id="surplusLessonTime">--</div>
-                @endif
+                    <div class="name">剩余课时</div>
+                    @if ($goods_detail["contact"]["lesson_type"] !== 2)
+                    <div class="content" id="surplusLessonTime">{{$goods_detail["contact"]["surplus_lesson_time"]}}
+                    </div>
+                    @else
+                    <div class="content" id="surplusLessonTime">--</div>
+                    @endif
                 </div>
             </div>
             <div class="line">
@@ -189,51 +215,54 @@
                     <div class="name">适课性别</div>
                     <div class="content">
                         @switch($goods_detail["contact"]["lesson_gender"])
-    @case(1)
-        男宝宝
-        @break
+                        @case(1)
+                        男宝宝
+                        @break
 
-    @case(2)
-       女宝宝
-        @break
+                        @case(2)
+                        女宝宝
+                        @break
 
-    @case(3)
-        不限
-@endswitch
+                        @case(3)
+                        不限
+                        @endswitch
 
-                       </div>
+                    </div>
                 </div>
             </div>
-        
-        
+
+
             <div class="line">
                 <div class="item">
                     <div class="name">合同原价</div>
                     <div class="content1">¥{{$goods_detail["contact"]["surplus_amount"]}}</div>
                     <div class="content2">{{$goods_detail["transfer_info"]["discount"]}}折</div>
                 </div>
-        
+
             </div>
-        
+
             <div class="line">
                 <div class="item">
                     <div class="name">合同有效期</div>
                     <div class="content">{{$goods_detail["contact"]["contract_expired"]}}</div>
                 </div>
             </div>
-        
+
             <div class="line">
                 <div class="item">
                     <div class="name">转让介绍</div>
                     <div class="content">{{$goods_detail["transfer_info"]["introduce"]}}</div>
                 </div>
-        
+
             </div>
         </div>
 
         <div class="part3 anchor2" id="part3">
-            <div class="map-container" id="map_container"></div><div class="location-text">
+            <div class="map-container" id="map_container"></div>
+            <div class="location-text">
+                @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
                 {{$goods_detail["campus"]["campus"]["address"]}}
+                @endif
             </div>
             <div class="btn-come" onclick="showMap()">到这里去</div>
             <div class="line"></div>
@@ -242,15 +271,15 @@
         <div class="part4 anchor3" id="part4">
             <div class="user-info" id="sellerInfo">
                 <div class="left">
-                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
+                    <img class="icon" src="{{$goods_detail[" seller"]["avatar"]}}" />
                     <div class="infos">
                         <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                         <div class="phone">***********</div>
+                        <div class="phone">***********</div>
                     </div>
-                    </div>
-                    <div class="right">
+                </div>
+                <div class="right">
                     已入驻旦旦{{$goods_detail["seller"]["settle_in"]}}天
-                    </div>
+                </div>
             </div>
 
             <div class="transfer-progress">
@@ -340,17 +369,17 @@
 
 
                 <div class="items">
-                <div class="items-left">
-                    <div class="items-left-infos" id="goods_left">
+                    <div class="items-left">
+                        <div class="items-left-infos" id="goods_left">
 
+                        </div>
+                    </div>
+                    <div class="items-right">
+                        <div class="items-right-infos" id="goods_right">
+
+                        </div>
                     </div>
                 </div>
-                <div class="items-right">
-                    <div class="items-right-infos" id="goods_right">
-
-                    </div>
-                </div>
-            </div>
             </div>
 
         </div>
@@ -360,28 +389,33 @@
     <div class="bottom-btns">
         <div class="left">
             <div class="item" id="do_collection" onclick="doCollection(1)">
-                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png');">
-            </div>
+                <div class="icon"
+                    style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png');">
+                </div>
                 <div class="name">收藏</div>
             </div>
 
             <div class="item hide" id="do_uncollection" onclick="doCollection(0)">
-                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_pre_icon%402x.png')">
+                <div class="icon"
+                    style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_pre_icon%402x.png')">
                 </div>
                 <div class="name">收藏</div>
             </div>
             <div class="item" onclick="showService()">
-                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/kefu_nor_icon%402x.png')">
+                <div class="icon"
+                    style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/kefu_nor_icon%402x.png')">
                 </div>
                 <div class="name">客服</div>
             </div>
             <div class="item" onclick="createPoster()">
-                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhuanfa_nor_icon%402x.png')">
+                <div class="icon"
+                    style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/zhuanfa_nor_icon%402x.png')">
                 </div>
                 <div class="name">转发</div>
             </div>
             <div class="item" onclick="handleValueChange('show_discuss',true)">
-                <div class="icon" style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yijia_nor_icon%402x.png')">
+                <div class="icon"
+                    style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/yijia_nor_icon%402x.png')">
                 </div>
                 <div class="name">议价</div>
             </div>
@@ -396,22 +430,23 @@
     </div>
 </body>
 <script type="text/javascript">
-console.log("debug","{{$debug}}")
-console.log("beta","{{$beta}}")
-console.log("appId","{{$appId}}")
-console.log("nonceStr","{{$nonceStr}}")
-console.log("timestamp","{{$timestamp}}")
-console.log("url","{{$url}}")
-console.log("jsApiList","{{$jsApiList}}")
-let res = {
-            "debug":"{{$debug}}",
-            "beta":"{{$beta}}",
-            "appId":"{{$appId}}",
-            "nonceStr":"{{$nonceStr}}",
-            "timestamp":parseInt("{{$timestamp}}"),
-            "url":"{{$url}}",
-            "signature":"{{$signature}}"
-        };
-getSignature(res);
+    console.log("debug", "{{$debug}}")
+    console.log("beta", "{{$beta}}")
+    console.log("appId", "{{$appId}}")
+    console.log("nonceStr", "{{$nonceStr}}")
+    console.log("timestamp", "{{$timestamp}}")
+    console.log("url", "{{$url}}")
+    console.log("jsApiList", "{{$jsApiList}}")
+    let res = {
+        "debug": "{{$debug}}",
+        "beta": "{{$beta}}",
+        "appId": "{{$appId}}",
+        "nonceStr": "{{$nonceStr}}",
+        "timestamp": parseInt("{{$timestamp}}"),
+        "url": "{{$url}}",
+        "signature": "{{$signature}}"
+    };
+    getSignature(res);
 </script>
+
 </html>
