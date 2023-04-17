@@ -246,7 +246,7 @@ class GoodsService extends BaseServiceAbstract
                 ContractLesson::FIELD_MIN_YEAR,
                 ContractLesson::FIELD_MAX_YEAR,
                 ContractLesson::FIELD_LESSON_GENDER,
-                ContractLesson::FIELD_ATTACHMENTS,
+                //ContractLesson::FIELD_ATTACHMENTS,
                 ContractLesson::FIELD_CREATED_AT,
             ]);
         },"transfer_info"=>function($query){
@@ -593,7 +593,7 @@ class GoodsService extends BaseServiceAbstract
                     $transferImage = json_decode($transferImage,true);
                 }
                 foreach ($transferImage as &$t){
-                    $t = $domain.$t;
+                    $t = $domain.$t."?imageMogr2/format/webp/thumbnail/400x";
                 }
                 $goods["transfer_info"]["attachments"] = $transferImage;
             }
@@ -664,7 +664,7 @@ class GoodsService extends BaseServiceAbstract
                     $transferImage = json_decode($transferImage,true);
                 }
                 foreach ($transferImage as &$t){
-                    $t = $domain.$t;
+                    $t = $domain.$t."?imageMogr2/format/webp/thumbnail/400x";
                 }
                 $goods["transfer_info"]["attachments"] = $transferImage;
             }

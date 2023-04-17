@@ -28,6 +28,16 @@ class GoodsController extends Controller
 
     public function index(Request $request)
     {
+        $config = [
+            "debug"=>"",
+            "beta"=>"",
+            "appId"=>"",
+            "nonceStr"=>"",
+            "timestamp"=>"",
+            "url"=>"",
+            "jsApiList"=>"",
+            "signature"=>"",
+        ];
         $ip = getIP();
         session(['language' => "CN"]);
         $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
@@ -46,9 +56,15 @@ class GoodsController extends Controller
             'token'     => 'easywechat',
         ];
 
-        $app = Factory::officialAccount($options);
-        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
-        $config = json_decode($config,true);
+        try{
+            $app = Factory::officialAccount($options);
+            $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
+        }catch(Exception $e){}
+
+        if(!is_array($config)){
+            $config = json_decode($config,true);
+        }
+
         return view('index',["goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
@@ -95,6 +111,7 @@ class GoodsController extends Controller
         if(!$goods){
             throw new ApiException("数据不存在");
         }
+
 
         $result = $this->goodsService->formatSingle($goods);
         if(!is_array($config)){
