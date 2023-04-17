@@ -121,7 +121,7 @@ function getGoods(params = state.goods_params) {
                         <div class="infos">
                             <div class="line1">
                                 <div class="tag">卖家自转</div>
-                                <div class="name">${item.reset_title}</div>
+                                <div class="name"><a class="title-link" title="${item.reset_title}" href="${window.location.protocol}//${window.location.hostname}/detail/${item.goods_id}.html">${item.reset_title}</a></div>
                             </div>
                             <div class="line2">
                                 <div class="price"> ¥${item.transfer_info.price > 10000 ? parseInt(item.transfer_info.price / 1000) / 10 + "万" : item.transfer_info.price}</div>

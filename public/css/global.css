@@ -761,6 +761,11 @@ body {
     border: 2vw solid #757575;
 }
 
+.title-link {
+    color: #333;
+    text-decoration-line: none;
+}
+
 .hot-goods {
     padding: 1.25rem 0.9375rem 1.75rem 1.25rem;
     background-color: #FFF;
