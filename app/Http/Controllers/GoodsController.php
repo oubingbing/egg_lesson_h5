@@ -62,8 +62,21 @@ class GoodsController extends Controller
             'token'     => 'easywechat',
         ];
 
-        $app = Factory::officialAccount($options);
-        $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
+        $config = [
+            "debug"=>"",
+            "beta"=>"",
+            "appId"=>"",
+            "nonceStr"=>"",
+            "timestamp"=>"",
+            "url"=>"",
+            "jsApiList"=>"",
+            "signature"=>"",
+        ];
+
+        try{
+            $app = Factory::officialAccount($options);
+            $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
+        }catch(Exception $e){}
 
         $ip = getIP();
         session(['language' => "CN"]);
@@ -84,8 +97,12 @@ class GoodsController extends Controller
         }
 
         $result = $this->goodsService->formatSingle($goods);
-        $config = json_decode($config,true);
-        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        if(!is_array($config)){
+            $config = json_decode($config,true);
+        }
+
+        $string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
+        file_put_contents("detail.html", $string);
     }
 
     public function searchView(Request $request)
