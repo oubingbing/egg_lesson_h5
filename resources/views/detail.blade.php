@@ -274,7 +274,7 @@
                     <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
                     <div class="infos">
                         <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                        <div class="phone">***********</div>
+                        <div class="phone">{{$goods_detail["hidden_phone"]}}</div>
                     </div>
                 </div>
                 <div class="right">
