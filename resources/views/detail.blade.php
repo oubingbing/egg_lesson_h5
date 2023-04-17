@@ -34,7 +34,7 @@
     <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')" onclick="goTo('search',null,null)"></div>
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
-                @for ($goods_detail["transfer_info"]["attachments"] as $item) 
+                @foreach ($goods_detail["transfer_info"]["attachments"] as $item) 
                     <div class="banner-image swiper-slide">
                         <div style="background-image: url('{{$item}}');background-size:cover;background-position:center;width:100%;height:100%"/>
                     </div>
@@ -52,8 +52,11 @@
         <div class="part1 anchor1" id="part1">
             <div class="line1">
 
+                @if ($goods_detail["reset_title"]) 
                 {{$goods_detail["reset_title"]}}
-             
+                @else
+                无标题
+             @endif
             </div>
             <div class="line15">
                 <div class="item"></div>
@@ -159,7 +162,11 @@
                 <div class="item">
                     <div class="name">课卡类型</div>
                     <div class="content">
-                        <!-- ['','次卡','年卡'][{{$goods_detail["contact"]["lesson_type"]}} -->
+                        @if ($goods_detail["contact"]["lesson_type"] === 1)
+                        次卡
+                        @elseif ($goods_detail["contact"]["lesson_type"] === 2)
+                        年卡
+                        @endif
                     </div>
                 </div>
                 <div class="item">
@@ -180,7 +187,21 @@
                 </div>
                 <div class="item">
                     <div class="name">适课性别</div>
-                    <div class="content">${['','男宝宝','女宝宝','不限'][{{$goods_detail["contact"]["lesson_gender"]}}]}</div>
+                    <div class="content">
+                        @switch($goods_detail["contact"]["lesson_gender"])
+    @case(1)
+        男宝宝
+        @break
+
+    @case(2)
+       女宝宝
+        @break
+
+    @case(3)
+        不限
+@endswitch
+
+                       </div>
                 </div>
             </div>
         
@@ -224,7 +245,7 @@
                     <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
                     <div class="infos">
                         <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                         <!-- <div class="phone">${{{$goods_detail["seller"]["phone"]}}.substring(0,3)}****${{{$goods_detail["seller"]["phone"]}}.substring(7,11)}</div> -->
+                         <div class="phone">***********</div>
                     </div>
                     </div>
                     <div class="right">
