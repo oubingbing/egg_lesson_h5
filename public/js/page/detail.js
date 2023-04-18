@@ -30,10 +30,10 @@ function getGoodsDetail() {
     Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
 
         if (res && res.data) {
-            if(!res.data.campus){
-                res.data.campus = {campus:{}};
+            if (!res.data.campus) {
+                res.data.campus = { campus: {} };
             }
-            if(!res.data.campus.campus){
+            if (!res.data.campus.campus) {
                 res.data.campus.campus = {};
             }
             res.data.reset_title =
@@ -41,14 +41,14 @@ function getGoodsDetail() {
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
 
             state.current_goods_detail = res.data;
-            setApi(res.data.transfer_info.title,'我在旦旦发现宝贝了！',res.data.transfer_info.attachments[0],window.location.href);
+            setApi(res.data.transfer_info.title, '我在旦旦发现宝贝了！', res.data.transfer_info.attachments[0], window.location.href);
             console.log(state.current_goods_detail);
-            if(state.current_goods_detail.collection!==1){
-                document.getElementById("do_collection").className="item show";
-                document.getElementById("do_uncollection").className="item hide";
-            }else{
-                document.getElementById("do_collection").className="item hide";
-                document.getElementById("do_uncollection").className="item show";
+            if (state.current_goods_detail.collection !== 1) {
+                document.getElementById("do_collection").className = "item show";
+                document.getElementById("do_uncollection").className = "item hide";
+            } else {
+                document.getElementById("do_collection").className = "item hide";
+                document.getElementById("do_uncollection").className = "item show";
             }
 
             for (let i in state.current_goods_detail.transfer_info.attachments) {
@@ -70,7 +70,7 @@ function getGoodsDetail() {
             document.getElementById("part3").innerHTML = ``;
 
 
-           
+
 
             initMap();
 
@@ -121,7 +121,7 @@ function getGoods(params = state.goods_params) {
                         <div class="infos">
                             <div class="line1">
                                 <div class="tag">卖家自转</div>
-                                <div class="name">${item.reset_title}</div>
+                                <div class="name"><a class="title-link" title="${item.reset_title}" href="${window.location.protocol}//${window.location.hostname}/detail/${item.goods_id}.html">${item.reset_title}</a></div>
                             </div>
                             <div class="line2">
                                 <div class="price"> ¥${item.transfer_info.price > 10000 ? parseInt(item.transfer_info.price / 1000) / 10 + "万" : item.transfer_info.price}</div>
@@ -166,73 +166,82 @@ function drawGood(goods_id) {
 
 }
 
-function showUpdating(){
-    document.getElementsByClassName("updating-view")[0].className="updating-view show";
+function showUpdating() {
+    document.getElementsByClassName("updating-view")[0].className = "updating-view show";
 }
 
-function showService(){
-    showUpdating();
-}
-function doCollection(){
-    showUpdating();
-}
-function handleValueChange(t,e){
-    console.log(t,e);
-    showUpdating();
-}
-function createPoster(){
-    showUpdating();
-}
-function createOrder(){
+function showService() {
     showUpdating();
 }
 
-function showMap(){
+function doCollection() {
+    showUpdating();
+}
+
+function handleValueChange(t, e) {
+    console.log(t, e);
+    showUpdating();
+}
+
+function createPoster() {
+    showUpdating();
+}
+
+function createOrder() {
+    showUpdating();
+}
+
+function showMap() {
     let item = state.current_goods_detail;
     window.location.href = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${item.campus.campus.latitude},${item.campus.campus.longitude};title:${item.campus.campus.name};addr:${item.campus.campus.address}&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV&referer=dandanzkw`
 }
 
 function initMap() {
-    if(!state.current_goods_detail)
-    return;
+    if (!state.current_goods_detail)
+        return;
 
     //定义地图中心点坐标
-    var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude,state.current_goods_detail.campus.campus.longitude)
-    //定义map变量，调用 TMap.Map() 构造函数创建地图
+    var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude, state.current_goods_detail.campus.campus.longitude)
+        //定义map变量，调用 TMap.Map() 构造函数创建地图
     var map = new TMap.Map(document.getElementById('map_container'), {
-        center: center,//设置地图中心点坐标
-        zoom: 17.2,   //设置地图缩放级别
-        pitch: 43.5,  //设置俯仰角
-        rotation: 45    //设置地图旋转角度
+        center: center, //设置地图中心点坐标
+        zoom: 17.2, //设置地图缩放级别
+        pitch: 43.5, //设置俯仰角
+        rotation: 45 //设置地图旋转角度
     });
     var marker = new TMap.MultiMarker({
         map: map,
         styles: {
-          // 点标记样式
-          marker: new TMap.MarkerStyle({
-            width: 20, // 样式宽
-            height: 30, // 样式高
-            anchor: { x: 10, y: 30 }, // 描点位置
-          }),
+            // 点标记样式
+            marker: new TMap.MarkerStyle({
+                width: 20, // 样式宽
+                height: 30, // 样式高
+                anchor: { x: 10, y: 30 }, // 描点位置
+            }),
         },
         geometries: [
-          // 点标记数据数组
-          {
-            // 标记位置(纬度，经度，高度)
-            position: center,
-            id: 'marker',
-          },
+            // 点标记数据数组
+            {
+                // 标记位置(纬度，经度，高度)
+                position: center,
+                id: 'marker',
+            },
         ],
-      });
+    });
 }
 
 $(document).ready(() => {
     // getGoodsDetail();
     getGoods();
-   
+
     scrollToBottom('product-detail', null, () => {
         state.goods_params.page_number++;
         showLoading();
         getGoods();
     })
+
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: true
+    });
 })

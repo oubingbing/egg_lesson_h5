@@ -49,8 +49,8 @@
             <div class="banner-swiper swiper-wrapper" id="banners">
                 @foreach ($goods_detail["transfer_info"]["attachments"] as $item)
                 <div class="banner-image swiper-slide">
-                    <div
-                        style="background-image: url('{{$item}}');background-size:cover;background-position:center;width:100%;height:100%" />
+                    <img
+                        src="{{$item}}" alt="{{$goods_detail['campus']['brand']['name']}}课程转让" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
                 @endforeach
             </div>
