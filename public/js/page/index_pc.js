@@ -123,8 +123,8 @@ function getBanners() {
         }
         console.log('state.banners', state.banners);
         let banners = document.getElementById("banners");
-        console.log("banners",banners);
-        if(!banners)return;
+        console.log("banners", banners);
+        if (!banners) return;
         document.getElementById("banners").innerHTML = '';
         for (let i in state.banners) {
             let banner = document.createElement("div");
@@ -174,18 +174,18 @@ getBrandList();
 
 function drawGood(goods_id) {
     let lists = [];
-    for(let i=0;i<5;i++){
+    for (let i = 0; i < 5; i++) {
         lists[i] = document.getElementById(`goods_${i}`);
     }
-   
-    let choose =0;
-    for(let i in lists){
-        if(lists[choose].offsetHeight>lists[i].offsetHeight){
+
+    let choose = 0;
+    for (let i in lists) {
+        if (lists[choose].offsetHeight > lists[i].offsetHeight) {
             choose = i;
         }
     }
     lists[choose].appendChild(state.goods_divs[goods_id]);
-    
+
     setTimeout(() => {
         state.goods_divs[goods_id].className = "item show";
     }, 100);
@@ -205,7 +205,7 @@ function getGoods(params = state.goods_params) {
             isLoading = false;
             hideLoading();
             if (state.goods_params.page_number === 1) {
-                for(let i=1;i<5;i++){
+                for (let i = 0; i < 5; i++) {
                     document.getElementById(`goods_${i}`).innerHTML = '';
                 }
             }
