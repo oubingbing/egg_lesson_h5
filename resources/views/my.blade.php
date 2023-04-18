@@ -13,6 +13,7 @@
         <link href="{{asset('css/my.css')}}" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/bottom_menu.js')}}"></script>
         <script src="{{asset('js/popup.js?show=0')}}"></script>
@@ -32,7 +33,7 @@
             })
         </script>
     </head>
-    
+
     <body>
         <div class="container">
             <div class="get-phone-box hide">
@@ -45,10 +46,10 @@
                     <div class='content'>平台需要获取您的微信绑定手机号进行用户信息认证，请您授权。</div>
                     <div class="btns">
                         <div class="refuse-phone funC_closeNeedPhone">拒绝授权</div>
-    
+
                         <btn class="need-phone">同意授权</btn>
                     </div>
-    
+
                 </div>
             </div>
             <div class="part1">
@@ -62,11 +63,11 @@
                 <img src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/my/shezhi_icon%402x.png"
                     class="setting funC_goTo" page="setting"/>
                 <div class="info1">
-                  
-                        <a class="need-login need-login-h5 funC_showUpdating">点击登录</a>                     
-    
 
-    
+                        <a class="need-login need-login-h5 funC_showUpdating">点击登录</a>
+
+
+
                     <!-- <block v-else>
                         <div class="line1">
                             <div class="name">未登录</div>
@@ -76,11 +77,11 @@
                             开通实人通行证，提升曝光度，商品更快出售！
                         </div>
                     </block> -->
-    
-    
-    
+
+
+
                 </div>
-    
+
                 <div class="info2 funC_goTo" page="balance">
                     <div class="line1">
                         <div class="left">
@@ -96,7 +97,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="part2">
                 <div class="title">买家管理</div>
                 <div class="item funC_goTo" page="buyer_management" params="status=0">
@@ -142,7 +143,7 @@
                     <div class="name">发出的议价</div>
                 </div>
             </div>
-    
+
             <div class="part3">
                 <div class="title">卖家管理</div>
                 <div class="item funC_goTo" page="seller_management">
@@ -185,7 +186,7 @@
                     <div class="name">已下架</div>
                 </div>
             </div>
-    
+
             <div class="part4">
                 <div class="title">自助服务</div>
                 <div class="item showAboutUs">
@@ -225,17 +226,17 @@
                     <div class="name">费率公示</div>
                 </div>
             </div>
-    
+
             <div class="modal-bottom hide">
                 <div class="cover  funC_handleValueChange" params="show_yijian=false"></div>
-    
+
                 <div class="modal-yijian">
                     <div class="modal-yijian-content">
                         <div class="title">意见与建议</div>
                         <textarea class="filling-box" id="updateJianyiParams"></textarea>
-                        
+
                     </div>
-    
+
                     <div class="btn-submit">提&nbsp;交</div>
                     <div class="btn-cancel  funC_handleValueChange" params="show_yijian=false">取&nbsp;消</div>
                 </div>

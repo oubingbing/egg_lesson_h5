@@ -21,6 +21,7 @@
         _{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
 
     <!-- Fonts -->
+    <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
     <link href="{{asset('css/page/detail.css')}}" rel="stylesheet">
@@ -65,9 +66,9 @@
         <div class="part1 anchor1" id="part1">
             <div class="line1">
 
-                
+
                 {{$goods_detail["reset_title"]}}
-                
+
             </div>
             <div class="line15">
                 <div class="item"></div>

@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">  
-    <meta name="description" content="旦旦转课网是全网首个课程转让交易平台,基于教培行业学费贵、退费难的现状,为用户提供一站式课程转让交易服务。"> 
-    <title>旦旦转课网_全网首个课程转让交易平台</title>  
+    <meta name="keywords" content="早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
+    <meta name="description" content="旦旦转课网是全网首个课程转让交易平台,基于教培行业学费贵、退费难的现状,为用户提供一站式课程转让交易服务。">
+    <title>旦旦转课网_全网首个课程转让交易平台</title>
     <!-- Fonts -->
+    <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
     <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
@@ -26,7 +27,7 @@
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>
     <script>
-       
+
        console.log("debug","{{$debug}}")
 console.log("beta","{{$beta}}")
 console.log("appId","{{$appId}}")
@@ -67,7 +68,7 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
         </div>
 
         <div class="type-list" id="lesson_categorys">
-           
+
         </div>
 
         <div class="purchase">
@@ -108,12 +109,12 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
             <div class="items">
                 <div class="items-left">
                     <div class="items-left-infos" id="goods_left">
-                        
+
                     </div>
                 </div>
                 <div class="items-right">
                     <div class="items-right-infos" id="goods_right">
-                        
+
                     </div>
                 </div>
             </div>
