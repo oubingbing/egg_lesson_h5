@@ -236,7 +236,7 @@ function getGoods(params = state.goods_params) {
                             <div class="icon"
                                 style='background-image: url("image/dingwei_icon.png");background-repeat:no-repeat;background-position: center center; background-size: contain;'>
                             </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
+                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address.split("市")[0]+'市' : ''}</div>
                             <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
                         </div>
                         <div class="infos">
@@ -279,6 +279,8 @@ function getLocationByApi() {
         state.current_location = res;
         state.goods_params.latitude = res.lat;
         state.goods_params.longitude = res.lng;
+        // state.goods_params.order_by = 'location';
+        state.goods_params.sort_by = 'asc';
         document.getElementById("currentLocation").innerText = res.city;
         sessionStorage.setItem('location', JSON.stringify(res));
         getGoods();
