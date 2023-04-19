@@ -140,7 +140,7 @@ function getBanners() {
         });
     })
 }
-getBanners();
+// getBanners();
 
 
 function getBrandList() {

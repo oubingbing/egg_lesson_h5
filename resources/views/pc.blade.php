@@ -67,10 +67,10 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
         
 
         <div class="nav3">
-            <img class="logo" src="{{asset('image/logo1.png')}}"/>
+            <!-- <img class="logo" src="{{asset('image/logo1.png')}}"/> -->
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
-
+                <img class="banner-image swiper-slide" src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/banner/banner.jpg"/>
             </div>
         </div>
         <div class="type-list" id="lesson_categorys"></div>
