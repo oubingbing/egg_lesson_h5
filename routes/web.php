@@ -43,6 +43,10 @@ Route::group([], function () use ($router) {
     Route::get("/","GoodsController@index");
     /** 课程列表 **/
     Route::get("/index","GoodsController@index");
+
+    /** 课程列表 **/
+    Route::get("/pc","GoodsController@pc");
+
     /** 课程详情 **/
     Route::get("/detail/{id}","GoodsController@detailView");
     /** 搜索页 **/
