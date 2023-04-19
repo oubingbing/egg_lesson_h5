@@ -294,6 +294,11 @@ $(document).ready(() => {
 
     getLocationByApi();
 
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: true
+    });
+
 
 
 
