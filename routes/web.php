@@ -47,6 +47,11 @@ Route::group([], function () use ($router) {
     /** 课程列表 **/
     Route::get("/pc","GoodsController@pc");
 
+    /** 课程列表 **/
+    Route::get("/pc/detail/{id}","GoodsController@detailView");
+    /** 搜索页 **/
+    Route::get("/pc/search","GoodsController@pcSearchView");
+
     /** 课程详情 **/
     Route::get("/detail/{id}","GoodsController@detailView");
     /** 搜索页 **/
