@@ -160,22 +160,21 @@ input {
 .pc-select-nav{
     margin-bottom: 20px;
     width: 1200px;
-    /* margin-left: -5.33vw; */
     padding: 0;
     box-sizing: border-box;
     position: sticky;
     top: 0;
     background-color: #fff;
     z-index: 2;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 .pc-select-nav .select-nav-items {
-    white-space: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
 }
 
 .pc-select-nav .select-nav-item {
-    font-size: 0.95rem;
+    font-size: 16px;
     font-family: DanDanFont;
     font-weight: 500;
     color: #808080;
@@ -466,7 +465,7 @@ input {
 .new-things .title .left,
 .brands .title .left {
     color: #333;
-    font-size: 1rem;
+    font-size: 16px;
     font-family: DanDanFont;
     font-weight: bold;
     line-height: 1;
