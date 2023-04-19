@@ -10,7 +10,7 @@ let state = {
     banners: [],
     goods: [],
     goods_params: {
-        page_size: 6,
+        page_size: 10,
         page_number: 1,
     },
     goods_divs: {
@@ -173,14 +173,19 @@ getBrandList();
 
 
 function drawGood(goods_id) {
-    let left = document.getElementById("goods_left");
-    let right = document.getElementById("goods_right");
-    if (left.offsetHeight >= right.offsetHeight) {
-        right.appendChild(state.goods_divs[goods_id]);
-
-    } else {
-        left.appendChild(state.goods_divs[goods_id]);
+    let lists = [];
+    for(let i=0;i<5;i++){
+        lists[i] = document.getElementById(`goods_${i}`);
     }
+   
+    let choose =0;
+    for(let i in lists){
+        if(lists[choose].offsetHeight>lists[i].offsetHeight){
+            choose = i;
+        }
+    }
+    lists[choose].appendChild(state.goods_divs[goods_id]);
+    
     setTimeout(() => {
         state.goods_divs[goods_id].className = "item show";
     }, 100);
@@ -200,8 +205,9 @@ function getGoods(params = state.goods_params) {
             isLoading = false;
             hideLoading();
             if (state.goods_params.page_number === 1) {
-                document.getElementById("goods_left").innerHTML = '';
-                document.getElementById("goods_right").innerHTML = '';
+                for(let i=1;i<5;i++){
+                    document.getElementById(`goods_${i}`).innerHTML = '';
+                }
             }
 
             if (!res.data.page_data.length) {
@@ -228,7 +234,7 @@ function getGoods(params = state.goods_params) {
                         </div>
                         <div class="position-box">
                             <div class="icon"
-                                style='background-image: url("image/dingwei_icon.png"); background-position: center center; background-size: cover;'>
+                                style='background-image: url("image/dingwei_icon.png");background-repeat:no-repeat;background-position: center center; background-size: contain;'>
                             </div>
                             <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
                             <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
@@ -299,7 +305,7 @@ $(document).ready(() => {
         }
     })
 
-    scrollToBottom('page-index', null, () => {
+    scrollToBottomPc('pc', null, () => {
         state.goods_params.page_number++;
         showLoading();
         getGoods();
