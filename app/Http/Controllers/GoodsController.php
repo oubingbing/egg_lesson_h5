@@ -177,6 +177,93 @@ class GoodsController extends Controller
         return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
+    public function pcDetailView($id)
+    {
+        $options = [
+            'app_id'    => env("WECHAT_APPID"),
+            'secret'    => env("WECHAT_SECRET"),
+            'token'     => 'easywechat',
+        ];
+
+        $data = explode(".",$id);
+        $id = $data[0];
+
+        $config = [
+            "debug"=>"",
+            "beta"=>"",
+            "appId"=>"",
+            "nonceStr"=>"",
+            "timestamp"=>"",
+            "url"=>"",
+            "jsApiList"=>"",
+            "signature"=>"",
+        ];
+
+        try{
+            $app = Factory::officialAccount($options);
+            $config = $app->jssdk->buildConfig(['updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone'], $debug = false, $beta = false, $json = true,[]);
+        }catch(Exception $e){}
+
+        $ip = getIP();
+        session(['language' => "CN"]);
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        try{
+            $record = $cityDbReader->city($ip);
+            if($record){
+                if($record->country->isoCode != "CN"){
+                    session(['language' => "EN"]);
+                }
+            }
+        }catch(Exception $e){}
+
+        $user = null;
+        $goods = $this->goodsService->detail($user,$id);
+        if(!$goods){
+            throw new ApiException("数据不存在");
+        }
+
+
+        $result = $this->goodsService->formatSingle($goods);
+        if(!is_array($config)){
+            $config = json_decode($config,true);
+        }
+
+        $hiddenPhone = "***********";
+        $phone = $result["seller"]["phone"];
+        $result["seller"]["phone"]= "";
+        if(strlen($phone)>= 10){
+            $hiddenPhone = substr_replace($phone,'****',3,4);
+            $result["seller"]["phone"]= $hiddenPhone;
+        }
+
+        $resetTitle = $result["contact"]["lesson_type"] == 1 ?"【".$result["contact"]["surplus_lesson_time"]."节 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"]:"【年卡 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"];
+        $result = array_merge($result,["reset_title"=>$resetTitle,"hidden_phone"=>$hiddenPhone]);
+        //$string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
+        //file_put_contents("detail/{$id}.html", $string);
+
+        return view('pc_detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+    }
+
+    public function pcSearchView(Request $request)
+    {
+        $data = $request->input("data");
+        $categoryId = $request->input("category_id");
+
+        $ip = getIP();
+        session(['language' => "CN"]);
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        try{
+            $record = $cityDbReader->city($ip);
+            if($record){
+                if($record->country->isoCode != "CN"){
+                    session(['language' => "EN"]);
+                }
+            }
+        }catch(Exception $e){}
+
+        return view('pc_searchlist',["data"=>$data,"category_id"=>$categoryId]);
+    }
+
     public function searchView(Request $request)
     {
         $data = $request->input("data");
