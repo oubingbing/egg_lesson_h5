@@ -195,11 +195,11 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
          </p>
     <div class="authentication">
         <div style="width:300px;margin:0px auto;padding: 2px;">
-            <a target="_blank" href="https://beian.miit.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="{{asset('image/www_beian_gov_cn.png')}}" style="float:left; width: 20px; height: 20px;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31010402000651号</p></a>
+            <a target="_blank" href="https://beian.miit.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="{{asset('image/www_beian_gov_cn.png')}}" style="float:left; width: 20px; height: 20px;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备2021068181号-1</p></a>
         </div>
     </div>
     <div style="width:500px; margin:0px auto;" class="f_copyright">
-        <span>深圳市吉飞旦达科技有限公司 版权所有<a href="https://beian.miit.gov.cn/" target="_blank"> 粤ICP备2021068181号-1</a><br>Copyright(C)2020-2023 dandanzkw.com All Rights Reserved.</span>
+        <span>深圳市吉飞旦达科技有限公司 版权所有<a href="https://beian.miit.gov.cn/" target="_blank"></a><br>Copyright(C)2020-2023 dandanzkw.com All Rights Reserved.</span>
     </div>
 </div>
 </div>
