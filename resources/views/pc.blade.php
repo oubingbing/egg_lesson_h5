@@ -201,6 +201,25 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
     <div style="width:500px; margin:0px auto;" class="f_copyright">
         <span>深圳市吉飞旦达科技有限公司 版权所有<a href="https://beian.miit.gov.cn/" target="_blank"></a><br>Copyright(C)2020-2023 dandanzkw.com All Rights Reserved.</span>
     </div>
+
+    <p class="copyright-box">
+        
+        <a class="copyright copyright-3" href="http://www.cyberpolice.cn" target="_blank" rel="noopener noreferrer">
+          网络警察提醒你
+        </a>
+        
+        <a class="copyright copyright-5" href="http://www.12377.cn/" target="_blank" rel="noopener noreferrer">
+          中国互联网举报中心
+        </a>
+        
+        <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener noreferrer">
+          扫黄打非网举报专区
+        </a>
+        
+        <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank" rel="noopener noreferrer">
+          国家知识产权公共服务网
+        </a>
+      </p>
 </div>
 </div>
 </body>
