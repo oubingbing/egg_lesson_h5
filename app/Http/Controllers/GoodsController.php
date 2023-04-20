@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
+use App\Models\ContractTransferInfos;
 use App\Models\Goods;
 use App\Service\BannerService;
 use App\Service\BrandService;
@@ -431,5 +432,33 @@ class GoodsController extends Controller
     public function purchaseLog()
     {
         return app(PurchaseLogService::class)->getAll();
+    }
+
+    public function sitemap(Request $request)
+    {
+        $data = Goods::query()
+            ->whereIn(Goods::FIELD_STATUS,[
+                Goods::ENUM_STATUS_VERIFY_SUCCESS,
+                Goods::ENUM_STATUS_TRANSFER_FAIL,
+            ])
+            ->where(Goods::FIELD_SALES_STATUS,Goods::ENUM_SALES_STATUS_UP)
+            ->with(array_merge(["transfer_info"=>function($query){
+            $query->select([
+                ContractTransferInfos::FIELD_ID,
+                ContractTransferInfos::FIELD_ID_GOODS,
+                ContractTransferInfos::FIELD_TITLE,
+            ]);
+        }]))->select(["id","price"])->get();
+        $list = collect($data)->toArray();
+        $result = [];
+        foreach($list as $item){
+            $newItem = ["id"=>$item["id"],"title"=>""];
+            if(array_key_exists("transfer_info",$item)){
+                $newItem["title"] = $item["transfer_info"]["title"];
+            }
+            array_push($result,$newItem);
+        }
+
+        return view('sitemap',["data"=>$result]);
     }
 }

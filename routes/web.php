@@ -60,7 +60,5 @@ Route::group([], function () use ($router) {
     Route::get("/my","UserController@myView");
 
     /** sitemap **/
-    Route::get("/sitemap",function(){
-        return view("sitemap");
-    });
+    Route::get("/sitemap","GoodsController@sitemap");
 });

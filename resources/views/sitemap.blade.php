@@ -21,5 +21,8 @@
         <li><a href="https://www.dandanzkw.com/kechengleibie/" title="课程类别说明" target="_blank">课程类别说明</a></li>
         <li><a href="https://www.dandanzkw.com/kechengfabu/" title="课程发布条例" target="_blank">课程发布条例</a></li>
         <li><a href="https://www.dandanzkw.com/cooperate/" title="联系我们" target="_blank">联系我们</a></li>
+        @foreach ($data as $item)
+            <li><a href="https://m.dandanzkw.com/detail/{{$item['id']}}.html" title="{{$item['title']}}" target="_blank">{{$item['title']}}</a></li>
+        @endforeach
     </body>
 </html>
