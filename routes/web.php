@@ -48,7 +48,7 @@ Route::group([], function () use ($router) {
     Route::get("/pc","GoodsController@pc");
 
     /** 课程列表 **/
-    Route::get("/pc/detail/{id}","GoodsController@detailView");
+    Route::get("/pc/detail/{id}","GoodsController@pcDetailView");
     /** 搜索页 **/
     Route::get("/pc/search","GoodsController@pcSearchView");
 
@@ -58,4 +58,9 @@ Route::group([], function () use ($router) {
     Route::get("/search","GoodsController@searchView");
     /** 搜索页 **/
     Route::get("/my","UserController@myView");
+
+    /** sitemap **/
+    Route::get("/sitemap",function(){
+        return view("sitemap");
+    });
 });
