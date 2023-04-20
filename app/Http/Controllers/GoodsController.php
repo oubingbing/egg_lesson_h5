@@ -462,8 +462,31 @@ class GoodsController extends Controller
                 $newItem["title"] = $item["transfer_info"]["title"];
             }
             array_push($result,$newItem);
+
+            $this->reportBaidu($item["id"]);
+
         }
 
         return view('sitemap',["data"=>$result]);
     }
+
+    public function reportBaidu($goodsId)
+    {
+        $urls = array(
+            'https://m.dandanzkw.com/detail/'.$goodsId.'.html'
+        );
+        $api = 'http://data.zz.baidu.com/urls?site=m.dandanzkw.com&token=xRZLHk7QAXOcTv37';
+        $ch = curl_init();
+        $options =  array(
+            CURLOPT_URL => $api,
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => implode("\n", $urls),
+            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+        );
+        curl_setopt_array($ch, $options);
+        $result = curl_exec($ch);
+        Log::info("百度推送结果=".json_encode($result).",推送数据=".json_encode($urls));
+    }
 }
+
