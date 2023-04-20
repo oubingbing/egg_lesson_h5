@@ -123,8 +123,8 @@ function getBanners() {
         }
         console.log('state.banners', state.banners);
         let banners = document.getElementById("banners");
-        console.log("banners",banners);
-        if(!banners)return;
+        console.log("banners", banners);
+        if (!banners) return;
         document.getElementById("banners").innerHTML = '';
         for (let i in state.banners) {
             let banner = document.createElement("div");
@@ -140,7 +140,7 @@ function getBanners() {
         });
     })
 }
-getBanners();
+// getBanners();
 
 
 function getBrandList() {
@@ -174,18 +174,18 @@ getBrandList();
 
 function drawGood(goods_id) {
     let lists = [];
-    for(let i=0;i<5;i++){
+    for (let i = 0; i < 5; i++) {
         lists[i] = document.getElementById(`goods_${i}`);
     }
-   
-    let choose =0;
-    for(let i in lists){
-        if(lists[choose].offsetHeight>lists[i].offsetHeight){
+
+    let choose = 0;
+    for (let i in lists) {
+        if (lists[choose].offsetHeight > lists[i].offsetHeight) {
             choose = i;
         }
     }
     lists[choose].appendChild(state.goods_divs[goods_id]);
-    
+
     setTimeout(() => {
         state.goods_divs[goods_id].className = "item show";
     }, 100);
@@ -205,7 +205,7 @@ function getGoods(params = state.goods_params) {
             isLoading = false;
             hideLoading();
             if (state.goods_params.page_number === 1) {
-                for(let i=1;i<5;i++){
+                for (let i = 0; i < 5; i++) {
                     document.getElementById(`goods_${i}`).innerHTML = '';
                 }
             }
@@ -236,7 +236,7 @@ function getGoods(params = state.goods_params) {
                             <div class="icon"
                                 style='background-image: url("image/dingwei_icon.png");background-repeat:no-repeat;background-position: center center; background-size: contain;'>
                             </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
+                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address.split("市")[0]+'市' : ''}</div>
                             <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
                         </div>
                         <div class="infos">
@@ -279,6 +279,8 @@ function getLocationByApi() {
         state.current_location = res;
         state.goods_params.latitude = res.lat;
         state.goods_params.longitude = res.lng;
+        // state.goods_params.order_by = 'location';
+        state.goods_params.sort_by = 'asc';
         document.getElementById("currentLocation").innerText = res.city;
         sessionStorage.setItem('location', JSON.stringify(res));
         getGoods();
@@ -293,6 +295,11 @@ $(document).ready(() => {
 
 
     getLocationByApi();
+
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: true
+    });
 
 
 

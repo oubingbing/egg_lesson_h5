@@ -124,9 +124,10 @@ input {
 }
 
 .nav3{
-    width:100%;
+    width:90%;
     display: flex;
-    height:350px;
+    height:300px;
+    margin:0 auto;
 }
 .nav2{
     margin-top:20px;
@@ -138,8 +139,8 @@ input {
 .banner-swiper-box {
     background-color: #fff;
     padding-top: 0.75rem;
-    width:600px;
-    margin: 0 auto;
+    width:740px;
+    margin: 0 65px 0 auto;
     overflow: hidden;
 }
 
@@ -150,7 +151,7 @@ input {
 
 .banner-image {
     width: 100%;
-    height: 11.5625rem;
+    height: 300px;
 }
 
 .banner-image img {
@@ -159,22 +160,21 @@ input {
 .pc-select-nav{
     margin-bottom: 20px;
     width: 1200px;
-    /* margin-left: -5.33vw; */
     padding: 0;
     box-sizing: border-box;
     position: sticky;
     top: 0;
     background-color: #fff;
     z-index: 2;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 .pc-select-nav .select-nav-items {
-    white-space: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
 }
 
 .pc-select-nav .select-nav-item {
-    font-size: 0.95rem;
+    font-size: 16px;
     font-family: DanDanFont;
     font-weight: 500;
     color: #808080;
@@ -215,7 +215,7 @@ input {
     background-color: #FFF;
     padding: 1.25rem 0;
     overflow-y: scroll;
-    width:300px;
+    flex:1;
 }
 
 .type-list .item {
@@ -465,7 +465,7 @@ input {
 .new-things .title .left,
 .brands .title .left {
     color: #333;
-    font-size: 1rem;
+    font-size: 16px;
     font-family: DanDanFont;
     font-weight: bold;
     line-height: 1;

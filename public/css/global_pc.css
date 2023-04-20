@@ -773,8 +773,7 @@ input {
 }
 
 .hot-goods .title .left {
-    font-size: 1rem;
-    font-family:'Heiti';
+    font-size: 18px;
     font-weight: bold;
     color: #333333;
     line-height: 1;
