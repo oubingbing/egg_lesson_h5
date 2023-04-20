@@ -463,7 +463,7 @@ class GoodsController extends Controller
             }
             array_push($result,$newItem);
 
-            $this->reportBaidu($item["id"]);
+            //$this->reportBaidu($item["id"]);
 
         }
 
