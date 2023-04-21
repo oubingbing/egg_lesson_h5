@@ -1,7 +1,8 @@
-*{
-    font-family:'Heiti';
+* {
+    font-family: 'Heiti';
 }
-.title-nav{
+
+.title-nav {
     border-bottom: 1px solid #efefef;
     background-color: #fcfcfc;
 }
@@ -12,21 +13,21 @@
     height: 30px;
 }
 
-.box{
+.box {
     width: 1200px;
     margin: auto;
     text-align: right;
 }
-.box .button{
+
+.box .button {
     display: inline;
     padding-right: 1em;
     cursor: pointer;
-    
-}
-.red{
-    color:#E26759;
 }
 
+.red {
+    color: #E26759;
+}
 
 input {
     outline: none;
@@ -36,15 +37,15 @@ input {
     text-decoration: inherit;
 }
 
-.logo{
-    width:300px;
+.logo {
+    width: 300px;
     object-fit: contain;
 }
 
 .page-index {
     width: 1300px;
     /* height: 100vh; */
-    margin:auto;
+    margin: auto;
     overflow-x: hidden;
     /* overflow-y: scroll; */
     position: relative;
@@ -63,15 +64,16 @@ input {
     box-sizing: border-box;
     align-items: center;
     width: 800px;
-    margin-left:10px;
+    margin-left: 10px;
     border: 1px solid #E26759;
-    border-radius:8px;
+    border-radius: 8px;
     overflow: hidden;
     height: 50px;
 }
-.search-bar .search-icon{
-    width:50px;
-    height:50px;
+
+.search-bar .search-icon {
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,15 +125,16 @@ input {
     border-right: 0.3125rem solid transparent;
 }
 
-.nav3{
-    width:90%;
+.nav3 {
+    width: 90%;
     display: flex;
-    height:300px;
-    margin:0 auto;
+    height: 300px;
+    margin: 0 auto;
 }
-.nav2{
-    margin-top:20px;
-    width:100%;
+
+.nav2 {
+    margin-top: 20px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -139,7 +142,7 @@ input {
 .banner-swiper-box {
     background-color: #fff;
     padding-top: 0.75rem;
-    width:740px;
+    width: 740px;
     margin: 0 65px 0 auto;
     overflow: hidden;
 }
@@ -157,7 +160,8 @@ input {
 .banner-image img {
     width: 100%;
 }
-.pc-select-nav{
+
+.pc-select-nav {
     margin-bottom: 20px;
     width: 1200px;
     padding: 0;
@@ -167,6 +171,7 @@ input {
     background-color: #fff;
     z-index: 2;
 }
+
 .pc-select-nav .select-nav-items {
     justify-content: space-between;
     align-items: center;
@@ -185,7 +190,7 @@ input {
     line-height: 2;
     padding-bottom: 0.5rem;
     transition: 0.3s;
-    min-width:4em;
+    min-width: 4em;
 }
 
 .pc-select-nav .select-nav-item.hover {
@@ -210,17 +215,16 @@ input {
     background: #FF5252;
 }
 
-
 .type-list {
     background-color: #FFF;
     padding: 1.25rem 0;
     overflow-y: scroll;
-    flex:1;
+    flex: 1;
 }
 
 .type-list .item {
     vertical-align: middle;
-    margin:20px;
+    margin: 20px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -250,7 +254,7 @@ input {
 }
 
 .purchase {
-    flex:1;
+    flex: 1;
     background-color: #fff;
     height: 2.5rem;
     border-bottom: 0.1875rem solid #F5F7FA;
@@ -272,7 +276,7 @@ input {
 }
 
 .purchase .names-box .names {
-    animation: purchase 45s linear infinite;
+    animation: purchase 15s linear infinite;
 }
 
 .purchase .names-box .names .name {
@@ -286,10 +290,10 @@ input {
 
 @keyframes purchase {
     0% {
-        transform: translateY(0);
+        transform: translateY(2.25rem);
     }
     100% {
-        transform: translateY(-720px);
+        transform: translateY(-9rem);
     }
 }
 

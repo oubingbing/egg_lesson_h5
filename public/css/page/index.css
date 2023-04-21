@@ -1,3 +1,7 @@
+body {
+    background-color: #eee;
+}
+
 input {
     outline: none;
     border: none;
@@ -12,6 +16,7 @@ input {
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
+    background-color: #eee;
 }
 
 .page-header {
@@ -19,6 +24,7 @@ input {
     height: 44px;
     text-align: center;
     line-height: 44px;
+    background-color: #fff;
 }
 
 .search-bar {
@@ -82,9 +88,9 @@ input {
 .banner-swiper-box {
     background-color: #fff;
     padding-top: 0.75rem;
-    width: 87.5vw;
-    margin: 0 auto;
-    overflow: hidden;
+    width: 100vw;
+    /* margin: 0 auto; */
+    /* overflow: hidden; */
 }
 
 .banner-swiper {
@@ -94,7 +100,7 @@ input {
 
 .banner-image {
     width: 100%;
-    height: 11.5625rem;
+    /* height: 11.5625rem; */
 }
 
 .banner-image img {
@@ -102,7 +108,7 @@ input {
 }
 
 .type-list {
-    border-bottom: 0.625rem solid #F5F7FA;
+    border-bottom: 0.1875rem solid #F5F7FA;
     background-color: #FFF;
     padding: 1.25rem 0;
     overflow-x: scroll;
@@ -164,24 +170,24 @@ input {
 }
 
 .purchase .names-box .names {
-    animation: purchase 45s linear infinite;
+    animation: purchase 15s linear infinite;
 }
 
 .purchase .names-box .names .name {
     margin: 0.75rem auto;
-    height: 2.25rem;
+    min-height: 2.25rem;
     line-height: 2.25rem;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     color: #FF554C;
     font-size: 0.75rem;
 }
 
 @keyframes purchase {
     0% {
-        transform: translateY(0);
+        transform: translateY(2.25rem);
     }
     100% {
-        transform: translateY(-720px);
+        transform: translateY(-10.5rem);
     }
 }
 

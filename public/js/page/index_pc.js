@@ -5,7 +5,11 @@ test_fenlei = [{ id: 0, name: "全部" }].concat(test_fenlei);
 let state = {
     current_location: null,
     brands: [],
-    purchase_logs: [],
+    purchase_logs: [
+        "平台已完成认证技术和运营流程升级，卖家无需上传身份证即可发布订单",
+        "卖家订单免费发布，不成功不收费",
+        "平台网页版已上线，各平台流量互通，更快对接买卖双方"
+    ],
     lesson_category: [],
     banners: [],
     goods: [],
@@ -94,25 +98,25 @@ function getLessonCategories() {
 getLessonCategories();
 
 function getPurChaseLogs() {
-    Get(mRoute.purchase_logs, null, (res) => {
-        if (res.data) {
-            state.purchase_logs = res.data
-        } else {
-            console.log("purchase_logs get error");
-        }
-        console.log('state.purchase_logs', state.purchase_logs);
+    // Get(mRoute.purchase_logs, null, (res) => {
+    //     if (res.data) {
+    //         state.purchase_logs = res.data
+    //     } else {
+    //         console.log("purchase_logs get error");
+    //     }
+    //     console.log('state.purchase_logs', state.purchase_logs);
 
-        document.getElementById("purchase_logs").innerHTML = '';
-        for (let i in state.purchase_logs) {
-            let purchase_log = document.createElement("div");
-            purchase_log.innerText = state.purchase_logs[i];
-            purchase_log.className = "name";
-            document.getElementById("purchase_logs").appendChild(purchase_log);
-        }
+    document.getElementById("purchase_logs").innerHTML = '';
+    for (let i in state.purchase_logs) {
+        let purchase_log = document.createElement("div");
+        purchase_log.innerText = state.purchase_logs[i];
+        purchase_log.className = "name";
+        document.getElementById("purchase_logs").appendChild(purchase_log);
+    }
 
-    })
+    // })
 }
-getPurChaseLogs();
+
 
 function getBanners() {
     Get(mRoute.banners, null, (res) => {
@@ -293,7 +297,7 @@ function getLocationByApi() {
 $(document).ready(() => {
 
 
-
+    getPurChaseLogs();
     getLocationByApi();
 
     var swiper = new Swiper(".mySwiper", {
