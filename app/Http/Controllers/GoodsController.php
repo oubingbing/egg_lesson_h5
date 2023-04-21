@@ -321,7 +321,7 @@ class GoodsController extends Controller
         $pageNumberNew = $pageNumber;
         if ($type==4){
             $lessonLocation = "lesson_location";
-            $locations = Redis::georadius($lessonLocation,$longitude,$latitude,50, 'km', ['withdist' => true, 'sort' => $sortBy]);
+            $locations = Redis::georadius($lessonLocation,$longitude,$latitude,500000, 'km', ['withdist' => true, 'sort' => $sortBy]);
             if (!empty($locations)){
                 $locations = collect(collect($locations)->groupBy(0))->toArray();
                 foreach ($locations as $l){
