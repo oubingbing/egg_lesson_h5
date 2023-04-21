@@ -482,13 +482,15 @@ https://www.dandanzkw.com/cooperate/ \r";
             }
             array_push($result,$newItem);
 
-            //$this->reportBaidu($item["id"]);
+            if($item["id"] > 1546){
+                $this->reportBaidu($item["id"]);
+            }
 
             $mapStr .= "
 https://m.dandanzkw.com/detail/".$item['id'].".html"."\r";
         }
 
-        file_put_contents($file, $mapStr);
+        //file_put_contents($file, $mapStr);
 
         return view('sitemap',["data"=>$result]);
     }
