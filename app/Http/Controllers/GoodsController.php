@@ -456,6 +456,25 @@ class GoodsController extends Controller
         }]))->select(["id","price"])->get();
         $list = collect($data)->toArray();
         $result = [];
+
+        $file = public_path("sitemap.txt");
+        $mapStr = "
+https://www.dandanzkw.com/ \r
+https://pc.dandanzkw.com/search?category_id=3 \r
+https://pc.dandanzkw.com/search?category_id=7 \r
+https://pc.dandanzkw.com/search?category_id=1 \r
+https://pc.dandanzkw.com/search?category_id=2 \r
+https://pc.dandanzkw.com/search?category_id=4 \r
+https://pc.dandanzkw.com/search?category_id=5 \r
+https://pc.dandanzkw.com/search?category_id=6 \r
+https://pc.dandanzkw.com/search?category_id=8 \r
+https://pc.dandanzkw.com/search?category_id=10 \r
+https://www.dandanzkw.com/aboutus/ \r
+https://www.dandanzkw.com/zhuce/ \r
+https://www.dandanzkw.com/yinsi/ \r
+https://www.dandanzkw.com/kechengleibie/ \r
+https://www.dandanzkw.com/kechengfabu/ \r
+https://www.dandanzkw.com/cooperate/ \r";
         foreach($list as $item){
             $newItem = ["id"=>$item["id"],"title"=>""];
             if(array_key_exists("transfer_info",$item)){
@@ -465,7 +484,11 @@ class GoodsController extends Controller
 
             //$this->reportBaidu($item["id"]);
 
+            $mapStr .= "
+https://m.dandanzkw.com/detail/".$item['id'].".html"."\r";
         }
+
+        file_put_contents($file, $mapStr);
 
         return view('sitemap',["data"=>$result]);
     }
