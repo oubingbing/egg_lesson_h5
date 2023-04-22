@@ -11,16 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global_pc.css')}}" rel="stylesheet">
     <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/page/index_pc.css')}}" rel="stylesheet">
+    <link href="{{asset('css/page/pc/index_pc.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/popup_pc.js')}}"></script>
-    <script src="{{asset('js/tool/loading.js')}}"></script>
+    <script src="{{asset('js/tool/pc/popup_pc.js')}}"></script>
+    <script src="{{asset('js/tool/pc/loading_pc.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <!-- <script src="{{asset('js/bottom_menu.js')}}"></script> -->
     <script src="{{asset('js/tool/http.js')}}"></script>
-    <script src="{{asset('js/page/index_pc.js')}}"></script>
+    <script src="{{asset('js/page/pc/index_pc.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>
@@ -44,22 +44,14 @@ let res = {
         };
 getSignature(res);
 setApi("旦旦转课网","全网首个课程转让交易平台",
-"https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png")
+"https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png");
+
     </script>
 </head>
 
-<body>
-    <div class="pc">
-    <div class="title-nav">
-            <div class="box">
-                <div class="button">发布课程</div>
-                <div class="button">查看消息</div>
-                <div class="button red">请登录</div>
-                <!-- <img class="location-logo" src="{{asset('image/dingwei_icon.png')}}"/> -->
-                <div class="search-location" id="currentLocation">
-                    定位中</div>
-            </div>
-        </div>
+<body onload="createTitleNav">
+    <div class="pc" id="pc">
+
     <div class="page-index">
       
         

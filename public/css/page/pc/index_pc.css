@@ -2,33 +2,6 @@
     font-family: 'Heiti';
 }
 
-.title-nav {
-    border-bottom: 1px solid #efefef;
-    background-color: #fcfcfc;
-}
-
-.title-nav .box {
-    color: #6c6c6c;
-    line-height: 30px;
-    height: 30px;
-}
-
-.box {
-    width: 1200px;
-    margin: auto;
-    text-align: right;
-}
-
-.box .button {
-    display: inline;
-    padding-right: 1em;
-    cursor: pointer;
-}
-
-.red {
-    color: #E26759;
-}
-
 input {
     outline: none;
     border: none;
@@ -103,26 +76,6 @@ input {
 
 .search-bar .search-input::placeholder {
     font-size: 16px;
-}
-
-.box .search-location {
-    min-width: 4em;
-    text-align: right;
-    font-size: 14px;
-    padding-right: 1em;
-    position: relative;
-    display: inline;
-}
-
-.search-bar .search-location::after {
-    position: absolute;
-    content: '';
-    right: 0;
-    top: 50%;
-    margin-top: -0.15625rem;
-    border-top: 0.3125rem solid #2C405A;
-    border-left: 0.3125rem solid transparent;
-    border-right: 0.3125rem solid transparent;
 }
 
 .nav3 {
