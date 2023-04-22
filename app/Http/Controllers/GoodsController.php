@@ -246,7 +246,6 @@ class GoodsController extends Controller
         $result = array_merge($result,["reset_title"=>$resetTitle,"hidden_phone"=>$hiddenPhone]);
         //$string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
         //file_put_contents("detail/{$id}.html", $string);
-
         return view('pc_detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 

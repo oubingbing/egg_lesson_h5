@@ -37,6 +37,10 @@ body {
     font-weight: bold;
 }
 
+.floatright {
+    float: right!important;
+}
+
 .colorFF5 {
     color: #FF5B01;
 }

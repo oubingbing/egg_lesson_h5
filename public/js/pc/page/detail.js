@@ -96,6 +96,8 @@ function getGoods(params = state.goods_params) {
                 res.data.page_data[i].reset_title =
                     `【${res.data.page_data[i].contact.lesson_type === 1 ? res.data.page_data[i].contact.surplus_lesson_time + "节" : ''}
                         ${['', '', '年卡'][res.data.page_data[i].contact.lesson_type]} |${res.data.page_data[i].campus.sub_course_type}】${res.data.page_data[i].transfer_info.title}`;
+                res.data.page_data[i].transfer_info.price_text = toMoney(res.data.page_data[i].transfer_info
+                    .price);
             }
 
             state.goods = state.goods.concat(res.data.page_data);

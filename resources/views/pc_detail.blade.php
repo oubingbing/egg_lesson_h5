@@ -41,8 +41,6 @@
 <div class="pc" id="pc">
 <div class="product-detail">
     <div class="box1">
-        <img src="" class="logo"/>
-        <div class="sfont"></div>
         <div class="title">
         <div class="bfont">  {{$goods_detail["reset_title"]}}</div>
         <div class="banner-title-code"> 发布于：{{$goods_detail["created_at"]}}</div>
@@ -65,6 +63,12 @@
                 @endif
             </div>
         </div>
+
+        <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/pc/search?category_id={{$goods_detail["campus"]["lesson_category"]["id"]}}">
+            @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
+                        {{$goods_detail["campus"]["lesson_category"]["name"]}}
+                        @endif
+                    </a>&nbsp;>&nbsp;<span>{{$goods_detail["reset_title"]}}</span></div>
 
         <div class="part1 anchor1" id="part1">
             <div class="line3">
@@ -112,7 +116,7 @@
 
 
         <div class="details">
-            <div class="title">课包详情</div>
+            <div class="title">课程详情</div>
             <table class="table">
                 <tr>
                     <td> <span class="name">品牌名称</span>
@@ -198,13 +202,8 @@
     </td>
                 </tr>
 
-
-            </table>
-
-            <div class="title">转让详情</div>
-            <table class="table">
                 <tr>
-                    <td>
+                <td>
                     <span class="name">合同原价</span>
                     <span class="content1">¥{{$goods_detail["contact"]["surplus_amount"]}}</span>
                     <span class="content2">{{$goods_detail["transfer_info"]["discount"]}}折</span>
@@ -213,6 +212,18 @@
                     <td>
                     <span class="name">合同有效期</span>
                     <span class="content">{{$goods_detail["contact"]["contract_expired"]}}</span>
+    </td>
+                </tr>
+
+
+            </table>
+
+            <div class="title">转让介绍</div>
+            <table class="table">
+                <tr>
+                   
+    <td>
+        <span class="name"> {{$goods_detail["transfer_info"]["introduce"]}}</span>
     </td>
                 </tr>
 
@@ -307,26 +318,21 @@
                 </div>
             </div>
 
-
-            <div class="introduce">
-            {{$goods_detail["transfer_info"]["introduce"]}}
-            </div>
-
             <div class="goods-price">
                         <span class="font12 color999 m-l16">转让价格</span>
-                        <span class="font48 colorFF5 m-l16">￥</span>
-                        <span class="font48 colorFF5 bold " id="mainPrice">{{$goods_detail["transfer_info"]["price"]}}</span>
+                        <span class="font24 colorFF5 m-l16">￥</span>
+                        <span class="font36 colorFF5 bold " id="mainPrice">{{$goods_detail["transfer_info"]["price"]}}</span>
                                 <span class="icon-icon31">{{$goods_detail["transfer_info"]["discount"]}}折</span>
-                                <span class="y-price">￥
-                                @if ($goods_detail["transfer_info"]["deposit"])
-                    {{$goods_detail["transfer_info"]["deposit"]}}
-                    @else
-                    0
-                    @endif    
-                                </span>
-
-
+                                <span class="font12 colorFF5 m-l16">订金：￥</span>
+                                <span class="font24 colorFF5 bold"> @if ($goods_detail["transfer_info"]["deposit"])
+                        {{$goods_detail["transfer_info"]["deposit"]}}
+                        @else
+                        ---
+                        @endif</span>
+                        <span class="font12 m-l16 floatright">人查看</span>
+                        <span class="font24 colorFF5 floatright">{{$goods_detail["view_num"]}}</span>
                     </div>
+
         <div class="goods-list anchor4">
         
                     <div class="line1">热门推荐
