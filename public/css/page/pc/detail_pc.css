@@ -74,10 +74,9 @@ body {
     font-size: 24px;
     line-height: 44px;
     align-items: baseline;
-    padding-right: 34%;
-    margin-right: 6%;
     padding-bottom: 20px;
     border-bottom: 2px solid #eee;
+    width: 548px;
 }
 
 .box2 .rp-f1,
@@ -102,12 +101,26 @@ body {
     line-height: 1.1;
 }
 
+.y-price {
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
 .introduce {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    line-height: 27px;
+    word-break: break-word;
+    margin: 20px 6px;
+}
+
+.details {
     margin: 20px;
     position: relative;
 }
 
-.introduce .title {
+.details .title {
     font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 500;
@@ -117,7 +130,7 @@ body {
     margin-bottom: 28px;
 }
 
-.introduce .name {
+.details .name {
     font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
     display: inline-block;
     font-size: 14px;
@@ -127,13 +140,162 @@ body {
     margin-right: 20px;
 }
 
-.introduce .table {
+.details .table {
     width: 100%;
     border: 0;
 }
 
-.introduce .table tr {
+.details .table tr {
     width: 100%;
+}
+
+.goods {
+    position: relative;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.goods .item {
+    /* min-height: 480rpx; */
+    padding: 10px 10px 0;
+    background-color: #FFF;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 2px 2px #f5f5f5;
+}
+
+.goods .item .part1 {
+    display: flex;
+    align-items: flex-start;
+}
+
+.goods .item .part1 .thumbnail {
+    width: 300px;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.goods .item .part1 .infos {
+    margin-left: 10px;
+}
+
+.goods .item .part1 .t1 {
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: #333333;
+}
+
+.goods .item .part1 .t2 {
+    font-size: 12px;
+    margin-top: 5px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #DFA96B;
+    line-height: 24px;
+}
+
+.goods .item .part1 .tips {
+    margin-top: 10px;
+}
+
+.goods .item .part1 .tips .tip {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 20px;
+    background-color: #FFD1D1;
+    height: 20px;
+    line-height: 20px;
+    font-size: 11px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #FF5252;
+    margin-right: 20px;
+}
+
+.goods .item .part1 .t3 {
+    margin-top: 5px;
+    font-size: 11px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.goods .item .part2 {
+    margin-top: 5px;
+    border-top: 1px solid #F5F7FA;
+    font-size: 12px;
+    padding: 5px 0;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #808080;
+    line-height: 1.5;
+}
+
+.goods .item .part3 {
+    border-top: 1px solid #F5F7FA;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.goods .item .part3 .price {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 600;
+    color: #FF5252;
+    margin-right: 5px;
+}
+
+.goods .item .part3 .discount {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #FF5252;
+}
+
+.goods .item .part3 .distance {
+    flex: 1;
+    text-align: right;
+    font-size: 12px;
+    color: #999999;
+}
+
+.goods-price {
+    margin-top: 16px;
+    line-height: 70px;
+    background-image: linear-gradient(-45deg, #EEEEEE, #F5F5F5);
+    width: 548px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+.goods-price .icon-icon31 {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    padding-left: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 25px;
+    background-image: linear-gradient( -45deg, #FF7070, #FF5252);
+}
+
+.goods-price span {
+    float: left;
+}
+
+.m-l16 {
+    margin-left: 16px;
 }
 
 .product-detail {
@@ -151,12 +313,12 @@ body {
     width: 630px;
     margin: 0 auto;
     overflow: hidden;
-    min-height: 249px;
+    height: 400px;
 }
 
 .banner-swiper-box .banner-swiper {
     width: 100%;
-    min-height: 249px;
+    height: 400px;
 }
 
 .banner-image {
@@ -292,43 +454,6 @@ body {
     line-height: 1.5;
 }
 
-.part3 {
-    padding: 4.8vw 5.34vw 6.67vw;
-    background-color: #FFF;
-    margin-top: 2.67vw;
-}
-
-.part3 .map {
-    width: 89.33vw;
-    height: 32.67vw;
-    border-radius: 2.13vw;
-    background-color: #808080;
-}
-
-.part3 .location-text {
-    font-size: 14px;
-    font-family: DanDanFont;
-    font-weight: 400;
-    margin-top: 2.8vw;
-    color: #333333;
-    line-height: 5.33vw;
-}
-
-.part3 .btn-come {
-    font-size: 3.2vw;
-    font-family: DanDanFont;
-    font-weight: 400;
-    color: #5297FF;
-    width: 4em;
-    margin: 2.67vw 0 4.93vw auto;
-    line-height: 3.2vw;
-}
-
-.part3 .line {
-    height: 0.27vw;
-    background: #F5F7FA;
-}
-
 .part4 {
     margin-top: 2.67vw;
     min-height: 204vw;
@@ -336,56 +461,56 @@ body {
     background-color: #FFF;
 }
 
-.part4 .user-info {
-    width: 89.33vw;
-    height: 16.67vw;
-    padding: 4vw;
+.user-info {
+    width: 548px;
+    height: 66px;
+    padding: 10px;
     box-sizing: border-box;
-    border-radius: 2.13vw;
+    border-radius: 10px;
     background: linear-gradient(-45deg, #FF7070, #FF5252);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 }
 
-.part4 .user-info .left {
+.user-info .left {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.part4 .user-info .left .icon {
-    width: 11.73vw;
-    height: 11.73vw;
+.user-info .left .icon {
+    width: 30px;
+    height: 30px;
     object-fit: cover;
     background-color: #808080;
     border-radius: 50%;
-    margin-right: 4vw;
+    margin-right: 10px;
 }
 
-.part4 .user-info .left .infos .name {
+.user-info .left .infos .name {
     font-size: 14px;
     font-family: DanDanFont;
     font-weight: 600;
     color: #FFFFFF;
-    line-height: 5.33vw;
+    line-height: 1.5;
 }
 
-.part4 .user-info .left .infos .phone {
-    font-size: 3.2vw;
+.user-info .left .infos .phone {
+    font-size: 14px;
     font-family: DanDanFont;
     font-weight: 400;
     color: #FFFFFF;
     line-height: 1;
-    margin-top: 1.87vw;
+    margin-top: 10px
 }
 
-.part4 .user-info .right {
+.user-info .right {
     font-size: 14px;
     font-family: DanDanFont;
     font-weight: 600;
     color: #FFFFFF;
-    line-height: 5.33vw;
+    line-height: 2;
 }
 
 .transfer-progress {
@@ -547,7 +672,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 12px;
     font-family: DanDanFont;
     font-weight: 600;
     color: #FFFFFF;

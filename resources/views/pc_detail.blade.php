@@ -111,7 +111,7 @@
         </div>
 
 
-        <div class="introduce">
+        <div class="details">
             <div class="title">课包详情</div>
             <table class="table">
                 <tr>
@@ -293,46 +293,52 @@
             </div>
         </div>
         <div class="rp">
-        <div class="line1"><span>转让介绍</span>
-        {{$goods_detail["transfer_info"]["introduce"]}}
-    </div>
-        <div class="line1"><span>转让价格</span>
-        <div class="rp-f1">{{$goods_detail["transfer_info"]["price"]}} <span class="yuan">元</span></div>
-    </div>
-    
 
-        <div class="line1"><span>交易定金</span>
-        <div class="rp-f2">
-        @if ($goods_detail["transfer_info"]["deposit"])
+        <div class="user-info" id="sellerInfo">
+                <div class="left">
+                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
+                    <div class="infos">
+                        <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
+                        <div class="phone">{{$goods_detail["hidden_phone"]}}</div>
+                    </div>
+                </div>
+                <div class="right">
+                    已入驻旦旦{{$goods_detail["seller"]["settle_in"]}}天
+                </div>
+            </div>
+
+
+            <div class="introduce">
+            {{$goods_detail["transfer_info"]["introduce"]}}
+            </div>
+
+            <div class="goods-price">
+                        <span class="font12 color999 m-l16">转让价格</span>
+                        <span class="font48 colorFF5 m-l16">￥</span>
+                        <span class="font48 colorFF5 bold " id="mainPrice">{{$goods_detail["transfer_info"]["price"]}}</span>
+                                <span class="icon-icon31">{{$goods_detail["transfer_info"]["discount"]}}折</span>
+                                <span class="y-price">￥
+                                @if ($goods_detail["transfer_info"]["deposit"])
                     {{$goods_detail["transfer_info"]["deposit"]}}
                     @else
                     0
                     @endif    
-        <span class="yuan">元</span>
-    </div>
+                                </span>
 
-    <div class="goods-list anchor4">
-                <div class="title">
-                    <div class="left">热门推荐
+
                     </div>
-                </div>
+        <div class="goods-list anchor4">
+        
+                    <div class="line1">热门推荐
+                    </div>
+        
 
 
-                <div class="items" id="goods_list">
+                <div class="goods" id="goods_list">
                 
                 </div>
             </div>
     </div>
-       
-
-        <!-- <div class="href-nav sticky">
-            <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
-            <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
-            <a class="item" onclick="letsScrollTo('.anchor3','.product-detail')">订单流程</a>
-            <a class="item" onclick="letsScrollTo('.anchor4','.product-detail')">热门推荐</a>
-        </div> -->
-
-        </div>
     </div>
         <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
             onclick="goTo('search',null,null)"></div>
@@ -349,18 +355,7 @@
         </div>
 
         <div class="part4 anchor3" id="part4">
-            <div class="user-info" id="sellerInfo">
-                <div class="left">
-                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
-                    <div class="infos">
-                        <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                        <div class="phone">{{$goods_detail["hidden_phone"]}}</div>
-                    </div>
-                </div>
-                <div class="right">
-                    已入驻旦旦{{$goods_detail["seller"]["settle_in"]}}天
-                </div>
-            </div>
+            
 
             
             <div class="mianze">

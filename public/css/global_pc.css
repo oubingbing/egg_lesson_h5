@@ -13,6 +13,34 @@ body {
     margin: 0;
 }
 
+.font48 {
+    font-size: 48px;
+}
+
+.font36 {
+    font-size: 36px;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.color999 {
+    color: #999;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.colorFF5 {
+    color: #FF5B01;
+}
+
 .loading-box {
     position: fixed;
     top: 0;
