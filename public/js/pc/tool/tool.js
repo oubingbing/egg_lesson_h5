@@ -47,7 +47,7 @@ function goTo(address, t, v) {
     }
     let href = `${window.location.protocol}//${window.location.hostname}${address=='index'?'':'/pc/'+address}${params}`;
     console.log(href);
-    window.location.href = href;
+    window.open(href);
 }
 
 

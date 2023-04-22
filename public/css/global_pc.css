@@ -737,6 +737,7 @@ input {
 }
 
 .goback {
+    display: none;
     position: fixed;
     top: 15vw;
     left: 2vw;
@@ -1141,7 +1142,7 @@ input {
 .box .search-location {
     min-width: 4em;
     text-align: right;
-    font-size: 14px;
+    font-size: 12px;
     padding-right: 1em;
     position: relative;
     display: inline;

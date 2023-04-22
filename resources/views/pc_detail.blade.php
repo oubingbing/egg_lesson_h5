@@ -28,10 +28,10 @@
     <!-- Styles -->
     <script charset="utf-8" src="https://map.qq.com/api/gljs?v=2.exp&key=75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV"></script>
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/tool/pc/tool_pc.js')}}"></script>
-    <script src="{{asset('js/tool/pc/popup_pc.js')}}"></script>
+    <script src="{{asset('js/pc/tool/tool.js')}}"></script>
+    <script src="{{asset('js/pc/tool/popup.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
-    <script src="{{asset('js/page/pc/detail_pc.js')}}"></script>
+    <script src="{{asset('js/pc/page/detail.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
 
 </head>
@@ -40,8 +40,16 @@
 <body>
 <div class="pc" id="pc">
 <div class="product-detail">
-        <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
-            onclick="goTo('search',null,null)"></div>
+    <div class="box1">
+        <img src="" class="logo"/>
+        <div class="sfont"></div>
+        <div class="title">
+        <div class="bfont">  {{$goods_detail["reset_title"]}}</div>
+        <div class="banner-title-code"> 发布于：{{$goods_detail["created_at"]}}</div>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="lp">
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
             @if ($goods_detail["transfer_info"] && $goods_detail["transfer_info"]["attachments"])
@@ -58,51 +66,9 @@
             </div>
         </div>
 
-        <div class="href-nav sticky">
-            <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
-            <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
-            <a class="item" onclick="letsScrollTo('.anchor3','.product-detail')">订单流程</a>
-            <a class="item" onclick="letsScrollTo('.anchor4','.product-detail')">热门推荐</a>
-        </div>
-
         <div class="part1 anchor1" id="part1">
-            <div class="line1">
-
-
-                {{$goods_detail["reset_title"]}}
-
-            </div>
-            <div class="line15">
-                <div class="item"></div>
-                <div class="item grey">
-
-                    发布于：{{$goods_detail["created_at"]}}
-                </div>
-            </div>
-
-            <div class="line2">
-                <div class="item">
-                    <div class="t1">转让价格：</div>
-
-                    <div class="t2">¥{{$goods_detail["transfer_info"]["price"]}}</div>
-                </div>
-                <div class="item">
-                    <div class="t1">订金：</div>
-                    @if ($goods_detail["transfer_info"]["deposit"])
-                    <div class="t2">¥{{$goods_detail["transfer_info"]["deposit"]}}</div>
-                    @else
-                    <div class="t2">---</div>
-                    @endif
-
-                </div>
-                <div class="item grey">
-
-                    {{$goods_detail["view_num"]}}人查看
-                </div>
-            </div>
-
             <div class="line3">
-                <div class="left">认证荣誉</div>
+                <!-- <div class="left">认证荣誉</div> -->
                 <div class="right">
                     <div class="tip">
                         <img class="icon"
@@ -123,7 +89,7 @@
             </div>
 
             <div class="line3">
-                <div class="left">交易保障</div>
+                <!-- <div class="left">交易保障</div> -->
                 <div class="right">
                     <div class="tip">
                         <img class="icon"
@@ -144,79 +110,77 @@
             </div>
         </div>
 
-        <div class="part2" id="part2">
-            <div class="line">
-                <div class="item">
-                    <div class="name">品牌</div>
-                    <div class="content">
+
+        <div class="introduce">
+            <div class="title">课包详情</div>
+            <table class="table">
+                <tr>
+                    <td> <span class="name">品牌名称</span>
+                    <span class="content">
                         @if ($goods_detail["campus"] && $goods_detail["campus"]["brand"])
                         {{$goods_detail["campus"]["brand"]["name"]}}
                     @endif
-                </div>
-                </div>
-
-            </div>
-
-            <div class="line">
-                <div class="item">
-                    <div class="name">校区名称</div>
-                    <div class="content">
+    </span></td>
+                    
+                    <td>
+                    <span class="name">校区名称</span>
+                    <span class="content">
                         @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
                         {{$goods_detail["campus"]["campus"]["name"]}}
                         @endif
-                       </div>
-                </div>
+                       </span>
+                    </td>
+                </tr>
 
-            </div>
-            <div class="line">
-                <div class="item">
-                    <div class="name">课程类型</div>
-                    <div class="content">
+                <tr>
+                    <td>   <span class="name">课程类型</span>
+                    <span class="content">
                         @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
                         {{$goods_detail["campus"]["lesson_category"]["name"]}}
                         @endif
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">课程类别</div>
-                    <div class="content">
-                        @if ($goods_detail["campus"])
+                    </span></td>
+                    
+                    <td>
+                    <span class="name">课程类别</span>
+                    <span class="content">
+                    @if ($goods_detail["campus"])
                         {{$goods_detail["campus"]["sub_course_type"]}}
                     @endif
-                </div>
-                </div>
-            </div>
-            <div class="line">
-                <div class="item">
-                    <div class="name">课卡类型</div>
-                    <div class="content">
-                        @if ($goods_detail["contact"]["lesson_type"] === 1)
+                       </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>   <span class="name">课卡类型</span>
+                    <span class="content">
+                    @if ($goods_detail["contact"]["lesson_type"] === 1)
                         次卡
                         @elseif ($goods_detail["contact"]["lesson_type"] === 2)
                         年卡
                         @endif
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">剩余课时</div>
+                    </span></td>
+                    
+                    <td>
+                    <span class="name">剩余课时</span>
                     @if ($goods_detail["contact"]["lesson_type"] !== 2)
-                    <div class="content" id="surplusLessonTime">{{$goods_detail["contact"]["surplus_lesson_time"]}}
-                    </div>
+                    <span class="content" id="surplusLessonTime">{{$goods_detail["contact"]["surplus_lesson_time"]}}
+                    </span>
                     @else
-                    <div class="content" id="surplusLessonTime">--</div>
+                    <span class="content" id="surplusLessonTime">--</span>
                     @endif
-                </div>
-            </div>
-            <div class="line">
-                <div class="item">
-                    <div class="name">适课年龄</div>
-                    <div class="content">
+                    </td>
+                </tr>
+
+                <tr>
+                <td>
+                    <span class="name">适课年龄</span>
+                    <span class="content">
                         {{$goods_detail["contact"]["min_year"]}}-{{$goods_detail["contact"]["max_year"]}}岁
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">适课性别</div>
-                    <div class="content">
+    </span>
+    </td>
+                <td>
+                    <span class="name">适课性别</span>
+                    <span class="content">
                         @switch($goods_detail["contact"]["lesson_gender"])
                         @case(1)
                         男宝宝
@@ -230,63 +194,37 @@
                         不限
                         @endswitch
 
-                    </div>
-                </div>
-            </div>
+    </span>
+    </td>
+                </tr>
 
 
-            <div class="line">
-                <div class="item">
-                    <div class="name">合同原价</div>
-                    <div class="content1">¥{{$goods_detail["contact"]["surplus_amount"]}}</div>
-                    <div class="content2">{{$goods_detail["transfer_info"]["discount"]}}折</div>
-                </div>
+            </table>
 
-            </div>
+            <div class="title">转让详情</div>
+            <table class="table">
+                <tr>
+                    <td>
+                    <span class="name">合同原价</span>
+                    <span class="content1">¥{{$goods_detail["contact"]["surplus_amount"]}}</span>
+                    <span class="content2">{{$goods_detail["transfer_info"]["discount"]}}折</span>
+                    </td>
 
-            <div class="line">
-                <div class="item">
-                    <div class="name">合同有效期</div>
-                    <div class="content">{{$goods_detail["contact"]["contract_expired"]}}</div>
-                </div>
-            </div>
+                    <td>
+                    <span class="name">合同有效期</span>
+                    <span class="content">{{$goods_detail["contact"]["contract_expired"]}}</span>
+    </td>
+                </tr>
 
-            <div class="line">
-                <div class="item">
-                    <div class="name">转让介绍</div>
-                    <div class="content">{{$goods_detail["transfer_info"]["introduce"]}}</div>
-                </div>
-
-            </div>
+                <tr>
+                    
+    </tr>
+    </table>
         </div>
 
-        <div class="part3 anchor2" id="part3">
-            <div class="map-container" id="map_container"></div>
-            <div class="location-text">
-                @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
-                {{$goods_detail["campus"]["campus"]["address"]}}
-                @endif
-            </div>
-            <div class="btn-come" onclick="showMap()">到这里去</div>
-            <div class="line"></div>
-        </div>
 
-        <div class="part4 anchor3" id="part4">
-            <div class="user-info" id="sellerInfo">
-                <div class="left">
-                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
-                    <div class="infos">
-                        <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
-                        <div class="phone">{{$goods_detail["hidden_phone"]}}</div>
-                    </div>
-                </div>
-                <div class="right">
-                    已入驻旦旦{{$goods_detail["seller"]["settle_in"]}}天
-                </div>
-            </div>
-
-            <div class="transfer-progress">
-                <div class="name">转让流程</div>
+        <div class="transfer-progress">
+                <div class="title">转让流程</div>
                 <div class="progress-list">
                     <div class="item hover">
                         <div class="left">
@@ -353,6 +291,78 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="rp">
+        <div class="line1"><span>转让介绍</span>
+        {{$goods_detail["transfer_info"]["introduce"]}}
+    </div>
+        <div class="line1"><span>转让价格</span>
+        <div class="rp-f1">{{$goods_detail["transfer_info"]["price"]}} <span class="yuan">元</span></div>
+    </div>
+    
+
+        <div class="line1"><span>交易定金</span>
+        <div class="rp-f2">
+        @if ($goods_detail["transfer_info"]["deposit"])
+                    {{$goods_detail["transfer_info"]["deposit"]}}
+                    @else
+                    0
+                    @endif    
+        <span class="yuan">元</span>
+    </div>
+
+    <div class="goods-list anchor4">
+                <div class="title">
+                    <div class="left">热门推荐
+                    </div>
+                </div>
+
+
+                <div class="items" id="goods_list">
+                
+                </div>
+            </div>
+    </div>
+       
+
+        <!-- <div class="href-nav sticky">
+            <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
+            <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
+            <a class="item" onclick="letsScrollTo('.anchor3','.product-detail')">订单流程</a>
+            <a class="item" onclick="letsScrollTo('.anchor4','.product-detail')">热门推荐</a>
+        </div> -->
+
+        </div>
+    </div>
+        <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
+            onclick="goTo('search',null,null)"></div>
+
+        <div class="part3 anchor2" id="part3">
+            <div class="map-container" id="map_container"></div>
+            <div class="location-text">
+                @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
+                {{$goods_detail["campus"]["campus"]["address"]}}
+                @endif
+            </div>
+            <div class="btn-come" onclick="showMap()">到这里去</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="part4 anchor3" id="part4">
+            <div class="user-info" id="sellerInfo">
+                <div class="left">
+                    <img class="icon" src="{{$goods_detail["seller"]["avatar"]}}" />
+                    <div class="infos">
+                        <div class="name">{{$goods_detail["seller"]["nickname"]}}</div>
+                        <div class="phone">{{$goods_detail["hidden_phone"]}}</div>
+                    </div>
+                </div>
+                <div class="right">
+                    已入驻旦旦{{$goods_detail["seller"]["settle_in"]}}天
+                </div>
+            </div>
+
+            
             <div class="mianze">
                 <div class="t1">免责声明</div>
                 <div class="t2">
@@ -364,33 +374,14 @@
                 </div>
             </div>
 
-            <div class="hot-goods anchor4">
-                <div class="title">
-                    <div class="left">热门推荐
-                    </div>
-                </div>
-
-
-                <div class="items">
-                    <div class="items-left">
-                        <div class="items-left-infos" id="goods_left">
-
-                        </div>
-                    </div>
-                    <div class="items-right">
-                        <div class="items-right-infos" id="goods_right">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
 
     </div>
 
     <div class="bottom-btns">
-        <div class="left">
+        <div class="top">
             <div class="item" id="do_collection" onclick="doCollection(1)">
                 <div class="icon"
                     style="background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/shoucang_nor_icon%402x.png');">
@@ -427,7 +418,7 @@
         <!-- <div class="right" onclick="handleValueChange('show_payment_types',true)">
             选择下单方式
         </div> -->
-        <div class="right" onclick="createOrder()">
+        <div class="submit" onclick="createOrder()">
             立即下单
         </div>
     </div>

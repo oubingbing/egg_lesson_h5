@@ -1,10 +1,139 @@
 body {
     margin: 0;
     overflow: visible;
+    background-color: #f9f9f9;
 }
 
 #currentLocation {
     display: none;
+}
+
+.box1 {
+    width: 94%;
+    display: inline-block;
+    padding: 28px 0 24px;
+    font-size: 0;
+    margin: 0 3% 0 4px;
+}
+
+.box1 .logo {
+    width: 214px;
+    display: block;
+}
+
+.box1 .sfont {
+    color: rgb(151, 155, 158);
+    font-size: 12px;
+    line-height: 1.1;
+}
+
+.box1 .bfont {
+    font-family: PingFangSC-Semibold, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0b0f12;
+    line-height: 1.1;
+    max-width: 1090px;
+}
+
+.box1 .title {
+    margin-top: 32px;
+    position: relative;
+}
+
+.box1 .banner-title-code {
+    top: 18px;
+    font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    line-height: 1.1;
+    right: 0;
+    position: absolute;
+    font-size: 12px;
+    color: #979b9e;
+}
+
+.box2 {
+    display: flex;
+    align-items: start;
+}
+
+.box2 .lp {
+    position: relative;
+    width: 670px;
+    overflow: hidden;
+}
+
+.box2 .rp {
+    flex: 1;
+    margin-left: 60px;
+}
+
+.box2 .rp .line1 {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font-size: 24px;
+    line-height: 44px;
+    align-items: baseline;
+    padding-right: 34%;
+    margin-right: 6%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.box2 .rp-f1,
+.box2 .rp-f2 {
+    font-size: 48px;
+    font-family: Avenir-Black, Avenir;
+    font-weight: 900;
+    color: #fd4d39;
+    line-height: 1.1;
+    vertical-align: -4px;
+}
+
+.box2 .rp-f2 {
+    font-size: 24px;
+}
+
+.box2 .rp-f1 .yuan {
+    font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    font-size: 24px;
+    color: #fd4d39;
+    margin-left: 5px;
+    line-height: 1.1;
+}
+
+.introduce {
+    margin: 20px;
+    position: relative;
+}
+
+.introduce .title {
+    font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #0b0f12;
+    line-height: 1.1;
+    margin-top: 65px;
+    margin-bottom: 28px;
+}
+
+.introduce .name {
+    font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    display: inline-block;
+    font-size: 14px;
+    color: #979b9e;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.introduce .table {
+    width: 100%;
+    border: 0;
+}
+
+.introduce .table tr {
+    width: 100%;
 }
 
 .product-detail {
@@ -12,24 +141,26 @@ body {
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
+    margin: 0 auto;
     height: 100vh;
-    width: 100vw;
-    background-color: #f5f5f5;
+    width: 1300px;
+    background-color: #fff;
 }
 
 .banner-swiper-box {
-    width: 100vw;
-    height: 249px;
+    width: 630px;
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 249px;
 }
 
 .banner-swiper-box .banner-swiper {
-    width: 100vw;
-    height: 249px;
+    width: 100%;
+    min-height: 249px;
 }
 
 .banner-image {
-    width: 100vw;
-    height: 249px;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -59,9 +190,9 @@ body {
 }
 
 .part1 {
-    padding: 5.33vw;
+    padding: 20px;
     background-color: #FFF;
-    margin-top: 2.67vw;
+    margin-top: 10px;
 }
 
 .part1 .line1 {
@@ -73,14 +204,14 @@ body {
     font-weight: 500;
     color: #333333;
     line-height: 24px;
-    margin-bottom: 7.33vw;
+    margin-bottom: 20px;
 }
 
 .part1 .line15 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2.67vw;
+    margin-bottom: 10px;
 }
 
 .part1 .line2 {
@@ -92,24 +223,24 @@ body {
 .part1 .line2 .item {
     display: flex;
     align-items: flex-end;
-    font-size: 3.2vw;
+    font-size: 14px;
     font-family: DanDanFont;
     font-weight: 600;
     color: #333333;
-    line-height: 6.4vw;
+    line-height: 1.5;
 }
 
 .part1 .line2 .item .t2 {
-    font-size: 4.8vw;
+    font-size: 18px;
     font-family: DanDanFont;
     font-weight: 600;
     color: #FF5252;
-    line-height: 6.4vw;
+    line-height: 1.5;
 }
 
 .part1 .line2 .item.grey,
 .part1 .line15 .item.grey {
-    font-size: 2.67vw;
+    font-size: 12px;
     font-family: DanDanFont;
     font-weight: 500;
     color: #808080;
@@ -117,8 +248,8 @@ body {
 }
 
 .part1 .line3 {
-    height: 13.33vw;
-    border-top: 0.27vw solid #F5F7FA;
+    height: 30px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -129,7 +260,7 @@ body {
     font-family: DanDanFont;
     font-weight: 400;
     color: #333333;
-    line-height: 6.4vw;
+    line-height: 1.5;
 }
 
 .part1 .line3 .right {
@@ -137,7 +268,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 5.33vw;
+    margin: 0 10px;
 }
 
 .part1 .line3 .right .tip {
@@ -146,95 +277,19 @@ body {
 }
 
 .part1 .line3 .right .tip .icon {
-    width: 4.8vw;
-    height: 4.8vw;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
-    margin-right: 2.13vw;
+    margin-right: 5px;
 }
 
 .part1 .line3 .right .tip .tip-name {
-    font-size: 3.2vw;
+    font-size: 16px;
     width: 4em;
     font-family: DanDanFont;
     font-weight: 400;
     color: #808080;
-    line-height: 6.4vw;
-}
-
-.part1 .line3:last-child {
-    border-bottom: 0.27vw solid #F5F7FA;
-}
-
-.part2 {
-    background-color: #FFFFFF;
-    margin-top: 2.67vw;
-    padding: 0 5.33vw;
-}
-
-.part2 .line {
-    padding: 3.47vw 0;
-    border-bottom: 0.27vw solid #F5F7FA;
-    display: flex;
-    align-items: center;
-}
-
-.part2 .line .item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding-left: 5.07vw;
-    /* border-right: 0.13vw solid #333333; */
-    border-left: 0.13vw solid #333;
-}
-
-.part2 .line .item .name {
-    white-space: nowrap;
-    font-size: 14px;
-    font-family: DanDanFont;
-    font-weight: 400;
-    color: #999999;
-    margin-right: 3.2vw;
-    line-height: 6.4vw;
-}
-
-.part2 .line .item .content {
-    font-size: 14px;
-    font-family: DanDanFont;
-    font-weight: 400;
-    color: #333333;
-    line-height: 6.4vw;
-}
-
-.part2 .line .item .content1 {
-    font-size: 14px;
-    margin-right: 5.2vw;
-    font-family: DanDanFont;
-    font-weight: 500;
-    color: #FF5252;
-    line-height: 6.4vw;
-}
-
-.part2 .line .item .content2 {
-    min-width: 11.73vw;
-    height: 5.33vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-family: DanDanFont;
-    font-weight: 400;
-    color: #FF5252;
-    line-height: 6.4vw;
-    background: #FFD1D1;
-}
-
-.part2 .line .item:first-child {
-    border-left: 0;
-    padding-left: 0;
-}
-
-.part2 .line .item:last-child {
-    border-right: 0;
+    line-height: 1.5;
 }
 
 .part3 {
@@ -333,29 +388,30 @@ body {
     line-height: 5.33vw;
 }
 
-.part4 .transfer-progress {
-    margin-top: 5.2vw;
+.transfer-progress {
+    margin: 20px;
 }
 
-.part4 .transfer-progress>.name {
-    font-size: 16px;
-    font-family: DanDanFont;
-    font-weight: 600;
-    color: #333333;
-    line-height: 24px;
-    margin-bottom: 5.33vw;
+.transfer-progress>.title {
+    font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #0b0f12;
+    line-height: 1.1;
+    margin-top: 65px;
+    margin-bottom: 28px;
 }
 
-.part4 .transfer-progress .item {
+.transfer-progress .item {
     display: flex;
     align-items: flex-start;
     justify-content: flex;
-    height: 21.33vw;
+    height: 110px;
 }
 
-.part4 .transfer-progress .item .left .circle {
-    width: 5.33vw;
-    height: 5.33vw;
+.transfer-progress .item .left .circle {
+    width: 30px;
+    height: 30px;
     background: #E6E6E6;
     border-radius: 50%;
     display: flex;
@@ -367,65 +423,65 @@ body {
     color: #FFFFFF;
     line-height: 24px;
     position: relative;
-    margin-right: 4vw;
+    margin-right: 20px;
 }
 
-.part4 .transfer-progress .item .left .circle::after {
+.transfer-progress .item .left .circle::after {
     content: '';
-    width: 0.53vw;
-    height: 8vw;
-    left: 2.4vw;
-    bottom: -8vw;
+    width: 4px;
+    height: 40px;
+    left: 13px;
+    bottom: -40px;
     background: #E6E6E6;
     position: absolute;
 }
 
-.part4 .transfer-progress .item .left .circle::before {
+.transfer-progress .item .left .circle::before {
     content: '';
-    width: 0.53vw;
-    height: 8vw;
-    left: 2.4vw;
+    width: 4px;
+    height: 40px;
+    left: 13px;
     background: #E6E6E6;
-    top: -8vw;
+    top: -40px;
     position: absolute;
 }
 
-.part4 .transfer-progress .item:first-child .left .circle::before {
+.transfer-progress .item:first-child .left .circle::before {
     display: none;
 }
 
-.part4 .transfer-progress .item:last-child .left .circle::after {
+.transfer-progress .item:last-child .left .circle::after {
     display: none;
 }
 
-.part4 .transfer-progress .item .right .t1 {
-    font-size: 4vw;
+.transfer-progress .item .right .t1 {
+    font-size: 24px;
     font-family: DanDanFont;
     font-weight: 500;
     color: #cccccc;
     line-height: 24px;
 }
 
-.part4 .transfer-progress .item .right .t2 {
-    margi-top: 1.87vw;
-    font-size: 3.2vw;
+.transfer-progress .item .right .t2 {
+    margin-top: 20px;
+    font-size: 14px;
     font-family: DanDanFont;
     font-weight: 400;
     color: #cccccc;
-    line-height: 24px;
+    line-height: 1.5;
 }
 
-.part4 .transfer-progress .item.hover .right .t1 {
+.transfer-progress .item.hover .right .t1 {
     color: #333;
 }
 
-.part4 .transfer-progress .item.hover .right .t2 {
+.transfer-progress .item.hover .right .t2 {
     color: #808080;
 }
 
-.part4 .transfer-progress .item.hover .left .circle,
-.part4 .transfer-progress .item.hover .left .circle::before,
-.part4 .transfer-progress .item.hover .left .circle::after {
+.transfer-progress .item.hover .left .circle,
+.transfer-progress .item.hover .left .circle::before,
+.transfer-progress .item.hover .left .circle::after {
     background: #5197FF;
 }
 
@@ -444,57 +500,49 @@ body {
 
 .bottom-btns {
     position: fixed;
-    width: 100%;
+    width: 60px;
+    height: 300px;
     z-index: 1000;
-    bottom: 0;
-    left: 0;
-    height: 13.33vw;
-    display: flex;
-    align-items: center;
+    bottom: 130px;
+    right: 50%;
+    margin-right: -750px;
     background-color: #fff;
-    box-shadow: 0 0 1.07vw 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px 2px #f5f5f5;
 }
 
-.bottom-btns .left {
-    margin-right: 2.67vw;
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: space-around;
+.bottom-btns .top {
     background-color: #fff;
-    height: 100%;
 }
 
-.bottom-btns .left .item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.bottom-btns .top .item {
+    height: 60px;
+    text-align: center;
 }
 
-.bottom-btns .left .item.hide {
+.bottom-btns .top .item.hide {
     display: none;
 }
 
-.bottom-btns .left .item .icon {
-    width: 5.33vw;
-    height: 5.33vw;
+.bottom-btns .top .item .icon {
+    width: 20px;
+    height: 20px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    margin: 10px auto;
 }
 
-.bottom-btns .left .item .name {
+.bottom-btns .top .item .name {
     font-size: 11px;
     font-family: DanDanFont;
     font-weight: 400;
     color: #808080;
-    margin-top: 1.33vw;
+    margin-top: 10px;
 }
 
-.bottom-btns .right {
-    width: 49.06vw;
-    height: 100%;
+.bottom-btns .submit {
+    width: 60px;
+    height: 60px;
     background: linear-gradient(-45deg, #FF7070, #FF5252);
     display: flex;
     align-items: center;
@@ -509,7 +557,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: 11;
     display: flex;
@@ -538,7 +586,7 @@ body {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 }
 
@@ -594,8 +642,4 @@ body {
     padding: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-}
-
-.hot-goods {
-    padding: 1.25rem 0 1.75rem;
 }

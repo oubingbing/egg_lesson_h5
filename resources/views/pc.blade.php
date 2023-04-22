@@ -15,12 +15,12 @@
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/tool/pc/popup_pc.js')}}"></script>
-    <script src="{{asset('js/tool/pc/loading_pc.js')}}"></script>
+    <script src="{{asset('js/pc/tool/popup.js')}}"></script>
+    <script src="{{asset('js/pc/tool/tool.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <!-- <script src="{{asset('js/bottom_menu.js')}}"></script> -->
     <script src="{{asset('js/tool/http.js')}}"></script>
-    <script src="{{asset('js/page/pc/index_pc.js')}}"></script>
+    <script src="{{asset('js/pc/page/index.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>

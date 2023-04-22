@@ -297,6 +297,7 @@ function getLocationByApi() {
 $(document).ready(() => {
 
 
+    createTitleNav();
     getPurChaseLogs();
     getLocationByApi();
 
