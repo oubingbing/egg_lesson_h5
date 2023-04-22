@@ -302,6 +302,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="map-container-box anchor2" id="part3">
+            <div class="title">地图导航</div>
+            <div class="map-container" id="map_container"></div>
+            <div class="location-text">
+                @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
+                {{$goods_detail["campus"]["campus"]["address"]}}
+                @endif
+            </div>
+            <div class="btn-come" onclick="showMap()">到这里去</div>
+            <div class="line"></div>
+        </div>
+
         </div>
         <div class="rp">
 
@@ -349,16 +362,7 @@
         <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
             onclick="goTo('search',null,null)"></div>
 
-        <div class="part3 anchor2" id="part3">
-            <div class="map-container" id="map_container"></div>
-            <div class="location-text">
-                @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"])
-                {{$goods_detail["campus"]["campus"]["address"]}}
-                @endif
-            </div>
-            <div class="btn-come" onclick="showMap()">到这里去</div>
-            <div class="line"></div>
-        </div>
+        
 
         <div class="part4 anchor3" id="part4">
             

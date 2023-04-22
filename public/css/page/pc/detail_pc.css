@@ -535,7 +535,8 @@ body {
     margin: 20px;
 }
 
-.transfer-progress>.title {
+.transfer-progress>.title,
+.map-container-box .title {
     font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei, Arial, "\5B8B\4F53", Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 500;
@@ -626,6 +627,39 @@ body {
 .transfer-progress .item.hover .left .circle::before,
 .transfer-progress .item.hover .left .circle::after {
     background: #5197FF;
+}
+
+.map-container-box {
+    padding: 20px;
+}
+
+.map-container-box .location-text {
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: DanDanFont;
+    font-weight: 400;
+    color: #4d4d4d;
+    line-height: 1.5;
+}
+
+.map-container-box .btn-come {
+    background-color: #ff9a52;
+    padding: 5px;
+    width: 4em;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    /* float: right; */
+    position: absolute;
+    right: 20px;
+    bottom: 1em;
+    cursor: pointer;
+}
+
+#map_container {
+    width: 630px;
+    height: 400px;
+    background-image: linear-gradient(45deg, #ff9a52, transparent);
 }
 
 .thumbnail {
