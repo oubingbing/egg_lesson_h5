@@ -549,6 +549,8 @@ class GoodsController extends Controller
 
     public function sitemap(Request $request)
     {
+        return redirect("sitemap.txt");
+
         $data = Goods::query()
             ->whereIn(Goods::FIELD_STATUS,[
                 Goods::ENUM_STATUS_VERIFY_SUCCESS,
