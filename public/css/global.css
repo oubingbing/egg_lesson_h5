@@ -1118,3 +1118,30 @@ body {
     background-position: -104px -131px;
     background-image: url(//img13.360buyimg.com/imagetools/jfs/t1/108497/17/22418/15570/6215e0d0E01387603/81e883d9e15cebb7.png);
 }
+
+.pc-links{
+    width:1300px;
+    margin:20px auto;
+    background-color: #f5f5f5;
+
+}
+.pc-links .sub-box{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.pc-links p{
+    width:4em;
+    font-size:14px;
+    font-weight: bold;
+}
+.pc-links a{
+    text-decoration: none;
+    background-color: #4d4d4d;
+    cursor: pointer;
+    display: inline-block;
+
+    margin:4px;
+}

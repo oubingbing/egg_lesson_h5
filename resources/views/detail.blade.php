@@ -429,6 +429,39 @@
             立即下单
         </div>
     </div>
+
+    <div class="pc-links" id="pc_links">
+        <div class="sub-box">
+            <p>附近推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["nearby"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+        <div class="sub-box">
+            <p>周边推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["close"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+        <div class="sub-box">
+            <p>相关推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["close_city"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+    
+    </div>
+
+    
     <div class="footer">
         <p style="padding:0 10px;">
             <a href="https://m.dandanzkw.com/" >首页</a> |
