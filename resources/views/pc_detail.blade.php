@@ -477,8 +477,6 @@
 <script type="text/javascript">
     sessionStorage.setItem("current_goods_id","{{$goods_detail["goods_id"]}}");
     getGoodsDetail("{{$goods_detail["goods_id"]}}");
-    // console.log("====recommend_list====")
-    // let recommend_list = "{{$recommend_list}}";
     // console.log(recommend_list);
     // console.log("debug", "{{$debug}}")
     // console.log("beta", "{{$beta}}")
