@@ -11,16 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{asset('css/global_pc.css')}}" rel="stylesheet">
     <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/page/index_pc.css')}}" rel="stylesheet">
+    <link href="{{asset('css/page/pc/index_pc.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/popup_pc.js')}}"></script>
-    <script src="{{asset('js/tool/loading.js')}}"></script>
+    <script src="{{asset('js/pc/tool/popup.js')}}"></script>
+    <script src="{{asset('js/pc/tool/tool.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <!-- <script src="{{asset('js/bottom_menu.js')}}"></script> -->
     <script src="{{asset('js/tool/http.js')}}"></script>
-    <script src="{{asset('js/page/index_pc.js')}}"></script>
+    <script src="{{asset('js/pc/page/index.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>
@@ -44,22 +44,14 @@ let res = {
         };
 getSignature(res);
 setApi("旦旦转课网","全网首个课程转让交易平台",
-"https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png")
+"https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png");
+
     </script>
 </head>
 
-<body>
-    <div class="pc">
-    <div class="title-nav">
-            <div class="box">
-                <div class="button">发布课程</div>
-                <div class="button">查看消息</div>
-                <div class="button red">请登录</div>
-                <!-- <img class="location-logo" src="{{asset('image/dingwei_icon.png')}}"/> -->
-                <div class="search-location" id="currentLocation">
-                    定位中</div>
-            </div>
-        </div>
+<body onload="createTitleNav">
+    <div class="pc" id="pc">
+
     <div class="page-index">
       
         
@@ -177,21 +169,21 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
 
 <div class="footer">
     <p>
-        <a href="https://pc.dandanzkw.com/" rel="nofollow">首页</a> |
-        <a href="https://pc.dandanzkw.com/search?category_id=3" rel="nofollow">舞蹈培训</a> |
-        <a href=" https://pc.dandanzkw.com/search?category_id=7" rel="nofollow">瑜伽健身</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=1" rel="nofollow">早教亲子</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=2" rel="nofollow">英语培训</a>|
-         <a href="https://pc.dandanzkw.com/search?category_id=4" rel="nofollow">器乐文艺</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=5" rel="nofollow">语种培训</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=6" rel="nofollow">体育竞技</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=8" rel="nofollow">Steam</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=10" rel="nofollow">职业教育</a> |
-         <a href="https://www.dandanzkw.com/aboutus/" rel="nofollow">关于我们</a> |
+        <a href="https://pc.dandanzkw.com/" >首页</a> |
+        <a href="https://pc.dandanzkw.com/search?category_id=3" >舞蹈培训</a> |
+        <a href=" https://pc.dandanzkw.com/search?category_id=7" >瑜伽健身</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=1" >早教亲子</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=2" >英语培训</a>|
+         <a href="https://pc.dandanzkw.com/search?category_id=4" >器乐文艺</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=5" >语种培训</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=6" >体育竞技</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=8" >Steam</a> |
+         <a href="https://pc.dandanzkw.com/search?category_id=10" >职业教育</a> |
+         <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
          <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
          <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
-         <a href="https://www.dandanzkw.com/kechengfabu/" rel="nofollow">课程发布条例</a>|
-         <a href="https://www.dandanzkw.com/cooperate/" rel="nofollow">联系我们 </a>
+         <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a>|
+         <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a>
          </p>
     <div class="authentication">
         <div style="width:300px;margin:0px auto;padding: 2px;">

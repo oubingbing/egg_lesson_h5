@@ -25,13 +25,15 @@ var state = {
 let isEnd = false;
 
 function getGoodsDetail(current_goods_id = state.current_goods_id) {
-    state.current_goods_id = current_goods_id;
-    Get(mRoute.goods_detail(current_goods_id), void(0), res => {
+    state.current_goods_id = current_goods_id
+    Get(mRoute.goods_detail(current_goods_id), void (0), res => {
 
         if (res && res.data) {
+            
             if (!res.data.campus) {
                 res.data.campus = { campus: {} };
             }
+            console.log(res.data);
             if (!res.data.campus.campus) {
                 res.data.campus.campus = {};
             }
@@ -40,12 +42,6 @@ function getGoodsDetail(current_goods_id = state.current_goods_id) {
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
 
             state.current_goods_detail = res.data;
-            try{
-                setApi(res.data.transfer_info.title, '我在旦旦发现宝贝了！', res.data.transfer_info.attachments[0], window.location.href);
-            }catch(e){
-                
-            }
-            
             console.log(state.current_goods_detail);
             if (state.current_goods_detail.collection !== 1) {
                 document.getElementById("do_collection").className = "item show";
@@ -77,6 +73,8 @@ function getGoods(params = state.goods_params) {
                 res.data.page_data[i].reset_title =
                     `【${res.data.page_data[i].contact.lesson_type === 1 ? res.data.page_data[i].contact.surplus_lesson_time + "节" : ''}
                         ${['', '', '年卡'][res.data.page_data[i].contact.lesson_type]} |${res.data.page_data[i].campus.sub_course_type}】${res.data.page_data[i].transfer_info.title}`;
+                res.data.page_data[i].transfer_info.price_text = toMoney(res.data.page_data[i].transfer_info
+                    .price);
             }
 
             state.goods = state.goods.concat(res.data.page_data);
@@ -89,36 +87,36 @@ function getGoods(params = state.goods_params) {
                 item_div.id = `goods_id_${item.goods_id}`;
                 item_div.onclick = showGoodDetail.bind(null, item.goods_id);
                 item_div.innerHTML = `
-                        <img class="thumbnail" onload="drawGood(${item.goods_id})"
-                            src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
+                <div class="part1">
+                <div class="thumbnail" style="background-image:url(${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'});"></div>
+                <div class="infos">
+                    <div class="t1">
+                        ${item.reset_title}
+                    </div>
+                    <div class="t2">有效期：${item.contact.contract_expired}</div>
+        
+                    <div class="t3">
+                        <div>课程类型：${item.campus.lesson_category.name}</div>
+                        <div>
+                            课卡类型：${['', '次卡', '年卡'][item.contact.lesson_type]}&nbsp;&nbsp;剩余课时：${item.contact.surplus_lesson_time}节
                         </div>
-                        <div class="position-box">
-                            <div class="icon"
-                                style='background-image: url("image/dingwei_icon.png"); background-position: center center; background-size: cover;'>
-                            </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
-                            <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
+                        <div>
+                            适课年龄：${item.contact.min_year}-${item.contact.max_year}岁&nbsp;&nbsp;
+                            适课性别：${['', '男', '女', '不限'][item.contact.lesson_gender]}
                         </div>
-                        <div class="infos">
-                            <div class="line1">
-                                <div class="tag">卖家自转</div>
-                                <div class="name"><a class="title-link" title="${item.reset_title}" href="${window.location.protocol}//${window.location.hostname}/detail/${item.goods_id}.html">${item.reset_title}</a></div>
-                            </div>
-                            <div class="line2">
-                                <div class="price"> ¥${item.transfer_info.price > 10000 ? parseInt(item.transfer_info.price / 1000) / 10 + "万" : item.transfer_info.price}</div>
-                                <div class="want">${item.collection}人想要</div>
-                                <div class="discount">${item.transfer_info.discount ? item.transfer_info.discount : '10'}<span class="fonts">折</span></div>
-   
-                            </div>
-                            <div class="line3">
-                                <div class="t">${item.campus.brand.name}</div>
-                            </div>
-   
-                            <img class="discount-icon"
-                                src="https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/remen_icon%402x.png" />
-                        </div>
-                    `;
-                state.goods_divs[item.goods_id] = item_div;
+                    </div>
+                </div>
+            </div>
+        
+            <div class="part2">
+                ${item.transfer_info.title}
+            </div>
+            <div class="part3">
+                <div class="price">${item.transfer_info.price_text}</div>
+                <div class="discount">${item.transfer_info.discount}折</div>
+                <div class='distance'>${item.distance ? item.distance + "km" : ''}</div>
+            </div>`;
+                document.getElementById("goods_list").appendChild(item_div);
 
             }
 
@@ -130,21 +128,6 @@ function getGoods(params = state.goods_params) {
 
 
     })
-}
-
-function drawGood(goods_id) {
-    let left = document.getElementById("goods_left");
-    let right = document.getElementById("goods_right");
-    if (left.offsetHeight >= right.offsetHeight) {
-        right.appendChild(state.goods_divs[goods_id]);
-
-    } else {
-        left.appendChild(state.goods_divs[goods_id]);
-    }
-    setTimeout(() => {
-        state.goods_divs[goods_id].className = "item show";
-    }, 100);
-
 }
 
 function showUpdating() {
@@ -183,7 +166,7 @@ function initMap() {
 
     //定义地图中心点坐标
     var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude, state.current_goods_detail.campus.campus.longitude)
-        //定义map变量，调用 TMap.Map() 构造函数创建地图
+    //定义map变量，调用 TMap.Map() 构造函数创建地图
     var map = new TMap.Map(document.getElementById('map_container'), {
         center: center, //设置地图中心点坐标
         zoom: 17.2, //设置地图缩放级别
@@ -211,15 +194,18 @@ function initMap() {
     });
 }
 
-$(document).ready(() => {
-    // getGoodsDetail();
+function switchAGroupOfGoods() {
+    state.goods_params.page_number++;
+    showLoading();
     getGoods();
 
-    scrollToBottom('product-detail', null, () => {
-        state.goods_params.page_number++;
-        showLoading();
-        getGoods();
-    })
+}
+
+$(document).ready(() => {
+    getGoods();
+    // scrollToBottom('product-detail', null, () => {
+    //    
+    // })
 
     var swiper = new Swiper(".mySwiper", {
         loop: true,

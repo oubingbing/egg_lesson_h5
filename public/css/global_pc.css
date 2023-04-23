@@ -9,8 +9,40 @@
 
 html,
 body {
-    font:12px/1.5 '微软雅黑', 'Microsoft Yahei', 'Hiragino Sans GB',宋体,sans-serif;
-    margin:0;
+    font: 12px/1.5 '微软雅黑', 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, sans-serif;
+    margin: 0;
+}
+
+.font48 {
+    font-size: 48px;
+}
+
+.font36 {
+    font-size: 36px;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.color999 {
+    color: #999;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.floatright {
+    float: right!important;
+}
+
+.colorFF5 {
+    color: #FF5B01;
 }
 
 .loading-box {
@@ -175,7 +207,6 @@ input {
     line-height: normal;
     margin-top: 3px;
 }
-
 
 .updating-view {
     position: fixed;
@@ -439,7 +470,7 @@ input {
     justify-content: center;
     padding: 0 5.33vw 5.33vw;
     font-size: 14px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #333333;
     line-height: 5.33vw;
@@ -517,7 +548,7 @@ input {
     height: 12.53vw;
     border-bottom: 1px solid #F5F7FA;
     font-size: 18px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 600;
     color: #333333;
     display: flex;
@@ -550,7 +581,7 @@ input {
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #333333;
 }
@@ -558,7 +589,7 @@ input {
 .modal-discuss .discuss-box .tips {
     margin: 2.67vw 5.33vw;
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 400;
     color: #5197FF;
     word-break: break-all;
@@ -581,7 +612,7 @@ input {
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #FFFFFF;
     line-height: 5.33vw;
@@ -595,7 +626,7 @@ input {
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 400;
     color: #808080;
     line-height: 5.33vw;
@@ -738,6 +769,7 @@ input {
 }
 
 .goback {
+    display: none;
     position: fixed;
     top: 15vw;
     left: 2vw;
@@ -816,7 +848,7 @@ input {
 
 .hot-goods .select-nav .select-nav-item {
     font-size: 0.95rem;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #808080;
     margin-right: 0.875rem;
@@ -865,7 +897,7 @@ input {
 
 .hot-goods .item {
     position: relative;
-    margin:10px;
+    margin: 10px;
     border-radius: 1.06vw;
     box-shadow: 0px 10px 10px 0px rgba(48, 50, 51, 0.1);
     overflow: hidden;
@@ -882,15 +914,16 @@ input {
 }
 
 .hot-goods .item .tag {
-    width:80px;
-    height: 30px;;
+    width: 80px;
+    height: 30px;
+    ;
     background: rgba(255, 82, 82, 0.2);
     border-radius: 15px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #FF5656;
     vertical-align: middle;
@@ -921,7 +954,7 @@ input {
 
 .hot-goods .item .info-box .name {
     font-size: 14px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FFFFFF;
     line-height: 1;
@@ -930,7 +963,7 @@ input {
 
 .hot-goods .item .info-box .status {
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FFFFFF;
     line-height: 1;
@@ -938,7 +971,7 @@ input {
 
 .hot-goods .item .position-box {
     margin-top: -37px;
-    padding:0 2%;
+    padding: 0 2%;
     display: flex;
     background: rgba(255, 82, 82, 0.2);
     position: absolute;
@@ -950,7 +983,7 @@ input {
 
 .hot-goods .item .position-box .icon {
     width: 15px;
-    margin-right:5px;
+    margin-right: 5px;
     height: 32px;
 }
 
@@ -960,7 +993,7 @@ input {
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FFFFFF;
     /* margin-right: 3.6vw; */
@@ -969,7 +1002,7 @@ input {
 
 .hot-goods .item .position-box .distance {
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FFFFFF;
     line-height: 1;
@@ -982,7 +1015,7 @@ input {
 
 .hot-goods .item .line3 .t {
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #808080;
     margin-bottom: 10px;
@@ -994,8 +1027,8 @@ input {
 }
 
 .hot-goods .item .infos .name {
-    font-size:14px;
-    font-family:'Heiti';
+    font-size: 14px;
+    font-family: 'Heiti';
     display: inline;
     font-weight: bold;
     color: #333333;
@@ -1011,7 +1044,7 @@ input {
 
 .hot-goods .item .line2 .price {
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FF5252;
     line-height: 2;
@@ -1019,7 +1052,7 @@ input {
 
 .hot-goods .item .line2 .want {
     font-size: 12px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: 500;
     color: #808080;
     line-height: 2;
@@ -1027,7 +1060,7 @@ input {
 
 .hot-goods .item .line2 .discount {
     font-size: 14px;
-    font-family:'Heiti';
+    font-family: 'Heiti';
     font-weight: bold;
     color: #FF5252;
     line-height: 2;
@@ -1044,10 +1077,10 @@ input {
     object-fit: contain;
     position: absolute;
     right: 0;
-    bottom:5px;
+    bottom: 5px;
 }
 
-.footer{
+.footer {
     text-align: center;
     text-decoration: none;
     color: #333333;
@@ -1058,25 +1091,25 @@ input {
     background-color: #eee;
     height: 190px;
 }
-.footer .f_copyright{
+
+.footer .f_copyright {
     overflow: hidden;
     width: 49px;
     height: 48px;
 }
 
-.footer a{
+.footer a {
     text-decoration: none;
     color: #333333;
-   
 }
 
-.pc{
-    height:100vh;
-    overflow-y:scroll;
+.pc {
+    height: 100vh;
+    overflow-y: scroll;
 }
-.copyright-box{
-    
-}
+
+.copyright-box {}
+
 .copyright {
     overflow: hidden;
     display: inline-block;
@@ -1085,7 +1118,8 @@ input {
     height: 32px;
     line-height: 1000px;
 }
-.copyright-7{
+
+.copyright-7 {
     background-repeat: no-repeat;
     background-position: 0 -99px;
     background-image: url(//img13.360buyimg.com/imagetools/jfs/t1/108497/17/22418/15570/6215e0d0E01387603/81e883d9e15cebb7.png);
@@ -1102,9 +1136,57 @@ input {
     background-position: 0 -66px;
     background-image: url(//img13.360buyimg.com/imagetools/jfs/t1/108497/17/22418/15570/6215e0d0E01387603/81e883d9e15cebb7.png);
 }
+
 .copyright-9 {
     width: 88px;
     background-repeat: no-repeat;
     background-position: -104px -131px;
     background-image: url(//img13.360buyimg.com/imagetools/jfs/t1/108497/17/22418/15570/6215e0d0E01387603/81e883d9e15cebb7.png);
-    }
+}
+
+.title-nav {
+    border-bottom: 1px solid #efefef;
+    background-color: #fcfcfc;
+}
+
+.title-nav .box {
+    color: #6c6c6c;
+    line-height: 30px;
+    height: 30px;
+}
+
+.box {
+    width: 1200px;
+    margin: auto;
+    text-align: right;
+}
+
+.box .button {
+    display: inline;
+    padding-right: 1em;
+    cursor: pointer;
+}
+
+.red {
+    color: #E26759;
+}
+
+.box .search-location {
+    min-width: 4em;
+    text-align: right;
+    font-size: 12px;
+    padding-right: 1em;
+    position: relative;
+    display: inline;
+}
+
+.search-bar .search-location::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 50%;
+    margin-top: -0.15625rem;
+    border-top: 0.3125rem solid #2C405A;
+    border-left: 0.3125rem solid transparent;
+    border-right: 0.3125rem solid transparent;
+}
