@@ -24,15 +24,16 @@ var state = {
 
 let isEnd = false;
 
-function getGoodsDetail() {
-    return;
-    showLoading();
-    Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
+function getGoodsDetail(current_goods_id = state.current_goods_id) {
+    state.current_goods_id = current_goods_id
+    Get(mRoute.goods_detail(current_goods_id), void (0), res => {
 
         if (res && res.data) {
+            
             if (!res.data.campus) {
                 res.data.campus = { campus: {} };
             }
+            console.log(res.data);
             if (!res.data.campus.campus) {
                 res.data.campus.campus = {};
             }
@@ -41,7 +42,6 @@ function getGoodsDetail() {
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
 
             state.current_goods_detail = res.data;
-            setApi(res.data.transfer_info.title, '我在旦旦发现宝贝了！', res.data.transfer_info.attachments[0], window.location.href);
             console.log(state.current_goods_detail);
             if (state.current_goods_detail.collection !== 1) {
                 document.getElementById("do_collection").className = "item show";
@@ -50,32 +50,9 @@ function getGoodsDetail() {
                 document.getElementById("do_collection").className = "item hide";
                 document.getElementById("do_uncollection").className = "item show";
             }
-
-            for (let i in state.current_goods_detail.transfer_info.attachments) {
-                let item = state.current_goods_detail.transfer_info.attachments[i];
-                let banner = document.createElement("div");
-                banner.className = `banner-image swiper-slide`;
-                banner.innerHTML = `<div style="background-image: url('${item}');background-size:cover;background-position:center;width:100%;height:100%"/>`;
-                document.getElementById("banners").appendChild(banner);
-            }
-            var swiper = new Swiper(".mySwiper", {
-                loop: true,
-                autoplay: true
-            });
-
-            document.getElementById("part1").innerHTML = ``;
-
-            document.getElementById("part2").innerHTML = ``;
-
-            document.getElementById("part3").innerHTML = ``;
-
-
-
-
             initMap();
 
         }
-        hideLoading();
     })
 }
 
@@ -189,7 +166,7 @@ function initMap() {
 
     //定义地图中心点坐标
     var center = new TMap.LatLng(state.current_goods_detail.campus.campus.latitude, state.current_goods_detail.campus.campus.longitude)
-        //定义map变量，调用 TMap.Map() 构造函数创建地图
+    //定义map变量，调用 TMap.Map() 构造函数创建地图
     var map = new TMap.Map(document.getElementById('map_container'), {
         center: center, //设置地图中心点坐标
         zoom: 17.2, //设置地图缩放级别
@@ -217,15 +194,18 @@ function initMap() {
     });
 }
 
+function switchAGroupOfGoods() {
+    state.goods_params.page_number++;
+    showLoading();
+    getGoods();
+}
+
 $(document).ready(() => {
-    // getGoodsDetail();
     getGoods();
 
-    scrollToBottom('product-detail', null, () => {
-        state.goods_params.page_number++;
-        showLoading();
-        getGoods();
-    })
+    // scrollToBottom('product-detail', null, () => {
+    //    
+    // })
 
     var swiper = new Swiper(".mySwiper", {
         loop: true,

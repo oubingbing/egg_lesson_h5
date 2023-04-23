@@ -24,10 +24,9 @@ var state = {
 
 let isEnd = false;
 
-function getGoodsDetail() {
-    return;
-    showLoading();
-    Get(mRoute.goods_detail(state.current_goods_id), void(0), res => {
+function getGoodsDetail(current_goods_id = state.current_goods_id) {
+    state.current_goods_id = current_goods_id;
+    Get(mRoute.goods_detail(current_goods_id), void(0), res => {
 
         if (res && res.data) {
             if (!res.data.campus) {
@@ -41,7 +40,12 @@ function getGoodsDetail() {
                         ${['', '', '年卡'][res.data.contact.lesson_type]} |${res.data.campus.sub_course_type}】${res.data.transfer_info.title}`;
 
             state.current_goods_detail = res.data;
-            setApi(res.data.transfer_info.title, '我在旦旦发现宝贝了！', res.data.transfer_info.attachments[0], window.location.href);
+            try{
+                setApi(res.data.transfer_info.title, '我在旦旦发现宝贝了！', res.data.transfer_info.attachments[0], window.location.href);
+            }catch(e){
+                
+            }
+            
             console.log(state.current_goods_detail);
             if (state.current_goods_detail.collection !== 1) {
                 document.getElementById("do_collection").className = "item show";
@@ -50,32 +54,9 @@ function getGoodsDetail() {
                 document.getElementById("do_collection").className = "item hide";
                 document.getElementById("do_uncollection").className = "item show";
             }
-
-            for (let i in state.current_goods_detail.transfer_info.attachments) {
-                let item = state.current_goods_detail.transfer_info.attachments[i];
-                let banner = document.createElement("div");
-                banner.className = `banner-image swiper-slide`;
-                banner.innerHTML = `<div style="background-image: url('${item}');background-size:cover;background-position:center;width:100%;height:100%"/>`;
-                document.getElementById("banners").appendChild(banner);
-            }
-            var swiper = new Swiper(".mySwiper", {
-                loop: true,
-                autoplay: true
-            });
-
-            document.getElementById("part1").innerHTML = ``;
-
-            document.getElementById("part2").innerHTML = ``;
-
-            document.getElementById("part3").innerHTML = ``;
-
-
-
-
             initMap();
 
         }
-        hideLoading();
     })
 }
 

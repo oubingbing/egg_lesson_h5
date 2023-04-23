@@ -348,11 +348,8 @@
 
         <div class="goods-list anchor4">
         
-                    <div class="line1">热门推荐
+                    <div class="line1">相关推荐
                     </div>
-        
-
-
                 <div class="goods" id="goods_list">
                 
                 </div>
@@ -432,6 +429,8 @@
     
 </body>
 <script type="text/javascript">
+    sessionStorage.setItem("current_goods_id","{{$goods_detail["goods_id"]}}");
+    getGoodsDetail("{{$goods_detail["goods_id"]}}");
     // console.log("debug", "{{$debug}}")
     // console.log("beta", "{{$beta}}")
     // console.log("appId", "{{$appId}}")

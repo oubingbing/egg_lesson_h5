@@ -447,6 +447,8 @@
         "url": "{{$url}}",
         "signature": "{{$signature}}"
     };
+    sessionStorage.setItem("current_goods_id","{{$goods_detail["goods_id"]}}");
+    getGoodsDetail("{{$goods_detail["goods_id"]}}");
     getSignature(res);
 </script>
 
