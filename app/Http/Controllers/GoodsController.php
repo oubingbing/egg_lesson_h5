@@ -432,7 +432,7 @@ class GoodsController extends Controller
 
             Log::info($km);
 
-            $locations = Redis::georadius($lessonLocation,$longitude,$latitude,(float)$km, 'km', ['withdist' => true, 'sort' => $sortBy]);
+            $locations = Redis::georadius($lessonLocation,floatval($longitude),floatval($latitude),(float)$km, 'km', ['withdist' => true, 'sort' => $sortBy]);
             if (!empty($locations)){
                 $locations = collect(collect($locations)->groupBy(0))->toArray();
                 foreach ($locations as $l){
