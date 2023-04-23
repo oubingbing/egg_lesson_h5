@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>热门课包</title>
+        <title>旦旦转课网_全网首个课程转让交易平台</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -15,6 +15,7 @@
         <script src="{{asset('js/pc/tool/tool.js')}}"></script>
         <script src="{{asset('js/tool/http.js')}}"></script>
         <script src="{{asset('js/pc/page/searchlist.js')}}"></script>
+        <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
         <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 
         <style>

@@ -295,7 +295,7 @@ $(document).ready(() => {
             getSearchInput();
         }
     })
-
+    createTitleNav();
     drawPrices(); //构建价格列表
     drawLessonCategories(); //构建课程类别列表
     drawSearchNav(); //构建筛选菜单总列表
@@ -310,9 +310,18 @@ $(document).ready(() => {
         getGoods();
     })
     showLoading();
-    getGoods();
+    getLocationByApi(JSON.parse(JSON.stringify(state.goods_params)),saveLocation);
 });
 
+function saveLocation(p){
+    console.log("----p",p);
+    state.location = {
+        latitude:p.latitude,
+        longitude:p.longitude
+    }
+    console.log(state);
+    getGoods();
+}
 
 
 function getSearchInput() {
@@ -354,7 +363,9 @@ function submit() {
     isEnd = false;
     doSelectSort(-1);
     state.goods_params.page_number = 1;
-    document.getElementById("goods").innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        document.getElementById(`goods_${i}`).innerHTML = '';
+    }
     showLoading();
     getGoods();
 }
@@ -436,13 +447,15 @@ function doSelectSort(index) {
     if (index === 1) {
         showLoading();
         isEnd = false;
-        state.params = {
-            page_number: 1,
-            page_size: 5,
-            // lantitude:1,
-            // longtitude:1
+        state.goods_params.page_number=1;
+        if(state.location.latitude){
+            state.goods_params.latitude = state.location.latitude;
+            state.goods_params.longitude = state.location.longitude;
+            state.goods_params.sort_by = 'asc';
         }
-        document.getElementById("goods").innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            document.getElementById(`goods_${i}`).innerHTML = '';
+        }
         getGoods();
     } else {
         delete state.goods_params.lantitude;
