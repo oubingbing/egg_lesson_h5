@@ -361,7 +361,7 @@
 
         
 
-        <div class="part4 anchor3" id="part4">
+      
             
 
             
@@ -376,9 +376,7 @@
                 </div>
             </div>
 
-            
-
-        </div>
+        
 
     </div>
 

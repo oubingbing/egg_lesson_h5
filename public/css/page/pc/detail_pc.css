@@ -665,7 +665,10 @@ body {
 .thumbnail {
     object-fit: cover;
 }
-
+.mianze{
+    padding: 20px;
+    background-color: #f5f5f5;
+}
 .mianze .t2 {
     margin-top: 2.13vw;
     font-size: 12px;
