@@ -122,16 +122,16 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
 
         <div class="footer">
     <p style="padding:0 10px;">
-        <a href="https://pc.dandanzkw.com/" rel="nofollow">首页</a> |
-        <a href="https://pc.dandanzkw.com/search?category_id=3" rel="nofollow">舞蹈培训</a> |
-        <a href=" https://pc.dandanzkw.com/search?category_id=7" rel="nofollow">瑜伽健身</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=1" rel="nofollow">早教亲子</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=2" rel="nofollow">英语培训</a>|
-         <a href="https://pc.dandanzkw.com/search?category_id=4" rel="nofollow">器乐文艺</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=5" rel="nofollow">语种培训</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=6" rel="nofollow">体育竞技</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=8" rel="nofollow">Steam</a> |
-         <a href="https://pc.dandanzkw.com/search?category_id=10" rel="nofollow">职业教育</a> |
+        <a href="//m.dandanzkw.com/" rel="nofollow">首页</a> |
+        <a href="//m.dandanzkw.com/search?category_id=3" rel="nofollow">舞蹈培训</a> |
+        <a href=" //m.dandanzkw.com/search?category_id=7" rel="nofollow">瑜伽健身</a> |
+         <a href="//m.dandanzkw.com/search?category_id=1" rel="nofollow">早教亲子</a> |
+         <a href="//m.dandanzkw.com/search?category_id=2" rel="nofollow">英语培训</a>|
+         <a href="//m.dandanzkw.com/search?category_id=4" rel="nofollow">器乐文艺</a> |
+         <a href="//m.dandanzkw.com/search?category_id=5" rel="nofollow">语种培训</a> |
+         <a href="//m.dandanzkw.com/search?category_id=6" rel="nofollow">体育竞技</a> |
+         <a href="//m.dandanzkw.com/search?category_id=8" rel="nofollow">Steam</a> |
+         <a href="//m.dandanzkw.com/search?category_id=10" rel="nofollow">职业教育</a> |
          <a href="https://www.dandanzkw.com/aboutus/" rel="nofollow">关于我们</a> |
          <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
          <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
