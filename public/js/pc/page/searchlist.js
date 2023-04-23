@@ -98,7 +98,7 @@ var state = {
     ],
     goods: [],
     goods_params: {
-        page_size: 10,
+        page_size: 15,
         page_number: 1,
     },
     goods_divs: {
