@@ -915,4 +915,8 @@ class GoodsService extends BaseServiceAbstract
         return 1;
     }
 
+    public function getTitle($result){
+        return $result["contact"]["lesson_type"] == 1 ?"【".$result["contact"]["surplus_lesson_time"]."节 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"]:"【年卡 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"];
+    }
+
 }

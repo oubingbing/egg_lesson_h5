@@ -127,6 +127,15 @@ class GoodsController extends Controller
         $data = explode(".",$id);
         $id = $data[0];
 
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        $ip = getIP();
+        if($ip == "127.0.0.1"){
+            $ip = "180.149.130.16";
+        }
+        $record = $cityDbReader->city($ip);
+        $lat = $record->location->latitude;
+        $long = $record->location->longitude;
+
         $config = [
             "debug"=>"",
             "beta"=>"",
@@ -145,7 +154,6 @@ class GoodsController extends Controller
 
         $ip = getIP();
         session(['language' => "CN"]);
-        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
         try{
             $record = $cityDbReader->city($ip);
             if($record){
@@ -177,10 +185,55 @@ class GoodsController extends Controller
 
         $resetTitle = $result["contact"]["lesson_type"] == 1 ?"【".$result["contact"]["surplus_lesson_time"]."节 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"]:"【年卡 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"];
         $result = array_merge($result,["reset_title"=>$resetTitle,"hidden_phone"=>$hiddenPhone]);
-        //$string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
-        //file_put_contents("detail/{$id}.html", $string);
 
-        return view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        request()->offsetSet('page_size', 10);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('type', 4);
+        request()->offsetSet('sort_by', "asc");
+        //附近的
+        request()->offsetSet('latitude', $lat);
+        request()->offsetSet('longitude', $long);
+        $close = $this->page(request());
+
+        $recommend = ["nearby"=>[],"close"=>[],"close_city"=>[]];
+        if(is_array($close["page_data"])){
+            $nearby = [];
+            foreach($close["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($nearby,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["nearby"] = $nearby;
+        }
+
+        //同类型的
+        request()->offsetSet('latitude', "");
+        request()->offsetSet('longitude', "");
+        request()->offsetSet('lesson_category_ids', [$result["campus"]["lesson_category"]["id"]]);
+        $sameClass = $this->page(request());
+        if(is_array($sameClass["page_data"])){
+            $close = [];
+            foreach($sameClass["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($close,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["close"] = $close;
+        }
+
+        //附近城市
+        request()->offsetSet('lesson_category_ids', "");
+        request()->offsetSet('km', 1000);
+        request()->offsetSet('sort_by', "desc");
+        $city = $this->page(request());
+        if(is_array($city["page_data"])){
+            $closeCity = [];
+            foreach($city["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($closeCity,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["close_city"] = $closeCity;
+        }
+
+        return view('detail',["recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pcDetailView($id)
@@ -190,6 +243,15 @@ class GoodsController extends Controller
             'secret'    => env("WECHAT_SECRET"),
             'token'     => 'easywechat',
         ];
+
+        $cityDbReader = new Reader(storage_path("GeoIP2-City.mmdb"));
+        $ip = getIP();
+        if($ip == "127.0.0.1"){
+            $ip = "180.149.130.16";
+        }
+        $record = $cityDbReader->city($ip);
+        $lat = $record->location->latitude;
+        $long = $record->location->longitude;
 
         $data = explode(".",$id);
         $id = $data[0];
@@ -244,10 +306,55 @@ class GoodsController extends Controller
 
         $resetTitle = $result["contact"]["lesson_type"] == 1 ?"【".$result["contact"]["surplus_lesson_time"]."节 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"]:"【年卡 | ".$result["sub_course_type"]."】".$result["transfer_info"]["title"];
         $result = array_merge($result,["reset_title"=>$resetTitle,"hidden_phone"=>$hiddenPhone]);
-        //$string = view('detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]])->__toString();
-        //file_put_contents("detail/{$id}.html", $string);
 
-        return view('pc_detail',["goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        request()->offsetSet('page_size', 10);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('type', 4);
+        request()->offsetSet('sort_by', "asc");
+        //附近的
+        request()->offsetSet('latitude', $lat);
+        request()->offsetSet('longitude', $long);
+        $close = $this->page(request());
+
+        $recommend = ["nearby"=>[],"close"=>[],"close_city"=>[]];
+        if(is_array($close["page_data"])){
+            $nearby = [];
+            foreach($close["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($nearby,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["nearby"] = $nearby;
+        }
+
+        //同类型的
+        request()->offsetSet('latitude', "");
+        request()->offsetSet('longitude', "");
+        request()->offsetSet('lesson_category_ids', [$result["campus"]["lesson_category"]["id"]]);
+        $sameClass = $this->page(request());
+        if(is_array($sameClass["page_data"])){
+            $close = [];
+            foreach($sameClass["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($close,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["close"] = $close;
+        }
+
+        //附近城市
+        request()->offsetSet('lesson_category_ids', "");
+        request()->offsetSet('km', 1000);
+        request()->offsetSet('sort_by', "desc");
+        $city = $this->page(request());
+        if(is_array($city["page_data"])){
+            $closeCity = [];
+            foreach($city["page_data"] as $item){
+                $title = $this->goodsService->getTitle($item);
+                array_push($closeCity,["title"=>$title,"id"=>$item["goods_id"]]);
+            }
+            $recommend["close_city"] = $closeCity;
+        }
+
+        return view('pc_detail',["recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pcSearchView(Request $request)
@@ -305,6 +412,7 @@ class GoodsController extends Controller
         $collection         = $request->input("collection"); //是否查询收藏的商品
         $longitude          = $request->input("longitude");
         $latitude           = $request->input("latitude");
+        $km                 = $request->input("km",500000);
 
         $user = null;
 
@@ -321,7 +429,7 @@ class GoodsController extends Controller
         $pageNumberNew = $pageNumber;
         if ($type==4){
             $lessonLocation = "lesson_location";
-            $locations = Redis::georadius($lessonLocation,$longitude,$latitude,500000, 'km', ['withdist' => true, 'sort' => $sortBy]);
+            $locations = Redis::georadius($lessonLocation,$longitude,$latitude,$km, 'km', ['withdist' => true, 'sort' => $sortBy]);
             if (!empty($locations)){
                 $locations = collect(collect($locations)->groupBy(0))->toArray();
                 foreach ($locations as $l){
