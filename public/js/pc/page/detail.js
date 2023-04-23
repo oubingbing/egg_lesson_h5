@@ -198,11 +198,11 @@ function switchAGroupOfGoods() {
     state.goods_params.page_number++;
     showLoading();
     getGoods();
+
 }
 
 $(document).ready(() => {
     getGoods();
-
     // scrollToBottom('product-detail', null, () => {
     //    
     // })
