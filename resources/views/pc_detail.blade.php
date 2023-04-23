@@ -423,6 +423,17 @@
         </div>
     </div>
 </div>
+<div class="links" id="pc_links">
+@foreach ($recommend_list["nearby"] as $item)
+<a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+@endforeach
+@foreach ($recommend_list["close"] as $item)
+<a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+@endforeach
+@foreach ($recommend_list["close_city"] as $item)
+<a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+@endforeach
+</div>
 
 <div class="footer">
     <p>
