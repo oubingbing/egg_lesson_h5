@@ -125,7 +125,6 @@
                         {{$goods_detail["campus"]["brand"]["name"]}}
                     @endif
     </span></td>
-                    
                     <td>
                     <span class="name">校区名称</span>
                     <span class="content">
@@ -143,7 +142,7 @@
                         {{$goods_detail["campus"]["lesson_category"]["name"]}}
                         @endif
                     </span></td>
-                    
+
                     <td>
                     <span class="name">课程类别</span>
                     <span class="content">
@@ -163,7 +162,7 @@
                         年卡
                         @endif
                     </span></td>
-                    
+
                     <td>
                     <span class="name">剩余课时</span>
                     @if ($goods_detail["contact"]["lesson_type"] !== 2)
@@ -221,14 +220,14 @@
             <div class="title">转让介绍</div>
             <table class="table">
                 <tr>
-                   
+
     <td>
         <span class="name"> {{$goods_detail["transfer_info"]["introduce"]}}</span>
     </td>
                 </tr>
 
                 <tr>
-                    
+
     </tr>
     </table>
         </div>
@@ -347,11 +346,11 @@
                     </div>
 
         <div class="goods-list anchor4">
-        
+
                     <div class="line1">相关推荐
                     </div>
                 <div class="goods" id="goods_list">
-                
+
                 </div>
             </div>
     </div>
@@ -359,12 +358,12 @@
         <div class="goback" style="background-image:url('{{asset('image/back_btn.png')}}')"
             onclick="goTo('search',null,null)"></div>
 
-        
 
-      
-            
 
-            
+
+
+
+
             <div class="mianze">
                 <div class="t1">免责声明</div>
                 <div class="t2">
@@ -376,7 +375,7 @@
                 </div>
             </div>
 
-        
+
 
     </div>
 
@@ -464,26 +463,26 @@
     </div>
 
     <p class="copyright-box">
-        
+
         <a class="copyright copyright-3" href="http://www.cyberpolice.cn" target="_blank" rel="noopener noreferrer">
           网络警察提醒你
         </a>
-        
+
         <a class="copyright copyright-5" href="http://www.12377.cn/" target="_blank" rel="noopener noreferrer">
           中国互联网举报中心
         </a>
-        
+
         <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener noreferrer">
           扫黄打非网举报专区
         </a>
-        
+
         <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank" rel="noopener noreferrer">
           国家知识产权公共服务网
         </a>
       </p>
 </div>
 
-    
+
 </body>
 <script type="text/javascript">
     sessionStorage.setItem("current_goods_id","{{$goods_detail["goods_id"]}}");
