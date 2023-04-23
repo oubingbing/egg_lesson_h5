@@ -45,6 +45,16 @@ body {
     color: #FF5B01;
 }
 
+#pc_links{
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+    top:101vh;
+    width:1px;
+    height:1px;
+    opacity: 0;
+}
+
 .loading-box {
     position: fixed;
     top: 0;
