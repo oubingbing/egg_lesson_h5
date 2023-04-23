@@ -213,3 +213,21 @@ function setFooter(id,classname){
 </div>`;
 parent.appendChild(footer);
 }
+
+function getLocationByApi(params={},callback=()=>{}) {
+
+    var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
+    geolocation.getLocation((res) => {
+        console.log(res);
+        params.latitude = res.lat;
+        params.longitude = res.lng;
+        // state.goods_params.order_by = 'location';
+        params.sort_by = 'asc';
+        document.getElementById("currentLocation").innerText = res.city;
+        sessionStorage.setItem('location', JSON.stringify(res));
+        callback(params);
+    }, (err) => {
+        console.log(err);
+        callback(params);
+    }, { timeout: 2000 });
+}
