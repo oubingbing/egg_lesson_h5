@@ -149,7 +149,7 @@ function drawGood(goods_id) {
 }
 
 let isEnd = false;
-
+let isLoading =false;
 function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {

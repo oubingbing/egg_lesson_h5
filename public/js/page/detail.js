@@ -59,7 +59,7 @@ function getGoodsDetail(current_goods_id = state.current_goods_id) {
         }
     })
 }
-
+let isLoading =false;
 function getGoods(params = state.goods_params) {
     isLoading = true;
     if (isEnd) {
