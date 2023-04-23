@@ -12,6 +12,21 @@ body{
     background-color:#f5f5f5;
 }
 
+.breadcrumb-navigation {
+    font-size: 12px;
+    text-decoration: none;
+    color: #979b9e;
+    padding: 4px 20px;
+}
+
+.breadcrumb-navigation a,
+.breadcrumb-navigation span {
+    font-size: 12px;
+    text-decoration: none;
+    color: #979b9e;
+    cursor: pointer;
+}
+
 .banner-swiper-box {
     width: 100vw;
     height: 249px;
