@@ -247,8 +247,19 @@ $(document).ready(() => {
         getGoods();
     })
     showLoading();
-    getGoods();
+    getLocationByApi(JSON.parse(JSON.stringify(state.goods_params)),saveLocation);
 });
+
+function saveLocation(p){
+    console.log("----p",p);
+    state.location = {
+        latitude:p.latitude,
+        longitude:p.longitude
+    }
+    console.log(state);
+    getGoods();
+}
+
 
 
 
@@ -282,6 +293,8 @@ function resetParams() {
     delete state.goods_params.min_price;
     delete state.goods_params.lesson_category_ids;
     delete state.goods_params.max_price;
+    delete state.goods_params.latitude;
+    delete state.goods_params.longitude;
     updateUI('lessonCategories', -1);
     document.getElementById("min_price").value = null;
     document.getElementById("max_price").value = null;
@@ -373,11 +386,11 @@ function doSelectSort(index) {
     if (index === 1) {
         showLoading();
         isEnd = false;
-        state.params = {
-            page_number: 1,
-            page_size: 5,
-            // lantitude:1,
-            // longtitude:1
+        state.goods_params.page_number=1;
+        if(state.location.latitude){
+            state.goods_params.latitude = state.location.latitude;
+            state.goods_params.longitude = state.location.longitude;
+            state.goods_params.sort_by = 'asc';
         }
         document.getElementById("goods").innerHTML = '';
         getGoods();

@@ -56,6 +56,12 @@
             </div>
         </div>
 
+        <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/pc/search?category_id={{$goods_detail["campus"]["lesson_category"]["id"]}}">
+            @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
+                        {{$goods_detail["campus"]["lesson_category"]["name"]}}
+                        @endif
+                    </a>&nbsp;>&nbsp;<span>{{$goods_detail["reset_title"]}}</span></div>
+                    
         <div class="href-nav sticky">
             <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
             <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
@@ -429,6 +435,39 @@
             立即下单
         </div>
     </div>
+
+    <div class="pc-links" id="pc_links">
+        <div class="sub-box">
+            <p>附近推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["nearby"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+        <div class="sub-box">
+            <p>周边推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["close"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+        <div class="sub-box">
+            <p>相关推荐</p>
+            <div class="as">
+                @foreach ($recommend_list["close_city"] as $item)
+                <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
+                @endforeach
+            </div>
+        </div>
+    
+    
+    </div>
+
+    
     <div class="footer">
         <p style="padding:0 10px;">
             <a href="https://m.dandanzkw.com/" >首页</a> |
