@@ -61,4 +61,14 @@ Route::group([], function () use ($router) {
 
     /** sitemap **/
     Route::get("/sitemap","GoodsController@sitemap");
+
+    /** 文章-列表页面 **/
+    Route::get("/article.html","ArticleController@indexView");
+    /** 文章-详情页面 **/
+    Route::get("/article/{id}","ArticleController@detailView");
+
+    /** 文章-列表页面 **/
+    Route::get("/pc/article.html","ArticleController@indexPcView");
+    /** 文章-详情页面 **/
+    Route::get("/pc/article/{id}","ArticleController@detailPcView");
 });
