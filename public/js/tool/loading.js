@@ -135,3 +135,26 @@ function letsScrollTo(name, father = 'window') {
     }
     father_div.scroll({ top: item.offsetTop - 49, left: 0, behavior: 'smooth' });
 }
+
+function getLocationByApi(params={},callback=()=>{}) {
+
+    var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
+    geolocation.getLocation((res) => {
+        console.log(res);
+        params.latitude = res.lat;
+        params.longitude = res.lng;
+        // state.goods_params.order_by = 'location';
+        params.sort_by = 'asc';
+        try{
+            document.getElementById("currentLocation").innerText = res.city;
+        }catch(e){
+            console.log("err",e)
+        }
+       
+        sessionStorage.setItem('location', JSON.stringify(res));
+        callback(params);
+    }, (err) => {
+        console.log(err);
+        callback(params);
+    }, { timeout: 2000 });
+}

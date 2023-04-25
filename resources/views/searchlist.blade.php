@@ -27,6 +27,7 @@
               s.parentNode.insertBefore(hm, s);
             })();
             </script>
+        <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
         <style>
 
 

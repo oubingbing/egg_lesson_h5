@@ -64,6 +64,12 @@
             </div>
         </div>
 
+        <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/pc/search?category_id={{$goods_detail["campus"]["lesson_category"]["id"]}}">
+            @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
+                        {{$goods_detail["campus"]["lesson_category"]["name"]}}
+                        @endif
+                    </a>&nbsp;>&nbsp;<span>{{$goods_detail["reset_title"]}}</span></div>
+                    
         <div class="href-nav sticky">
             <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
             <a class="item" onclick="letsScrollTo('.anchor2','.product-detail')">位置交通</a>
