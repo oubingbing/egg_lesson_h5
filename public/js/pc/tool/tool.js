@@ -231,3 +231,11 @@ function getLocationByApi(params={},callback=()=>{}) {
         callback(params);
     }, { timeout: 2000 });
 }
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4ac03c3057aea754f0cc09bc19135cfb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();

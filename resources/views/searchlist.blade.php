@@ -18,15 +18,6 @@
         <script src="{{asset('js/tool/http.js')}}"></script>
         <script src="{{asset('js/page/searchlist.js')}}"></script>
         <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?76d5019db85976241389e61a26a25473";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-            </script>
         <style>
 
 

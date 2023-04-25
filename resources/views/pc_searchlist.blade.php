@@ -17,19 +17,6 @@
         <script src="{{asset('js/pc/page/searchlist.js')}}"></script>
         <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
         <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?4ac03c3057aea754f0cc09bc19135cfb";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-            </script>
-        <style>
-
-
-        </style>
     </head>
     <body>
         <div class="container pc"  id="pc">

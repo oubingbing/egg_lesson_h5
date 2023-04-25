@@ -47,14 +47,6 @@ let res = {
 getSignature(res);
 setApi("旦旦转课网","全网首个课程转让交易平台",
 "https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/firstbanner.png")
-
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?76d5019db85976241389e61a26a25473";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
 </script>
 </head>
 

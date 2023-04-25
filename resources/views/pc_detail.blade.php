@@ -33,15 +33,6 @@
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/pc/page/detail.js')}}"></script>
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?4ac03c3057aea754f0cc09bc19135cfb";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
 </head>
 
 <!-- <body onload="createTitleNav"> -->
