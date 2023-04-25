@@ -135,11 +135,3 @@ function letsScrollTo(name, father = 'window') {
     }
     father_div.scroll({ top: item.offsetTop - 49, left: 0, behavior: 'smooth' });
 }
-
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?76d5019db85976241389e61a26a25473";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
