@@ -36,6 +36,13 @@ Route::group(['middleware' => 'json_response','prefix' => 'api'], function () {
     Route::get("/banners","GoodsController@bannerList");
     /** 购买记录 **/
     Route::get("/purchase_logs","GoodsController@purchaseLog");
+
+    /** 文章-列表页面 **/
+    Route::get("/article/category","ArticleController@getCategory");
+    /** 文章-列表页面 **/
+    Route::get("/article/{id}","ArticleController@detail");
+    /** 文章-详情页面 **/
+    Route::get("/article/list/page","ArticleController@page");
 });
 
 Route::group([], function () use ($router) {

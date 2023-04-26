@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Exceptions\ApiException;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use Carbon\Carbon;
@@ -104,10 +105,9 @@ class ArticleService
 
     public function GetArticleByCategory($categoryId)
     {
-        $articles = [];
         $category = ArticleCategory::find($categoryId);
         if(!$category){
-            return $articles;
+            throw new ApiException("栏目不存在");
         }
 
         $this->articleBuilder = Article::query()
@@ -120,17 +120,6 @@ class ArticleService
             $this->articleBuilder->where(Article::FIELD_ID_CATEGORY,$categoryId);
         }
 
-        return $this->articleBuilder;
-    }
-
-        /**
-     * 返回查询构造器
-     *
-     * @author yezi
-     * @return mixed
-     */
-    public function done()
-    {
         return $this->articleBuilder;
     }
 
@@ -159,9 +148,9 @@ class ArticleService
             $result["category_name"] = $category->{ArticleCategory::FIELD_NAME};
         }
 
-        $categoryFatjer = ArticleCategory::find($article->{Article::FIELD_ID_CATEGORY_FATHER});
-        if($category){
-            $result["category_father_name"] = $categoryFatjer->{ArticleCategory::FIELD_NAME};
+        $categoryFather = ArticleCategory::find($article->{Article::FIELD_ID_CATEGORY_FATHER});
+        if($categoryFather){
+            $result["category_father_name"] = $categoryFather->{ArticleCategory::FIELD_NAME};
         }
 
         return $result;

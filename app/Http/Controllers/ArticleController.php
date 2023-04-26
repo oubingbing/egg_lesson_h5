@@ -20,51 +20,84 @@ class ArticleController extends Controller
     public function indexView()
     {
         $result = $this->service->GetCategoryTopArticle();
-
-        return view('article.index',["article"=>$result]);
+        return view('article.index',["article_category"=>$result]);
     }
 
     //文章列表页
-    public function listView()
+    public function listView($id)
     {
-        $result = $this->service->GetCategoryTopArticle();
+        $data = explode(".",$id);
+        $id = $data[0];
 
-        return view('article.list',["article"=>$result]);
+        request()->offsetSet('page_size', 10);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('category_id', $id);
+
+        $data = $this->page(request());
+        $result = collect($data["page_data"])->toArray();
+
+        return view('article.list',["article_list"=>$result]);
     }
 
     //文章详情页
-    public function detailView()
+    public function detailView($id)
     {
-        $result = $this->service->detail(14);
+        $data = explode(".",$id);
+        $id = $data[0];
+        $result = $this->service->detail($id);
         return view('article.detail',["article"=>$result]);
     }
 
     //PC文章首页
     public function indexPcView()
     {
-        return view('article.pcIndex',[]);
+        $result = $this->service->GetCategoryTopArticle();
+        return view('article.pcIndex',["article_category"=>$result]);
     }
 
     //PC文章列表页
-    public function listPcView()
+    public function listPcView($id)
     {
-        return view('article.pcList',[]);
+        $data = explode(".",$id);
+        $id = $data[0];
+
+        request()->offsetSet('page_size', 10);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('category_id', $id);
+
+        $data = $this->page(request());
+        $result = collect($data["page_data"])->toArray();
+        return view('article.pcList',["article_list"=>$result]);
     }
 
     //pc文章详情页
-    public function detailPcView()
+    public function detailPcView($id)
     {
-        $result = $this->service->detail(14);
+        $data = explode(".",$id);
+        $id = $data[0];
+        $result = $this->service->detail($id);
         return view('article.pcDetail',["article"=>$result]);
+    }
+
+    public function getCategory()
+    {
+        $result = $this->service->GetCategoryTopArticle();
+        return $result;
+    }
+
+    public function detail($id)
+    {
+        $result = $this->service->detail($id);
+        return $result;
     }
 
     public function page(Request $request)
     {
         $pageSize           = $request->input('page_size', 10);
         $pageNumber         = $request->input('page_number', 1);
-        $categoryId               = $request->input("category_id");
+        $categoryId         = $request->input("category_id");
 
-        $queryBuilder = $this->service->GetArticleByCategory($categoryId)->done();
+        $queryBuilder = $this->service->GetArticleByCategory($categoryId);
         $fields = [
             Article::FIELD_ID,
             Article::FIELD_TITLE,
@@ -73,6 +106,7 @@ class ArticleController extends Controller
             Article::FIELD_SEO_DESCRIBE,
             Article::FIELD_CREATED_AT,
         ];
+
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
         $list = paginate($queryBuilder, $pageParams, $fields, function ($item)  {
             return $item;
