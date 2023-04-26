@@ -16,24 +16,42 @@ class ArticleController extends Controller
         $this->service = $service;
     }
 
+    //文章首页
     public function indexView()
+    {
+        $result = $this->service->GetCategoryTopArticle();
+
+        return view('article.index',["article"=>$result]);
+    }
+
+    //文章列表页
+    public function listView()
     {
         $result = $this->service->GetCategoryTopArticle();
 
         return view('article.list',["article"=>$result]);
     }
 
+    //文章详情页
     public function detailView()
     {
         $result = $this->service->detail(14);
         return view('article.detail',["article"=>$result]);
     }
 
+    //PC文章首页
     public function indexPcView()
+    {
+        return view('article.pcIndex',[]);
+    }
+
+    //PC文章列表页
+    public function listPcView()
     {
         return view('article.pcList',[]);
     }
 
+    //pc文章详情页
     public function detailPcView()
     {
         $result = $this->service->detail(14);
