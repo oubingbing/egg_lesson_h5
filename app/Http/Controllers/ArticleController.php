@@ -105,6 +105,7 @@ class ArticleController extends Controller
             Article::FIELD_SEO_KEY_WROD,
             Article::FIELD_SEO_DESCRIBE,
             Article::FIELD_CREATED_AT,
+            Article::FIELD_ATTACHMENTS
         ];
 
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];

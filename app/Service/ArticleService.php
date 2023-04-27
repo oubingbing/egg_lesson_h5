@@ -38,7 +38,8 @@ class ArticleService
             Article::FIELD_SEO_DESCRIBE,
             Article::FIELD_CREATED_AT,
             Article::FIELD_ID_CATEGORY,
-            Article::FIELD_ID_CATEGORY_FATHER
+            Article::FIELD_ID_CATEGORY_FATHER,
+            Article::FIELD_ATTACHMENTS
         ]);
         return $result;
     }
@@ -139,6 +140,7 @@ class ArticleService
             Article::FIELD_SEO_TITLE=>$article->{Article::FIELD_SEO_TITLE},
             Article::FIELD_SEO_KEY_WROD=>$article->{Article::FIELD_SEO_KEY_WROD},
             Article::FIELD_CREATED_AT=>Carbon::parse($article->{Article::FIELD_CREATED_AT})->toDateTimeString(),
+            Article::FIELD_ATTACHMENTS=>$article->{Article::FIELD_ATTACHMENTS},
             "category_name"=>"",
             "category_father_name"=>""
         ];
