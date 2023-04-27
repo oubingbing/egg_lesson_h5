@@ -391,3 +391,42 @@ input {
     display: inline-block;
     vertical-align: middle;
 }
+
+
+/* .dandaneditor{
+    width: 40px;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 40px;
+    bottom: 40px;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    box-shadow: 0 0 10px 10px #FF2C2CCC;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.dandaneditor:hover{
+    box-shadow: 0 0 20px 20px #FF2C2CCC;
+} */
+
+.tabbar-seller{
+    width: 60px;
+    height: 60px;
+    background-color: #FF2C2C;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30px;
+}
+.tabbar-seller .t1{
+    font-size:24px;
+    font-weight: bold;
+}
+.tabbar-seller .t2{
+    font-size:14px;
+}

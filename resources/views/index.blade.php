@@ -183,9 +183,15 @@ var _hmt = _hmt || [];
             <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
             <div class="tabbar-item-name">首页</div>
         </div>
-        <div class="tabbar-item" id="tabbar2">
-            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
-            <div class="tabbar-item-name">发布</div>
+        <div class="tabbar-item" id="dandaneditor" onclick="goToEditor()">
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">编辑部</div>
+        </div>
+        <div class="tabbar-item">
+            <div class="tabbar-seller" id="tabbar2">
+                <div class="t1">卖</div>
+                <div class="t2">课<br/>程</div>
+            </div>
         </div>
         <div class="tabbar-item" id="tabbar3">
             <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
