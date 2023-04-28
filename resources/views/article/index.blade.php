@@ -50,46 +50,29 @@
             <input type="text"  class="search-input" placeholder="搜索"/>
         </div>
 
-        <div class="head-banner-box">
-            <div class="banner"></div>
+        <div class="head-banner-box mySwiper" >
+<div class="swiper-wrapper head-banner" id="head_banner_box"></div>            
         </div>
-
-        <div class="menu-nav">
-            <div class="menu-btn hover">推荐</div>
-            <div class="menu-btn">热门</div>
-            <div class="menu-btn">最新</div>
-            <div class="menu-btn">创意展览</div>
+<div class="menu-nav-box">
+        <div class="menu-nav" id="menu_nav">
         </div>
+    </div>
 
 
         <div class="article-list-p">
             <div class="article-list">
-                <div class="article-list-title">每日一读</div>
-                <div class="articles">
-                    <div class="item">
-                        <div class="bg"></div>
-                        <div class="name">如何成为一个程序员</div>
-                        <div class="description">程序员的日常工作有哪些</div>
-                    </div>
-                    <div class="item">
-                        <div class="bg"></div>
-                        <div class="name">如何成为一个程序员</div>
-                        <div class="description">程序员的日常工作有哪些</div>
-                    </div>
-                    <div class="item">
-                        <div class="bg"></div>
-                        <div class="name">如何成为一个程序员</div>
-                        <div class="description">程序员的日常工作有哪些</div>
-                    </div>
+                <div class="article-list-title" id="list_1_title">每日一读</div>
+                <div class="articles" id="list_1_items">
+
                 </div>
             </div>
         </div>
 
 
         <div class="list2">
-            <div class="article-list-title">最新文章</div>
+            <div class="article-list-title" id="list_2_title">最新文章</div>
             <div class="show-more">查看更多</div>
-            <div class="items">
+            <div class="items" id="list_2_items">
                 <div class="item">
                     <div class="name">自然风光</div>
                 </div>
@@ -106,9 +89,9 @@
         </div>
 
         <div class="list3 banner">
-            <div class="article-list-title">热门推荐</div>
+            <div class="article-list-title" id="list_3_title">热门推荐</div>
             <div class="show-more">查看更多</div>
-            <div class="items">
+            <div class="items" id="list_3_items">
                 <div class="item">
                     <div class="name">百年孤独</div>
                 </div>
@@ -116,9 +99,9 @@
         </div>
 
         <div class="list4">
-            <div class="article-list-title">热门推荐</div>
+            <div class="article-list-title" id="list_4_title">热门推荐</div>
             <div class="show-more">查看更多</div>
-            <div class="items">
+            <div class="items" id="list_4_items">
                 <div class="item">
                     <div class="thumbnail"></div>
                     <div class="created-at">2023-04-28</div>
