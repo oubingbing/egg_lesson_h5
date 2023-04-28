@@ -143,7 +143,7 @@ input {
     height: 50px;
     width: 100vw;
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     z-index: 98;
     background-color: #FFF;
@@ -1144,4 +1144,20 @@ body {
     display: inline-block;
 
     margin:4px;
+}
+
+.tabbar-publish{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 5px solid #FFF;
+    background-color: #FFF;
+    border-radius: 50%;
+    bottom: 0;
+}
+.tabbar-publish-icon {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
 }

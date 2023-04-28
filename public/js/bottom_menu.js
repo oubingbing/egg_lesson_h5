@@ -13,3 +13,7 @@ $(document).ready(()=>{
         document.getElementsByClassName("updating-view")[0].className="updating-view show";
     });
 })
+
+function goToEditor(){
+    window.location.href= "/article.html";
+}

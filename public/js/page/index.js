@@ -284,10 +284,7 @@ function getLocationByApi() {
     }, { timeout: 8000 });
 }
 
-function goToEditor(){
-    console.log("123123");
-    window.location.href= "/article/list";
-}
+
 $(document).ready(() => {
 
     getPurChaseLogs();
