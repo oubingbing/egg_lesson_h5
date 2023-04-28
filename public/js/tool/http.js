@@ -52,8 +52,7 @@ function Del(url, params, callback) {
     return mHttp('delete', url, params, callback);
 }
 
-// const httpHeader = `${window.location.protocol}//${window.location.hostname}/api`;
-const httpHeader = `//m.dandanzkw.com/api`;
+const httpHeader = `${window.location.protocol}//${window.location.hostname}/api`;
 
 const mRoute = {
     goods_page: `${httpHeader}/goods/page`,
