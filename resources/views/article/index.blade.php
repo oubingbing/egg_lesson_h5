@@ -39,7 +39,7 @@
 
 <body>
     <div class="article-index-container">
-        <img src="{{asset('image/pailie2.png')}}" style="position:absolute;top:675px;left:0;width:100vw;visibility: hidden;"/>
+        <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
             阅读
@@ -50,7 +50,7 @@
             <input type="text"  class="search-input" placeholder="搜索"/>
         </div>
 
-        <div class="banner-box">
+        <div class="head-banner-box">
             <div class="banner"></div>
         </div>
 
@@ -101,6 +101,27 @@
                 </div>
                 <div class="item">
                     <div class="name">自然风光</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list3 banner">
+            <div class="article-list-title">热门推荐</div>
+            <div class="show-more">查看更多</div>
+            <div class="items">
+                <div class="item">
+                    <div class="name">百年孤独</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list4">
+            <div class="article-list-title">热门推荐</div>
+            <div class="show-more">查看更多</div>
+            <div class="items">
+                <div class="item">
+                    <div class="thumbnail"></div>
+                    <div class="created-at">2023-04-28</div>
                 </div>
             </div>
         </div>
