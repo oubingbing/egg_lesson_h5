@@ -1,3 +1,9 @@
+.article-index-container{
+    width:100vw;
+    height:100vh;
+    position: relative;
+    overflow-y: scroll;
+}
 .title-bar {
     height: 45px;
     position: relative;
@@ -50,4 +56,127 @@
 }
 .search-input::placeholder{
     color:#CCC;
+}
+
+.banner-box{
+    position: relative;
+    height: 56vw;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 3vw;
+}
+.banner-box .banner{
+    background-color: #00000080;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.menu-nav{
+    position: relative;
+    background-color: #F5F5F5;
+    display: flex;
+    padding: 13px 0 13px 3vw;
+    height: 38px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin: 2px auto;
+    width:100vw;
+}
+.menu-nav::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 63px;
+    width: 80px;
+    background-image: linear-gradient(90deg,#F5F5F500,#F5F5F5);
+}
+.menu-btn{
+    position: relative;
+    background-color: transparent;
+    width: 92px;
+    border-radius: 19px;
+    transition: 0.5s;
+    text-align: center;
+    line-height: 38px;
+    color: #6D6D6D;
+    font-weight: bold;
+}
+.menu-btn.hover{
+    background-color: #FF6363;
+    color: #FFF;
+}
+
+.article-list-p{
+   position: relative;
+}
+.article-list{
+    position: relative;
+    padding: 23px 0 0px 6vw;
+    height: 260px;
+    
+}
+.article-list-title{
+    font-weight: bold;
+    height: 32px;
+    font-size: 19.5px;
+    line-height: 1.1;
+}
+.articles{
+    position: relative;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+}
+.articles .item{
+    width: 127px;
+    height: 226px;
+    margin-right: 12px;
+}
+.articles .item .bg{
+    height: 162px;
+    border-radius: 9px;
+    background-color: #ff6363;
+}
+.articles .item .name{
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.articles .item .description{
+    margin-top: 4px;
+    font-size: 14px;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+}
+
+.list2{
+    position: relative;
+    height: 388px;
+    padding: 16px 5vw;
+}
+
+.show-more{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    padding: 17px 5vw;
+    color: #1684FC;
+}
+
+.list2 .item{
+    margin: 2vw;
+    width: 41vw;
+    display: inline-block;
+    height: 42vw;
+    border-radius: 6px;
 }

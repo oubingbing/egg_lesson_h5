@@ -39,7 +39,7 @@
 
 <body>
     <div class="article-index-container">
-        <img src="{{asset('image/article_1.png')}}" style="position:absolute;top:0;left:0;width:100vw;visibility: hidden;"/>
+        <img src="{{asset('image/pailie2.png')}}" style="position:absolute;top:675px;left:0;width:100vw;visibility: hidden;"/>
         <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
             阅读
@@ -48,6 +48,61 @@
         <div class="search-bar">
             <div class="search-btn">搜索</div>
             <input type="text"  class="search-input" placeholder="搜索"/>
+        </div>
+
+        <div class="banner-box">
+            <div class="banner"></div>
+        </div>
+
+        <div class="menu-nav">
+            <div class="menu-btn hover">推荐</div>
+            <div class="menu-btn">热门</div>
+            <div class="menu-btn">最新</div>
+            <div class="menu-btn">创意展览</div>
+        </div>
+
+
+        <div class="article-list-p">
+            <div class="article-list">
+                <div class="article-list-title">每日一读</div>
+                <div class="articles">
+                    <div class="item">
+                        <div class="bg"></div>
+                        <div class="name">如何成为一个程序员</div>
+                        <div class="description">程序员的日常工作有哪些</div>
+                    </div>
+                    <div class="item">
+                        <div class="bg"></div>
+                        <div class="name">如何成为一个程序员</div>
+                        <div class="description">程序员的日常工作有哪些</div>
+                    </div>
+                    <div class="item">
+                        <div class="bg"></div>
+                        <div class="name">如何成为一个程序员</div>
+                        <div class="description">程序员的日常工作有哪些</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="list2">
+            <div class="article-list-title">最新文章</div>
+            <div class="show-more">查看更多</div>
+            <div class="items">
+                <div class="item">
+                    <div class="name">自然风光</div>
+                </div>
+                <div class="item">
+                    <div class="name">自然风光</div>
+                </div>
+                <div class="item">
+                    <div class="name">自然风光</div>
+                </div>
+                <div class="item">
+                    <div class="name">自然风光</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
