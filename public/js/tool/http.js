@@ -52,7 +52,8 @@ function Del(url, params, callback) {
     return mHttp('delete', url, params, callback);
 }
 
-const httpHeader = `${window.location.protocol}//${window.location.hostname}/api`;
+// const httpHeader = `${window.location.protocol}//${window.location.hostname}/api`;
+const httpHeader = `//m.dandanzkw.com/api`;
 
 const mRoute = {
     goods_page: `${httpHeader}/goods/page`,
@@ -61,4 +62,7 @@ const mRoute = {
     lesson_category: `${httpHeader}/lesson_category`,
     brands: `${httpHeader}/brands`,
     goods_detail: id => `${httpHeader}/goods/${id}`,
+    article_category:`${httpHeader}/article/category`,
+    article_list:`${httpHeader}/article/list/page`,
+    article_detail:id=>`${httpHeader}/article/${id}`,
 }
