@@ -1,0 +1,157 @@
+body {
+    overflow: auto;
+}
+
+.title-bar {
+    height: 45px;
+    position: fixed;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+    box-shadow: 0 0 5px 5px #F5F5F580;
+}
+
+.title-bar .back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    margin: 7px auto 0 9px;
+}
+
+.breadcrumb {
+    position: relative;
+    margin: 55px 1rem 20px;
+    padding: 1rem 0;
+    font-size: 14px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.breadcrumb>a {
+    text-decoration: none;
+    color: #4d4d4d;
+    font-size: 15px;
+}
+
+.article-content {
+    padding: 36px 0 40px;
+}
+
+.article-content .article-title {
+    font-size: 26px;
+    text-align: center;
+    color: #FF6363;
+    margin-bottom: 5px;
+}
+
+.article-content .article-info {
+    font-size: 16px;
+    color: #ccc;
+    text-align: center;
+}
+
+.article-content .article-text {
+    padding: 1rem;
+    min-height: 50vh;
+}
+
+.other-page {
+    margin-top: 20px;
+    padding: 0 1rem;
+}
+
+.other-page>.btn {
+    font-size: 15px;
+    color: #333;
+    margin: 0.3rem 0;
+}
+
+.other-page>.btn>a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+.list2,
+.list3,
+.list4 {
+    padding: 16px 5vw;
+}
+
+.list3 {
+    position: relative;
+}
+
+.list3 .items {
+    padding-top: 2vw;
+}
+
+.list3 .items .item {
+    height: 65.5vw;
+    border-radius: 8px;
+    background-color: #FF6363;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px #F5F5F5;
+}
+
+.list3 .items .item .name {
+    background-color: #FFF;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12.5vw;
+    font-size: 14px;
+    padding: 0vw;
+    line-height: 2;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0 2vw;
+    box-sizing: border-box;
+}
+
+.list4 {
+    position: relative;
+}
+
+.list4 .items {
+    position: relative;
+    padding-top: 1.5vw;
+}
+
+.list4 .item {
+    position: relative;
+    height: 17vw;
+    overflow: hidden;
+    margin-bottom: 4vw;
+    display: flex;
+    align-items: center;
+}
+
+.list4 .item .thumbnail {
+    width: 44vw;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #FF6363;
+}
+
+.list4 .item .created-at {
+    flex: 1;
+    padding: 0 2vw;
+    font-size: 12px;
+    line-height: 7;
+    height: 100%;
+    color: #aaa;
+}

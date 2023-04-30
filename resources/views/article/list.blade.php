@@ -38,6 +38,70 @@
 </head>
 
 <body>
+    <div class="article-list-container">
+    <div class="title-bar">
+            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
+            旦旦编辑部
+        </div>
+
+        <div class="search-bar">
+            <div class="search-btn">搜索</div>
+            <input type="text"  class="search-input" placeholder="搜索"/>
+        </div>
+        <div class="items" id="articleList">
+        
+    </div>
+
+    <div class="footer">
+        <p style="padding:0 10px;">
+            <a href="https://m.dandanzkw.com/" >首页</a> |
+            <a href="https://m.dandanzkw.com/search?category_id=3" >舞蹈培训</a> |
+            <a href="https://m.dandanzkw.com/search?category_id=7" >瑜伽健身</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=1" >早教亲子</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=2" >英语培训</a>|
+             <a href="https://m.dandanzkw.com/search?category_id=4" >器乐文艺</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=5" >语种培训</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=6" >体育竞技</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=8" >Steam</a> |
+             <a href="https://m.dandanzkw.com/search?category_id=10" >职业教育</a> |
+             <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
+             <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
+             <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
+             <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a> |
+             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a>
+             </p>
+        <div class="authentication">
+            <div style="margin:0px auto;padding: 2px;">
+                <a target="_blank" href="https://beian.miit.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="{{asset('image/www_beian_gov_cn.png')}}" style="float:left; width: 20px; height: 20px;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备2021068181号-1</p></a>
+            </div>
+        </div>
+        <div style="width:100%;font-size:12px;margin:0px auto;" class="f_copyright">
+            <span>深圳市吉飞旦达科技有限公司 版权所有<a href="https://beian.miit.gov.cn/" target="_blank"></a><br>Copyright(C)2020-2023 dandanzkw.com All Rights Reserved.</span>
+        </div>
+    
+        <p class="copyright-box">
+            
+            <a class="copyright copyright-3" href="http://www.cyberpolice.cn" target="_blank" rel="noopener noreferrer">
+              网络警察提醒你
+            </a>
+            
+            <a class="copyright copyright-5" href="http://www.12377.cn/" target="_blank" rel="noopener noreferrer">
+              中国互联网举报中心
+            </a>
+            
+            <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener noreferrer">
+              扫黄打非网举报专区
+            </a>
+            
+            <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank" rel="noopener noreferrer">
+              国家知识产权公共服务网
+            </a>
+          </p>
+    </div>
+    </div>
+    
+
+    
 </body>
 
 </html>

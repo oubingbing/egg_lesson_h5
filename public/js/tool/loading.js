@@ -20,6 +20,10 @@ function createLoading() {
 
 }
 
+function goBack() {
+    history.go(-1);
+}
+
 function showLoading(time) {
     isLoading = true;
     if (!loading) {
@@ -41,7 +45,7 @@ function goTo(address, t, v) {
     if (!!t && !!v) {
         params = `?${t}=${v}`;
     }
-    if(address==="detail"){
+    if (address === "detail") {
         address = `detail/${v}.html`;
         params = ``;
     }
@@ -53,16 +57,16 @@ function goTo(address, t, v) {
 
 function scrollToBottom(div_class, div_id, callback) {
     let div = document.getElementById(div_id);
-     if (!div) {
+    if (!div) {
         div = document.getElementsByClassName(div_class)[0];
     }
-    console.log("div",div);
+    console.log("div", div);
     div.addEventListener('scroll', () => {
-        
+
         let scrollHeight = div.scrollHeight;
         let windowTop = document.body.clientHeight;
         let scrollTop = div.scrollTop;
-       
+
         if (windowTop + scrollTop + 100 > scrollHeight && !isLoading) {
             callback();
         }
@@ -71,12 +75,12 @@ function scrollToBottom(div_class, div_id, callback) {
 
 function scrollToBottomPc(div_class, div_id, callback) {
     let div = document.getElementById(div_id);
-     if (!div) {
+    if (!div) {
         div = document.getElementsByClassName(div_class)[0];
     }
-    console.log("div",div);
+    console.log("div", div);
     div.addEventListener('scroll', () => {
-        
+
         let scrollHeight = div.scrollHeight;
         let windowTop = document.body.clientHeight;
         let scrollTop = div.scrollTop;
@@ -136,7 +140,7 @@ function letsScrollTo(name, father = 'window') {
     father_div.scroll({ top: item.offsetTop - 49, left: 0, behavior: 'smooth' });
 }
 
-function getLocationByApi(params={},callback=()=>{}) {
+function getLocationByApi(params = {}, callback = () => {}) {
 
     var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
     geolocation.getLocation((res) => {
@@ -145,12 +149,12 @@ function getLocationByApi(params={},callback=()=>{}) {
         params.longitude = res.lng;
         // state.goods_params.order_by = 'location';
         params.sort_by = 'asc';
-        try{
+        try {
             document.getElementById("currentLocation").innerText = res.city;
-        }catch(e){
-            console.log("err",e)
+        } catch (e) {
+            console.log("err", e)
         }
-       
+
         sessionStorage.setItem('location', JSON.stringify(res));
         callback(params);
     }, (err) => {
