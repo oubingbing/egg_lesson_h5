@@ -80,6 +80,62 @@ body {
     color: #aaa;
 }
 
+.article-list-p {
+    position: relative;
+}
+
+.article-list {
+    position: relative;
+    padding: 23px 0 0px 5vw;
+    height: 260px;
+}
+
+.article-list-title {
+    font-weight: bold;
+    height: 32px;
+    font-size: 19.5px;
+    line-height: 1.1;
+}
+
+.articles {
+    position: relative;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+}
+
+.articles .item {
+    width: 127px;
+    height: 226px;
+    margin-right: 12px;
+}
+
+.articles .item .bg {
+    height: 162px;
+    border-radius: 9px;
+    background-color: #ff6363;
+}
+
+.articles .item .name {
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.articles .item .description {
+    margin-top: 4px;
+    font-size: 14px;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+}
+
 .list2,
 .list3,
 .list4 {

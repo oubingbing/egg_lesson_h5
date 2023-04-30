@@ -64,18 +64,17 @@
             <div class="btn"><span>下一篇：</span><a>这是第二个新闻</a></div>
         </div>
 
-        <div class="list3 banner">
-            <div class="article-list-title" id="list_3_title">热门推荐</div>
-            <div class="show-more">查看更多</div>
-            <div class="items" id="list_3_items">
-                <div class="item">
-                    <div class="name">百年孤独</div>
+        <div class="article-list-p">
+            <div class="article-list">
+                <div class="article-list-title" id="list_1_title">相同推荐</div>
+                <div class="articles" id="list_1_items">
+
                 </div>
             </div>
         </div>
 
         <div class="list4">
-            <div class="article-list-title" id="list_4_title">热门推荐</div>
+            <div class="article-list-title" id="list_4_title">更多推荐</div>
             <div class="show-more">查看更多</div>
             <div class="items" id="list_4_items">
                 <div class="item">
