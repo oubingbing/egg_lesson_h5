@@ -46,6 +46,7 @@ class ArticleController extends Controller
         $id = $data[0];
         $result = $this->service->detail($id);
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
+        $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
         return view('article.detail',["article"=>$result]);
     }
 
@@ -78,6 +79,7 @@ class ArticleController extends Controller
         $id = $data[0];
         $result = $this->service->detail($id);
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
+        $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
         return view('article.pcDetail',["article"=>$result]);
     }
 
@@ -90,6 +92,8 @@ class ArticleController extends Controller
     public function detail($id)
     {
         $result = $this->service->detail($id);
+        $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
+        $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
         return $result;
     }
 
