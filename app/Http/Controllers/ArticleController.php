@@ -45,6 +45,7 @@ class ArticleController extends Controller
         $data = explode(".",$id);
         $id = $data[0];
         $result = $this->service->detail($id);
+        $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         return view('article.detail',["article"=>$result]);
     }
 
@@ -76,6 +77,7 @@ class ArticleController extends Controller
         $data = explode(".",$id);
         $id = $data[0];
         $result = $this->service->detail($id);
+        $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         return view('article.pcDetail',["article"=>$result]);
     }
 
