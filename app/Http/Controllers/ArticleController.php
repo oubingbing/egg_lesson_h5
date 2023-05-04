@@ -45,8 +45,26 @@ class ArticleController extends Controller
         $data = explode(".",$id);
         $id = $data[0];
         $result = $this->service->detail($id);
+
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
+
+        $previous = ["title"=>"","id"=>0];
+        $next = ["title"=>"","id"=>0];
+
+        $previousArticle = $this->service->detail($id-1);
+        if($previousArticle){
+            $previous = ["title"=>$previousArticle["title"],"id"=>$previousArticle["id"]];
+        }
+
+        $nextArticle = $this->service->detail($id+1);
+        if($nextArticle){
+            $next = ["title"=>$nextArticle["title"],"id"=>$nextArticle["id"]];
+        }
+
+        $result["pre"] = $previous;
+        $result["next"]= $next;
+        dd($result);
         return view('article.detail',["article"=>$result]);
     }
 
@@ -80,6 +98,23 @@ class ArticleController extends Controller
         $result = $this->service->detail($id);
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
+
+        $previous = ["title"=>"","id"=>0];
+        $next = ["title"=>"","id"=>0];
+
+        $previousArticle = $this->service->detail($id-1);
+        if($previousArticle){
+            $previous = ["title"=>$previousArticle["title"],"id"=>$previousArticle["id"]];
+        }
+
+        $nextArticle = $this->service->detail($id+1);
+        if($nextArticle){
+            $next = ["title"=>$nextArticle["title"],"id"=>$nextArticle["id"]];
+        }
+
+        $result["pre"] = $previous;
+        $result["next"]= $next;
+
         return view('article.pcDetail',["article"=>$result]);
     }
 
@@ -94,6 +129,23 @@ class ArticleController extends Controller
         $result = $this->service->detail($id);
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
+
+        $previous = ["title"=>"","id"=>0];
+        $next = ["title"=>"","id"=>0];
+
+        $previousArticle = $this->service->detail($id-1);
+        if($previousArticle){
+            $previous = ["title"=>$previousArticle["title"],"id"=>$previousArticle["id"]];
+        }
+
+        $nextArticle = $this->service->detail($id+1);
+        if($nextArticle){
+            $next = ["title"=>$nextArticle["title"],"id"=>$nextArticle["id"]];
+        }
+
+        $result["pre"] = $previous;
+        $result["next"]= $next;
+
         return $result;
     }
 

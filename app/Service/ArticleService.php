@@ -132,6 +132,7 @@ class ArticleService
         }
 
         $result = [
+            Article::FIELD_ID=>$article->{Article::FIELD_ID},
             Article::FIELD_ID_CATEGORY=>$article->{Article::FIELD_ID_CATEGORY},
             Article::FIELD_ID_CATEGORY_FATHER=>$article->{Article::FIELD_ID_CATEGORY_FATHER},
             Article::FIELD_TITLE=>$article->{Article::FIELD_TITLE},
