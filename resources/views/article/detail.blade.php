@@ -34,13 +34,18 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-
+        
+        function showArticleContent(){
+            console.log(`{{$article["content"]}}`);
+            document.getElementById("article_content").innerHTML = `{{$article["content"]}}`;
+        }
         
     </script>
 </head>
 
-<body>
+<body onload="showArticleContent()">
     <div class="article-list-container">
+        <div class="article-content">{{$article["content"]}}</div>
     <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goBack()"></div>
             旦旦编辑部
@@ -56,7 +61,7 @@
         <div class="article-content">
             <div class="article-title">{{$article["title"]}}</div>
             <div class="article-info">发布时间：{{$article["created_at"]}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：1003</div>
-            <div class="article-text">{{$article["content"]}}</div>
+            <div class="article-text" id="article_content"></div>
         </div>
 
         <div class="other-page">
