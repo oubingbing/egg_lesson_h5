@@ -48,7 +48,7 @@
 
         <div class="search-bar">
             <div class="search-btn">搜索</div>
-            <input type="text"  class="search-input" placeholder="搜索"/>
+            <input type="text"  class="search-input" placeholder="搜索" onkeypress="goTo('article_list','id',RECOMMEND_CATEGORY_ID)"/>
         </div>
 
         <div class="head-banner-box mySwiper" >

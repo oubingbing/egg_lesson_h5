@@ -1,7 +1,7 @@
 var state = {
     data: [],
     params: {
-        page_number: 1,
+        page_num: 1,
         page_size: 10
     }
 }
@@ -38,7 +38,7 @@ $(document).ready(() => {
     this.doAjax();
 
     scrollToBottom('items', null, () => {
-        state.params.page_number++;
+        state.params.page_num++;
         showLoading();
 
         doAjax();
