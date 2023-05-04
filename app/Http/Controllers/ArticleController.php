@@ -64,7 +64,6 @@ class ArticleController extends Controller
 
         $result["pre"] = $previous;
         $result["next"]= $next;
-        dd($result);
         return view('article.detail',["article"=>$result]);
     }
 
