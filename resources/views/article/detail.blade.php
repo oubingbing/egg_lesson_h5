@@ -36,8 +36,13 @@
         })();
         
         function showArticleContent(){
-            console.log(`{{$article["content"]}}`);
-            document.getElementById("article_content").innerHTML = `{{$article["content"]}}`;
+            return;
+            let content = `{{$article["content"]}}`;
+            content = content.replace(/&lt;/g,"<");
+            content = content.replace(/&gt;/g,">");
+            content =  content.replace(/&quot;/g,`"`);
+            console.log(content);
+            document.getElementById("article_content").innerHTML =content;
         }
         
     </script>
@@ -45,7 +50,6 @@
 
 <body onload="showArticleContent()">
     <div class="article-list-container">
-        <div class="article-content">{{$article["content"]}}</div>
     <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goBack()"></div>
             旦旦编辑部
@@ -61,12 +65,20 @@
         <div class="article-content">
             <div class="article-title">{{$article["title"]}}</div>
             <div class="article-info">发布时间：{{$article["created_at"]}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：1003</div>
-            <div class="article-text" id="article_content"></div>
+            <div class="article-text" id="article_content">{!!$article["content"]!!}</div>
         </div>
 
         <div class="other-page">
-            <div class="btn"><span>上一篇：</span><a>这是第灵个新闻</a></div>
-            <div class="btn"><span>下一篇：</span><a>这是第二个新闻</a></div>
+            @if ($article['pre'] && $article['pre']['title'])
+            <div class="btn"><span>上一篇：</span><a onclick="goTo('article_detail','id',{{$article['pre']['id']}})">{{$article['pre']['title']}}</a></div>
+            @else
+            <div class="btn"><span>上一篇：</span><a>没有了</a></div>
+            @endif
+            @if ($article['next'] && $article['next']['title'])
+            <div class="btn"><span>下一篇：</span><a onclick="goTo('article_detail','id',{{$article['next']['id']}})">{{$article['next']['title']}}</a></div>
+            @else
+            <div class="btn"><span>下一篇：</span><a>没有了</a></div>
+            @endif
         </div>
 
         <div class="article-list-p">
