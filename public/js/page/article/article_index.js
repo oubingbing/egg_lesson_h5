@@ -1,5 +1,9 @@
-const RECOMMEND_CATEGORY_ID = 10;
+const RECOMMEND_CATEGORY_ID = 5;
+
+var swiper, swiper2;
+
 var state = {
+    now_category_id:RECOMMEND_CATEGORY_ID,
     page: {
 
     },
@@ -23,7 +27,7 @@ function getArticleCategory() {
         state.category = res.data;
         this.buildTitleNav();
         for (let i in res.data) {
-            if (res.data[i].id === RECOMMEND_CATEGORY_ID) {
+            if (res.data[i].id === state.now_category_id) {
                 state.recommend_category = res.data[i];
                 this.buildRecommend();
             }
@@ -64,30 +68,50 @@ function buildStyleLists() {
     for (let i = 0; i < 4; i++) {
         if (!!record[i]) {
             let items = record[i].top_article;
-            document.getElementById(`list_${i+1}_title`).innerText = record[i].name;
+            document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
             if (items.length) {
-                for(let j in items){
+                for (let j in items) {
                     let item = document.createElement("div");
                     switch (i) {
                         case 0:
                             item.className = "item";
-                            item.innerHTML = `<div class="bg"></div>
+                            item.innerHTML = `<div class="bg" style="background-image:url('${items[j].attachments[0]}')"></div>
                             <div class="name">${items[j].title}</div>
                             <div class="description">${items[j].seo_describe}</div>`;
-                            document.getElementById(`list_${i+1}_items`).appendChild(item);
+                            document.getElementById(`list_${i + 1}_items`).appendChild(item);
                             break;
                         case 1:
-                            break;
                         case 2:
+                            item.className = "item swiper-slide";
+                            item.innerHTML = `<div class="name">${items[j].title}</div>`;
+                            item.style.backgroundImage = `url(${items[j].attachments[0]})`;
+                            document.getElementById(`list_${i + 1}_items`).appendChild(item);
                             break;
                         case 3:
+                            item.className = "item";
+                            item.innerHTML = `<div class="thumbnail" style="background-image:url('${items[j].attachments[0]}')"></div>
+                            <div class="info">
+                            <div class="name">
+                            ${items[j].title}
+                            </div>
+                            <div class="created-at">${moment(items[j].created_at).format("YYYY-MM-DD")}</div></div>`;
+                            document.getElementById(`list_${i + 1}_items`).appendChild(item);
                             break;
                         default:
                             break;
                     }
-                    
+
                 }
-                
+
+            }
+            if (i === 2) {
+                // setTimeout(()=>{
+                swiper2 = new Swiper(".mySwiper2", {
+                    loop: true,
+                    autoplay: true
+                });
+                // },2000);
+
             }
 
         }
@@ -109,7 +133,7 @@ function buildRecommend() {
     }
     this.buildStyleLists();
 
-    var swiper = new Swiper(".mySwiper", {
+    swiper = new Swiper(".mySwiper", {
         loop: true,
         autoplay: true
     });

@@ -22,6 +22,7 @@
     <script src="{{asset('js/tool/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
+    <script src="{{asset('js/moments.js')}}"></script>
     <script src="{{asset('js/page/article/article_index.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
@@ -73,28 +74,14 @@
             <div class="article-list-title" id="list_2_title">最新文章</div>
             <div class="show-more">查看更多</div>
             <div class="items" id="list_2_items">
-                <div class="item">
-                    <div class="name">自然风光</div>
-                </div>
-                <div class="item">
-                    <div class="name">自然风光</div>
-                </div>
-                <div class="item">
-                    <div class="name">自然风光</div>
-                </div>
-                <div class="item">
-                    <div class="name">自然风光</div>
-                </div>
             </div>
         </div>
 
         <div class="list3 banner">
             <div class="article-list-title" id="list_3_title">热门推荐</div>
             <div class="show-more">查看更多</div>
-            <div class="items" id="list_3_items">
-                <div class="item">
-                    <div class="name">百年孤独</div>
-                </div>
+            <div class="items mySwiper2" >
+                <div class="swiper-wrapper" id="list_3_items"></div>
             </div>
         </div>
 
@@ -102,10 +89,7 @@
             <div class="article-list-title" id="list_4_title">热门推荐</div>
             <div class="show-more">查看更多</div>
             <div class="items" id="list_4_items">
-                <div class="item">
-                    <div class="thumbnail"></div>
-                    <div class="created-at">2023-04-28</div>
-                </div>
+                
             </div>
         </div>
 
