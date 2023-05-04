@@ -53,6 +53,9 @@ class Article extends BaseModel
     /** Field attachments 图片 **/
     const FIELD_ATTACHMENTS = "attachments";
 
+    /** Field browse_num 图片 **/
+    const FIELD_BROWSE_NUM = "browse_num";
+
     //status - 下架
     const ENUM_STATUS_DOWN = 0;
     //status - 上架
@@ -81,7 +84,8 @@ class Article extends BaseModel
         self::FIELD_STATUS,
         self::FIELD_ATTACHMENTS,
         self::FIELD_SEO_TITLE,
-        self::FIELD_SEO_KEY_WROD
+        self::FIELD_SEO_KEY_WROD,
+        self::FIELD_BROWSE_NUM
     ];
 
     protected $casts = [

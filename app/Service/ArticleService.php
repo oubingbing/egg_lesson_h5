@@ -142,6 +142,7 @@ class ArticleService
             Article::FIELD_SEO_KEY_WROD=>$article->{Article::FIELD_SEO_KEY_WROD},
             Article::FIELD_CREATED_AT=>Carbon::parse($article->{Article::FIELD_CREATED_AT})->toDateTimeString(),
             Article::FIELD_ATTACHMENTS=>$article->{Article::FIELD_ATTACHMENTS},
+            Article::FIELD_BROWSE_NUM=>$article->{Article::FIELD_BROWSE_NUM},
             "category_name"=>"",
             "category_father_name"=>""
         ];

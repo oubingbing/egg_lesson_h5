@@ -64,6 +64,7 @@ class ArticleController extends Controller
 
         $result["pre"] = $previous;
         $result["next"]= $next;
+
         return view('article.detail',["article"=>$result]);
     }
 
@@ -162,7 +163,8 @@ class ArticleController extends Controller
             Article::FIELD_SEO_KEY_WROD,
             Article::FIELD_SEO_DESCRIBE,
             Article::FIELD_CREATED_AT,
-            Article::FIELD_ATTACHMENTS
+            Article::FIELD_ATTACHMENTS,
+            Article::FIELD_BROWSE_NUM
         ];
 
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
