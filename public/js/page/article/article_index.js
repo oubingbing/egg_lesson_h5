@@ -3,7 +3,7 @@ const RECOMMEND_CATEGORY_ID = 5;
 var swiper, swiper2;
 
 var state = {
-    now_category_id:RECOMMEND_CATEGORY_ID,
+    now_category_id: RECOMMEND_CATEGORY_ID,
     page: {
 
     },
@@ -26,12 +26,7 @@ function getArticleCategory() {
         console.log('----category', res);
         state.category = res.data;
         this.buildTitleNav();
-        for (let i in res.data) {
-            if (res.data[i].id === state.now_category_id) {
-                state.recommend_category = res.data[i];
-                this.buildRecommend();
-            }
-        }
+        this.resetRecommendCategory(this.buildRecommend.bind(this))
     }, err => {
 
     });
@@ -46,9 +41,9 @@ function buildTitleNav(hover = null) {
         }
         let div = document.createElement("div");
         div.className = classname;
-        div.id = record[i].id;
+        div.id = `category_id_${record[i].id}`;
         div.innerText = record[i].name;
-        div.onclick = this.selectTitleNav.bind(this, record[i].id);
+        div.onclick = this.selectTitleNav.bind(this, `category_id_${record[i].id}`);
         document.getElementById("menu_nav").appendChild(div);
     }
 }
@@ -58,6 +53,8 @@ function selectTitleNav(hover = null) {
     for (let i = 0; i < divs.length; i++) {
         if (divs[i].id.toString() === hover.toString()) {
             divs[i].className = "menu-btn hover";
+            state.now_category_id = divs[i].id.split("category_id_")[1];
+            this.resetRecommendCategory(this.buildStyleLists.bind(this))
         } else {
             divs[i].className = "menu-btn";
         }
@@ -68,6 +65,7 @@ function buildStyleLists() {
     for (let i = 0; i < 4; i++) {
         if (!!record[i]) {
             let items = record[i].top_article;
+            document.getElementById(`list_${i + 1}_items`).innerHTML='';
             document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
             if (items.length) {
                 for (let j in items) {
@@ -117,7 +115,20 @@ function buildStyleLists() {
         }
     }
 }
+function handleValueChange(t, e) {
+    console.log(t, e);
+}
+function resetRecommendCategory(callback = () => { }) {
+    
+    for (let i in state.category) {
+        if (state.category[i].id.toString() === state.now_category_id.toString()) {
+            state.recommend_category = state.category[i];
+            callback();
+        }
+    }
+}
 function buildRecommend() {
+
     console.log(state.recommend_category);
     let record = state.recommend_category;
     for (let i in record.top_article) {
