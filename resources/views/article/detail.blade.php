@@ -96,7 +96,11 @@
             <div class="items" id="list_4_items">
                 <div class="item">
                     <div class="thumbnail"></div>
-                    <div class="created-at">2023-04-28</div>
+                    <div class="info">
+                        <div class="name">推荐啊</div>
+                        <div class="created-at">2023-04-28</div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

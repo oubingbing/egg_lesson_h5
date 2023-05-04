@@ -138,6 +138,10 @@ img{
     max-width: 100%;
 }
 
+div{
+    background-position: center;
+    background-size: cover;
+}
 
 input {
     outline: none;

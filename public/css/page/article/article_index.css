@@ -274,6 +274,8 @@
     margin-bottom: 4vw;
     display: flex;
     align-items: center;
+    padding-bottom: 4vw;
+    border-bottom: 1px solid #ddd;
 }
 .list4 .item .thumbnail{
     width: 44vw;
