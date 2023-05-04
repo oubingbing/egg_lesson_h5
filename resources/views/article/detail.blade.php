@@ -34,16 +34,16 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-        
-        function showArticleContent(){
+
+        function showArticleContent        (){
             console.log(`{{$article["content"]}}`);
             document.getElementById("article_content").innerHTML = `{{$article["content"]}}`;
         }
-        
+
     </script>
 </head>
 
-<body onload="showArticleContent()">
+<body onload="sho        wArticleContent()">
     <div class="article-list-container">
         <div class="article-content">{{$article["content"]}}</div>
     <div class="title-bar">
@@ -116,22 +116,22 @@
         <div style="width:100%;font-size:12px;margin:0px auto;" class="f_copyright">
             <span>深圳市吉飞旦达科技有限公司 版权所有<a href="https://beian.miit.gov.cn/" target="_blank"></a><br>Copyright(C)2020-2023 dandanzkw.com All Rights Reserved.</span>
         </div>
-    
+
         <p class="copyright-box">
-            
-            <a class="copyright copyright-3" href="http://www.cyberpolice.cn" target="_blank" rel="noopener noreferrer">
+
+            <a class="copyright copyright-3" href="http://www.cyberpolice.cn" targ    et="_blank" rel="noopener noreferrer"            >
               网络警察提醒你
             </a>
-            
+
             <a class="copyright copyright-5" href="http://www.12377.cn/" target="_blank" rel="noopener noreferrer">
-              中国互联网举报中心
+                          中国互联网举报中心
             </a>
-            
-            <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener noreferrer">
+
+            <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener             noreferrer">
               扫黄打非网举报专区
             </a>
-            
-            <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank" rel="noopener noreferrer">
+
+            <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_bla            nk" rel="noopener noreferrer">
               国家知识产权公共服务网
             </a>
           </p>
