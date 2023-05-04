@@ -52,6 +52,9 @@ function goTo(address, t, v) {
         }else if(address.indexOf("list")>=0){
             address = `article/list/${v}.html`;
             params =``;
+        }else{
+            address = `article.html`;
+            params = ``;
         }
     }
     if (address === "detail") {

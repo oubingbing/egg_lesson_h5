@@ -92,7 +92,7 @@
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">更多推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_4_showmore">查看更多</div>
             <div class="items" id="list_4_items">
                 <div class="item">
                     <div class="thumbnail"></div>

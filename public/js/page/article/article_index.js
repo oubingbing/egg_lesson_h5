@@ -67,6 +67,7 @@ function buildStyleLists() {
             let items = record[i].top_article;
             document.getElementById(`list_${i + 1}_items`).innerHTML='';
             document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
+            document.getElementById(`list_${i+1}_showmore`).onclick=goTo.bind(this,"article_list","id",record[i].id);
             if (items.length) {
                 for (let j in items) {
                     let attachments = items[j].attachments[0]?items[j].attachments[0]:'';

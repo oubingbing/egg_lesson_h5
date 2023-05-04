@@ -42,7 +42,7 @@
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">
-            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
+            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goTo('index')"></div>
             旦旦编辑部
         </div>
 
@@ -63,6 +63,7 @@
         <div class="article-list-p">
             <div class="article-list">
                 <div class="article-list-title" id="list_1_title">每日一读</div>
+                <div class="show-more" id="list_1_showmore">查看更多</div>
                 <div class="articles" id="list_1_items">
 
                 </div>
@@ -72,14 +73,14 @@
 
         <div class="list2">
             <div class="article-list-title" id="list_2_title">最新文章</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_2_showmore">查看更多</div>
             <div class="items" id="list_2_items">
             </div>
         </div>
 
         <div class="list3 banner">
             <div class="article-list-title" id="list_3_title">热门推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_3_showmore">查看更多</div>
             <div class="items mySwiper2" >
                 <div class="swiper-wrapper" id="list_3_items"></div>
             </div>
@@ -87,7 +88,7 @@
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">热门推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_4_showmore">查看更多</div>
             <div class="items" id="list_4_items">
                 
             </div>
