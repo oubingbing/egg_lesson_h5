@@ -65,6 +65,8 @@ class ArticleController extends Controller
         $result["pre"] = $previous;
         $result["next"]= $next;
 
+        $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
+
         return view('article.detail',["article"=>$result]);
     }
 
@@ -114,6 +116,8 @@ class ArticleController extends Controller
 
         $result["pre"] = $previous;
         $result["next"]= $next;
+
+        $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
         return view('article.pcDetail',["article"=>$result]);
     }

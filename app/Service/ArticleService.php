@@ -160,4 +160,9 @@ class ArticleService
         return $result;
     }
 
+    public function updateBroweNum($id,$num)
+    {
+        return Article::query()->where(Article::FIELD_ID,$id)->update([Article::FIELD_BROWSE_NUM=>$num]);
+    }
+
 }
