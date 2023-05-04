@@ -8,7 +8,7 @@
 .title-bar {
     height: 45px;
     position: relative;
-    font-size: 18px;
+    font-size: 17px;
     text-align: center;
     line-height: 45px;
 }
@@ -140,7 +140,7 @@
 .article-list-title{
     font-weight: bold;
     height: 32px;
-    font-size: 19.5px;
+    font-size: 18.5px;
     line-height: 1.1;
 }
 .articles{
@@ -171,7 +171,7 @@
 
 .articles .item .description{
     margin-top: 4px;
-    font-size: 14px;
+    font-size: 13px;
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
@@ -188,7 +188,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    font-size: 14px;
+    font-size: 13px;
     padding: 17px 5vw;
     color: #1684FC;
 }
@@ -211,7 +211,7 @@
     margin: 2vw auto 0 3.5vw;
     color: #FFF;
     max-width:36vw;
-    font-size: 14px;
+    font-size: 13px;
 }
 .list2 .item:nth-child(2n){
     margin-right:0;
@@ -250,7 +250,7 @@
     left: 0;
     width: 100%;
     height: 12.5vw;
-    font-size: 14px;
+    font-size: 13px;
     padding: 0vw;
     line-height: 2;
     font-weight: bold;
@@ -293,7 +293,7 @@
 }
 .list4 .item .created-at{
     position: absolute;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
     color: #aaa;
     right: 0;
@@ -301,7 +301,7 @@
 }
 .list4 .item .name{
     padding: 0 2vw;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5;
     height: 100%;
     font-weight: bold;
