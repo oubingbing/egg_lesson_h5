@@ -34,6 +34,16 @@ function getArticleCategory() {
 function buildTitleNav(hover = null) {
     let record = state.category;
     console.log(record);
+    let rec = [];
+    for(let i in record){
+        if(record[i].id===RECOMMEND_CATEGORY_ID){
+rec = [record[i]];
+record.splice(i,1);
+record = rec.concat(record);
+console.log(record);
+break;
+        }
+    }
     for (let i in record) {
         let classname = 'menu-btn';
         if (!hover && parseInt(i) === 0) {
