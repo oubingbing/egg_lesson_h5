@@ -69,11 +69,13 @@ function buildStyleLists() {
             document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
             if (items.length) {
                 for (let j in items) {
+                    let attachments = items[j].attachments[0]?items[j].attachments[0]:'';
                     let item = document.createElement("div");
+                    item.onclick = goTo.bind(this,'article_detail','id',items[j].id);
                     switch (i) {
                         case 0:
                             item.className = "item";
-                            item.innerHTML = `<div class="bg" style="background-image:url('${items[j].attachments[0]}')"></div>
+                            item.innerHTML = `<div class="bg" style="background-image:url('${attachments}')"></div>
                             <div class="name">${items[j].title}</div>
                             <div class="description">${items[j].seo_describe}</div>`;
                             document.getElementById(`list_${i + 1}_items`).appendChild(item);
@@ -82,12 +84,12 @@ function buildStyleLists() {
                         case 2:
                             item.className = "item swiper-slide";
                             item.innerHTML = `<div class="name">${items[j].title}</div>`;
-                            item.style.backgroundImage = `url(${items[j].attachments[0]})`;
+                            item.style.backgroundImage = `url(${attachments})`;
                             document.getElementById(`list_${i + 1}_items`).appendChild(item);
                             break;
                         case 3:
                             item.className = "item";
-                            item.innerHTML = `<div class="thumbnail" style="background-image:url('${items[j].attachments[0]}')"></div>
+                            item.innerHTML = `<div class="thumbnail" style="background-image:url('${attachments}')"></div>
                             <div class="info">
                             <div class="name">
                             ${items[j].title}
