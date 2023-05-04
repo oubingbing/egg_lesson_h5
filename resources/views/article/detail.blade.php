@@ -35,17 +35,21 @@
             s.parentNode.insertBefore(hm, s);
         })();
 
-        function showArticleContent        (){
-            console.log(`{{$article["content"]}}`);
-            document.getElementById("article_content").innerHTML = `{{$article["content"]}}`;
+        function showArticleContent(){
+            return;
+            let content = `{{$article["content"]}}`;
+            content = content.replace(/&lt;/g,"<");
+            content = content.replace(/&gt;/g,">");
+            content =  content.replace(/&quot;/g,`"`);
+            console.log(content);
+            document.getElementById("article_content").innerHTML =content;
         }
 
     </script>
 </head>
 
-<body onload="sho        wArticleContent()">
+<body onload="showArticleContent()">
     <div class="article-list-container">
-        <div class="article-content">{{$article["content"]}}</div>
     <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goBack()"></div>
             旦旦编辑部
@@ -61,12 +65,20 @@
         <div class="article-content">
             <div class="article-title">{{$article["title"]}}</div>
             <div class="article-info">发布时间：{{$article["created_at"]}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：1003</div>
-            <div class="article-text" id="article_content"></div>
+            <div class="article-text" id="article_content">{!!$article["content"]!!}</div>
         </div>
 
         <div class="other-page">
-            <div class="btn"><span>上一篇：</span><a>这是第灵个新闻</a></div>
-            <div class="btn"><span>下一篇：</span><a>这是第二个新闻</a></div>
+            @if ($article['pre'] && $article['pre']['title'])
+            <div class="btn"><span>上一篇：</span><a onclick="goTo('article_detail','id',{{$article['pre']['id']}})">{{$article['pre']['title']}}</a></div>
+            @else
+            <div class="btn"><span>上一篇：</span><a>没有了</a></div>
+            @endif
+            @if ($article['next'] && $article['next']['title'])
+            <div class="btn"><span>下一篇：</span><a onclick="goTo('article_detail','id',{{$article['next']['id']}})">{{$article['next']['title']}}</a></div>
+            @else
+            <div class="btn"><span>下一篇：</span><a>没有了</a></div>
+            @endif
         </div>
 
         <div class="article-list-p">
@@ -119,19 +131,19 @@
 
         <p class="copyright-box">
 
-            <a class="copyright copyright-3" href="http://www.cyberpolice.cn" targ    et="_blank" rel="noopener noreferrer"            >
+            <a class="copyright copyright-3" href="http://www.cyberpolice.cn" target="_blank" rel="noopener noreferrer">
               网络警察提醒你
             </a>
 
             <a class="copyright copyright-5" href="http://www.12377.cn/" target="_blank" rel="noopener noreferrer">
-                          中国互联网举报中心
+              中国互联网举报中心
             </a>
 
-            <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener             noreferrer">
+            <a class="copyright copyright-7" href="http://www.shdf.gov.cn/shdf/channels/740.html" target="_blank" rel="noopener noreferrer">
               扫黄打非网举报专区
             </a>
 
-            <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_bla            nk" rel="noopener noreferrer">
+            <a class="copyright copyright-9" href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank" rel="noopener noreferrer">
               国家知识产权公共服务网
             </a>
           </p>
