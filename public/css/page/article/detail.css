@@ -48,9 +48,12 @@ body {
 }
 
 .tips{
-    padding: 5vw 5vw 1vw;
+    padding: 5vw 0 1vw;
     color: #aaa;
     font-size: 12px;
+    border-top: 1px solid #ccc;
+    width: 90vw;
+    margin: 5vw 5vw 0;
 }
 
 .article-content .article-title {
