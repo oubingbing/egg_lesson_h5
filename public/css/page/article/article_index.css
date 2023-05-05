@@ -15,6 +15,8 @@ body{
     font-size: 17px;
     text-align: center;
     line-height: 45px;
+    background-color: #FFF;
+    box-shadow: 0 0 5px 5px #EEE;
 }
 
 .title-bar .back-btn {
@@ -97,6 +99,7 @@ body{
     height: 38px;
     margin: 2px auto;
     width: 100vw;
+    box-shadow: 0 0 5px 5px #EEE;
 }
 
 .menu-nav {
@@ -174,6 +177,7 @@ body{
     margin-right: 12px;
     background-color: #FFF;
     border-radius:9px;
+    box-shadow: 0 0 5px 5px #EEE;
 }
 
 .articles .item .bg {
@@ -185,6 +189,8 @@ body{
 .articles .item .name {
     white-space: nowrap;
     width: 100%;
+    padding:0 5%;
+    box-sizing: border-box;
     font-size: 13px;
     margin-top: 10px;
     overflow: hidden;
@@ -194,6 +200,8 @@ body{
 .articles .item .description {
     margin-top: 4px;
     font-size: 12px;
+    padding:0 5%;
+    box-sizing: border-box;
     overflow: hidden;
     color:#888;
     width: 100%;
@@ -227,6 +235,7 @@ body{
     display: inline-block;
     height: 42vw;
     border-radius: 6px;
+    box-shadow: 0 0 5px 5px #EEE;
     background-color: #FF636380;
 }
 
@@ -258,6 +267,7 @@ body{
 .list3 .items {
     padding-top: 2vw;
     overflow: hidden;
+    box-shadow: 0 0 5px 5px #EEE;
 }
 
 .list3 .items .item {
@@ -269,7 +279,7 @@ body{
     background-position: center;
     background-size: cover;
     overflow: hidden;
-    box-shadow: 0 0 5px 5px #F5F5F5;
+    
 }
 
 .list3 .items .item .name {
@@ -302,18 +312,21 @@ body{
     position: relative;
     height: 28vw;
     overflow: hidden;
-    margin-bottom: 4vw;
+    padding-top: 4vw;
     display: flex;
     align-items: center;
     padding-bottom: 4vw;
-    border-bottom: 1px solid #ddd;
+    background-color: #FFF;
+    box-shadow: 0 0 5px 5px #EEE;
+    border-radius: 9px;
+    margin-bottom: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 .list4 .item .thumbnail {
     width: 44vw;
     height: 100%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     background-color: #FF6363;
     background-position: center;
     background-size: cover;
