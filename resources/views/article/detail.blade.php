@@ -83,7 +83,7 @@
 
         <div class="article-list-p">
             <div class="article-list">
-                <div class="article-list-title" id="list_1_title">相同推荐</div>
+                <div class="article-list-title" id="list_1_title">相关推荐</div>
                 <div class="articles" id="list_1_items">
 
                 </div>
