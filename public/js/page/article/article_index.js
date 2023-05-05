@@ -120,7 +120,7 @@ function buildStyleLists() {
             if(i===0){
                 swiper3 = new Swiper('.swiper-container', {
                     slidesPerView: 3,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
                     centeredSlides: true,
                     autoplay:true,
                     loop: true,
