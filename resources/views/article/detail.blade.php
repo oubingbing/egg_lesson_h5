@@ -83,7 +83,7 @@
 
         <div class="article-list-p">
             <div class="article-list">
-                <div class="article-list-title" id="list_1_title">相同推荐</div>
+                <div class="article-list-title" id="list_1_title">相关推荐</div>
                 <div class="articles" id="list_1_items">
 
                 </div>
@@ -92,11 +92,15 @@
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">更多推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_4_showmore">查看更多</div>
             <div class="items" id="list_4_items">
                 <div class="item">
                     <div class="thumbnail"></div>
-                    <div class="created-at">2023-04-28</div>
+                    <div class="info">
+                        <div class="name">推荐啊</div>
+                        <div class="created-at">2023-04-28</div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

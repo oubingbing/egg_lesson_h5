@@ -1,6 +1,6 @@
 const RECOMMEND_CATEGORY_ID = 5;
 
-var swiper, swiper2;
+var swiper, swiper2,swiper3;
 
 var state = {
     now_category_id: RECOMMEND_CATEGORY_ID,
@@ -32,8 +32,19 @@ function getArticleCategory() {
     });
 }
 function buildTitleNav(hover = null) {
-    let record = state.category;
+    let record = JSON.parse(JSON.stringify(state.category));
     console.log(record);
+    let rec = [];
+    for (let i in record) {
+        if (record[i].id === RECOMMEND_CATEGORY_ID) {
+            rec = [record[i]];
+            record.splice(i, 1);
+            record = rec.concat(record);
+            state.category = record;
+            console.log(record);
+            break;
+        }
+    }
     for (let i in record) {
         let classname = 'menu-btn';
         if (!hover && parseInt(i) === 0) {
@@ -61,20 +72,24 @@ function selectTitleNav(hover = null) {
     }
 }
 function buildStyleLists() {
+    console.log("STATE", state);
     let record = state.recommend_category.sub_category;
+    for (let i = 0; i < 4; i++) {
+        document.getElementById(`list_${i + 1}_items`).innerHTML = '';
+    }
     for (let i = 0; i < 4; i++) {
         if (!!record[i]) {
             let items = record[i].top_article;
-            document.getElementById(`list_${i + 1}_items`).innerHTML='';
             document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
+            document.getElementById(`list_${i + 1}_showmore`).onclick = goTo.bind(this, "article_list", "id", record[i].id);
             if (items.length) {
                 for (let j in items) {
-                    let attachments = items[j].attachments[0]?items[j].attachments[0]:'';
+                    let attachments = items[j].attachments[0] ? items[j].attachments[0] : '';
                     let item = document.createElement("div");
-                    item.onclick = goTo.bind(this,'article_detail','id',items[j].id);
+                    item.onclick = goTo.bind(this, 'article_detail', 'id', items[j].id);
                     switch (i) {
                         case 0:
-                            item.className = "item";
+                            item.className = "item swiper-slide";
                             item.innerHTML = `<div class="bg" style="background-image:url('${attachments}')"></div>
                             <div class="name">${items[j].title}</div>
                             <div class="description">${items[j].seo_describe}</div>`;
@@ -104,6 +119,19 @@ function buildStyleLists() {
                 }
 
             }
+            if(i===0){
+                swiper3 = new Swiper('.swiper-container', {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                    centeredSlides: true,
+                    autoplay:true,
+                    loop: true,
+                    pagination: {
+                      el: '.swiper-pagination',
+                      clickable: true,
+                    },
+                  });
+            }
             if (i === 2) {
                 // setTimeout(()=>{
                 swiper2 = new Swiper(".mySwiper2", {
@@ -121,8 +149,9 @@ function handleValueChange(t, e) {
     console.log(t, e);
 }
 function resetRecommendCategory(callback = () => { }) {
-    
+
     for (let i in state.category) {
+        console.log(state.category[i].id, state.now_category_id);
         if (state.category[i].id.toString() === state.now_category_id.toString()) {
             state.recommend_category = state.category[i];
             callback();

@@ -42,13 +42,13 @@
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">
-            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
+            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goTo('index')"></div>
             旦旦编辑部
         </div>
 
         <div class="search-bar">
             <div class="search-btn">搜索</div>
-            <input type="text"  class="search-input" placeholder="搜索"/>
+            <input type="text"  class="search-input" placeholder="搜索" onkeypress="goTo('article_list','id',RECOMMEND_CATEGORY_ID)"/>
         </div>
 
         <div class="head-banner-box mySwiper" >
@@ -63,23 +63,26 @@
         <div class="article-list-p">
             <div class="article-list">
                 <div class="article-list-title" id="list_1_title">每日一读</div>
-                <div class="articles" id="list_1_items">
+                <div class="show-more" id="list_1_showmore">查看更多</div>
+                <div class="swiper-container articles-box">
+                <div class="articles swiper-wrapper" id="list_1_items">
 
                 </div>
+            </div>
             </div>
         </div>
 
 
         <div class="list2">
             <div class="article-list-title" id="list_2_title">最新文章</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_2_showmore">查看更多</div>
             <div class="items" id="list_2_items">
             </div>
         </div>
 
         <div class="list3 banner">
             <div class="article-list-title" id="list_3_title">热门推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_3_showmore">查看更多</div>
             <div class="items mySwiper2" >
                 <div class="swiper-wrapper" id="list_3_items"></div>
             </div>
@@ -87,9 +90,33 @@
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">热门推荐</div>
-            <div class="show-more">查看更多</div>
+            <div class="show-more" id="list_4_showmore">查看更多</div>
             <div class="items" id="list_4_items">
                 
+            </div>
+        </div>
+
+        <div class="tabbar">
+            <div class="tabbar-item" id="tabbar1">
+                <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-name">首页</div>
+            </div>
+            <div class="tabbar-item" id="dandaneditor" onclick="goToEditor()">
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_pre_icon.png')}}");'></div>
+                <div class="tabbar-item-name">编辑部</div>
+            </div>
+            <div class="tabbar-item" id="tabbar2">
+                <div class="tabbar-publish">
+                <div class="tabbar-publish-icon" style='background-image: url("{{asset('image/tabbar/shouye_fabu_pre_icon.png')}}");'></div>
+            </div>
+            </div>
+            <div class="tabbar-item" id="tabbar3">
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-name">消息</div>
+            </div>
+            <div class="tabbar-item" id="tabbar4">
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-name">我的</div>
             </div>
         </div>
 

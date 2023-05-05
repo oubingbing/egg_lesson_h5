@@ -138,6 +138,10 @@ img{
     max-width: 100%;
 }
 
+div{
+    background-position: center;
+    background-size: cover;
+}
 
 input {
     outline: none;
@@ -1153,8 +1157,8 @@ body {
 
 .tabbar-publish{
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border: 5px solid #FFF;
     background-color: #FFF;
     border-radius: 50%;
@@ -1165,4 +1169,5 @@ body {
     height: 100%;
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
 }

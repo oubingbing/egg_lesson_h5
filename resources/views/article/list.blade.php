@@ -40,7 +40,7 @@
 <body>
     <div class="article-list-container">
     <div class="title-bar">
-            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});"></div>
+            <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goTo('article_index')"></div>
             旦旦编辑部
         </div>
 

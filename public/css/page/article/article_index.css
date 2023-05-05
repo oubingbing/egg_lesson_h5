@@ -1,16 +1,22 @@
-.article-index-container{
-    width:100vw;
-    height:100vh;
+body{
+    background-color: #FFF;
+}
+.article-index-container {
+    width: 100vw;
+    height: 100vh;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
 .title-bar {
     height: 45px;
     position: relative;
-    font-size: 18px;
+    font-size: 17px;
     text-align: center;
     line-height: 45px;
+    background-color: #FFF;
+    box-shadow: 0 0 5px 5px #EEE;
 }
 
 .title-bar .back-btn {
@@ -26,7 +32,7 @@
     margin: 7px auto 0 9px;
 }
 
-.search-bar{
+.search-bar {
     position: relative;
     margin: 6px 10px;
     border: 2px solid #FF6363;
@@ -34,7 +40,7 @@
     border-radius: 16px;
 }
 
-.search-bar .search-btn{
+.search-bar .search-btn {
     position: absolute;
     right: 2px;
     top: 2px;
@@ -46,7 +52,8 @@
     line-height: 28px;
     color: #FFF;
 }
-.search-input{
+
+.search-input {
     display: block;
     border: 0;
     /* background-color: #FF6363; */
@@ -55,11 +62,12 @@
     width: 60%;
     background-color: transparent;
 }
-.search-input::placeholder{
-    color:#CCC;
+
+.search-input::placeholder {
+    color: #CCC;
 }
 
-.head-banner-box{
+.head-banner-box {
     position: relative;
     height: 56vw;
     width: 94vw;
@@ -68,37 +76,44 @@
     overflow: hidden;
     margin: 0 3vw;
 }
-.head-banner{
+
+.head-banner {
     position: relative;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
 }
-.head-banner-box .banner{
+
+.head-banner-box .banner {
     /* background-color: #00000080; */
     height: 100%;
-    width:100%;
+    width: 100%;
     background-position: center;
     background-size: cover;
     border-radius: 8px;
 }
 
-.menu-nav-box{
-    position: relative;
-    background-color: #F5F5F5;
+.menu-nav-box {
+    position: sticky;
+    background-color: #FFF;
     padding: 13px 0 13px 3vw;
     height: 38px;
     margin: 2px auto;
-    width:100vw;
+    width: 100vw;
+    box-shadow: 0 0 5px 5px #EEE;
+    top: 0;
+    z-index: 1;
 }
-.menu-nav{
+
+.menu-nav {
     position: relative;
     white-space: nowrap;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     overflow-y: hidden;
     overflow-x: scroll;
 }
-.menu-nav-box::after{
+
+.menu-nav-box::after {
     content: '';
     position: absolute;
     right: 0;
@@ -106,134 +121,161 @@
     pointer-events: none;
     height: 63px;
     width: 80px;
-    background-image: linear-gradient(90deg,#F5F5F500,#F5F5F5);
+    background-image: linear-gradient(90deg, #F5F5F500, #F5F5F5);
 }
-.menu-btn{
+
+.menu-btn {
     display: inline-block;
     position: relative;
     background-color: transparent;
-    width: 92px;
+    width: 84px;
     border-radius: 19px;
     transition: 0.5s;
     text-align: center;
-    line-height: 38px;
+    line-height: 30px;
     color: #6D6D6D;
-    font-weight: bold;
+    /* font-weight: bold; */
+    margin: 4px;
 }
-.menu-btn:last-child{
-    margin-right:92px;
+
+.menu-btn:last-child {
+    margin-right: 92px;
 }
-.menu-btn.hover{
+
+.menu-btn.hover {
     background-color: #FF6363;
     color: #FFF;
 }
 
-.article-list-p{
-   position: relative;
-}
-.article-list{
+.article-list-p {
     position: relative;
-    padding: 23px 0 0px 5vw;
-    height: 260px;
-    
 }
-.article-list-title{
-    font-weight: bold;
+
+.article-list {
+    position: relative;
+    padding: 4vw 5vw 0px;
+    height: 260px;
+
+}
+
+.article-list-title {
+    /* font-weight: bold; */
     height: 32px;
-    font-size: 19.5px;
+    font-size: 18.5px;
     line-height: 1.1;
 }
-.articles{
+.articles-box{
+
+}
+
+.articles {
     position: relative;
     height: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
     width: 100%;
-    display: flex;
 }
-.articles .item{
+
+.articles .item {
     width: 127px;
     height: 226px;
     margin-right: 12px;
+    background-color: #FFF;
+    border-radius:9px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px #EEE;
 }
-.articles .item .bg{
+
+.articles .item .bg {
     height: 162px;
-    border-radius: 9px;
     background-color: #ff6363;
 }
-.articles .item .name{
+
+.articles .item .name {
     white-space: nowrap;
     width: 100%;
+    padding:0 5%;
+    box-sizing: border-box;
+    font-size: 13px;
     margin-top: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.articles .item .description{
+.articles .item .description {
     margin-top: 4px;
-    font-size: 14px;
+    font-size: 12px;
+    padding:0 5%;
+    box-sizing: border-box;
     overflow: hidden;
+    color:#888;
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     letter-spacing: 0.5px;
 }
 
-.list2{
+.list2 {
     position: relative;
     height: 388px;
 }
 
-.show-more{
+.show-more {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: 14px;
+    font-size: 13px;
     padding: 17px 5vw;
     color: #1684FC;
 }
 
-.list2 .items{
+.list2 .items {
     position: relative;
-    padding-top:2px;
+    padding-top: 2px;
 }
-.list2 .item{
-    margin:1.5vw 2vw;
+
+.list2 .item {
+    margin: 1.5vw 2vw;
     width: 42vw;
     display: inline-block;
     height: 42vw;
     border-radius: 6px;
+    box-shadow: 0 0 5px 5px #EEE;
     background-color: #FF636380;
 }
 
-.list2 .item .name{
+.list2 .item .name {
     position: absolute;
     margin: 2vw auto 0 3.5vw;
     color: #FFF;
-    max-width:36vw;
-    font-size: 14px;
-}
-.list2 .item:nth-child(2n){
-    margin-right:0;
-}
-.list2 .item:nth-child(2n+1){
-    margin-left:0;
+    max-width: 36vw;
+    font-size: 13px;
 }
 
-.list2,.list3,.list4{
-    padding:16px 5vw;
+.list2 .item:nth-child(2n) {
+    margin-right: 0;
 }
 
-.list3{
+.list2 .item:nth-child(2n+1) {
+    margin-left: 0;
+}
+
+.list2, .list3, .list4 {
+    padding: 16px 5vw;
+}
+
+.list3 {
     position: relative;
 
 }
-.list3 .items{
-    padding-top:2vw;
+
+.list3 .items {
+    margin-top: 2vw;
     overflow: hidden;
+    box-shadow: 0 0 5px 5px #EEE;
+    border-radius: 8px;
 }
-.list3 .items .item{
-    width:100%;
+
+.list3 .items .item {
+    width: 100%;
     height: 65.5vw;
     border-radius: 8px;
     background-color: #FF6363;
@@ -241,67 +283,82 @@
     background-position: center;
     background-size: cover;
     overflow: hidden;
-    box-shadow: 0 0 5px 5px #F5F5F5;
+    
 }
-.list3 .items .item .name{
+
+.list3 .items .item .name {
     background-color: #FFF;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 12.5vw;
-    font-size: 14px;
+    height: 10.5vw;
+    font-size: 13px;
     padding: 0vw;
     line-height: 2;
-    font-weight: bold;
+    /* font-weight: bold; */
     letter-spacing: 1px;
-    padding: 0 2vw;
+    padding: 2vw 2vw 0;
     box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
-.list4{
+.list4 {
     position: relative;
 }
-.list4 .items{
+
+.list4 .items {
     position: relative;
-   padding-top:1.5vw;
+    padding-top: 1.5vw;
 }
-.list4 .item{
+
+.list4 .item {
     position: relative;
     height: 28vw;
     overflow: hidden;
-    margin-bottom: 4vw;
+    padding-top: 4vw;
     display: flex;
     align-items: center;
+    padding-bottom: 4vw;
+    background-color: #FFF;
+    box-shadow: 0 0 5px 5px #EEE;
+    border-radius: 9px;
+    margin-bottom: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
-.list4 .item .thumbnail{
+
+.list4 .item .thumbnail {
     width: 44vw;
     height: 100%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     background-color: #FF6363;
     background-position: center;
     background-size: cover;
 }
-.list4 .item .info{
-    flex:1;
+
+.list4 .item .info {
+    flex: 1;
     position: relative;
-    height:100%;
+    height: 100%;
 }
-.list4 .item .created-at{
+
+.list4 .item .created-at {
     position: absolute;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
     color: #aaa;
     right: 0;
     bottom: 0;
 }
-.list4 .item .name{
+
+.list4 .item .name {
     padding: 0 2vw;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
     height: 100%;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #4d4d4d;
 }
