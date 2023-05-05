@@ -177,12 +177,12 @@ body{
     margin-right: 12px;
     background-color: #FFF;
     border-radius:9px;
+    overflow: hidden;
     box-shadow: 0 0 5px 5px #EEE;
 }
 
 .articles .item .bg {
     height: 162px;
-    border-radius: 9px;
     background-color: #ff6363;
 }
 
