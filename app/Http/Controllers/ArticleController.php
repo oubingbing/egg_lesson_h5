@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Service\ArticleService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -67,6 +68,11 @@ class ArticleController extends Controller
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $result["same_list"] = $sameList;
+        $result["more_list"] = $moreList;
+
         return view('article.detail',["article"=>$result]);
     }
 
@@ -119,6 +125,11 @@ class ArticleController extends Controller
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $result["same_list"] = $sameList;
+        $result["more_list"] = $moreList;
+
         return view('article.pcDetail',["article"=>$result]);
     }
 
@@ -150,6 +161,11 @@ class ArticleController extends Controller
         $result["pre"] = $previous;
         $result["next"]= $next;
 
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $result["same_list"] = $sameList;
+        $result["more_list"] = $moreList;
+
         return $result;
     }
 
@@ -158,8 +174,9 @@ class ArticleController extends Controller
         $pageSize           = $request->input('page_size', 10);
         $pageNumber         = $request->input('page_number', 1);
         $categoryId         = $request->input("category_id");
+        $filter             = $request->input("filter");
 
-        $queryBuilder = $this->service->GetArticleByCategory($categoryId);
+        $queryBuilder = $this->service->GetArticleByCategory($categoryId,$filter);
         $fields = [
             Article::FIELD_ID,
             Article::FIELD_TITLE,
