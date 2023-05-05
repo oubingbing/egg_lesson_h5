@@ -150,7 +150,10 @@ body {
 }
 
 .list3 .items {
-    padding-top: 2vw;
+    margin-top: 2vw;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px #EEE;
+    border-radius: 8px;
 }
 
 .list3 .items .item {
