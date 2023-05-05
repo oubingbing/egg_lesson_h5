@@ -92,7 +92,7 @@ body{
 
 .menu-nav-box {
     position: relative;
-    background-color: #F5F5F5;
+    background-color: #FFF;
     padding: 13px 0 13px 3vw;
     height: 38px;
     margin: 2px auto;
@@ -172,6 +172,8 @@ body{
     width: 127px;
     height: 226px;
     margin-right: 12px;
+    background-color: #FFF;
+    border-radius:9px;
 }
 
 .articles .item .bg {
