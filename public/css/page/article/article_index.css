@@ -93,13 +93,15 @@ body{
 }
 
 .menu-nav-box {
-    position: relative;
+    position: sticky;
     background-color: #FFF;
     padding: 13px 0 13px 3vw;
     height: 38px;
     margin: 2px auto;
     width: 100vw;
     box-shadow: 0 0 5px 5px #EEE;
+    top: 0;
+    z-index: 1;
 }
 
 .menu-nav {
