@@ -1,6 +1,6 @@
 const RECOMMEND_CATEGORY_ID = 5;
 
-var swiper, swiper2;
+var swiper, swiper2,swiper3;
 
 var state = {
     now_category_id: RECOMMEND_CATEGORY_ID,
@@ -87,7 +87,7 @@ function buildStyleLists() {
                     item.onclick = goTo.bind(this, 'article_detail', 'id', items[j].id);
                     switch (i) {
                         case 0:
-                            item.className = "item";
+                            item.className = "item swiper-slide";
                             item.innerHTML = `<div class="bg" style="background-image:url('${attachments}')"></div>
                             <div class="name">${items[j].title}</div>
                             <div class="description">${items[j].seo_describe}</div>`;
@@ -116,6 +116,19 @@ function buildStyleLists() {
 
                 }
 
+            }
+            if(i===0){
+                swiper3 = new Swiper('.swiper-container', {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                    centeredSlides: true,
+                    autoplay:true,
+                    loop: true,
+                    pagination: {
+                      el: '.swiper-pagination',
+                      clickable: true,
+                    },
+                  });
             }
             if (i === 2) {
                 // setTimeout(()=>{

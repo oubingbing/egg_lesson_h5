@@ -64,9 +64,11 @@
             <div class="article-list">
                 <div class="article-list-title" id="list_1_title">每日一读</div>
                 <div class="show-more" id="list_1_showmore">查看更多</div>
-                <div class="articles" id="list_1_items">
+                <div class="swiper-container articles-box">
+                <div class="articles swiper-wrapper" id="list_1_items">
 
                 </div>
+            </div>
             </div>
         </div>
 
