@@ -75,9 +75,11 @@ function buildStyleLists() {
     console.log("STATE", state);
     let record = state.recommend_category.sub_category;
     for (let i = 0; i < 4; i++) {
+        document.getElementById(`list_${i + 1}_items`).innerHTML = '';
+    }
+    for (let i = 0; i < 4; i++) {
         if (!!record[i]) {
             let items = record[i].top_article;
-            document.getElementById(`list_${i + 1}_items`).innerHTML = '';
             document.getElementById(`list_${i + 1}_title`).innerText = record[i].name;
             document.getElementById(`list_${i + 1}_showmore`).onclick = goTo.bind(this, "article_list", "id", record[i].id);
             if (items.length) {
