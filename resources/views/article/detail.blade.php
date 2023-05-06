@@ -91,7 +91,7 @@
                 <div class="swiper-container">
                 <div class="articles swiper-wrapper" id="list_1_items">
                 @foreach ($article["same_list"] as $item)
-                <div class="item swiper-slide"><div class="bg" style="background-image:url('{{$item['attachments'][0]}}')"></div>
+                <div class="item swiper-slide"  onclick="goTo('article_detail','id',{{$item['id']}})"><div class="bg" style="background-image:url('{{$item['attachments'][0]}}')"></div>
                             <div class="name">{{$item['title']}}</div></div>
                 @endforeach
                 </div>
@@ -110,7 +110,7 @@
             )">查看更多</div>
             <div class="items" id="list_4_items">
             @foreach ($article["more_list"] as $item)
-                <div class="item">
+                <div class="item"  onclick="goTo('article_detail','id',{{$item['id']}})">
                     <div class="thumbnail" style="background-image:url('{{$item['attachments'][0]}}')"></div>
                     <div class="info">
                         <div class="name">{{$item['title']}}</div>
