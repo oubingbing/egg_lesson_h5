@@ -84,7 +84,7 @@ function buildStyleLists() {
             document.getElementById(`list_${i + 1}_showmore`).onclick = goTo.bind(this, "article_list", "id", record[i].id);
             if (items.length) {
                 for (let j in items) {
-                    let attachments = items[j].attachments[0] ? items[j].attachments[0] : '';
+                    let attachments = items[j].attachments&&items[j].attachments[0] ? items[j].attachments[0] : '';
                     let item = document.createElement("div");
                     item.onclick = goTo.bind(this, 'article_detail', 'id', items[j].id);
                     switch (i) {
