@@ -81,27 +81,44 @@
             @endif
         </div>
 
+        <div class="tips">
+        文章来源于网络，如有侵权请联系本站删除
+        </div>
+
         <div class="article-list-p">
             <div class="article-list">
                 <div class="article-list-title" id="list_1_title">相关推荐</div>
-                <div class="articles" id="list_1_items">
-
+                <div class="swiper-container">
+                <div class="articles swiper-wrapper" id="list_1_items">
+                @foreach ($article["same_list"] as $item)
+                <div class="item swiper-slide"><div class="bg" style="background-image:url('{{$item['attachments'][0]}}')"></div>
+                            <div class="name">{{$item['title']}}</div></div>
+                @endforeach
+                </div>
                 </div>
             </div>
         </div>
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">更多推荐</div>
-            <div class="show-more" id="list_4_showmore">查看更多</div>
+            <div class="show-more" onclick="goTo('article_list','category_id',
+            @if ($article['category_father_id'])
+            {{$article['category_father_id']}}
+            @else
+            {{$article['category_id']}}
+            @endif
+            )">查看更多</div>
             <div class="items" id="list_4_items">
+            @foreach ($article["more_list"] as $item)
                 <div class="item">
-                    <div class="thumbnail"></div>
+                    <div class="thumbnail" style="background-image:url('{{$item['attachments'][0]}}')"></div>
                     <div class="info">
-                        <div class="name">推荐啊</div>
+                        <div class="name">{{$item['title']}}</div>
                         <div class="created-at">2023-04-28</div>
                     </div>
                     
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

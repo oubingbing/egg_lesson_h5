@@ -25,7 +25,8 @@ function doAjax(params = state.params) {
     <p class="t2">${state.data[i].title}</p>`;
             let showDetailBtn = document.createElement("p");
             showDetailBtn.className = `t3`;
-            showDetailBtn.onclick = goTo.bind(this,"article_detail", `id`, state.data[i].id);
+            showDetailBtn.innerText=`查看更多`;
+            item.onclick = goTo.bind(this, "article_detail", `id`, state.data[i].id);
             item.appendChild(showDetailBtn);
             document.getElementById("articleList").appendChild(item);
         }
@@ -34,8 +35,22 @@ function doAjax(params = state.params) {
     });
 
 }
+
 $(document).ready(() => {
     this.doAjax();
+
+    document.getElementById("searchInput").addEventListener("keyup", (e) => {
+
+        if (parseInt(e.keyCode) === 13) {
+            document.getElementById("articleList").innerHTML = '';
+            state.params.page_num = 1;
+            this.doAjax();
+        } else {
+            console.log(document.getElementById("searchInput").value);
+            state.params.filter = document.getElementById("searchInput").value;
+            console.log(state);
+        }
+    })
 
     scrollToBottom('items', null, () => {
         state.params.page_num++;
