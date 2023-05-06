@@ -101,7 +101,13 @@
 
         <div class="list4">
             <div class="article-list-title" id="list_4_title">更多推荐</div>
-            <div class="show-more" id="list_4_showmore" onclick="goTo('article_list','category_id',5)">查看更多</div>
+            <div class="show-more" onclick="goTo('article_list','category_id',
+            @if ($article['category_father_id'])
+            {{$article['category_father_id']}}
+            @else
+            {{$article['category_id']}}
+            @endif
+            )">查看更多</div>
             <div class="items" id="list_4_items">
             @foreach ($article["more_list"] as $item)
                 <div class="item">
