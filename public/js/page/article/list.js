@@ -58,7 +58,7 @@ $(document).ready(() => {
         }
     })
 
-    scrollToBottom('items', null, () => {
+    scrollToBottom('article-list-container', null, () => {
         state.params.page_num++;
         showLoading();
 
