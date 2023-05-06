@@ -83,8 +83,7 @@ p {
 }
 
 .items {
-    margin-top: calc(45px + 55vw);
-    height: calc(100vh - 45px - 55vw);
+    height: calc(100vh - 45px - 55vw - 8vw);
     box-sizing: border-box;
     overflow-y: scroll;
     width: 100vw;
@@ -121,3 +120,18 @@ p {
     color: #999;
 }
 
+.breadcrumb {
+    position: relative;
+    margin: calc(45px + 55vw) 1rem 0;
+    /* padding: 1rem 0; */
+    font-size: 14px;
+    border-bottom: 1px solid #F5F5F5;
+    height: 8vw;
+    line-height: 8vw;
+}
+
+.breadcrumb>a {
+    text-decoration: none;
+    color: #4d4d4d;
+    font-size: 15px;
+}
