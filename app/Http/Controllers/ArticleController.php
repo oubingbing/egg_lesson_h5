@@ -66,7 +66,6 @@ class ArticleController extends Controller
         $result["next"]= $next;
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
-
         return view('article.detail',["article"=>$result]);
     }
 
