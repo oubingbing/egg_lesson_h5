@@ -41,10 +41,10 @@ $(document).ready(() => {
 
     setTimeout(()=>{
         $(".search-bar").removeClass("noshow")
-    },1100);
+    },1200);
     setTimeout(()=>{
         $(".search-tips").removeClass("noshow")
-    },1300);
+    },1400);
     document.getElementById("searchInput").addEventListener("keyup", (e) => {
 
         if (parseInt(e.keyCode) === 13) {

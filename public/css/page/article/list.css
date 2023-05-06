@@ -121,15 +121,3 @@ p {
     color: #999;
 }
 
-.search-bg{
-    position: fixed;
-    top: 45px;
-    animation-duration: 1s;
-    left: 0;
-    background-image: url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/search/search_bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width:100vw;
-    height:55vw;
-}

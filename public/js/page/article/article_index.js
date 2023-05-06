@@ -183,6 +183,13 @@ function buildRecommend() {
 }
 
 $(document).ready(() => {
+
+    setTimeout(()=>{
+        $(".search-bar").removeClass("noshow")
+    },1200);
+    setTimeout(()=>{
+        $(".search-tips").removeClass("noshow")
+    },1400);
     getArticleList();
     getArticleCategory();
 })
