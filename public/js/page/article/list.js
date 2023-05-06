@@ -39,6 +39,12 @@ function doAjax(params = state.params) {
 $(document).ready(() => {
     this.doAjax();
 
+    setTimeout(()=>{
+        $(".search-bar").removeClass("noshow")
+    },1100);
+    setTimeout(()=>{
+        $(".search-tips").removeClass("noshow")
+    },1300);
     document.getElementById("searchInput").addEventListener("keyup", (e) => {
 
         if (parseInt(e.keyCode) === 13) {

@@ -14,6 +14,7 @@
     <link href="{{asset('css/global.css')}}" rel="stylesheet">
     <link href="{{asset('css/tool/swiper-bundle.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/page/article/list.css')}}" rel="stylesheet">
+    <link href="{{asset('css/tool/animate.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <script src="{{asset('js/jquery.js')}}"></script>
@@ -44,10 +45,14 @@
             旦旦编辑部
         </div>
 
-        <div class="search-bar">
-            <div class="search-btn">搜索</div>
+        <div class="search-bg animate__fadeInDownBig">
+        <div class="search-bar animate__bounceInLeft noshow">
+            <div class="search-btn" style="background-image:url({{asset('image/search_btn.png')}})"></div>
             <input type="text"  class="search-input" placeholder="搜索" id="searchInput"/>
+            
         </div>
+        <div class="search-tips animate__backInDown noshow">有知识·有热度·有笑点</div>
+    </div>
         <div class="items" id="articleList">
         
     </div>
