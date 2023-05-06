@@ -53,6 +53,11 @@
         </div>
         <div class="search-tips animate__backInDown noshow">有知识·有热度·有笑点</div>
     </div>
+    <div class="breadcrumb">
+    <a href="\\m.dandanzkw.com">首页</a><span>&nbsp;>&nbsp;</span>
+            <a href="\\m.dandanzkw.com\article.html">旦旦编辑部</a><span>&nbsp;>&nbsp;</span>
+            <a href="">文章列表</a><span></span>
+    </div>
         <div class="items" id="articleList">
         
     </div>
