@@ -68,8 +68,8 @@ class ArticleController extends Controller
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
-        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
-        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->where("attachments","!=","")->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
         $result["same_list"] = $sameList;
         $result["more_list"] = $moreList;
 
@@ -125,8 +125,8 @@ class ArticleController extends Controller
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
-        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
-        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->where("attachments","!=","")->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
         $result["same_list"] = $sameList;
         $result["more_list"] = $moreList;
 
@@ -161,8 +161,8 @@ class ArticleController extends Controller
         $result["pre"] = $previous;
         $result["next"]= $next;
 
-        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
-        $moreList = collect(ARticle::query()->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->where("attachments","!=","")->where("attachments","!=","")->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
+        $moreList = collect(ARticle::query()->where("attachments","!=","")->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
         $result["same_list"] = $sameList;
         $result["more_list"] = $moreList;
 
@@ -172,7 +172,7 @@ class ArticleController extends Controller
     public function page(Request $request)
     {
         $pageSize           = $request->input('page_size', 10);
-        $pageNumber         = $request->input('page_number', 1);
+        $pageNumber         = $request->input('page_num', 1);
         $categoryId         = $request->input("category_id");
         $filter             = $request->input("filter");
 
@@ -190,6 +190,7 @@ class ArticleController extends Controller
 
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
         $list = paginate($queryBuilder, $pageParams, $fields, function ($item)  {
+            $item["seo_describe"] = json_encode($item["seo_describe"])==true?$item["seo_describe"]:"";
             return $item;
         });
 
