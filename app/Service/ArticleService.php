@@ -104,7 +104,7 @@ class ArticleService
         return $result;
     }
 
-    public function GetArticleByCategory($categoryId)
+    public function GetArticleByCategory($categoryId,$filter)
     {
         $category = ArticleCategory::find($categoryId);
         if(!$category){
@@ -119,6 +119,13 @@ class ArticleService
             $this->articleBuilder->where(Article::FIELD_ID_CATEGORY_FATHER,$categoryId);
         }else{
             $this->articleBuilder->where(Article::FIELD_ID_CATEGORY,$categoryId);
+        }
+
+        if($filter){
+            $this->articleBuilder->where(function ($query)use($filter) {
+                $query->where('title', 'like', "%".$filter."%")
+                      ->orWhere('content', 'like', "%".$filter."%");
+            });
         }
 
         return $this->articleBuilder;
