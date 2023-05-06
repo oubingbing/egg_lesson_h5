@@ -1,5 +1,7 @@
 body {
     overflow: auto;
+    width:100vw;
+    overflow-x: hidden;
 }
 
 .title-bar {
