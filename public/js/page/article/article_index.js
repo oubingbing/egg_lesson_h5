@@ -167,6 +167,7 @@ function buildRecommend() {
         div.className = "banner  swiper-slide";
         try {
             div.style = `background-image:url('${record.top_article[i].attachments[0]}')`;
+            div.onclick = goTo.bind(this, 'article_detail', 'id', record.top_article[i].id);
         } catch (e) {
             console.log(e);
         }

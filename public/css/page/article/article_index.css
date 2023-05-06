@@ -154,16 +154,19 @@ body{
 .article-list {
     position: relative;
     padding: 6vw 5vw 0px;
-    height: 260px;
+    /* height: 264px; */
 
 }
 
 .article-list-title {
-    /* font-weight: bold; */
-    height: 32px;
+    font-weight: bold;
+    height: 30px;
     font-size: 18.5px;
-    color:#4d4d4d;
+    color: #4d4d4d;
     line-height: 1.1;
+    border-bottom: 1px solid #CCC;
+    /* padding-top: 2vw; */
+    margin-bottom: 4vw;
 }
 .articles-box{
 
@@ -198,6 +201,7 @@ body{
     font-size: 13px;
     margin-top: 10px;
     overflow: hidden;
+    color:#4d4d4d;
     text-overflow: ellipsis;
 }
 
@@ -225,14 +229,16 @@ body{
     top: 0;
     font-size: 13px;
     padding: calc(2vw + 17px) 5vw;
-    color: #1684FC;
+    /* color: #1684FC; */
+    color:#999;
 }
 
 .list2 .items {
     position: relative;
-    padding-top: 2px;
 }
-
+.list2 .item:first-child,.list2 .item:nth-child(1){
+    margin-top:0;
+}
 .list2 .item {
     margin: 1.5vw 2vw;
     width: 42vw;
@@ -296,6 +302,7 @@ body{
     height: 10.5vw;
     font-size: 13px;
     padding: 0vw;
+    color:#4d4d4d;
     line-height: 2;
     /* font-weight: bold; */
     letter-spacing: 1px;
