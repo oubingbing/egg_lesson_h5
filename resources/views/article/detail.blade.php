@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="divport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
-    <meta name="description" content="旦旦转课网是全网首个课程转让交易平台,基于教培行业学费贵、退费难的现状,为用户提供一站式课程转让交易服务。">
-    <title>旦旦转课网_全网首个课程转让交易平台</title>
+    <meta name="keywords" content="{{$article['seo_key_word']}}">
+    <meta name="description" content="{{$article['seo_describe']}}">
+    <title>{{$article['title']}}</title>
     <!-- Fonts -->
     <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
