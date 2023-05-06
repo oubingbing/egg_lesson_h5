@@ -53,9 +53,9 @@
         </div>
         <div class="search-tips animate__backInDown noshow">有知识·有热度·有笑点</div>
     </div>
-        <div class="head-banner-box mySwiper" >
+        <!-- <div class="head-banner-box mySwiper" >
 <div class="swiper-wrapper head-banner" id="head_banner_box"></div>            
-        </div>
+        </div> -->
 <div class="menu-nav-box">
         <div class="menu-nav" id="menu_nav">
         </div>

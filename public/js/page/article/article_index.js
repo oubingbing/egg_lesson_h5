@@ -162,24 +162,24 @@ function buildRecommend() {
 
     console.log(state.recommend_category);
     let record = state.recommend_category;
-    for (let i in record.top_article) {
-        let div = document.createElement("div");
-        div.className = "banner  swiper-slide";
-        try {
-            div.style = `background-image:url('${record.top_article[i].attachments[0]}')`;
-            div.onclick = goTo.bind(this, 'article_detail', 'id', record.top_article[i].id);
-        } catch (e) {
-            console.log(e);
-        }
+    // for (let i in record.top_article) {
+    //     let div = document.createElement("div");
+    //     div.className = "banner  swiper-slide";
+    //     try {
+    //         div.style = `background-image:url('${record.top_article[i].attachments[0]}')`;
+    //         div.onclick = goTo.bind(this, 'article_detail', 'id', record.top_article[i].id);
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
 
-        document.getElementById("head_banner_box").appendChild(div);
-    }
+    //     document.getElementById("head_banner_box").appendChild(div);
+    // }
     this.buildStyleLists();
 
-    swiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: true
-    });
+    // swiper = new Swiper(".mySwiper", {
+    //     loop: true,
+    //     autoplay: true
+    // });
 }
 
 $(document).ready(() => {
