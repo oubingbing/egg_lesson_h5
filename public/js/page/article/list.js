@@ -25,7 +25,8 @@ function doAjax(params = state.params) {
     <p class="t2">${state.data[i].title}</p>`;
             let showDetailBtn = document.createElement("p");
             showDetailBtn.className = `t3`;
-            showDetailBtn.onclick = goTo.bind(this, "article_detail", `id`, state.data[i].id);
+            showDetailBtn.innerText=`查看更多`;
+            item.onclick = goTo.bind(this, "article_detail", `id`, state.data[i].id);
             item.appendChild(showDetailBtn);
             document.getElementById("articleList").appendChild(item);
         }
