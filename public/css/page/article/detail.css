@@ -74,6 +74,7 @@ body {
 .article-content .article-text {
     padding: 1rem;
     min-height: 50vh;
+    color:#4d4d4d;
 }
 
 .other-page {
