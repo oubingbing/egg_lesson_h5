@@ -138,7 +138,7 @@ var _hmt = _hmt || [];
 
         <div class="hot-goods">
             <div class="title">
-                <div class="left">热门推荐</div>
+                <div class="left">附近推荐</div>
             </div>
             <div class="select-nav">
                 <div class="select-nav-items">

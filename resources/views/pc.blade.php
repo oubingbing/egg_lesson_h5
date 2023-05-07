@@ -116,7 +116,7 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
 
         <div class="hot-goods">
             <div class="title">
-                <div class="left">热门推荐</div>
+                <div class="left">附近推荐</div>
             </div>
             <div class="pc-select-nav">
                 <div class="select-nav-items">
