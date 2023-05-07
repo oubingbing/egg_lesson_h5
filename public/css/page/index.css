@@ -430,3 +430,69 @@ input {
 .tabbar-seller .t2{
     font-size:14px;
 }
+.swiper-new-goods{
+    padding:2vw;
+}
+.new-goods .item  {
+   background-color:#FFF;
+   border-radius:8px;
+   overflow:hidden;
+}
+
+.new-goods .item .bg {
+    height: 162px;
+    background-color: #ff6363;
+}
+
+.new-goods .item .name {
+    white-space: nowrap;
+    width: 100%;
+    padding:0 5%;
+    box-sizing: border-box;
+    font-size: 13px;
+    margin-top: 10px;
+    overflow: hidden;
+    color:#4d4d4d;
+    text-overflow: ellipsis;
+}
+
+.new-goods .item .description {
+    margin-top: 4px;
+    font-size: 12px;
+    padding:0 5%;
+    box-sizing: border-box;
+    overflow: hidden;
+    color:#888;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+}
+
+.new-goods .item .price {
+    font-size:20px;
+    margin-top:1vw;
+    padding:0 5%;
+    box-sizing: border-box;
+    overflow: hidden;
+    color:#FF2C2C;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom:0.5vw;
+    letter-spacing: 0.5px;
+}
+.new-goods .item .discount {
+    font-size: 12px;
+    padding:0 5%;
+    box-sizing: border-box;
+    overflow: hidden;
+    color:#FF2C2C;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 1vw;
+    left: 18vw;
+}

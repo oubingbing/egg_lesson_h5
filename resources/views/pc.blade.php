@@ -155,6 +155,70 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
 
     </div>
 
+    <div class="default_goods_list">
+                    @foreach ($goods_list as $item)
+                    <div class="item">
+                        <div class="part1">
+                            @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
+                            <div class="thumbnail" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
+                            @else
+                            <div class="thumbnail" style="background-image:url('https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png');"></div>
+                            @endif
+                            
+                            <div class="infos">
+                                <div class="t1">
+                                    【
+                                    @if($item['contact']['lesson_type'] == 1)
+                                    {{$item['contact']['surplus_lesson_time']}}节
+                                    @else
+                                    年卡
+                                    @endif
+                                    |{{$item['campus']['sub_course_type']}}】{{$item['transfer_info']['title']}}
+                                </div>
+                                <div class="t2">有效期：{{$item['contact']['contract_expired']}}</div>
+                    
+                                <div class="t3">
+                                    <div>课程类型：{{$item['campus']['lesson_category']['name']}}</div>
+                                    <div>
+                                        课卡类型：
+                                        @if($item['contact']['lesson_type'] == 1)
+                                        次卡&nbsp;&nbsp;
+                                        @elseif ($item['contact']['lesson_type'] == 2)
+                                        年卡&nbsp;&nbsp;
+                                        @endif
+                                        剩余课时：{{$item['contact']['surplus_lesson_time']}}节
+                                    </div>
+                                    <div>
+                                        适课年龄：{{$item['contact']['min_year']}}-{{$item['contact']['max_year']}}岁&nbsp;&nbsp;
+                                        适课性别：
+                                        @if($item['contact']['lesson_gender'] == 1)
+                                        男
+                                        @elseif ($item['contact']['lesson_gender'] == 2)
+                                        女
+                                        @elseif ($item['contact']['lesson_gender'] == 3)
+                                        不限
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="part2">
+                            {{$item['transfer_info']['title']}}
+                        </div>
+                        <div class="part3">
+                            <div class="price">¥{{$item['transfer_info']['price']}}</div>
+                            <div class="discount">{{$item['transfer_info']['discount']}}折</div>
+                            @if($item['distance'])
+                            <div class='distance'>{{$item['distance']}}km</div>
+                            @else
+                            <div class='distance'></div>
+                            @endif
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
     <!-- <div class="tabbar">
         <div class="tabbar-item" id="tabbar1">
             <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_pre_icon.png')}}");'></div>
