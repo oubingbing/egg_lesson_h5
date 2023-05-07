@@ -90,7 +90,9 @@ var _hmt = _hmt || [];
             </div>
         </div>
 
+        
 <div class="swiper-new-goods">
+    <div class="title">最新上架</div>
 <div class="new-goods swiper-wrapper">
 @foreach ($goods_list as $item)
                     <div class="item swiper-slide">
