@@ -12,7 +12,7 @@
     <meta name="description" content="{{$goods_detail["transfer_info"]["introduce"]}}">
     <title>
         @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"] )
-        【{{$goods_detail["campus"]["campus"]["city"]}}】【{{$goods_detail["campus"]["campus"]["county"]}}】
+        【{{$goods_detail["campus"]["campus"]["city"]}}{{$goods_detail["campus"]["campus"]["county"]}}】
         @endif
         @if ($goods_detail["campus"] && $goods_detail["campus"]["brand"])
         【{{$goods_detail["campus"]["brand"]["name"]
