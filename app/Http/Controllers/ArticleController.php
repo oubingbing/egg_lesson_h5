@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Service\ArticleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -68,8 +69,29 @@ class ArticleController extends Controller
 
         $this->service->updateBroweNum($id,$result[Article::FIELD_BROWSE_NUM]+1);
 
-        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->where("attachments","!=","")->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments"]))->toArray();
-        $moreList = collect(ARticle::query()->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments"]))->toArray();
+        $categoryList = $this->service->categories();
+        $sameList = collect(ARticle::where('category_father_id',$result["category_father_id"])->where("attachments","!=","")->orderBy(DB::raw('RAND()'))->take(5)->get(["id","title","attachments","category_id"]))->toArray();
+        foreach($sameList as &$s){
+            $s["category_name"] = "";
+            foreach($categoryList as $c){
+                if($c->id == $s["category_id"]){
+                    $s["category_name"] = $c->{ArticleCategory::FIELD_NAME};
+                    break;
+                }
+            }
+        }
+
+        $moreList = collect(ARticle::query()->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments","category_id"]))->toArray();
+        foreach($moreList as &$s){
+            $s["category_name"] = "";
+            foreach($categoryList as $c){
+                if($c->id == $s["category_id"]){
+                    $s["category_name"] = $c->{ArticleCategory::FIELD_NAME};
+                    break;
+                }
+            }
+        }
+
         $result["same_list"] = $sameList;
         $result["more_list"] = $moreList;
 
