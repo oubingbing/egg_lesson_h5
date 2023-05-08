@@ -84,14 +84,33 @@ class ArticleService
 
                 foreach($articleList as $a){
                     if($a->{Article::FIELD_ID_CATEGORY_FATHER} == $c->id){
-                        array_push($category["top_article"],collect($a)->toArray());
+                        $cateName = "";
+                        foreach($categoryList as $subc){
+                            if($a->{Article::FIELD_ID_CATEGORY} == $subc->id){
+                                $cateName = $subc->{ArticleCategory::FIELD_NAME};
+                                break;
+                            }
+                        }
+                        $resultData = collect($a)->toArray();
+                        $resultData["category_name"] = $cateName;
+                        array_push($category["top_article"],$resultData);
                     }
                 }
 
                 foreach($subCategory as $index => $sc){
-                    foreach($articleList as $a){
+                    foreach($articleList as &$a){
                         if($a->{Article::FIELD_ID_CATEGORY} == $sc["id"]){
-                            array_push($subCategory[$index]["top_article"],collect($a)->toArray());
+                            $cateName = "";
+                            foreach($categoryList as $subc){
+                                if($a->{Article::FIELD_ID_CATEGORY} == $subc->id){
+                                    $cateName = $subc->{ArticleCategory::FIELD_NAME};
+                                    break;
+                                }
+                            }
+
+                            $resultData = collect($a)->toArray();
+                            $resultData["category_name"] = $cateName;
+                            array_push($subCategory[$index]["top_article"],$resultData);
                         }
                     }
                 }
