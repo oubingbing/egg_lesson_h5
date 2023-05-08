@@ -46,6 +46,9 @@ function goTo(address, t, v) {
         params = ``;
     }
     if(address=== "search"){
+        if(!v){
+            v = `0`
+        }
         address = `search/${v}.html`;
         params= ``;
     }
