@@ -387,6 +387,14 @@ body{
     right: 0;
     bottom: 0;
 }
+.list4 .item .category {
+    position: absolute;
+    font-size: 11px;
+    line-height: 1;
+    color: #aaa;
+    left: 2vw;
+    bottom: 0;
+}
 
 .list4 .item .name {
     padding: 0 2vw;

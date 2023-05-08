@@ -109,6 +109,7 @@ function buildStyleLists() {
                             <div class="name">
                             ${items[j].title}
                             </div>
+                            <div class="category">${items[j].category_name}</div>
                             <div class="created-at">${moment(items[j].created_at).format("YYYY-MM-DD")}</div></div>`;
                             document.getElementById(`list_${i + 1}_items`).appendChild(item);
                             break;
