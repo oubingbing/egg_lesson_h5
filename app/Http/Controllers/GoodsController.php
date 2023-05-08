@@ -71,7 +71,13 @@ class GoodsController extends Controller
             $view = "pc";
         }
 
-        return view($view,["goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        request()->offsetSet('page_size', 36);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('order_by', "id");
+        request()->offsetSet('sort_by', "desc");
+
+        $goodsList = $this->page(request());
+        return view($view,["goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pc(Request $request)
@@ -113,7 +119,14 @@ class GoodsController extends Controller
             $config = json_decode($config,true);
         }
 
-        return view('pc',["goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        request()->offsetSet('page_size', 36);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('order_by', "id");
+        request()->offsetSet('sort_by', "desc");
+
+        $goodsList = $this->page(request());
+
+        return view('pc',["goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function detailView($id)
@@ -357,10 +370,10 @@ class GoodsController extends Controller
         return view('pc_detail',["recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
-    public function pcSearchView(Request $request)
+    public function pcSearchView($id)
     {
-        $data = $request->input("data");
-        $categoryId = $request->input("category_id");
+        $data = explode(".",$id);
+        $categoryId = $data[0];
 
         $ip = getIP();
         session(['language' => "CN"]);
@@ -374,13 +387,20 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('pc_searchlist',["data"=>$data,"category_id"=>$categoryId]);
+        request()->offsetSet('page_size', 36);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('order_by', "id");
+        request()->offsetSet('sort_by', "desc");
+
+        $goodsList = $this->page(request());
+
+        return view('pc_searchlist',["goods_list"=>collect($goodsList["page_data"])->toArray(),"data"=>$data,"category_id"=>$categoryId]);
     }
 
-    public function searchView(Request $request)
+    public function searchView($id)
     {
-        $data = $request->input("data");
-        $categoryId = $request->input("category_id");
+        $data = explode(".",$id);
+        $categoryId = $data[0];
 
         $ip = getIP();
         session(['language' => "CN"]);
@@ -394,7 +414,14 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        return view('searchlist',["data"=>$data,"category_id"=>$categoryId]);
+        request()->offsetSet('page_size', 36);
+        request()->offsetSet('page_number', 1);
+        request()->offsetSet('order_by', "id");
+        request()->offsetSet('sort_by', "desc");
+
+        $goodsList = $this->page(request());
+
+        return view('searchlist',["data"=>"","goods_list"=>collect($goodsList["page_data"])->toArray(),"category_id"=>$categoryId]);
     }
 
     public function page(Request $request)
@@ -421,8 +448,6 @@ class GoodsController extends Controller
                 $lessonCategoryIds = json_decode($lessonCategoryIds,true);
             }
         }
-
-        Log::info("商品查询输入：".json_encode($request->all()));
 
         $ids = [];
         $locations = null;
@@ -475,6 +500,7 @@ class GoodsController extends Controller
             Goods::FIELD_CREATED_AT,
             Goods::FIELD_VIEW_NUM
         ];
+
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
         $domain = config("app.tc_cos_domain");
         $list = paginate($queryBuilder, $pageParams, $fields, function ($item) use($domain,$locations,$longitude,$latitude,$type) {
