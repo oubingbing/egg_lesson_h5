@@ -64,7 +64,7 @@
 
         <div class="article-content">
             <div class="article-title">{{$article["title"]}}</div>
-            <div class="article-info">发布时间：{{$article["created_at"]}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：1003</div>
+            <div class="article-info">发布时间：{{$article["created_at"]}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{{$article['browse_num']}}</div>
             <div class="article-text" id="article_content">{!!$article["content"]!!}</div>
         </div>
 
