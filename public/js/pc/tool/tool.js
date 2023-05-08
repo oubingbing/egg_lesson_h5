@@ -45,6 +45,10 @@ function goTo(address, t, v) {
         address = `detail/${v}.html`;
         params = ``;
     }
+    if(address=== "search"){
+        address = `search/${v}.html`;
+        params= ``;
+    }
     let href = `${window.location.protocol}//${window.location.hostname}${address=='index'?'':'/pc/'+address}${params}`;
     console.log(href);
     window.open(href);
