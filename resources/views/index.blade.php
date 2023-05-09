@@ -162,7 +162,7 @@ var _hmt = _hmt || [];
 
         <div class="default_goods_list">
                     @foreach ($goods_list as $item)
-                    <div class="item">
+                    <a class="item" href="https://m.dandanzkw.com/detail/{{$item['goods_id']}}.html">
                         <div class="part1">
                             @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="thumbnail" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
@@ -220,7 +220,7 @@ var _hmt = _hmt || [];
                             <div class='distance'></div>
                             @endif
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
                 
