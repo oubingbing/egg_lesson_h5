@@ -87,6 +87,12 @@ function buildStyleLists() {
                     let attachments = items[j].attachments&&items[j].attachments[0] ? items[j].attachments[0] : '';
                     let item = document.createElement("div");
                     item.onclick = goTo.bind(this, 'article_detail', 'id', items[j].id);
+
+                    let seo_item = document.createElement("a");
+                    seo_item.href = `https://m.dandanzkw.com/article/detail/${items[j].id}.html`;
+                    seo_item.innerText = `${items[j].title}-${items[j].seo_describe}-${items[j].created_at}`;
+                    document.getElementById("default_article_list").appendChild(seo_item);
+
                     switch (i) {
                         case 0:
                             item.className = "item swiper-slide";

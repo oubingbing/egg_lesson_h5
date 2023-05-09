@@ -70,9 +70,9 @@
                 <div class="select-nav" id="searchNav">
                 </div>
 
-                <div  class="goods" id="goods">
+                <div class="default_goods_list">
                     @foreach ($goods_list as $item)
-                    <div class="item" onclick="goTo('detail', 'id', {{$item['goods_id']}})">
+                    <a class="item" href="https://m.dandanzkw.com/detail/{{$item['goods_id']}}.html">
                         <div class="part1">
                             @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="thumbnail" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
@@ -130,8 +130,12 @@
                             <div class='distance'></div>
                             @endif
                         </div>
-                    </div>
+                    </a>
                     @endforeach
+                </div>
+
+                <div  class="goods" id="goods">
+                    
                 </div>
                 <div class="modal-select-list">
                     <div class="cover" onclick="handleValueChange('show_select_modal',-1)"></div>

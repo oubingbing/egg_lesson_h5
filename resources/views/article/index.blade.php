@@ -40,6 +40,7 @@
 </head>
 
 <body>
+    <div class="default_article_list" id="default_article_list"></div>
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">
@@ -60,6 +61,8 @@
         <div class="menu-nav" id="menu_nav">
         </div>
     </div>
+
+    
 
 
         <div class="article-list-p">

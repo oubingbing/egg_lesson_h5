@@ -155,9 +155,9 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
 
     </div>
 
-    <div class="default_goods_list">
+    <div class="default_goods_list" id="default_goods_list">
                     @foreach ($goods_list as $item)
-                    <div class="item">
+                    <a class="item" href="https://m.dandanzkw.com/detail/{{$item['goods_id']}}.html">
                         <div class="part1">
                             @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="thumbnail" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
@@ -215,7 +215,7 @@ setApi("旦旦转课网","全网首个课程转让交易平台",
                             <div class='distance'></div>
                             @endif
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
 

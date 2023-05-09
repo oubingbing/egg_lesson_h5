@@ -19,6 +19,10 @@ function doAjax(params = state.params) {
         console.log(state.data);
         hideLoading();
         for (let i in state.data) {
+            let seo_item = document.createElement("a");
+            seo_item.href = `https://m.dandanzkw.com/article/detail/${state.data[i].id}.html`;
+            seo_item.innerText = `${state.data[i].title}-${state.data[i].seo_describe}-${state.data[i].created_at}`;
+            document.getElementById("default_article_list").appendChild(seo_item);
             let item = document.createElement("div");
             item.className = "item";
             item.innerHTML = `<p class="t1">${state.data[i].created_at}</p>
