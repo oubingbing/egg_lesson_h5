@@ -39,7 +39,11 @@
 </head>
 
 <body>
-    <div class="default_article_list" id="default_article_list"></div>
+    <div class="default_article_list" id="default_article_list">
+        @foreach ($article_list as $item)
+        <a href="https://m.dandanzkw.com/article/detail/{{$item['id']}}.html">{{$item['title']}}_{{$item['seo_title']}}_{{$item['seo_key_word']}}_{{$item['seo_describe']}}</a>
+        @endforeach
+    </div>
     <div class="article-list-container">
     <div class="title-bar">
             <div class="back-btn" style="background-image:url({{asset('image/back_btn_black.png')}});" onclick="goTo('article_index')"></div>
