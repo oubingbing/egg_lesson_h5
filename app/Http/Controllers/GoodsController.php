@@ -394,7 +394,7 @@ class GoodsController extends Controller
 
         $goodsList = $this->page(request());
 
-        return view('pc_searchlist',["goods_list"=>collect($goodsList["page_data"])->toArray(),"data"=>$data,"category_id"=>$categoryId]);
+        return view('pc_searchlist',["goods_list"=>collect($goodsList["page_data"])->toArray(),"data"=>"","category_id"=>$categoryId]);
     }
 
     public function searchView($id)
