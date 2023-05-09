@@ -632,6 +632,17 @@ class GoodsController extends Controller
             fwrite($file, '</url>'."\n");
         }
 
+        $sort = $request->input("sort","desc");
+        $lessonCategoryList = app(LessonCategoryService::class)->getAll($sort);
+        foreach($lessonCategoryList as $lc){
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://m.dandanzkw.com/search/".$lc['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
+        }
+
         $articleList = Article::get(["id","title"]);
         foreach($articleList as $a){
             fwrite($file, '<url>'."\n");
@@ -642,10 +653,10 @@ class GoodsController extends Controller
             fwrite($file, '</url>'."\n");
         }
 
-        $categoryList = ArticleCategory::get(["id"]);
+        $categoryList = ArticleCategory::all();
         foreach($categoryList as $ca){
             fwrite($file, '<url>'."\n");
-            fwrite($file, '<loc>'."https://m.dandanzkw.com/article/list/".$a['id'].".html".'</loc>'."\n");
+            fwrite($file, '<loc>'."https://m.dandanzkw.com/article/list/".$ca['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.6</priority>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
