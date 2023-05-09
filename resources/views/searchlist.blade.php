@@ -72,7 +72,7 @@
 
                 <div  class="goods" id="goods">
                     @foreach ($goods_list as $item)
-                    <div class="item">
+                    <div class="item" onclick="goTo('detail', 'id', {{$item['goods_id']}})">
                         <div class="part1">
                             @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="thumbnail" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
