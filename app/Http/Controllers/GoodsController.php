@@ -77,7 +77,11 @@ class GoodsController extends Controller
         request()->offsetSet('sort_by', "desc");
 
         $goodsList = $this->page(request());
-        return view($view,["goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+
+        $sort = $request->input("sort","desc");
+        $list = app(LessonCategoryService::class)->getAll($sort);
+
+        return view($view,["category_list"=>collect($list)->toArray(),"goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pc(Request $request)
@@ -126,7 +130,10 @@ class GoodsController extends Controller
 
         $goodsList = $this->page(request());
 
-        return view('pc',["goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        $sort = $request->input("sort","desc");
+        $list = app(LessonCategoryService::class)->getAll($sort);
+
+        return view('pc',["category_list"=>collect($list)->toArray(),"goods_list"=>collect($goodsList["page_data"])->toArray(),"goods"=>"iphone 6","debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function detailView($id)
