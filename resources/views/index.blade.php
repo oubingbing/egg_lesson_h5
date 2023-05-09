@@ -112,7 +112,7 @@ var _hmt = _hmt || [];
                                     </div>
                             <div class="description">{{$item['campus']['lesson_category']['name']}}</div>
                             @if($item['transfer_info']['price']>10000)
-                            <div class="price">¥{{$item['transfer_info']['price']/10000}}万</div>
+                            <div class="price">¥{{parseInt($item['transfer_info']['price']/100)/100}}万</div>
                             @else
                             <div class="price">¥{{$item['transfer_info']['price']}}</div>
                             @endif
