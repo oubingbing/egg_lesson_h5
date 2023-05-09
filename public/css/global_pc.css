@@ -6,6 +6,11 @@
     font-weight: normal;
     font-style: normal;
 }
+.default_goods_list{
+    position: fixed;
+    left:100vw;
+    opacity: 0;
+}
 
 html,
 body {

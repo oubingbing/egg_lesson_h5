@@ -1,7 +1,7 @@
 //逻辑代码
 let test_fenlei = [{ id: 1, name: "早教亲子" }, { id: 2, name: "英语培训" }, { id: 3, name: "日语培训" }];
 test_fenlei = [{ id: 0, name: "全部" }].concat(test_fenlei);
-
+let swiper_new_goods;
 let state = {
     current_location: null,
     brands: [],
@@ -291,11 +291,11 @@ $(document).ready(() => {
     getLocationByApi(); 
 
     $("#searchInput").keyup((e) => {
-        if (e.keyCode == "13") {
-            let searchInput = $("#searchInput").val();
-            sessionStorage.setItem("searchInput", searchInput);
-            goTo('search', 'data', searchInput);
-        }
+        // if (e.keyCode == "13") {
+        //     let searchInput = $("#searchInput").val();
+        //     sessionStorage.setItem("searchInput", searchInput);
+            goTo('search', 'category',0);
+        // }
     })
 
     scrollToBottom('page-index', null, () => {
@@ -303,4 +303,16 @@ $(document).ready(() => {
         showLoading();
         getGoods();
     })
+
+    swiper_new_goods = new Swiper('.swiper-new-goods', {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        centeredSlides: true,
+        autoplay:true,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
 })

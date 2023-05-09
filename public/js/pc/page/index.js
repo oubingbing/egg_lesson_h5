@@ -291,11 +291,11 @@ $(document).ready(() => {
 
 
     $("#searchInput").keyup((e) => {
-        if (e.keyCode == "13") {
-            let searchInput = $("#searchInput").val();
-            sessionStorage.setItem("searchInput", searchInput);
-            goTo('search', 'data', searchInput);
-        }
+        // if (e.keyCode == "13") {
+        //     let searchInput = $("#searchInput").val();
+        //     sessionStorage.setItem("searchInput", searchInput);
+            goTo('search', 'category', 0);
+        // }
     })
 
     scrollToBottomPc('pc', null, () => {

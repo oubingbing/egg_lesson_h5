@@ -143,6 +143,13 @@ body {
     text-overflow: ellipsis;
 }
 
+.articles .item .category{
+    font-size: 11px;
+    line-height: 2;
+    color: #aaa;
+    margin-left: 2vw;
+}
+
 .articles .item .description {
     margin-top: 4px;
     font-size: 12px;
@@ -269,4 +276,13 @@ body {
     height: 100%;
     /* font-weight: bold; */
     color: #4d4d4d;
+}
+
+.list4 .item .category{
+    position: absolute;
+    font-size: 11px;
+    line-height: 1;
+    color: #aaa;
+    left: 2vw;
+    bottom: 0;
 }

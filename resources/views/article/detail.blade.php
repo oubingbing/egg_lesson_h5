@@ -90,12 +90,14 @@
                 <div class="article-list-title" id="list_1_title">相关推荐</div>
                 <div class="swiper-container">
                 <div class="articles swiper-wrapper" id="list_1_items">
+                @if($article["same_list"])
                 @foreach ($article["same_list"] as $item)
                 <div class="item swiper-slide"  onclick="goTo('article_detail','id',{{$item['id']}})"><div class="bg" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                             <div class="name">{{$item['title']}}</div>
-                            <div class="category">{{$items['category_name']}}</div>
+                            <div class="category">{{$item['category_name']}}</div>
                         </div>
                 @endforeach
+                @endif
                 </div>
                 </div>
             </div>
@@ -111,17 +113,19 @@
             @endif
             )">查看更多</div>
             <div class="items" id="list_4_items">
+                @if($article["more_list"])
             @foreach ($article["more_list"] as $item)
                 <div class="item"  onclick="goTo('article_detail','id',{{$item['id']}})">
                     <div class="thumbnail" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                     <div class="info">
                         <div class="name">{{$item['title']}}</div>
-                        <div class="category">{{$items['category_name']}}</div>
+                        <div class="category">{{$item['category_name']}}</div>
                         <div class="created-at">2023-04-28</div>
                     </div>
 
                 </div>
                 @endforeach
+                @endif
             </div>
         </div>
     </div>

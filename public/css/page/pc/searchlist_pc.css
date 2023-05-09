@@ -655,8 +655,3 @@
     z-index: 99;
 }
 
-.default_goods_list{
-    position: fixed;
-    left:100vw;
-    opacity: 0;
-}
