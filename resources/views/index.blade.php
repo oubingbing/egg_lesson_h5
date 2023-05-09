@@ -161,6 +161,9 @@ var _hmt = _hmt || [];
         </div>
 
         <div class="default_goods_list" id="default_goods_list">
+            @foreach($category_list as $item)
+            <a href="https://m.dandanzkw.com/search/{{$item['id']}}.html">{{$item['name']}}</a>
+            @endforeach
                     @foreach ($goods_list as $item)
                     <a class="item" href="https://m.dandanzkw.com/detail/{{$item['goods_id']}}.html">
                         <div class="part1">

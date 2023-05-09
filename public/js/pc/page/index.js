@@ -69,15 +69,6 @@ function getLessonCategories() {
         select_nav_item_all.onclick = clickSelectNavItem.bind(this, { id: 0, name: "全部" });
         document.getElementsByClassName("select-nav-items")[0].appendChild(select_nav_item_all);
         for (let i in state.lesson_category) {
-
-
-            let seo_item = document.createElement("a");
-            seo_item.href = `https://m.dandanzkw.com/search/${state.lesson_category[i].id}.html`;
-            seo_item.innerText = `${state.lesson_category[i].name}-${state.lesson_category[i].seo_title}-${state.lesson_category[i].seo_key}-${state.lesson_category[i].seo_description}-${state.lesson_category[i].created_at}`;
-            document.getElementById("default_goods_list").appendChild(seo_item);
-
-
-            
             let lesson_category = document.createElement("div");
             lesson_category.innerText = state.lesson_category[i];
             lesson_category.onclick = goTo.bind(null, 'search', 'category_id', state.lesson_category[i].id)
