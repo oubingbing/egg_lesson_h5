@@ -19,7 +19,10 @@ class ArticleService
         ->get([
             ArticleCategory::FIELD_ID,
             ArticleCategory::FIELD_NAME,
-            ArticleCategory::FIELD_ID_FATHER
+            ArticleCategory::FIELD_ID_FATHER,
+            ArticleCategory::FIELD_SEO_TITLE,
+            ArticleCategory::FIELD_SEO_KEY_WROD,
+            ArticleCategory::FIELD_SEO_DESCRIBE
         ]);
         return $list;
     }

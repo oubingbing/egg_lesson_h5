@@ -37,6 +37,20 @@ class ArticleController extends Controller
 
         $data = $this->page(request());
         $result = collect($data["page_data"])->toArray();
+        $categoryList = $this->service->categories();
+        foreach($result as &$item){
+            $item["category_seo_title"] = "";
+            $item["category_seo_key_word"] = "";
+            $item["category_seo_describe"] = "";
+            foreach($categoryList as $c){
+                if($c->id == $item[Article::FIELD_ID_CATEGORY]){
+                    $item["category_seo_title"] = $c->{ArticleCategory::FIELD_SEO_TITLE};
+                    $item["category_seo_key_word"] = $c->{ArticleCategory::FIELD_SEO_KEY_WROD};
+                    $item["category_seo_describe"] = $c->{ArticleCategory::FIELD_SEO_DESCRIBE};
+                    break;
+                }
+            }
+        }
 
         return view('article.list',["article_list"=>$result]);
     }
@@ -117,6 +131,22 @@ class ArticleController extends Controller
 
         $data = $this->page(request());
         $result = collect($data["page_data"])->toArray();
+
+        $categoryList = $this->service->categories();
+        foreach($result as &$item){
+            $item["category_seo_title"] = "";
+            $item["category_seo_key_word"] = "";
+            $item["category_seo_describe"] = "";
+            foreach($categoryList as $c){
+                if($c->id == $item[Article::FIELD_ID_CATEGORY]){
+                    $item["category_seo_title"] = $c->{ArticleCategory::FIELD_SEO_TITLE};
+                    $item["category_seo_key_word"] = $c->{ArticleCategory::FIELD_SEO_KEY_WROD};
+                    $item["category_seo_describe"] = $c->{ArticleCategory::FIELD_SEO_DESCRIBE};
+                    break;
+                }
+            }
+        }
+
         return view('article.pcList',["article_list"=>$result]);
     }
 
@@ -228,7 +258,8 @@ class ArticleController extends Controller
             Article::FIELD_SEO_DESCRIBE,
             Article::FIELD_CREATED_AT,
             Article::FIELD_ATTACHMENTS,
-            Article::FIELD_BROWSE_NUM
+            Article::FIELD_BROWSE_NUM,
+            Article::FIELD_ID_CATEGORY
         ];
 
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];

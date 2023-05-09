@@ -32,6 +32,15 @@ class ArticleCategory extends BaseModel
     /** Field attachments 图片 **/
     const FIELD_ATTACHMENTS = "attachments";
 
+    /** Field seo title 文章简介 **/
+    const FIELD_SEO_TITLE = "seo_title";
+
+    /** Field seo_key_word 文章标题 **/
+    const FIELD_SEO_KEY_WROD = 'seo_key_word';
+
+    /** Field seo_describe 文章简介 **/
+    const FIELD_SEO_DESCRIBE = "seo_describe";
+
     //status - 下架
     const ENUM_STATUS_DOWN = 0;
     //status - 上架
