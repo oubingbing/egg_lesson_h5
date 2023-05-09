@@ -637,7 +637,7 @@ class GoodsController extends Controller
         foreach($lessonCategoryList as $lc){
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/search/".$lc['id'].".html".'</loc>'."\n");
-            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<priority>0.8</priority>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
@@ -657,7 +657,7 @@ class GoodsController extends Controller
         foreach($categoryList as $ca){
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/article/list/".$ca['id'].".html".'</loc>'."\n");
-            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<priority>0.8</priority>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
