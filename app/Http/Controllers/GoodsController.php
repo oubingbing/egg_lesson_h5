@@ -4,6 +4,8 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\ContractTransferInfos;
 use App\Models\Goods;
 use App\Service\BannerService;
@@ -11,6 +13,7 @@ use App\Service\BrandService;
 use App\Service\GoodsService;
 use App\Service\LessonCategoryService;
 use App\Service\PurchaseLogService;
+use Carbon\Carbon;
 use Exception;
 use GeoIp2\Database\Reader;
 use Illuminate\Http\Request;
@@ -585,7 +588,24 @@ class GoodsController extends Controller
 
     public function sitemap(Request $request)
     {
-        return redirect("sitemap.txt");
+
+        // 设置网站根目录
+        $base_url = 'https://www.dandanzkw.com';
+
+        // 创建sitemap.xml文件
+        $now = Carbon::now();
+        $file = fopen(public_path("sitemap.xml"), "w");
+        fwrite($file, '<?xml version="1.0" encoding="UTF-8"?>'."\n");
+        fwrite($file, '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>'."\n");
+        fwrite($file, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n");
+
+        // 添加主页链接
+        fwrite($file, '<url>'."\n");
+        fwrite($file, '<loc>'.$base_url.'</loc>'."\n");
+        fwrite($file, '<priority>1.0</priority>'."\n");
+        fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+        fwrite($file, '<changefreq>Always</changefreq>'."\n");
+        fwrite($file, '</url>'."\n");
 
         $data = Goods::query()
             ->whereIn(Goods::FIELD_STATUS,[
@@ -603,40 +623,36 @@ class GoodsController extends Controller
         $list = collect($data)->toArray();
         $result = [];
 
-        $file = public_path("sitemap.txt");
-        $mapStr = "
-https://www.dandanzkw.com/ \r
-https://pc.dandanzkw.com/search?category_id=3 \r
-https://pc.dandanzkw.com/search?category_id=7 \r
-https://pc.dandanzkw.com/search?category_id=1 \r
-https://pc.dandanzkw.com/search?category_id=2 \r
-https://pc.dandanzkw.com/search?category_id=4 \r
-https://pc.dandanzkw.com/search?category_id=5 \r
-https://pc.dandanzkw.com/search?category_id=6 \r
-https://pc.dandanzkw.com/search?category_id=8 \r
-https://pc.dandanzkw.com/search?category_id=10 \r
-https://www.dandanzkw.com/aboutus/ \r
-https://www.dandanzkw.com/zhuce/ \r
-https://www.dandanzkw.com/yinsi/ \r
-https://www.dandanzkw.com/kechengleibie/ \r
-https://www.dandanzkw.com/kechengfabu/ \r
-https://www.dandanzkw.com/cooperate/ \r";
         foreach($list as $item){
-            $newItem = ["id"=>$item["id"],"title"=>""];
-            if(array_key_exists("transfer_info",$item)){
-                $newItem["title"] = $item["transfer_info"]["title"];
-            }
-            array_push($result,$newItem);
-
-            if($item["id"] > 1546){
-                $this->reportBaidu($item["id"]);
-            }
-
-            $mapStr .= "
-https://m.dandanzkw.com/detail/".$item['id'].".html"."\r";
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://m.dandanzkw.com/detail/".$item['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
         }
 
-        //file_put_contents($file, $mapStr);
+        $articleList = Article::get(["id","title"]);
+        foreach($articleList as $a){
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://m.dandanzkw.com/article/".$a['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
+        }
+
+        $categoryList = ArticleCategory::get(["id"]);
+        foreach($categoryList as $ca){
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://m.dandanzkw.com/article/list/".$a['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
+        }
+
+        fwrite($file, '</urlset>'."\n");
 
         return view('sitemap',["data"=>$result]);
     }
