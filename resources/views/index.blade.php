@@ -95,7 +95,7 @@ var _hmt = _hmt || [];
     <div class="title">最新上架</div>
 <div class="new-goods swiper-wrapper">
 @foreach ($goods_list as $item)
-                    <div class="item swiper-slide">
+                    <div class="item swiper-slide" onclick="goTo('detail', 'id', {{$item['goods_id']}})">
                     @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="bg" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
                             @else

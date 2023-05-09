@@ -55,12 +55,14 @@
             onclick="goTo('search',null,null)"></div>
         <div class="banner-swiper-box mySwiper">
             <div class="banner-swiper swiper-wrapper" id="banners">
+                @if($goods_detail["transfer_info"] && $goods_detail["transfer_info"]['attachments'])
                 @foreach ($goods_detail["transfer_info"]["attachments"] as $item)
                 <div class="banner-image swiper-slide">
                     <img
                         src="{{$item}}" alt="{{$goods_detail['campus']['brand']['name']}}课程转让" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
                 @endforeach
+                @endif
             </div>
         </div>
 
