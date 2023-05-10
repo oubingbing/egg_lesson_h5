@@ -141,7 +141,8 @@
              <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
              <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
              <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a> |
-             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a>
+             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a> |
+             <a href="https://m.dandanzkw.com/sitemap.xml">网站地图 </a>
              </p>
         <div class="authentication">
             <div style="margin:0px auto;padding: 2px;">
