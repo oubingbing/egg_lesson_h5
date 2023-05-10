@@ -142,6 +142,7 @@
              <a href="https://m.dandanzkw.com/search/6.html" >体育竞技</a> |
              <a href="https://m.dandanzkw.com/search/8.html" >Steam</a> |
              <a href="https://m.dandanzkw.com/search/10.html" >职业教育</a> |
+             <a href="https://m.dandanzkw.com/article.html" >旦旦编辑部</a> |
              <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
              <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
              <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
