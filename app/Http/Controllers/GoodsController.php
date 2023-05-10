@@ -397,10 +397,11 @@ class GoodsController extends Controller
             }
         }catch(Exception $e){}
 
-        request()->offsetSet('page_size', 36);
+        request()->offsetSet('page_size', 30);
         request()->offsetSet('page_number', 1);
         request()->offsetSet('order_by', "id");
         request()->offsetSet('sort_by', "desc");
+        request()->offsetSet('lesson_category_ids', [$categoryId]);
 
         $goodsList = $this->page(request());
 
@@ -428,6 +429,7 @@ class GoodsController extends Controller
         request()->offsetSet('page_number', 1);
         request()->offsetSet('order_by', "id");
         request()->offsetSet('sort_by', "desc");
+        request()->offsetSet('lesson_category_ids', [$categoryId]);
 
         $goodsList = $this->page(request());
 
@@ -464,8 +466,6 @@ class GoodsController extends Controller
         $pageNumberNew = $pageNumber;
         if ($type==4){
             $lessonLocation = "lesson_location";
-
-            Log::info($km);
 
             $locations = Redis::georadius($lessonLocation,floatval($longitude),floatval($latitude),(float)$km, 'km', ['withdist' => true, 'sort' => $sortBy]);
             if (!empty($locations)){
