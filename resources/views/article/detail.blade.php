@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="{{$article['seo_key_word']}}">
     <meta name="description" content="{{$article['seo_describe']}}">
-    <title>{{$article['title']}}</title>
+    <title>{{$article['title']}}_{{$article['category_name']}}_旦旦转课网_全网首个课程转让交易平台</title>
     <!-- Fonts -->
     <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
