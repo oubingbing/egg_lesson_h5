@@ -285,8 +285,25 @@ function getLocationByApi() {
 }
 
 
-$(document).ready(() => {
+function setIndexNum(){
+    let random = [11,13,10,12,14,8,9][moment().day()];
+    random+=moment().date()%2;
+    console.log(random);
+    let defaultNum = 4284 + parseInt(((new Date().getTime() - new Date("2023-04-01").getTime())/1000/60/60/24)*39.5);
+    let todayDefaultNum = parseInt((new Date().getTime() - new Date(moment().format("YYYY-MM-DD 10:00:00")).getTime())/1000);
+    todayDefaultNum = Math.max(0,todayDefaultNum);
+    todayDefaultNum = Math.min(28800,todayDefaultNum);
+    document.getElementById("indexNum1").innerText =parseInt(todayDefaultNum/(60*random+11));
+    document.getElementById("indexNum2").innerText =defaultNum + parseInt(todayDefaultNum/(60*random+11));
+    document.getElementById("indexNum3").innerText =parseInt(todayDefaultNum/(60*random+11)/3);
+    setTimeout(()=>{
+        setIndexNum();
+    },100000);
 
+}
+
+$(document).ready(() => {
+    setIndexNum();
     getPurChaseLogs();
     getLocationByApi(); 
 

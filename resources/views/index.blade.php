@@ -23,6 +23,7 @@
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/index.js')}}"></script>
+    <script src="{{asset('js/moments.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>
@@ -87,6 +88,25 @@ var _hmt = _hmt || [];
                 <div class="names" id="purchase_logs">
 
                 </div>
+            </div>
+        </div>
+
+        <div class="index-nums">
+            <div class="title">实时数据</div>
+            <div class="item">
+                <div class="num" id="indexNum1">0</div>
+                <div class="name">今日上架</div>
+                
+            </div>
+            <div class="item">
+                <div class="num" id="indexNum2">0</div>
+                <div class="name">在售课程</div>
+                
+            </div>
+            <div class="item">
+                <div class="num" id="indexNum3">0</div>
+                <div class="name">今日成交</div>
+               
             </div>
         </div>
 
