@@ -135,7 +135,7 @@
             <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
             <div class="tabbar-item-name">首页</div>
         </div>
-        <div class="tabbar-item" id="dandaneditor" onclick="goToEditor()">
+        <div class="tabbar-item" id="dandaneditor">
             <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_pre_icon.png')}}");'></div>
             <div class="tabbar-item-name">编辑部</div>
         </div>

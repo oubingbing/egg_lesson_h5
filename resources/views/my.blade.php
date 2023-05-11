@@ -244,19 +244,24 @@
         </div>
         <div class="tabbar">
             <div class="tabbar-item" id="tabbar1">
-                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
                 <div class="tabbar-item-name">首页</div>
             </div>
+            <div class="tabbar-item" id="dandaneditor">
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-name">编辑部</div>
+            </div>
             <div class="tabbar-item" id="tabbar2">
-                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_fabu_nor_icon.png')}}");'></div>
-                <div class="tabbar-item-name">发布</div>
+                <div class="tabbar-publish">
+                <div class="tabbar-publish-icon" style='background-image: url("{{asset('image/tabbar/shouye_fabu_pre_icon.png')}}");'></div>
+            </div>
             </div>
             <div class="tabbar-item" id="tabbar3">
-                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('../image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
                 <div class="tabbar-item-name">消息</div>
             </div>
             <div class="tabbar-item" id="tabbar4">
-                <div class="tabbar-item-pic pre" style='background-image: url("{{asset('../image/tabbar/shouye_wode_pre_icon.png')}}");'></div>
+                <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_wode_pre_icon.png')}}");'></div>
                 <div class="tabbar-item-name">我的</div>
             </div>
         </div>
