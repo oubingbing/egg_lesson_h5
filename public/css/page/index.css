@@ -13,7 +13,7 @@ input {
 .index-nums{
     display: flex;
     background-color: #FFF;
-    padding: calc(8vw + 2em) 0 2vw 0;
+    padding: calc(6vw + 2em) 0 2vw 0;
     border-bottom: 0.1875rem solid #F5F7FA;
     position: relative;
 }
@@ -33,9 +33,7 @@ input {
     color: #333;
     top: 5vw;
     width: 100%;
-    border-bottom: 0.1875rem solid #F5F5F5;
     box-sizing: border-box;
-    padding-bottom: 3vw;
 }
 .index-nums .item .name{
     /* color:#4d4d4d;
