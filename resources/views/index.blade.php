@@ -80,20 +80,11 @@ var _hmt = _hmt || [];
 
         </div>
 
-        <div class="purchase">
-            <div class="icon" style='background-image: url("{{asset('image/shouye_laba_icon.png')}}");
-                background-position: center center; background-size: cover;'>
-            </div>
-            <div class="names-box">
-                <div class="names" id="purchase_logs">
-
-                </div>
-            </div>
-        </div>
+        
 
         <div class="index-nums">
             <div class="title">实时数据</div>
-            <div class="item">
+            <div class="item" style="border-left:0;">
                 <div class="num" id="indexNum1">0</div>
                 <div class="name">今日上架</div>
                 
@@ -107,6 +98,17 @@ var _hmt = _hmt || [];
                 <div class="num" id="indexNum3">0</div>
                 <div class="name">今日成交</div>
                
+            </div>
+        </div>
+
+        <div class="purchase">
+            <div class="icon" style='background-image: url("{{asset('image/shouye_laba_icon.png')}}");
+                background-position: center center; background-size: cover;'>
+            </div>
+            <div class="names-box">
+                <div class="names" id="purchase_logs">
+
+                </div>
             </div>
         </div>
 
