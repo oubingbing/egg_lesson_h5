@@ -287,6 +287,7 @@ function getLocationByApi() {
 
 function setIndexNum(){
     let random = [11,13,10,12,14,8,9][moment().day()];
+    let random2 = [7,6,8,7,6,8,9][moment().day()];
     random+=moment().date()%2;
     console.log(random);
     let defaultNum = 4284 + parseInt(((new Date().getTime() - new Date("2023-04-01").getTime())/1000/60/60/24)*39.5);
@@ -295,7 +296,7 @@ function setIndexNum(){
     todayDefaultNum = Math.min(28800,todayDefaultNum);
     document.getElementById("indexNum1").innerText =parseInt(todayDefaultNum/(60*random+11));
     document.getElementById("indexNum2").innerText =defaultNum + parseInt(todayDefaultNum/(60*random+11));
-    document.getElementById("indexNum3").innerText =parseInt(todayDefaultNum/(60*random+11)/3);
+    document.getElementById("indexNum3").innerText =Math.min(parseInt(todayDefaultNum/(60*random+11)/3),parseInt(todayDefaultNum/(60*random+11)/5+random2));
     setTimeout(()=>{
         setIndexNum();
     },100000);
