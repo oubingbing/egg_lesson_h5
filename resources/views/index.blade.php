@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
             <div class="item">
                 <div class="num" id="indexNum3">0</div>
                 <div class="name">今日成交</div>
-               
             </div>
         </div>
 
