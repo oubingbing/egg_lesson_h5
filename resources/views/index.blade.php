@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
                                     |{{$item['campus']['sub_course_type']}}】{{$item['transfer_info']['title']}}
                                     </div>
                             <div class="description">{{$item['campus']['lesson_category']['name']}}</div>
-                            @if($item['transfer_info']['price']>10000)
+                            @if($item['transfer_info']['price']>=10000)
                             <div class="price">¥{{intval($item['transfer_info']['price']/100,10)/100}}万</div>
                             @else
                             <div class="price">¥{{$item['transfer_info']['price']}}</div>
