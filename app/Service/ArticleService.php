@@ -128,19 +128,20 @@ class ArticleService
 
     public function GetArticleByCategory($categoryId,$filter)
     {
-        $category = ArticleCategory::find($categoryId);
-        if(!$category){
-            throw new ApiException("栏目不存在");
-        }
-
         $this->articleBuilder = Article::query()
         ->where(Article::FIELD_STATUS,Article::ENUM_STATUS_UP)
         ->orderBy("sort","desc");
 
-        if($category->{ArticleCategory::FIELD_ID_FATHER} == 0){
-            $this->articleBuilder->where(Article::FIELD_ID_CATEGORY_FATHER,$categoryId);
-        }else{
-            $this->articleBuilder->where(Article::FIELD_ID_CATEGORY,$categoryId);
+        if($categoryId != 0){
+            $category = ArticleCategory::find($categoryId);
+            if(!$category){
+                throw new ApiException("栏目不存在");
+            }
+            if($category->{ArticleCategory::FIELD_ID_FATHER} == 0){
+                $this->articleBuilder->where(Article::FIELD_ID_CATEGORY_FATHER,$categoryId);
+            }else{
+                $this->articleBuilder->where(Article::FIELD_ID_CATEGORY,$categoryId);
+            }
         }
 
         if($filter){
