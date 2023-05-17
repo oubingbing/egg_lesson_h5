@@ -23,6 +23,7 @@
     <script src="{{asset('js/bottom_menu.js')}}"></script>
     <script src="{{asset('js/tool/http.js')}}"></script>
     <script src="{{asset('js/page/index.js')}}"></script>
+    <script src="{{asset('js/moments.js')}}"></script>
     <script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
     <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="{{asset('js/tool/wx.js')}}"></script>
@@ -79,6 +80,26 @@ var _hmt = _hmt || [];
 
         </div>
 
+        
+
+        <div class="index-nums">
+            <div class="title">实时数据</div>
+            <div class="item" style="border-left:0;">
+                <div class="num" id="indexNum1">0</div>
+                <div class="name">今日上架</div>
+                
+            </div>
+            <div class="item">
+                <div class="num" id="indexNum2">0</div>
+                <div class="name">在售课程</div>
+                
+            </div>
+            <div class="item">
+                <div class="num" id="indexNum3">0</div>
+                <div class="name">今日成交</div>
+            </div>
+        </div>
+
         <div class="purchase">
             <div class="icon" style='background-image: url("{{asset('image/shouye_laba_icon.png')}}");
                 background-position: center center; background-size: cover;'>
@@ -111,7 +132,7 @@ var _hmt = _hmt || [];
                                     |{{$item['campus']['sub_course_type']}}】{{$item['transfer_info']['title']}}
                                     </div>
                             <div class="description">{{$item['campus']['lesson_category']['name']}}</div>
-                            @if($item['transfer_info']['price']>10000)
+                            @if($item['transfer_info']['price']>=10000)
                             <div class="price">¥{{intval($item['transfer_info']['price']/100,10)/100}}万</div>
                             @else
                             <div class="price">¥{{$item['transfer_info']['price']}}</div>
@@ -230,21 +251,22 @@ var _hmt = _hmt || [];
         <div class="footer">
     <p style="padding:0 10px;">
         <a href="https://m.dandanzkw.com/" >首页</a> |
-        <a href="https://m.dandanzkw.com/search?category_id=3" >舞蹈培训</a> |
-        <a href="https://m.dandanzkw.com/search?category_id=7" >瑜伽健身</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=1" >早教亲子</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=2" >英语培训</a>|
-         <a href="https://m.dandanzkw.com/search?category_id=4" >器乐文艺</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=5" >语种培训</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=6" >体育竞技</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=8" >Steam</a> |
-         <a href="https://m.dandanzkw.com/search?category_id=10" >职业教育</a> |
+        <a href="https://m.dandanzkw.com/search/3.html" >舞蹈培训</a> |
+        <a href="https://m.dandanzkw.com/search/7.html" >瑜伽健身</a> |
+         <a href="https://m.dandanzkw.com/search/1.html" >早教亲子</a> |
+         <a href="https://m.dandanzkw.com/search/2.html" >英语培训</a>|
+         <a href="https://m.dandanzkw.com/search/4.html">器乐文艺</a> |
+         <a href="https://m.dandanzkw.com/search/5.html">语种培训</a> |
+         <a href="https://m.dandanzkw.com/search/6.html" >体育竞技</a> |
+         <a href="https://m.dandanzkw.com/search/8.html" >Steam</a> |
+         <a href="https://m.dandanzkw.com/search/10.html" >职业教育</a> |
+         <a href="https://m.dandanzkw.com/article.html" >旦旦编辑部</a> |
          <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
          <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
          <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
          <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a> |
          <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a> |
-         <a href="https://m.dandanzkw.com/sitemap.txt">网站地图 </a>
+         <a href="https://m.dandanzkw.com/sitemap.xml">网站地图 </a>
          </p>
     <div class="authentication">
         <div style="margin:0px auto;padding: 2px;">

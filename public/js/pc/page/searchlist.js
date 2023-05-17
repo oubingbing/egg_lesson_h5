@@ -107,24 +107,10 @@ var state = {
 };
 
 //获取url传参
-let url_params_text = window.location.href.split("?")[1];
-url_params_text = url_params_text && url_params_text.length ? url_params_text.split("&") : void(0);
-let url_params = {};
-if (!!url_params_text && !!url_params_text.length) {
-    for (let i in url_params_text) {
-        let item = url_params_text[i];
-        url_params[item.split('=')[0]] = item.split('=')[1];
-    }
-}
-
-console.log(url_params);
-if (!!url_params.category_id) {
-    state.goods_params.lesson_category_ids = url_params.category_id;
-}
-
-if (!!url_params.data) {
-    state.goods_params.brands = decodeURI(url_params.data);
-    console.log(document.getElementById("searchInput"), state.goods_params.brands);
+let url_params_text = window.location.href.split('search/')[1];
+url_params_text = url_params_text.split('.html')[0];
+if(!!url_params_text && parseInt(url_params_text)!==0){
+    state.goods_params.lesson_category_ids = url_params_text;
 }
 
 

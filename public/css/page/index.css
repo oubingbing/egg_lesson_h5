@@ -10,6 +10,47 @@ input {
     text-decoration: inherit;
 }
 
+.index-nums{
+    display: flex;
+    background-color: #FFF;
+    padding: calc(6vw + 2em) 0 2vw 0;
+    border-bottom: 0.1875rem solid #F5F7FA;
+    position: relative;
+}
+.index-nums .item{
+    flex:1;
+    text-align: center;
+    border-right:0.0938rem solid #F5F5F5;
+    border-left:0.0938rem solid #F5F5F5;
+}
+.index-nums .item:last-child{
+    border-right:0;
+}
+.index-nums>.title{
+    position: absolute;
+    padding-left: 1.25em;
+    font-weight: bold;
+    color: #333;
+    top: 5vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+.index-nums .item .name{
+    /* color:#4d4d4d;
+    font-size:16px;
+    font-weight: bold; */
+    line-height: 2; 
+    font-size: 1rem;
+    font-family: DanDanFont;
+    font-weight: bold;
+    color: #333333;
+}
+.index-nums .item .num{
+    color:#FF2C2C;
+    line-height: 1.2;
+    font-size:20px;
+}
+
 .page-index {
     width: 100vw;
     height: 100vh;

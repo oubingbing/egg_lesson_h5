@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="{{$article['seo_key_word']}}">
     <meta name="description" content="{{$article['seo_describe']}}">
-    <title>{{$article['title']}}</title>
+    <title>{{$article['title']}}_{{$article['category_name']}}_旦旦转课网_全网首个课程转让交易平台</title>
     <!-- Fonts -->
     <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -130,23 +130,49 @@
         </div>
     </div>
 
+    <div class="tabbar">
+        <div class="tabbar-item" id="tabbar1">
+            <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">首页</div>
+        </div>
+        <div class="tabbar-item" id="dandaneditor">
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_pre_icon.png')}}");'></div>
+            <div class="tabbar-item-name">编辑部</div>
+        </div>
+        <div class="tabbar-item" id="tabbar2">
+            <div class="tabbar-publish">
+            <div class="tabbar-publish-icon" style='background-image: url("{{asset('image/tabbar/shouye_fabu_pre_icon.png')}}");'></div>
+        </div>
+        </div>
+        <div class="tabbar-item" id="tabbar3">
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_xiaoxi_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">消息</div>
+        </div>
+        <div class="tabbar-item" id="tabbar4">
+            <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_wode_nor_icon.png')}}");'></div>
+            <div class="tabbar-item-name">我的</div>
+        </div>
+    </div>
+
     <div class="footer">
         <p style="padding:0 10px;">
             <a href="https://m.dandanzkw.com/" >首页</a> |
-            <a href="https://m.dandanzkw.com/search?category_id=3" >舞蹈培训</a> |
-            <a href="https://m.dandanzkw.com/search?category_id=7" >瑜伽健身</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=1" >早教亲子</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=2" >英语培训</a>|
-             <a href="https://m.dandanzkw.com/search?category_id=4" >器乐文艺</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=5" >语种培训</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=6" >体育竞技</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=8" >Steam</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=10" >职业教育</a> |
+            <a href="https://m.dandanzkw.com/search/3.html" >舞蹈培训</a> |
+            <a href="https://m.dandanzkw.com/search/7.html" >瑜伽健身</a> |
+             <a href="https://m.dandanzkw.com/search/1.html" >早教亲子</a> |
+             <a href="https://m.dandanzkw.com/search/2.html" >英语培训</a>|
+             <a href="https://m.dandanzkw.com/search/4.html">器乐文艺</a> |
+             <a href="https://m.dandanzkw.com/search/5.html">语种培训</a> |
+             <a href="https://m.dandanzkw.com/search/6.html" >体育竞技</a> |
+             <a href="https://m.dandanzkw.com/search/8.html" >Steam</a> |
+             <a href="https://m.dandanzkw.com/search/10.html" >职业教育</a> |
+             <a href="https://m.dandanzkw.com/article.html" >旦旦编辑部</a> |
              <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
              <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
              <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
              <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a> |
-             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a>
+             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a> |
+             <a href="https://m.dandanzkw.com/sitemap.xml">网站地图 </a>
              </p>
         <div class="authentication">
             <div style="margin:0px auto;padding: 2px;">

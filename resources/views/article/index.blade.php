@@ -67,7 +67,7 @@
 
         <div class="article-list-p">
             <div class="article-list">
-                <div class="article-list-title" id="list_1_title">每日一读</div>
+                <div class="article-list-title" id="list_1_title"></div>
                 <div class="show-more" id="list_1_showmore">更多>></div>
                 <div class="swiper-container articles-box">
                 <div class="articles swiper-wrapper" id="list_1_items">
@@ -79,14 +79,14 @@
 
 
         <div class="list2">
-            <div class="article-list-title" id="list_2_title">最新文章</div>
+            <div class="article-list-title" id="list_2_title"></div>
             <div class="show-more" id="list_2_showmore">更多>></div>
             <div class="items" id="list_2_items">
             </div>
         </div>
 
         <div class="list3 banner">
-            <div class="article-list-title" id="list_3_title">热门推荐</div>
+            <div class="article-list-title" id="list_3_title"></div>
             <div class="show-more" id="list_3_showmore">更多>></div>
             <div class="items mySwiper2" >
                 <div class="swiper-wrapper" id="list_3_items"></div>
@@ -94,7 +94,7 @@
         </div>
 
         <div class="list4">
-            <div class="article-list-title" id="list_4_title">热门推荐</div>
+            <div class="article-list-title" id="list_4_title"></div>
             <div class="show-more" id="list_4_showmore">更多>></div>
             <div class="items" id="list_4_items">
                 
@@ -106,7 +106,7 @@
                 <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
                 <div class="tabbar-item-name">首页</div>
             </div>
-            <div class="tabbar-item" id="dandaneditor" onclick="goToEditor()">
+            <div class="tabbar-item" id="dandaneditor">
                 <div class="tabbar-item-pic nor" style='background-image: url("{{asset('image/tabbar/shouye_editor_pre_icon.png')}}");'></div>
                 <div class="tabbar-item-name">编辑部</div>
             </div>
@@ -128,20 +128,22 @@
         <div class="footer">
         <p style="padding:0 10px;">
             <a href="https://m.dandanzkw.com/" >首页</a> |
-            <a href="https://m.dandanzkw.com/search?category_id=3" >舞蹈培训</a> |
-            <a href="https://m.dandanzkw.com/search?category_id=7" >瑜伽健身</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=1" >早教亲子</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=2" >英语培训</a>|
-             <a href="https://m.dandanzkw.com/search?category_id=4" >器乐文艺</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=5" >语种培训</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=6" >体育竞技</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=8" >Steam</a> |
-             <a href="https://m.dandanzkw.com/search?category_id=10" >职业教育</a> |
+            <a href="https://m.dandanzkw.com/search/3.html" >舞蹈培训</a> |
+            <a href="https://m.dandanzkw.com/search/7.html" >瑜伽健身</a> |
+             <a href="https://m.dandanzkw.com/search/1.html" >早教亲子</a> |
+             <a href="https://m.dandanzkw.com/search/2.html" >英语培训</a>|
+             <a href="https://m.dandanzkw.com/search/4.html">器乐文艺</a> |
+             <a href="https://m.dandanzkw.com/search/5.html">语种培训</a> |
+             <a href="https://m.dandanzkw.com/search/6.html" >体育竞技</a> |
+             <a href="https://m.dandanzkw.com/search/8.html" >Steam</a> |
+             <a href="https://m.dandanzkw.com/search/10.html" >职业教育</a> |
+             <a href="https://m.dandanzkw.com/article.html" >旦旦编辑部</a> |
              <a href="https://www.dandanzkw.com/aboutus/" >关于我们</a> |
              <a href="https://www.dandanzkw.com/yinsi/">注册条例</a> |
              <a href="https://www.dandanzkw.com/kechengleibie/">课程类别说明 </a>|
              <a href="https://www.dandanzkw.com/kechengfabu/" >课程发布条例</a> |
-             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a>
+             <a href="https://www.dandanzkw.com/cooperate/" >联系我们 </a> |
+             <a href="https://m.dandanzkw.com/sitemap.xml">网站地图 </a>
              </p>
         <div class="authentication">
             <div style="margin:0px auto;padding: 2px;">
