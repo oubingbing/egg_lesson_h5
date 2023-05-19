@@ -378,6 +378,7 @@ function doSelectSort(index) {
             state.goods_params.latitude = state.location.latitude;
             state.goods_params.longitude = state.location.longitude;
             state.goods_params.sort_by = 'asc';
+            state.goods_params.type = 4;//附近课程筛选
         }
         document.getElementById("goods").innerHTML = '';
         getGoods();
