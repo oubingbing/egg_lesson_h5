@@ -528,9 +528,9 @@ class GoodsService extends BaseServiceAbstract
      */
     public function sort($orderBy="id",$sort="asc",$ids=null)
     {
-        if (!in_array($orderBy,[Goods::FIELD_ID,Goods::FIELD_CREATED_AT,Goods::FIELD_DISCOUNT])){
-            throw new ApiException("order by参数错误",ErrorEnum::GOODS_ORDER_BY_ERR);
-        }
+        // if (!in_array($orderBy,[Goods::FIELD_ID,Goods::FIELD_CREATED_AT,Goods::FIELD_DISCOUNT])){
+        //     throw new ApiException("order by参数错误",ErrorEnum::GOODS_ORDER_BY_ERR);
+        // }
 
         if (empty($ids)){
             $this->builder->orderBy($orderBy,$sort);
