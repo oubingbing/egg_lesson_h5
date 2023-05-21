@@ -32,6 +32,7 @@ class ArticleService
         $result = Article::query()
         ->where(Article::FIELD_STATUS,Article::ENUM_STATUS_UP)
         ->where(Article::FIELD_TOP,Article::ENUM_TOP_YES)
+        ->where("attachments","!=","")
         ->orderBy("sort","desc")
         ->get([
             Article::FIELD_ID,
