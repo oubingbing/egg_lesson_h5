@@ -56,9 +56,9 @@
         </div>
 
         <div class="breadcrumb">
-            <a href="\\m.dandanzkw.com">首页</a><span>&nbsp;>&nbsp;</span>
-            <a href="\\m.dandanzkw.com\article.html">{{$article["category_father_name"]}}</a><span>&nbsp;>&nbsp;</span>
-            <a href="\\m.dandanzkw.com\article.html">{{$article["category_name"]}}</a><span>&nbsp;>&nbsp;</span>
+            <a href="//m.dandanzkw.com">首页</a><span>&nbsp;>&nbsp;</span>
+            <a href="//m.dandanzkw.com/article.html">{{$article["category_father_name"]}}</a><span>&nbsp;>&nbsp;</span>
+            <a href="//m.dandanzkw.com/article/list/{{$article['category_id']}}.html">{{$article["category_name"]}}</a><span>&nbsp;>&nbsp;</span>
             <a href="">{{$article["title"]}}</a><span></span>
         </div>
 
