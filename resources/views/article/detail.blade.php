@@ -92,7 +92,7 @@
                 <div class="articles swiper-wrapper" id="list_1_items">
                 @if($article["same_list"])
                 @foreach ($article["same_list"] as $item)
-                <a style="display:block;text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html"><div class="bg" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
+                <a style="text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html"><div class="bg" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                             <div class="name">{{$item['title']}}</div>
                             <div class="category">{{$item['category_name']}}</div>
                 </a>
@@ -115,7 +115,7 @@
             <div class="items" id="list_4_items">
                 @if($article["more_list"])
             @foreach ($article["more_list"] as $item)
-            <a style="display:block;text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html">
+            <a style="text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html">
                     <div class="thumbnail" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                     <div class="info">
                         <div class="name">{{$item['title']}}</div>
