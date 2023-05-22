@@ -257,16 +257,18 @@ class GoodsController extends Controller
             $recommend["close_city"] = $closeCity;
         }
 
-        $previous = [];
-        $next = [];
+        $previous = ["id"=>$id-1,"title"=>""];
+        $next = ["id"=>$id+1,"title"=>""];
         $previousGoods = $this->goodsService->detail($user,$id-1);
         if($previousGoods){
-            $previous = $this->goodsService->formatSingle($previousGoods);
+            $previousInfo = $this->goodsService->formatSingle($previousGoods);
+            $previous["title"] = $previousInfo["contact"]["lesson_type"] == 1 ?"【".$previousInfo["contact"]["surplus_lesson_time"]."节 | ".$previousInfo["sub_course_type"]."】".$previousInfo["transfer_info"]["title"]:"【年卡 | ".$previousInfo["sub_course_type"]."】".$previousInfo["transfer_info"]["title"];
         }
 
         $nextGoods = $this->goodsService->detail($user,$id+1);
         if($nextGoods){
-            $next = $this->goodsService->formatSingle($nextGoods);;
+            $nextInfo = $this->goodsService->formatSingle($previousGoods);;
+            $next["title"] = $nextInfo["contact"]["lesson_type"] == 1 ?"【".$nextInfo["contact"]["surplus_lesson_time"]."节 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"]:"【年卡 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"];
         }
 
         return view('detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"goods_id"=>$id,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
@@ -390,16 +392,18 @@ class GoodsController extends Controller
             $recommend["close_city"] = $closeCity;
         }
 
-        $previous = [];
-        $next = [];
+        $previous = ["id"=>$id-1,"title"=>""];
+        $next = ["id"=>$id+1,"title"=>""];
         $previousGoods = $this->goodsService->detail($user,$id-1);
         if($previousGoods){
-            $previous = $this->goodsService->formatSingle($previousGoods);
+            $previousInfo = $this->goodsService->formatSingle($previousGoods);
+            $previous["title"] = $previousInfo["contact"]["lesson_type"] == 1 ?"【".$previousInfo["contact"]["surplus_lesson_time"]."节 | ".$previousInfo["sub_course_type"]."】".$previousInfo["transfer_info"]["title"]:"【年卡 | ".$previousInfo["sub_course_type"]."】".$previousInfo["transfer_info"]["title"];
         }
 
         $nextGoods = $this->goodsService->detail($user,$id+1);
         if($nextGoods){
-            $next = $this->goodsService->formatSingle($previousGoods);;
+            $nextInfo = $this->goodsService->formatSingle($previousGoods);;
+            $next["title"] = $nextInfo["contact"]["lesson_type"] == 1 ?"【".$nextInfo["contact"]["surplus_lesson_time"]."节 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"]:"【年卡 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"];
         }
 
         return view('pc_detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
@@ -729,7 +733,7 @@ class GoodsController extends Controller
         fwrite($file, '<url>'."\n");
         fwrite($file, '<loc>'.$base_url.'</loc>'."\n");
         fwrite($file, '<priority>1.0</priority>'."\n");
-        fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
+        //fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
         fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
         fwrite($file, '<changefreq>Always</changefreq>'."\n");
         fwrite($file, '</url>'."\n");
@@ -754,7 +758,7 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://pc.dandanzkw.com/pc/detail/".$item['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.6</priority>'."\n");
-            fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
+            //fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
@@ -766,7 +770,7 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://pc.dandanzkw.com/pc/search/".$lc['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.8</priority>'."\n");
-            fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
+            //fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
