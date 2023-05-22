@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ContractTransferInfos;
 use App\Models\Goods;
+use App\Models\LessonCategory;
 use App\Service\BannerService;
 use App\Service\BrandService;
 use App\Service\GoodsService;
@@ -256,7 +257,19 @@ class GoodsController extends Controller
             $recommend["close_city"] = $closeCity;
         }
 
-        return view('detail',["recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        $previous = [];
+        $next = [];
+        $previousGoods = $this->goodsService->detail($user,$id-1);
+        if($previousGoods){
+            $previous = $this->goodsService->formatSingle($previousGoods);
+        }
+
+        $nextGoods = $this->goodsService->detail($user,$id+1);
+        if($nextGoods){
+            $next = $this->goodsService->formatSingle($previousGoods);;
+        }
+
+        return view('detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pcDetailView($id)
@@ -377,7 +390,19 @@ class GoodsController extends Controller
             $recommend["close_city"] = $closeCity;
         }
 
-        return view('pc_detail',["recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        $previous = [];
+        $next = [];
+        $previousGoods = $this->goodsService->detail($user,$id-1);
+        if($previousGoods){
+            $previous = $this->goodsService->formatSingle($previousGoods);
+        }
+
+        $nextGoods = $this->goodsService->detail($user,$id+1);
+        if($nextGoods){
+            $next = $this->goodsService->formatSingle($previousGoods);;
+        }
+
+        return view('pc_detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pcSearchView($id)
@@ -405,7 +430,13 @@ class GoodsController extends Controller
 
         $goodsList = $this->page(request());
 
-        return view('pc_searchlist',["goods_list"=>collect($goodsList["page_data"])->toArray(),"data"=>"","category_id"=>$categoryId]);
+        $categoryName = "";
+        $category = app(LessonCategoryService::class)->findById($categoryId);
+        if($category){
+            $categoryName = $category->{LessonCategory::FIELD_NAME};
+        }
+
+        return view('pc_searchlist',["goods_list"=>collect($goodsList["page_data"])->toArray(),"data"=>"","category_id"=>$categoryId,"category_name"=>$categoryName]);
     }
 
     public function searchView($id)
@@ -433,7 +464,13 @@ class GoodsController extends Controller
 
         $goodsList = $this->page(request());
 
-        return view('searchlist',["data"=>"","goods_list"=>collect($goodsList["page_data"])->toArray(),"category_id"=>$categoryId]);
+        $categoryName = "";
+        $category = app(LessonCategoryService::class)->findById($categoryId);
+        if($category){
+            $categoryName = $category->{LessonCategory::FIELD_NAME};
+        }
+
+        return view('searchlist',["data"=>"","goods_list"=>collect($goodsList["page_data"])->toArray(),"category_id"=>$categoryId,"category_name"=>$categoryName]);
     }
 
     public function page(Request $request)

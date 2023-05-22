@@ -22,7 +22,8 @@ class ArticleController extends Controller
     public function indexView()
     {
         $result = $this->service->GetCategoryTopArticle();
-        return view('article.index',["article_category"=>$result]);
+        $topArticle = $this->service->GetCategoryTopArticle();
+        return view('article.index',["article_category"=>$result,"top_article"=>$topArticle]);
     }
 
     //文章列表页
@@ -116,7 +117,8 @@ class ArticleController extends Controller
     public function indexPcView()
     {
         $result = $this->service->GetCategoryTopArticle();
-        return view('article.pcIndex',["article_category"=>$result]);
+        $topArticle = $this->service->GetCategoryTopArticle();
+        return view('article.pcIndex',["article_category"=>$result,"top_article"=>$topArticle]);
     }
 
     //PC文章列表页
