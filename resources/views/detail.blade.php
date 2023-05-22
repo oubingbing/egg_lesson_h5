@@ -380,14 +380,14 @@
 
             <div class="other-page">
                 @if ($previous && $previous['title'])
-                <div class="btn"><span>上一个商品：</span><a href="//m.dandanzkw.com/detail/{{$previous['id']}}.html">{{$previous['title']}}</a></div>
+                <div class="btn"><span>上一个：</span><a href="//m.dandanzkw.com/detail/{{$previous['id']}}.html">{{$previous['title']}}</a></div>
                 @else
-                <div class="btn"><span>上一个商品：</span><a>没有了</a></div>
+                <div class="btn"><span>上一个：</span><a>没有了</a></div>
                 @endif
                 @if ($next && $next['title'])
-                <div class="btn"><span>下一个商品：</span><a  href="//m.dandanzkw.com/detail/{{$next['id']}}.html">{{$next['title']}}</a></div>
+                <div class="btn"><span>下一个：</span><a  href="//m.dandanzkw.com/detail/{{$next['id']}}.html">{{$next['title']}}</a></div>
                 @else
-                <div class="btn"><span>下一个商品：</span><a>没有了</a></div>
+                <div class="btn"><span>下一个：</span><a>没有了</a></div>
                 @endif
             </div>
             
