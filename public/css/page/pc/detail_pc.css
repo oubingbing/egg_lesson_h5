@@ -822,3 +822,24 @@ body {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.other-page {
+    margin-top: 20px;
+    margin-left:20px;
+}
+
+.other-page>.btn {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    /* box-shadow: 0 0 5px 5px #F5F5F5; */
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+}
+
+.other-page>.btn>a {
+    text-decoration: none;
+    color: #aaa;
+}

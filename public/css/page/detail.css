@@ -647,3 +647,18 @@ body{
 .hot-goods {
     padding: 1.25rem 0 1.75rem;
 }
+
+.other-page {
+    margin-top: 20px;
+}
+
+.other-page>.btn {
+    font-size: 14px;
+    color: #333;
+    margin: 0.3rem 0;
+}
+
+.other-page>.btn>a {
+    text-decoration: none;
+    color: #aaa;
+}

@@ -241,6 +241,19 @@
         </div>
 
 
+        <div class="other-page">
+            @if ($previous && $previous['title'])
+            <div class="btn"><span>上一个商品：</span><a onclick="goTo('detail','id',{{$previous['id']}})">{{$previous['title']}}</a></div>
+            @else
+            <div class="btn"><span>上一个商品：</span><a>没有了</a></div>
+            @endif
+            @if ($next && $next['title'])
+            <div class="btn"><span>下一个商品：</span><a onclick="goTo('detail','id',{{$next['id']}})">{{$next['title']}}</a></div>
+            @else
+            <div class="btn"><span>下一个商品：</span><a>没有了</a></div>
+            @endif
+        </div>
+
         <div class="transfer-progress">
                 <div class="title">转让流程</div>
                 <div class="progress-list">
@@ -352,6 +365,8 @@
                         <span class="font12 m-l16 floatright">人查看</span>
                         <span class="font24 colorFF5 floatright">{{$goods_detail["view_num"]}}</span>
                     </div>
+
+                    
 
         <div class="goods-list anchor4">
 

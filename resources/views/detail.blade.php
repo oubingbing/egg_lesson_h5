@@ -380,21 +380,21 @@
 
             <div class="other-page">
                 @if ($previous && $previous['title'])
-                <div class="btn"><span>上一篇：</span><a onclick="goTo('detail','id',{{$previous['id']}})">{{$previous['title']}}</a></div>
+                <div class="btn"><span>上一个商品：</span><a onclick="goTo('detail','id',{{$previous['id']}})">{{$previous['title']}}</a></div>
                 @else
-                <div class="btn"><span>上一篇：</span><a>没有了</a></div>
+                <div class="btn"><span>上一个商品：</span><a>没有了</a></div>
                 @endif
                 @if ($next && $next['title'])
-                <div class="btn"><span>下一篇：</span><a onclick="goTo('detail','id',{{$next['id']}})">{{$next['title']}}</a></div>
+                <div class="btn"><span>下一个商品：</span><a onclick="goTo('detail','id',{{$next['id']}})">{{$next['title']}}</a></div>
                 @else
-                <div class="btn"><span>下一篇：</span><a>没有了</a></div>
+                <div class="btn"><span>下一个商品：</span><a>没有了</a></div>
                 @endif
             </div>
             
 
             <div class="hot-goods anchor4">
                 <div class="title">
-                    <div class="left">热门推荐
+                    <div class="left">相关推荐
                     </div>
                 </div>
 
