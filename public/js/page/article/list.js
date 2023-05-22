@@ -14,6 +14,9 @@ function doAjax(params = state.params) {
     }
     console.log(state.params.category_id);
     Get(mRoute.article_list, params, res => {
+        if(state.params.page_num===1){
+            state.data = [];
+        }
         state.page = res.data.page;
         state.data = state.data.concat(res.data.page_data);
         console.log(state.data);

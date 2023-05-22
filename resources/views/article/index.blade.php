@@ -40,7 +40,8 @@
 </head>
 
 <body>
-    <div class="default_article_list" id="default_article_list"></div>
+    <div class="default_article_list" id="default_article_list">
+    </div>
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">
@@ -50,7 +51,7 @@
         <div class="search-bg animate__fadeInDownBig">
         <div class="search-bar animate__bounceInLeft noshow">
         <div class="search-btn" style="background-image:url({{asset('image/search_btn.png')}})"></div>
-            <input type="text"  class="search-input" placeholder="搜索" onkeypress="goTo('article_list','id',RECOMMEND_CATEGORY_ID)"/>
+            <input type="text"  class="search-input" placeholder="搜索" onclick="goTo('article_list','id',0)"/>
         </div>
         <div class="search-tips animate__backInDown noshow">有知识·有热度·有笑点</div>
     </div>
