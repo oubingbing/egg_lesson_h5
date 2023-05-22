@@ -64,7 +64,7 @@
 
 .goods {
     position: relative;
-    padding: 27.93vw 5.33vw 0;
+    padding: 33vw 5.33vw 0;
     box-sizing: border-box;
     z-index: 1;
     height: 100vh;
@@ -631,4 +631,16 @@
     left: 50%;
     margin-left: -40vw;
     z-index: 99;
+}
+
+.breadcrumb-navigation{
+    position: absolute;
+    margin-top: 27vw;
+    height: 6vw;
+    font-size: 14px;
+    padding-left: 5.33vw;
+    line-height: 6vw;
+    text-decoration: none;
+    z-index: 2;
+    color: #888;    
 }
