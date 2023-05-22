@@ -630,7 +630,7 @@ class GoodsController extends Controller
         $base_url = 'https://www.dandanzkw.com';
 
         // 创建sitemap.xml文件
-        $now = Carbon::now();
+        $now = Carbon::now()->toDateString();
         $file = fopen(public_path("sitemap.xml"), "w");
         fwrite($file, '<?xml version="1.0" encoding="UTF-8"?>'."\n");
         fwrite($file, '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>'."\n");
@@ -640,6 +640,7 @@ class GoodsController extends Controller
         fwrite($file, '<url>'."\n");
         fwrite($file, '<loc>'.$base_url.'</loc>'."\n");
         fwrite($file, '<priority>1.0</priority>'."\n");
+        fwrite($file, '<mobile:mobile type="mobile"/>'."\n");
         fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
         fwrite($file, '<changefreq>Always</changefreq>'."\n");
         fwrite($file, '</url>'."\n");
@@ -664,6 +665,7 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/detail/".$item['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
@@ -675,6 +677,7 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/search/".$lc['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.8</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
@@ -685,6 +688,7 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/article/".$a['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
@@ -695,6 +699,74 @@ class GoodsController extends Controller
             fwrite($file, '<url>'."\n");
             fwrite($file, '<loc>'."https://m.dandanzkw.com/article/list/".$ca['id'].".html".'</loc>'."\n");
             fwrite($file, '<priority>0.8</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="mobile"/>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
+        }
+
+        fwrite($file, '</urlset>'."\n");
+
+        $this->sitemapPc($request);
+
+        return view('sitemap',["data"=>$result]);
+    }
+
+    public function sitemapPc(Request $request)
+    {
+
+        // 设置网站根目录
+        $base_url = 'https://pc.dandanzkw.com';
+
+        // 创建sitemap.xml文件
+        $now = Carbon::now()->toDateString();
+        $file = fopen(public_path("sitemapPc.xml"), "w");
+        fwrite($file, '<?xml version="1.0" encoding="UTF-8"?>'."\n");
+        fwrite($file, '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>'."\n");
+        fwrite($file, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n");
+
+        // 添加主页链接
+        fwrite($file, '<url>'."\n");
+        fwrite($file, '<loc>'.$base_url.'</loc>'."\n");
+        fwrite($file, '<priority>1.0</priority>'."\n");
+        fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
+        fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+        fwrite($file, '<changefreq>Always</changefreq>'."\n");
+        fwrite($file, '</url>'."\n");
+
+        $data = Goods::query()
+            ->whereIn(Goods::FIELD_STATUS,[
+                Goods::ENUM_STATUS_VERIFY_SUCCESS,
+                Goods::ENUM_STATUS_TRANSFER_FAIL,
+            ])
+            ->where(Goods::FIELD_SALES_STATUS,Goods::ENUM_SALES_STATUS_UP)
+            ->with(array_merge(["transfer_info"=>function($query){
+            $query->select([
+                ContractTransferInfos::FIELD_ID,
+                ContractTransferInfos::FIELD_ID_GOODS,
+                ContractTransferInfos::FIELD_TITLE,
+            ]);
+        }]))->select(["id","price"])->get();
+        $list = collect($data)->toArray();
+        $result = [];
+
+        foreach($list as $item){
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://pc.dandanzkw.com/pc/detail/".$item['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.6</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
+            fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
+            fwrite($file, '<changefreq>Always</changefreq>'."\n");
+            fwrite($file, '</url>'."\n");
+        }
+
+        $sort = $request->input("sort","desc");
+        $lessonCategoryList = app(LessonCategoryService::class)->getAll($sort);
+        foreach($lessonCategoryList as $lc){
+            fwrite($file, '<url>'."\n");
+            fwrite($file, '<loc>'."https://pc.dandanzkw.com/pc/search/".$lc['id'].".html".'</loc>'."\n");
+            fwrite($file, '<priority>0.8</priority>'."\n");
+            fwrite($file, '<mobile:mobile type="pc,mobile"/>'."\n");
             fwrite($file, '<lastmod>'.$now.'</lastmod>'."\n");
             fwrite($file, '<changefreq>Always</changefreq>'."\n");
             fwrite($file, '</url>'."\n");
