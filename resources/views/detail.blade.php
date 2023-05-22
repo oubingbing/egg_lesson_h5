@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/search?category_id={{$goods_detail["campus"]["lesson_category"]["id"]}}">
+        <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/search/{{$goods_detail["campus"]["lesson_category"]["id"]}}.html">
             @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
                         {{$goods_detail["campus"]["lesson_category"]["name"]}}
                         @endif
