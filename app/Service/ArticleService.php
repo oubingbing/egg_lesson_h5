@@ -146,10 +146,7 @@ class ArticleService
         }
 
         if($filter){
-            $this->articleBuilder->where(function ($query)use($filter) {
-                $query->where('title', 'like', "%".$filter."%")
-                      ->orWhere('content', 'like', "%".$filter."%");
-            });
+            $this->articleBuilder->where('title', 'like', "%".$filter."%");
         }
 
         return $this->articleBuilder;
