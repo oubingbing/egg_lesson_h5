@@ -70,7 +70,7 @@
             @if ($goods_detail["campus"] && $goods_detail["campus"]["lesson_category"])
                         {{$goods_detail["campus"]["lesson_category"]["name"]}}
                         @endif
-                    </a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/detail/{{$goods_id}}.html">商品详情</a>&nbsp;>&nbsp;<span>{{$goods_detail["reset_title"]}}</span></div>
+                    </a>&nbsp;>&nbsp;<a href="//m.dandanzkw.com/detail/{{$goods_detail['goods_id']}}.html">商品详情</a>&nbsp;>&nbsp;<span>{{$goods_detail["reset_title"]}}</span></div>
                     
         <div class="href-nav sticky">
             <a class="item hover" onclick="letsScrollTo('.anchor1','.product-detail')">课程信息</a>
