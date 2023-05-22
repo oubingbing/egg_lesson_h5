@@ -70,12 +70,12 @@
 
         <div class="other-page">
             @if ($article['pre'] && $article['pre']['title'])
-            <div class="btn"><span>上一篇：</span><a onclick="goTo('article_detail','id',{{$article['pre']['id']}})">{{$article['pre']['title']}}</a></div>
+            <div class="btn"><span>上一篇：</span><a href="//m.dandanzkw.com/article/{{$article['pre']['id']}}.html">{{$article['pre']['title']}}</a></div>
             @else
             <div class="btn"><span>上一篇：</span><a>没有了</a></div>
             @endif
             @if ($article['next'] && $article['next']['title'])
-            <div class="btn"><span>下一篇：</span><a onclick="goTo('article_detail','id',{{$article['next']['id']}})">{{$article['next']['title']}}</a></div>
+            <div class="btn"><span>下一篇：</span><a href="//m.dandanzkw.com/article/{{$article['next']['id']}}.html">{{$article['next']['title']}}</a></div>
             @else
             <div class="btn"><span>下一篇：</span><a>没有了</a></div>
             @endif
@@ -92,10 +92,10 @@
                 <div class="articles swiper-wrapper" id="list_1_items">
                 @if($article["same_list"])
                 @foreach ($article["same_list"] as $item)
-                <div class="item swiper-slide"  onclick="goTo('article_detail','id',{{$item['id']}})"><div class="bg" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
+                <a style="display:block;text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html"><div class="bg" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                             <div class="name">{{$item['title']}}</div>
                             <div class="category">{{$item['category_name']}}</div>
-                        </div>
+                </a>
                 @endforeach
                 @endif
                 </div>
@@ -115,7 +115,7 @@
             <div class="items" id="list_4_items">
                 @if($article["more_list"])
             @foreach ($article["more_list"] as $item)
-                <div class="item"  onclick="goTo('article_detail','id',{{$item['id']}})">
+            <a style="display:block;text-decoration: none;" class="item swiper-slide"  href="//m.dandanzkw.com/article/{{$item['id']}}.html">
                     <div class="thumbnail" style="background-image:url('{{isset($item['attachments'][0])?$item['attachments'][0]:""}}')"></div>
                     <div class="info">
                         <div class="name">{{$item['title']}}</div>
@@ -123,7 +123,7 @@
                         <div class="created-at">2023-04-28</div>
                     </div>
 
-                </div>
+                </a>
                 @endforeach
                 @endif
             </div>
@@ -131,17 +131,6 @@
     </div>
 
     <div class="default_article_list">
-        @if($article["same_list"])
-        @foreach ($article["same_list"] as $item)
-        <a  href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['category_name']}}</a>
-        @endforeach
-        @endif
-
-        @if($article["more_list"])
-        @foreach ($article["more_list"] as $item)
-        <a  href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['category_name']}}</a>
-        @endforeach
-        @endif
     </div>
 
     <div class="tabbar">
