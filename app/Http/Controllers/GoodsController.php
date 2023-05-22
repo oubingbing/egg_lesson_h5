@@ -266,10 +266,10 @@ class GoodsController extends Controller
 
         $nextGoods = $this->goodsService->detail($user,$id+1);
         if($nextGoods){
-            $next = $this->goodsService->formatSingle($previousGoods);;
+            $next = $this->goodsService->formatSingle($nextGoods);;
         }
 
-        return view('detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
+        return view('detail',["previous"=>$previous,"next"=>$next,"recommend_list"=>$recommend,"goods_detail"=>$result,"goods_id"=>$id,"id"=>$id,"debug"=>$config["debug"],"beta"=>$config["beta"],"appId"=>$config["appId"],"nonceStr"=>$config["nonceStr"],"timestamp"=>$config["timestamp"],"url"=>$config["url"],"jsApiList"=>json_encode(['updateAppMessageShareData','updateTimelineShareData']),"signature"=>$config["signature"]]);
     }
 
     public function pcDetailView($id)
