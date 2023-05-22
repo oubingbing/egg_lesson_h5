@@ -41,6 +41,21 @@
 
 <body>
     <div class="default_article_list" id="default_article_list">
+        @if($top_article)
+        @foreach ($top_article as $item)
+        
+        @foreach ($item['sub_category'] as $item_subca)
+        @foreach ($item_subca['top_article'] as $item_sub_top)
+        <a href="//m.dandanzkw.com/article/{{$item_sub_top['id']}}.html">{{$item_sub_top['title']}}_{{$item_sub_top['seo_key_word']}}_{{$item_sub_top['category_name']}}</a>
+        @endforeach
+        @endforeach
+
+        @foreach ($item['top_article'] as $item_top)
+        <a href="//m.dandanzkw.com/article/{{$item_top['id']}}.html">{{$item_top['title']}}_{{$item_top['seo_key_word']}}_{{$item_top['category_name']}}</a>
+        @endforeach
+
+        @endforeach
+        @endif
     </div>
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->

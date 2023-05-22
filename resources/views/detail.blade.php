@@ -379,13 +379,13 @@
             </div>
 
             <div class="other-page">
-                @if ($goods_detail['previous'] && $goods_detail['pre']['title'])
-                <div class="btn"><span>上一篇：</span><a onclick="goTo('detail','id',{{$goods_detail['previous']['id']}})">{{$article['previous']['title']}}</a></div>
+                @if ($previous && $previous['title'])
+                <div class="btn"><span>上一篇：</span><a onclick="goTo('detail','id',{{$previous['id']}})">{{$previous['title']}}</a></div>
                 @else
                 <div class="btn"><span>上一篇：</span><a>没有了</a></div>
                 @endif
-                @if ($goods_detail['next'] && $goods_detail['next']['title'])
-                <div class="btn"><span>下一篇：</span><a onclick="goTo('goods_detail','id',{{$goods_detail['next']['id']}})">{{$goods_detail['next']['title']}}</a></div>
+                @if ($next && $next['title'])
+                <div class="btn"><span>下一篇：</span><a onclick="goTo('detail','id',{{$next['id']}})">{{$next['title']}}</a></div>
                 @else
                 <div class="btn"><span>下一篇：</span><a>没有了</a></div>
                 @endif
