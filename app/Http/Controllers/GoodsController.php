@@ -267,7 +267,7 @@ class GoodsController extends Controller
 
         $nextGoods = $this->goodsService->detail($user,$id+1);
         if($nextGoods){
-            $nextInfo = $this->goodsService->formatSingle($previousGoods);;
+            $nextInfo = $this->goodsService->formatSingle($nextGoods);
             $next["title"] = $nextInfo["contact"]["lesson_type"] == 1 ?"【".$nextInfo["contact"]["surplus_lesson_time"]."节 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"]:"【年卡 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"];
         }
 
@@ -402,7 +402,7 @@ class GoodsController extends Controller
 
         $nextGoods = $this->goodsService->detail($user,$id+1);
         if($nextGoods){
-            $nextInfo = $this->goodsService->formatSingle($previousGoods);;
+            $nextInfo = $this->goodsService->formatSingle($nextGoods);;
             $next["title"] = $nextInfo["contact"]["lesson_type"] == 1 ?"【".$nextInfo["contact"]["surplus_lesson_time"]."节 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"]:"【年卡 | ".$nextInfo["sub_course_type"]."】".$nextInfo["transfer_info"]["title"];
         }
 
