@@ -644,3 +644,7 @@
     z-index: 2;
     color: #888;    
 }
+.breadcrumb-navigation>a{
+    text-decoration: none;
+    color: #888;
+}
