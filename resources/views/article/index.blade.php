@@ -40,7 +40,13 @@
 </head>
 
 <body>
-    <div class="default_article_list" id="default_article_list"></div>
+    <div class="default_article_list" id="default_article_list">
+        @if($article["same_list"])
+        @foreach ($article["same_list"] as $item)
+        <a  href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['category_name']}}</a>
+        @endforeach
+        @endif
+    </div>
     <div class="article-index-container">
         <!-- <img src="{{asset('image/pailie4.png')}}" style="position:absolute;top:1445px;left:0;width:100vw;"/> -->
         <div class="title-bar">

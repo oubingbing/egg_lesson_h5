@@ -130,6 +130,20 @@
         </div>
     </div>
 
+    <div class="default_article_list">
+        @if($article["same_list"])
+        @foreach ($article["same_list"] as $item)
+        <a  href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['category_name']}}</a>
+        @endforeach
+        @endif
+
+        @if($article["more_list"])
+        @foreach ($article["more_list"] as $item)
+        <a  href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['category_name']}}</a>
+        @endforeach
+        @endif
+    </div>
+
     <div class="tabbar">
         <div class="tabbar-item" id="tabbar1">
             <div class="tabbar-item-pic pre" style='background-image: url("{{asset('image/tabbar/shouye_shouye_nor_icon.png')}}");'></div>
