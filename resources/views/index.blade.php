@@ -66,7 +66,7 @@ var _hmt = _hmt || [];
             <div class="search-icon"
                 style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;">
             </div>
-            <input type="text" class="search-input" placeholder="搜索课程,品牌" id="searchInput" />
+            <input type="text" class="search-input" placeholder="搜索课程,品牌" onclick="goTo('search','category',0)"/>
             <div class="search-location" id="currentLocation">定位中</div>
 
         </div>
