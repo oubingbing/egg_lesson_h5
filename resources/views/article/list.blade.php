@@ -49,7 +49,7 @@
 <body>
     <div class="default_article_list" id="default_article_list">
         @foreach ($article_list as $item)
-        <a href="https://m.dandanzkw.com/article/detail/{{$item['id']}}.html">{{$item['title']}}_{{$item['seo_title']}}_{{$item['seo_key_word']}}_{{$item['seo_describe']}}</a>
+        <a href="https://m.dandanzkw.com/article/{{$item['id']}}.html">{{$item['title']}}_{{$item['seo_title']}}_{{$item['seo_key_word']}}_{{$item['seo_describe']}}</a>
         @endforeach
     </div>
     <div class="article-list-container">

@@ -89,7 +89,7 @@ function buildStyleLists() {
                     item.onclick = goTo.bind(this, 'article_detail', 'id', items[j].id);
 
                     let seo_item = document.createElement("a");
-                    seo_item.href = `https://m.dandanzkw.com/article/detail/${items[j].id}.html`;
+                    seo_item.href = `https://m.dandanzkw.com/article/${items[j].id}.html`;
                     seo_item.innerText = `${items[j].title}-${items[j].seo_describe}-${items[j].created_at}`;
                     document.getElementById("default_article_list").appendChild(seo_item);
 
