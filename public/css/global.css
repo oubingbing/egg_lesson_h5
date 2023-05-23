@@ -960,12 +960,19 @@ body {
 }
 
 .hot-goods .item .position-box {
-    margin-top: -7.46vw;
-    left: 4vw;
+    margin-top: -33px;
+    left: 0;
     display: flex;
     position: absolute;
     z-index: 1;
     align-items: center;
+    left: 12px;
+    padding-left: 9px;
+    box-sizing: border-box;
+    height: 20px;
+    background-color: #00000080;
+    border-radius: 10px;
+    padding-right: 12px;
 }
 
 .hot-goods .item .position-box .icon {
@@ -975,21 +982,18 @@ body {
 }
 
 .hot-goods .item .position-box .address {
-    width: 7em;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 2.93vw;
-    font-family: DanDanFont;
+    font-size: 12px;
+    font-family: PingFang SC;
     font-weight: bold;
     color: #FFFFFF;
-    /* margin-right: 3.6vw; */
+    margin-right: 27rpx;
     line-height: 1;
 }
 
 .hot-goods .item .position-box .distance {
-    font-size: 2.93vw;
-    font-family: DanDanFont;
+    font-size: 12px;
+    font-family: PingFang SC;
     font-weight: bold;
     color: #FFFFFF;
     line-height: 1;

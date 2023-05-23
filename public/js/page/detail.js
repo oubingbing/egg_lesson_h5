@@ -84,6 +84,35 @@ function getGoods(params = state.goods_params) {
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
 
+                 //处理省市区 保留关键数据
+                 if(item&&item.campus&&item.campus.campus){
+                    item.reset_address = JSON.parse(JSON.stringify(item.campus.campus
+                        .address));
+                    if (item.reset_address.indexOf("省") > 0) {
+                        item.reset_address = item.reset_address.split("省")[1];
+                    }
+                    if (item.reset_address.indexOf("镇") > 0) {
+                        item.reset_address = item.reset_address.split("镇")[0] + "镇";
+                    }
+                    if (item.reset_address.indexOf("县") > 0) {
+                        item.reset_address = item.reset_address.split("县")[0] + "县";
+                    }
+                    if (item.reset_address.indexOf("区") > 0) {
+                        item.reset_address = item.reset_address.split("区")[0] + "区";
+                    }
+                    let subSHI0 = item.reset_address.substring(0, item.reset_address.indexOf("市") + 1);
+                    let subSHI = item.reset_address.substring(item.reset_address.indexOf("市") + 1, item.reset_address.length);
+                    if (subSHI.indexOf("市") >= 0) {
+                        let subsub = subSHI;
+                        subSHI = subsub.substring(subsub.indexOf("市") + 1, subsub.length);
+                        subSHI0 = subsub.substring(0, subsub.indexOf("市") + 1);
+                    }
+                    item.reset_address = subSHI.length > 5 ? subSHI0 : subSHI;
+                 }
+               
+              
+
+
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
@@ -94,10 +123,9 @@ function getGoods(params = state.goods_params) {
                         </div>
                         <div class="position-box">
                             <div class="icon"
-                                style='background-image: url("image/dingwei_icon.png"); background-position: center center; background-size: cover;'>
+                                style='background-image: url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/dingwei_icon.png"); background-position: center center; background-size: cover;'>
                             </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
-                            <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
+                            <div class="address">${item.reset_address}</div>
                         </div>
                         <div class="infos">
                             <div class="line1">

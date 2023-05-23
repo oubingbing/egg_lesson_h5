@@ -217,8 +217,36 @@ function getGoods(params = state.goods_params) {
 
             state.goods = state.goods.concat(res.data.page_data);
 
+
+
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
+
+                //处理省市区 保留关键数据
+                item.reset_address = JSON.parse(JSON.stringify(item.campus.campus
+                    .address));
+                    console.log("---item.reset_address",item.reset_address);
+                if (item.reset_address.indexOf("省") > 0) {
+                    item.reset_address = item.reset_address.split("省")[1];
+                }
+                if (item.reset_address.indexOf("镇") > 0) {
+                    item.reset_address = item.reset_address.split("镇")[0] + "镇";
+                }
+                if (item.reset_address.indexOf("县") > 0) {
+                    item.reset_address = item.reset_address.split("县")[0] + "县";
+                }
+                if (item.reset_address.indexOf("区") > 0) {
+                    item.reset_address = item.reset_address.split("区")[0] + "区";
+                }
+
+                let subSHI0 = item.reset_address.substring(0, item.reset_address.indexOf("市") + 1);
+                let subSHI = item.reset_address.substring(item.reset_address.indexOf("市") + 1, item.reset_address.length);
+                if (subSHI.indexOf("市") >= 0) {
+                    let subsub = subSHI;
+                    subSHI = subsub.substring(subsub.indexOf("市") + 1, subsub.length);
+                    subSHI0 = subsub.substring(0, subsub.indexOf("市") + 1);
+                }
+                item.reset_address = subSHI.length > 5 ? subSHI0 : subSHI;
 
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
@@ -226,14 +254,13 @@ function getGoods(params = state.goods_params) {
                 item_div.onclick = showGoodDetail.bind(null, item.goods_id);
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
-                            src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
+                            src="${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
                         </div>
                         <div class="position-box">
                             <div class="icon"
-                                style='background-image: url("image/dingwei_icon.png"); background-position: center center; background-size: cover;'>
+                                style='background-image: url("https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/dingwei_icon.png"); background-position: center center; background-size: cover;'>
                             </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address : ''}</div>
-                            <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
+                            <div class="address">${item.reset_address}</div>
                         </div>
                         <div class="infos">
                             <div class="line1">
@@ -271,7 +298,7 @@ function getGoods(params = state.goods_params) {
 function getLocationByApi() {
     var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
     geolocation.getLocation((res) => {
-        console.log('-------',res);
+        console.log('-------', res);
         state.current_location = res;
         state.goods_params.latitude = res.lat;
         state.goods_params.longitude = res.lng;
@@ -281,41 +308,41 @@ function getLocationByApi() {
         sessionStorage.setItem('location', JSON.stringify(res));
         getGoods();
     }, (err) => {
-        console.log('------------',err);
-      
+        console.log('------------', err);
+
         getGoods();
     }, { timeout: 4000 });
 }
 
 
-function setIndexNum(){
-    let random = [11,13,10,12,14,8,9][moment().day()];
-    let random2 = [7,6,8,7,6,8,9][moment().day()];
-    random+=moment().date()%2;
+function setIndexNum() {
+    let random = [11, 13, 10, 12, 14, 8, 9][moment().day()];
+    let random2 = [7, 6, 8, 7, 6, 8, 9][moment().day()];
+    random += moment().date() % 2;
     console.log(random);
-    let defaultNum = 4284 + parseInt(((new Date().getTime() - new Date("2023-04-01").getTime())/1000/60/60/24)*39.5);
-    let todayDefaultNum = parseInt((new Date().getTime() - new Date(moment().format("YYYY-MM-DD 10:00:00")).getTime())/1000);
-    todayDefaultNum = Math.max(0,todayDefaultNum);
-    todayDefaultNum = Math.min(28800,todayDefaultNum);
-    document.getElementById("indexNum1").innerText =parseInt(todayDefaultNum/(60*random+11));
-    document.getElementById("indexNum2").innerText =defaultNum + parseInt(todayDefaultNum/(60*random+11));
-    document.getElementById("indexNum3").innerText =Math.min(parseInt(todayDefaultNum/(60*random+11)/3),parseInt(todayDefaultNum/(60*random+11)/5+random2));
-    setTimeout(()=>{
+    let defaultNum = 4284 + parseInt(((new Date().getTime() - new Date("2023-04-01").getTime()) / 1000 / 60 / 60 / 24) * 39.5);
+    let todayDefaultNum = parseInt((new Date().getTime() - new Date(moment().format("YYYY-MM-DD 10:00:00")).getTime()) / 1000);
+    todayDefaultNum = Math.max(0, todayDefaultNum);
+    todayDefaultNum = Math.min(28800, todayDefaultNum);
+    document.getElementById("indexNum1").innerText = parseInt(todayDefaultNum / (60 * random + 11));
+    document.getElementById("indexNum2").innerText = defaultNum + parseInt(todayDefaultNum / (60 * random + 11));
+    document.getElementById("indexNum3").innerText = Math.min(parseInt(todayDefaultNum / (60 * random + 11) / 3), parseInt(todayDefaultNum / (60 * random + 11) / 5 + random2));
+    setTimeout(() => {
         setIndexNum();
-    },100000);
+    }, 100000);
 
 }
 
 $(document).ready(() => {
     setIndexNum();
     getPurChaseLogs();
-    getLocationByApi(); 
+    getLocationByApi();
 
     $("#searchInput").keyup((e) => {
         // if (e.keyCode == "13") {
         //     let searchInput = $("#searchInput").val();
         //     sessionStorage.setItem("searchInput", searchInput);
-            goTo('search', 'category',0);
+        goTo('search', 'category', 0);
         // }
     })
 
@@ -329,11 +356,11 @@ $(document).ready(() => {
         slidesPerView: 3,
         spaceBetween: 10,
         centeredSlides: true,
-        autoplay:true,
+        autoplay: true,
         loop: true,
         pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
+            el: '.swiper-pagination',
+            clickable: true,
         },
-      });
+    });
 })
