@@ -293,6 +293,7 @@ body{
     font-size: 12px;
     background-color: #00000080;
     padding: 1.5vw;
+    bottom:0;
 }
 
 .list2 .item:nth-child(2n) {
