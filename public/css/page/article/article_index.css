@@ -276,7 +276,7 @@ body{
     overflow: hidden;
 }
 
-.list2 .item .name {
+/* .list2 .item .name {
     position: absolute;
     margin: 2vw auto 0 2.5vw;
     color: #FFF;
@@ -285,14 +285,14 @@ body{
     background-color: #00000080;
     padding: 1.5vw;
     border-radius: 3vw;
-}
-/* .list2 .item .name{
+} */
+.list2 .item .name{
     position: absolute;
     color: #FFF;
     font-size: 12px;
     background-color: #00000080;
     padding: 1.5vw;
-} */
+}
 
 .list2 .item:nth-child(2n) {
     margin-right: 0;
