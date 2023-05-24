@@ -18,19 +18,24 @@ function doAjax(params = state.params) {
             state.data = [];
         }
         state.page = res.data.page;
+
+        for(let i in res.data.page_data){
+            let pgdata = res.data.page_data[i];
+              //给搜索关键字飘红
+              if(state.params.filter&&state.params.filter.length){
+                console.log(state.params.filter);
+                let reg_filter = new RegExp(state.params.filter,"gi");
+                pgdata.reset_title = pgdata.title.replace(reg_filter,(text)=>`<span style="color:#FF6363">${text}</span>`)
+            }else{
+                pgdata.reset_title = pgdata.title;
+            }
+        }
         state.data = state.data.concat(res.data.page_data);
         console.log(state.data);
         hideLoading();
         for (let i in state.data) {
             
-            //给搜索关键字飘红
-            if(state.params.filter&&state.params.filter.length){
-                console.log(state.params.filter);
-                let reg_filter = new RegExp(state.params.filter,"gi");
-                state.data[i].reset_title = state.data[i].title.replace(reg_filter,(text)=>`<span style="color:#FF6363">${text}</span>`)
-            }else{
-                state.data[i].reset_title = state.data[i].title;
-            }
+          
 
             console.log(state.data[i].reset_title);
             let item = document.createElement("div");
