@@ -247,6 +247,7 @@ function saveLocation(p){
         longitude:p.longitude
     }
     console.log(state);
+    document.getElementById("goods").innerHTML = '';
     getGoods();
 }
 
