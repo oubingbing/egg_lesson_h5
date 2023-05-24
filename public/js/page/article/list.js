@@ -22,10 +22,21 @@ function doAjax(params = state.params) {
         console.log(state.data);
         hideLoading();
         for (let i in state.data) {
+            
+            //给搜索关键字飘红
+            if(state.params.filter&&state.params.filter.length){
+                console.log(state.params.filter);
+                let reg_filter = new RegExp(state.params.filter,"gi");
+                state.data[i].reset_title = state.data[i].title.replace(reg_filter,(text)=>`<span style="color:#FF6363">${text}</span>`)
+            }else{
+                state.data[i].reset_title = state.data[i].title;
+            }
+
+            console.log(state.data[i].reset_title);
             let item = document.createElement("div");
             item.className = "item";
-            item.innerHTML = `<p class="t1">${state.data[i].created_at}</p>
-    <p class="t2">${state.data[i].title}</p>`;
+            item.innerHTML =`<p class="t1">${state.data[i].created_at}</p>
+            <p class="t2">${state.data[i].reset_title}</p>`;
             let showDetailBtn = document.createElement("p");
             showDetailBtn.className = `t3`;
             showDetailBtn.innerText=`查看更多`;

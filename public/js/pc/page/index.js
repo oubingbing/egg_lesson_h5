@@ -281,7 +281,7 @@ function getGoods(params = state.goods_params) {
                             </div>
                             <div class="line2">
                                 <div class="price"> ¥${item.transfer_info.price > 10000 ? parseInt(item.transfer_info.price / 1000) / 10 + "万" : item.transfer_info.price}</div>
-                                <div class="want">${item.collection}人想要</div>
+                                <div class="want">${item.view_num}人查看</div>
                                 <div class="discount">${item.transfer_info.discount ? item.transfer_info.discount : '10'}<span class="fonts">折</span></div>
    
                             </div>
