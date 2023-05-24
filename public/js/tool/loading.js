@@ -1,8 +1,27 @@
 var loading = null;
 var isLoading = false;
+var customPopup = null;
 $(document).ready(() => {
     createLoading();
+    createCustomPopup();
 })
+function createCustomPopup(){
+    customPopup = document.createElement("div");
+    customPopup.id = "custom_popup";
+    customPopup.className = 'custom-popup hide';
+    customPopup.innerHTML  += `<div class="cover"></div>`;
+    customPopup.innerHTML  += `<div class="content-box">
+    <div class="custom-popup-title">提示</div>
+    <div class="custom-popup-content">为推荐附近课程，需获取您的位置信息。取消授权后，可在浏览器设置中重新开启。</div>
+    <div class="custom-popup-btns">
+    <btn class="btn-cancel" id="custom_popup_btn_cancel">取消</btn>
+    <btn class="btn-ok" open-type="openSetting" id="custom_popup_btn_ok">好的</btn>
+    </div>
+</div>`;
+document.body.appendChild(customPopup);
+document.getElementById("custom_popup_btn_cancel").onclick=()=>{customPopup.className="custom-popup hide";}
+document.getElementById("custom_popup_btn_ok").onclick=()=>{customPopup.className="custom-popup hide";}
+}
 
 function createLoading() {
     loading = document.createElement('div');

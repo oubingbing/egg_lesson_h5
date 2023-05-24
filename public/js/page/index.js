@@ -221,32 +221,36 @@ function getGoods(params = state.goods_params) {
 
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
+                if (item && item.campus && item.campus.campus) {
+                    //处理省市区 保留关键数据
+                    item.reset_address = JSON.parse(JSON.stringify(item.campus.campus
+                        .address));
+                    console.log("---item.reset_address", item.reset_address);
+                    if (item.reset_address.indexOf("省") > 0) {
+                        item.reset_address = item.reset_address.split("省")[1];
+                    }
+                    if (item.reset_address.indexOf("镇") > 0) {
+                        item.reset_address = item.reset_address.split("镇")[0] + "镇";
+                    }
+                    if (item.reset_address.indexOf("县") > 0) {
+                        item.reset_address = item.reset_address.split("县")[0] + "县";
+                    }
+                    if (item.reset_address.indexOf("区") > 0) {
+                        item.reset_address = item.reset_address.split("区")[0] + "区";
+                    }
 
-                //处理省市区 保留关键数据
-                item.reset_address = JSON.parse(JSON.stringify(item.campus.campus
-                    .address));
-                    console.log("---item.reset_address",item.reset_address);
-                if (item.reset_address.indexOf("省") > 0) {
-                    item.reset_address = item.reset_address.split("省")[1];
-                }
-                if (item.reset_address.indexOf("镇") > 0) {
-                    item.reset_address = item.reset_address.split("镇")[0] + "镇";
-                }
-                if (item.reset_address.indexOf("县") > 0) {
-                    item.reset_address = item.reset_address.split("县")[0] + "县";
-                }
-                if (item.reset_address.indexOf("区") > 0) {
-                    item.reset_address = item.reset_address.split("区")[0] + "区";
+                    let subSHI0 = item.reset_address.substring(0, item.reset_address.indexOf("市") + 1);
+                    let subSHI = item.reset_address.substring(item.reset_address.indexOf("市") + 1, item.reset_address.length);
+                    if (subSHI.indexOf("市") >= 0) {
+                        let subsub = subSHI;
+                        subSHI = subsub.substring(subsub.indexOf("市") + 1, subsub.length);
+                        subSHI0 = subsub.substring(0, subsub.indexOf("市") + 1);
+                    }
+                    item.reset_address = subSHI.length > 5 ? subSHI0 : subSHI;
+                } else {
+                    item.reset_address = '';
                 }
 
-                let subSHI0 = item.reset_address.substring(0, item.reset_address.indexOf("市") + 1);
-                let subSHI = item.reset_address.substring(item.reset_address.indexOf("市") + 1, item.reset_address.length);
-                if (subSHI.indexOf("市") >= 0) {
-                    let subsub = subSHI;
-                    subSHI = subsub.substring(subsub.indexOf("市") + 1, subsub.length);
-                    subSHI0 = subsub.substring(0, subsub.indexOf("市") + 1);
-                }
-                item.reset_address = subSHI.length > 5 ? subSHI0 : subSHI;
 
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
@@ -294,7 +298,6 @@ function getGoods(params = state.goods_params) {
 
     })
 }
-
 function getLocationByApi() {
     var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
     geolocation.getLocation((res) => {
@@ -308,12 +311,14 @@ function getLocationByApi() {
         sessionStorage.setItem('location', JSON.stringify(res));
         getGoods();
     }, (err) => {
+        document.getElementById("custom_popup_btn_ok").className = "btn-cancel btn-only";
+        document.getElementById("custom_popup_btn_cancel").style = "display:none";
+        customPopup.className = 'custom-popup show';
         console.log('------------', err);
-
+        document.getElementById("currentLocation").innerText = "定位失败";
         getGoods();
     }, { timeout: 4000 });
 }
-
 
 function setIndexNum() {
     let random = [11, 13, 10, 12, 14, 8, 9][moment().day()];
@@ -336,7 +341,7 @@ function setIndexNum() {
 $(document).ready(() => {
     setIndexNum();
     getPurChaseLogs();
-    getLocationByApi();
+    getGoods();
 
     $("#searchInput").keyup((e) => {
         // if (e.keyCode == "13") {

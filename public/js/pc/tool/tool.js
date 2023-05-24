@@ -1,7 +1,9 @@
 var loading = null;
 var isLoading = false;
+var customPopup = null;
 $(document).ready(() => {
     createLoading();
+    createCustomPopup();
 })
 
 function createLoading() {
@@ -153,8 +155,8 @@ function createTitleNav() {
         <div class="button">查看消息</div>
         <div class="button red">请登录</div>
         <!-- <img class="location-logo" src="{{asset('image/dingwei_icon.png')}}"/> -->
-        <div class="search-location" id="currentLocation">
-            定位中</div>
+        <div class="search-location" style="cursor:pointer" id="currentLocation" onclick="getLocation()">
+            点击定位</div>
             </div>`;
     pc.insertBefore(titleNav, pc.children[0]);
 }
@@ -222,7 +224,6 @@ parent.appendChild(footer);
 }
 
 function getLocationByApi(params={},callback=()=>{}) {
-
     var geolocation = new qq.maps.Geolocation("75ABZ-MJ76R-AZ7WK-W6ZLZ-45TBK-W7FJV", "dandanzkw");
     geolocation.getLocation((res) => {
         console.log(res);
@@ -234,7 +235,28 @@ function getLocationByApi(params={},callback=()=>{}) {
         sessionStorage.setItem('location', JSON.stringify(res));
         callback(params);
     }, (err) => {
+        document.getElementById("custom_popup_btn_ok").className = "btn-cancel btn-only";
+        document.getElementById("custom_popup_btn_cancel").style="display:none";
+        customPopup.className = 'custom-popup show';       
         console.log(err);
         callback(params);
     }, { timeout: 2000 });
+}
+
+function createCustomPopup(){
+    customPopup = document.createElement("div");
+    customPopup.id = "custom_popup";
+    customPopup.className = 'custom-popup hide';
+    customPopup.innerHTML  += `<div class="cover"></div>`;
+    customPopup.innerHTML  += `<div class="content-box">
+    <div class="custom-popup-title">提示</div>
+    <div class="custom-popup-content">为推荐附近课程，需获取您的位置信息。取消授权后，可在浏览器设置中重新开启。</div>
+    <div class="custom-popup-btns">
+        <btn class="btn-cancel" id="custom_popup_btn_cancel">取消</btn>
+        <btn class="btn-ok" open-type="openSetting" id="custom_popup_btn_ok">好的</btn>
+    </div>
+</div>`;
+document.body.appendChild(customPopup);
+document.getElementById("custom_popup_btn_cancel").onclick=()=>{customPopup.className="custom-popup hide";}
+document.getElementById("custom_popup_btn_ok").onclick=()=>{customPopup.className="custom-popup hide";}
 }
