@@ -482,7 +482,7 @@
         </div>
     
         <div class="sub-box">
-            <p>相关推荐</p>
+            <p>最新上架</p>
             <div class="as">
                 @foreach ($recommend_list["close_city"] as $item)
                 <a href="https://pc.dandanzkw.com/pc/detail/{{$item["id"]}}.html">{{$item["title"]}}</a>
