@@ -245,7 +245,7 @@ class GoodsController extends Controller
 
         //附近城市
         request()->offsetSet('lesson_category_ids', "");
-        request()->offsetSet('km', 1000);
+        request()->offsetSet('km', 100000);
         request()->offsetSet('sort_by', "desc");
         $city = $this->page(request());
         if(is_array($city["page_data"])){
@@ -380,7 +380,7 @@ class GoodsController extends Controller
 
         //附近城市
         request()->offsetSet('lesson_category_ids', "");
-        request()->offsetSet('km', 1000);
+        request()->offsetSet('km', 100000);
         request()->offsetSet('sort_by', "desc");
         $city = $this->page(request());
         if(is_array($city["page_data"])){
