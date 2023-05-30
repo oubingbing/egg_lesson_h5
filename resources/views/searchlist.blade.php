@@ -4,7 +4,56 @@
         <meta charset="utf-8">
         <meta name="divport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>热门课包</title>
+        @if ($category_name)
+        @switch ($category_id)
+        @case (7)
+        <meta name="keywords" content="二手健身卡,健身卡,瑜伽卡,二手瑜伽卡,健身卡信息,瑜伽卡信息,健身卡平台,瑜伽卡平台,课程转让平台,便宜健身卡,便宜瑜伽卡">
+        <meta name="description" content="在旦旦转课网，您可以找到二手健身卡和瑜伽卡的转让信息。我们提供真实有效的健身卡和瑜伽卡转让信息，帮助您以更低的价格享受高质量的课程。快来旦旦转课网寻找适合自己的健身卡或瑜伽卡吧！">
+        @break
+        @case (3)
+        <meta name="keywords" content="二手舞蹈卡,舞蹈课转卡,舞蹈课转卡费,舞蹈课信息,舞蹈课平台,舞蹈卡怎么转出去,课程转让平台">
+        <meta name="description" content="在旦旦转课网，您可以找到二手舞蹈卡的转让信息，了解如何将舞蹈卡转出去、舞蹈课转卡费用等相关信息。我们提供真实有效的舞蹈课转让信息，帮助您以更低的价格享受高质量的舞蹈课程。快来舞蹈课转让平台上寻找适合自己的舞蹈卡吧！">
+        @break
+        @case (1)
+        <meta name="keywords" content="早教课转让信息,早教课转让平台,二手游泳卡,滑轮课,儿童兴趣课,课程转让平台,二手早教课">
+        <meta name="description" content="在旦旦转课网，您可以方便地找到各种早教课程、游泳卡、滑轮课和儿童兴趣课的转让信息。我们提供真实有效的课程转让服务，帮助您以更低的价格享受高质量的课程。快来旦旦转课网寻找适合自己的课程吧！">
+        @break
+        @case (2)
+        <meta name="keywords" content="英语课,英语课转让,二手英语课,便宜英语课,课程转让平台">
+        <meta name="description" content="在旦旦转课网，您可以找到二手英语课的转让信息，也可以发布自己的英语课转让信息。我们提供真实有效的英语课转让平台和课程转让平台，帮助您以更低的价格享受高质量的英语课程。快来旦旦转课网寻找适合自己的英语课程吧！">
+        @break
+        @case (4)
+        <meta name="keywords" content="美术课,绘画课,艺术课,音乐课,课程平台,便宜美术课,低价绘画课">
+        <meta name="description" content="在旦旦转课网，您可以找到便宜的美术、绘画、艺术和音乐课程的转让信息。我们提供真实有效的课程，帮助您以更低的价格享受高质量的课程。无论您是想学习绘画、音乐还是其他艺术课程，快来旦旦转课网寻找适合自己的低价课程吧！">
+        @break
+        @case (5)
+        <meta name="keywords" content="日语课,法语课程,德语课程,葡萄牙语课程,韩语课程,俄语课程,小语种课程">
+        <meta name="description" content="在旦旦转课网，我们提供丰富多样的小语种课程转让服务，包括日语、法语、德语、葡萄牙语、韩语、俄语和其他小语种课程，我们提供真实有效的小语种课程，帮助您以更低的价格享受高质量的小语种课程。快来旦旦转课网寻找适合自己的小语种课程吧！">
+        @break
+        @case (10)
+        <meta name="keywords" content="美容课程,美发课程,机修课程,计算机课程,挖掘机课程,装载机课程,面点课程,西点课程,烘焙课程,课程转让平台,职业教育课程">
+        <meta name="description" content="在旦旦转课网，我们提供丰富多样的职业教育课程转让服务，包括美容美发、机修、计算机、面点、烘焙、西点和其他职业教育课程，我们提供真实有效的职教课程，帮助您以更低的价格享受高质量的职教课程。快来旦旦转课网寻找适合自己的职教课程吧！">
+        @break
+        @case (8)
+        <meta name="keywords" content="少儿编程课程,乐高机器人课程,科学实验课程,工程实践课程,手工艺术DIY课程,课程转让平台">
+        <meta name="description" content="在旦旦转课网，我们提供丰富多样的STEAM课程转让服务，包括少儿编程、乐高机器人、科学实验、工程实践、手工DIY,我们提供真实有效的STEAM课程，也能帮助您以更低的价格享受高质量的STEAM课程。快来旦旦转课网寻找适合自己的STEAM课程吧！">
+        @break
+        @case (6)
+        <meta name="keywords" content="篮球课程,足球课程,羽毛球课程,拳击课程,武术课程,柔术课程,跆拳道课程,马术课程,课程转让平台">
+        <meta name="description" content="在旦旦转课网，我们提供丰富多样的体育课程转让服务，包括篮球、足球、羽毛球、拳击、武术、柔术、跆拳道、马术等真实有效的体育课程，也能帮助您以更低的价格享受高质量的体育课程。快来旦旦转课网寻找适合自己的体育课程吧！">
+        @break
+        @endswitch
+        
+
+        <title>{{$category_name}}_旦旦转课网_全网首个课程转让交易平台</title>
+        @else
+        <meta name="keywords" content="早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
+        <meta name="description" content="旦旦转课网是全网首个课程转让交易平台,基于教培行业学费贵、退费难的现状,为用户提供一站式课程转让交易服务。">
+
+        <title>旦旦转课网_全网首个课程转让交易平台</title>
+        
+        @endif
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

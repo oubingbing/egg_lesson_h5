@@ -656,12 +656,17 @@
 }
 
 .breadcrumb-navigation{
-    margin-top: 10px;
+    margin-top: 89px;
     height: 30px;
     font-size: 14px;
     padding-left: 30px;
     line-height: 30px;
-    /* text-decoration: none!important; */
-    text-underline-position: none;
-    color: #888;    
+    text-decoration: none;
+    color: #888;
+    position: absolute;
+    z-index: 10;
+}
+.breadcrumb-navigation>a{
+    text-decoration: none;
+    color: #888;
 }

@@ -67,7 +67,12 @@
                 <!-- <div class="btn-hide-search" onclick="handleValueChange('show_search_menu',false)">取消</div> -->
                 <div class="select-nav" id="searchNav">
                 </div>
+                @if($category_name)
                 <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="">{{$category_name}}</a>&nbsp;>&nbsp;商品列表</div>
+                @else
+                <div class="breadcrumb-navigation"><a href="//m.dandanzkw.com">首页</a>&nbsp;>&nbsp;<a href="">商品列表</a></div>
+                @endif
+                
                 <div class="default_goods_list">
                     @foreach ($goods_list as $item)
                     <a class="item" href="https://m.dandanzkw.com/detail/{{$item['goods_id']}}.html">

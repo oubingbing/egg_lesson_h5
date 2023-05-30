@@ -67,7 +67,7 @@ var _hmt = _hmt || [];
                 style="background-image: url(&quot;https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/images/sousuo_icon%402x.png&quot;); background-position: 0% 0%; background-size: 100% 100%;">
             </div>
             <input type="text" class="search-input" placeholder="搜索课程,品牌" onclick="goTo('search','category',0)"/>
-            <div class="search-location" id="currentLocation">定位中</div>
+            <div class="search-location" id="currentLocation" onclick="getLocationByApi()">点击定位</div>
 
         </div>
         <div class="banner-swiper-box mySwiper">
@@ -116,7 +116,7 @@ var _hmt = _hmt || [];
     <div class="title">最新上架</div>
 <div class="new-goods swiper-wrapper">
 @foreach ($goods_list as $item)
-                    <div class="item swiper-slide" onclick="goTo('detail', 'id', {{$item['goods_id']}})">
+<a style="display:block;text-decoration: none;" class="item swiper-slide" href="//m.dandanzkw.com/detail/{{$item['goods_id']}}.html">
                     @if($item['transfer_info'] && $item['transfer_info']['attachments'] && $item['transfer_info']['attachments'][0])
                             <div class="bg" style="background-image:url({{$item['transfer_info']['attachments'][0]}});"></div>
                             @else
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
                             @endif
                             
                             <div class="discount">{{$item['transfer_info']['discount']}}折</div>
-                    </div>
+                                </a>
                     @endforeach
 </div>
 </div>

@@ -125,6 +125,7 @@ body {
     border-radius:9px;
     overflow: hidden;
     box-shadow: 0 0 5px 5px #EEE;
+    color:#4d4d4d;
 }
 
 .articles .item .bg {

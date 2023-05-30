@@ -227,20 +227,52 @@ function getGoods(params = state.goods_params) {
             for (let i in res.data.page_data) {
                 let item = res.data.page_data[i];
 
+
+                if (item && item.campus && item.campus.campus) {
+                    //处理省市区 保留关键数据
+                    item.reset_address = JSON.parse(JSON.stringify(item.campus.campus
+                        .address));
+                    console.log("---item.reset_address", item.reset_address);
+                    if (item.reset_address.indexOf("省") > 0) {
+                        item.reset_address = item.reset_address.split("省")[1];
+                    }
+                    if (item.reset_address.indexOf("镇") > 0) {
+                        item.reset_address = item.reset_address.split("镇")[0] + "镇";
+                    }
+                    if (item.reset_address.indexOf("县") > 0) {
+                        item.reset_address = item.reset_address.split("县")[0] + "县";
+                    }
+                    if (item.reset_address.indexOf("区") > 0) {
+                        item.reset_address = item.reset_address.split("区")[0] + "区";
+                    }
+
+                    let subSHI0 = item.reset_address.substring(0, item.reset_address.indexOf("市") + 1);
+                    let subSHI = item.reset_address.substring(item.reset_address.indexOf("市") + 1, item.reset_address.length);
+                    if (subSHI.indexOf("市") >= 0) {
+                        let subsub = subSHI;
+                        subSHI = subsub.substring(subsub.indexOf("市") + 1, subsub.length);
+                        subSHI0 = subsub.substring(0, subsub.indexOf("市") + 1);
+                    }
+                    item.reset_address = subSHI.length > 5 ? subSHI0 : subSHI;
+                } else {
+                    item.reset_address = '';
+                }
+
+
+
                 let item_div = document.createElement('div');
                 item_div.className = 'item';
                 item_div.id = `goods_id_${item.goods_id}`;
                 item_div.onclick = showGoodDetail.bind(null, item.goods_id);
                 item_div.innerHTML = `
                         <img class="thumbnail" onload="drawGood(${item.goods_id})"
-                            src="${item.transfer_info.attachments&&item.transfer_info.attachments[0]?item.transfer_info.attachments[0]:'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
+                            src="${item.transfer_info.attachments && item.transfer_info.attachments[0] ? item.transfer_info.attachments[0] : 'https://dandan-1304667790.cos.ap-shenzhen-fsi.myqcloud.com/banner/微信图片_20210628113403.png'}">
                         </div>
                         <div class="position-box">
                             <div class="icon"
                                 style='background-image: url("image/dingwei_icon.png");background-repeat:no-repeat;background-position: center center; background-size: contain;'>
                             </div>
-                            <div class="address">${item.campus && item.campus.campus ? item.campus.campus.address.split("市")[0]+'市' : ''}</div>
-                            <div class="distance">${item.distance ? item.distance + "km" : ''}</div>
+                            <div class="address">${item.reset_address}</div>
                         </div>
                         <div class="infos">
                             <div class="line1">
@@ -249,7 +281,7 @@ function getGoods(params = state.goods_params) {
                             </div>
                             <div class="line2">
                                 <div class="price"> ¥${item.transfer_info.price > 10000 ? parseInt(item.transfer_info.price / 1000) / 10 + "万" : item.transfer_info.price}</div>
-                                <div class="want">${item.collection}人想要</div>
+                                <div class="want">${item.view_num}人查看</div>
                                 <div class="discount">${item.transfer_info.discount ? item.transfer_info.discount : '10'}<span class="fonts">折</span></div>
    
                             </div>
@@ -274,13 +306,16 @@ function getGoods(params = state.goods_params) {
 
     })
 }
+function getLocation() {
+    getLocationByApi(state.goods_params, getGoods);
+}
 
 $(document).ready(() => {
 
 
+    getGoods();
     createTitleNav();
     getPurChaseLogs();
-    getLocationByApi(state.goods_params,getGoods);
 
     var swiper = new Swiper(".mySwiper", {
         loop: true,
@@ -294,7 +329,7 @@ $(document).ready(() => {
         // if (e.keyCode == "13") {
         //     let searchInput = $("#searchInput").val();
         //     sessionStorage.setItem("searchInput", searchInput);
-            goTo('search', 'category', 0);
+        goTo('search', 'category', 0);
         // }
     })
 

@@ -10,15 +10,17 @@
         }}课程转让、早教课转让,舞蹈课转让,健身卡转让,艺术课转让,钢琴课转让,英语课转让,瑜伽课转让,武术课转让">
         @endif
     <meta name="description" content="{{$goods_detail["transfer_info"]["introduce"]}}">
-    <title>
-        @if ($goods_detail["campus"] && $goods_detail["campus"]["campus"] )
-        【{{$goods_detail["campus"]["campus"]["city"]}}{{$goods_detail["campus"]["campus"]["county"]}}】
-        @endif
-        @if ($goods_detail["campus"] && $goods_detail["campus"]["brand"])
-        【{{$goods_detail["campus"]["brand"]["name"]
-        }}课程转让】
-        @endif
-        _{{$goods_detail["transfer_info"]["title"]}}_旦旦转课网</title>
+    
+@if ($goods_detail["campus"] && $goods_detail["campus"]["campus"] && $goods_detail["campus"]["brand"])
+<title>{{$goods_detail["campus"]["campus"]["city"]}}|{{$goods_detail["campus"]["campus"]["county"]}}|{{$goods_detail["campus"]["brand"]["name"]}}课程转让|旦旦转课网</title>
+@elseif($goods_detail["campus"] && $goods_detail["campus"]["campus"])
+<title>{{$goods_detail["campus"]["campus"]["city"]}}|{{$goods_detail["campus"]["campus"]["county"]}}|{{$goods_detail["transfer_info"]["title"]}}|旦旦转课网</title>
+@elseif($goods_detail["campus"] && $goods_detail["campus"]["brand"])
+<title>{{$goods_detail["campus"]["brand"]["name"]}}课程转让|旦旦转课网</title>
+@else
+<title>旦旦转课网_全网首个课程转让交易平台</title>
+@endif
+
 
     <!-- Fonts -->
     <link rel="shortcut icon" href="{{asset('image/logo.png')}}" type="image/x-icon">
@@ -380,14 +382,14 @@
 
             <div class="other-page">
                 @if ($previous && $previous['title'])
-                <div class="btn"><span>上一个商品：</span><a onclick="goTo('detail','id',{{$previous['id']}})">{{$previous['title']}}</a></div>
+                <div class="btn"><span>上一个：</span><a href="//m.dandanzkw.com/detail/{{$previous['id']}}.html">{{$previous['title']}}</a></div>
                 @else
-                <div class="btn"><span>上一个商品：</span><a>没有了</a></div>
+                <div class="btn"><span>上一个：</span><a>没有了</a></div>
                 @endif
                 @if ($next && $next['title'])
-                <div class="btn"><span>下一个商品：</span><a onclick="goTo('detail','id',{{$next['id']}})">{{$next['title']}}</a></div>
+                <div class="btn"><span>下一个：</span><a  href="//m.dandanzkw.com/detail/{{$next['id']}}.html">{{$next['title']}}</a></div>
                 @else
-                <div class="btn"><span>下一个商品：</span><a>没有了</a></div>
+                <div class="btn"><span>下一个：</span><a>没有了</a></div>
                 @endif
             </div>
             

@@ -234,8 +234,11 @@ $(document).ready(() => {
         getGoods();
     })
     showLoading();
-    getLocationByApi(JSON.parse(JSON.stringify(state.goods_params)),saveLocation);
+    getGoods();
+    
 });
+
+
 
 function saveLocation(p){
     console.log("----p",p);
@@ -244,6 +247,7 @@ function saveLocation(p){
         longitude:p.longitude
     }
     console.log(state);
+    document.getElementById("goods").innerHTML = '';
     getGoods();
 }
 
@@ -379,9 +383,12 @@ function doSelectSort(index) {
             state.goods_params.longitude = state.location.longitude;
             state.goods_params.sort_by = 'asc';
             state.goods_params.type = 4;//附近课程筛选
-        }
-        document.getElementById("goods").innerHTML = '';
+            document.getElementById("goods").innerHTML = '';
         getGoods();
+        }else{
+            getLocationByApi(JSON.parse(JSON.stringify(state.goods_params)),saveLocation);
+        }
+        
     } else {
         delete state.goods_params.lantitude;
         delete state.goods_params.longtitude;
