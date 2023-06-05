@@ -45,6 +45,7 @@ class ArticleService
             Article::FIELD_ID_CATEGORY_FATHER,
             Article::FIELD_ATTACHMENTS
         ]);
+
         return $result;
     }
 
@@ -114,6 +115,12 @@ class ArticleService
 
                             $resultData = collect($a)->toArray();
                             $resultData["category_name"] = $cateName;
+                            if(!empty($resultData["attachments"])){
+                                foreach ($resultData["attachments"] as $key => $t){
+                                    $resultData[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
+                                }
+                            }
+
                             array_push($subCategory[$index]["top_article"],$resultData);
                         }
                     }
@@ -183,6 +190,12 @@ class ArticleService
         $categoryFather = ArticleCategory::find($article->{Article::FIELD_ID_CATEGORY_FATHER});
         if($categoryFather){
             $result["category_father_name"] = $categoryFather->{ArticleCategory::FIELD_NAME};
+        }
+
+        if($result[Article::FIELD_ATTACHMENTS]){
+            foreach ($result[Article::FIELD_ATTACHMENTS] as $key => $t){
+                $result[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
+            }
         }
 
         return $result;
