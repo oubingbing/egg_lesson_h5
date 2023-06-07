@@ -277,9 +277,9 @@ class ArticleController extends Controller
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
         $list = paginate($queryBuilder, $pageParams, $fields, function ($item)  {
             if(!empty($item[Article::FIELD_ATTACHMENTS])){
-                foreach ($item[Article::FIELD_ATTACHMENTS] as $key => $t){
-                    $item[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
-                }
+                //foreach ($item[Article::FIELD_ATTACHMENTS] as $key => $t){
+                    //$item[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
+                //}
             }
 
             $item["seo_describe"] = json_encode($item["seo_describe"])==true?$item["seo_describe"]:"";
