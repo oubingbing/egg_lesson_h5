@@ -94,6 +94,11 @@ class ArticleController extends Controller
                     break;
                 }
             }
+            if(!empty($s[Article::FIELD_ATTACHMENTS])){
+                foreach ($s[Article::FIELD_ATTACHMENTS] as $key => $t){
+                    $s[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
+                }
+            }
         }
 
         $moreList = collect(ARticle::query()->where("attachments","!=","")->orderBy("id","desc")->take(5)->get(["id","title","attachments","category_id"]))->toArray();
@@ -103,6 +108,11 @@ class ArticleController extends Controller
                 if($c->id == $s["category_id"]){
                     $s["category_name"] = $c->{ArticleCategory::FIELD_NAME};
                     break;
+                }
+            }
+            if(!empty($s[Article::FIELD_ATTACHMENTS])){
+                foreach ($s[Article::FIELD_ATTACHMENTS] as $key => $t){
+                    $s[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
                 }
             }
         }
@@ -266,6 +276,12 @@ class ArticleController extends Controller
 
         $pageParams = ['page_size' => $pageSize, 'page_number' => $pageNumber];
         $list = paginate($queryBuilder, $pageParams, $fields, function ($item)  {
+            if(!empty($item[Article::FIELD_ATTACHMENTS])){
+                //foreach ($item[Article::FIELD_ATTACHMENTS] as $key => $t){
+                    //$item[Article::FIELD_ATTACHMENTS][$key] = $t."?imageMogr2/format/webp/thumbnail/400x";
+                //}
+            }
+
             $item["seo_describe"] = json_encode($item["seo_describe"])==true?$item["seo_describe"]:"";
             return $item;
         });
