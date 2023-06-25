@@ -66,7 +66,7 @@ class ArticleController extends Controller
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
 
-        if(empty($result["seo_describe"]) && strlen($result["content"]) > 11){
+        if(strlen($result["seo_describe"]) <= 0 && strlen($result["content"]) > 0){
             $result[Article::FIELD_SEO_DESCRIBE] = substr($result["content"],0,150);
         }
 
@@ -174,7 +174,7 @@ class ArticleController extends Controller
         $result = $this->service->detail($id);
         $result["content"] = preg_replace("/\n/","</br>",$result["content"]);
         $result["seo_describe"] = json_encode($result["seo_describe"])==true?$result["seo_describe"]:"";
-        if(empty($result["seo_describe"]) && strlen($result["content"]) > 11){
+        if(strlen($result["seo_describe"]) <= 0 && strlen($result["content"]) > 0){
             $result[Article::FIELD_SEO_DESCRIBE] = substr($result["content"],0,150);
         }
 
